@@ -86,7 +86,27 @@ app.use((req, res, next) => {
     next();
 });
 
-/* ---------- OAuth: metadados + /authorize + /token + /register ---------- */
+/* ---------- Log de diagnóstico das rotas OAuth ----------
+ * Ajuda a depurar "não foi possível registrar" do conector: mostra no log do
+ * EasyPanel cada passo (descoberta, /register, /authorize, /token) e o status.
+ */
+
+app.use((req, res, next) => {
+    if (/^\/(register|authorize|token|revoke|\.well-known)/.test(req.path)) {
+        res.on('finish', () => {
+            console.log(`[mcp:oauth] ${req.method} ${req.path} -> ${res.statusCode}`);
+        });
+    }
+    next();
+});
+
+/* ---------- OAuth: metadados + /authorize + /token + /register ----------
+ * rateLimit:false — o rate-limit por IP do SDK erra o IP atrás de proxy
+ * (X-Forwarded-For) e pode derrubar o DCR; a tela de senha tem limitador
+ * próprio (PasswordRateLimit). Reative com MCP_OAUTH_RATE_LIMIT=on.
+ */
+
+const semRateLimit = cfg.disableOauthRateLimit ? { rateLimit: false as const } : {};
 
 app.use(mcpAuthRouter({
     provider,
@@ -94,6 +114,10 @@ app.use(mcpAuthRouter({
     resourceServerUrl: new URL(`${cfg.publicUrl}/mcp`),
     resourceName: 'FMP TOTVS RM',
     scopesSupported: ['totvs'],
+    authorizationOptions: { ...semRateLimit },
+    tokenOptions: { ...semRateLimit },
+    clientRegistrationOptions: { ...semRateLimit },
+    revocationOptions: { ...semRateLimit },
 }));
 
 app.post('/oauth/consent', (req, res) => provider.handleConsent(req, res));
@@ -208,4 +232,9 @@ app.listen(cfg.port, () => {
     console.log(`[mcp]   TOTVS RM     : ${cfg.rm.wsUrl !== '' ? cfg.rm.wsUrl : '(TOTVS_WS_URL NÃO CONFIGURADA)'} (SOAP direto)`);
     console.log(`[mcp]   OAuth issuer : ${cfg.publicUrl}`);
     console.log(`[mcp]   tokens estáticos: ${cfg.staticTokens.length}`);
+    console.log(`[mcp]   OAuth rate-limit do SDK: ${cfg.disableOauthRateLimit ? 'DESLIGADO' : 'ligado'}`);
+    if (cfg.oauthClientId !== '') {
+        console.log(`[mcp]   OAuth Client ID pré-configurado: ${cfg.oauthClientId}`);
+        console.log(`[mcp]     redirect_uris aceitas: ${cfg.oauthClientRedirectUris.join(', ')}`);
+    }
 });

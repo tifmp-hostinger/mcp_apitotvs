@@ -26,6 +26,8 @@ const RM_PASS = 'senha-rm';
 const SENHA = 'senha-super-secreta';
 const STATIC_TOKEN = 'token-estatico-para-openclaw-1234567890';
 const CRYPTO_KEY = '0123456789abcdef0123456789abcdef'; // 32 bytes
+const CLIENT_ID_FIXO = 'client-fixo-para-claude';
+const REDIRECT_FIXO = 'http://127.0.0.1:19999/callback';
 
 let okCount = 0;
 let failCount = 0;
@@ -137,6 +139,8 @@ const child = spawn(process.execPath, ['dist/server.js'], {
         MCP_OAUTH_SIGNING_KEY: crypto.randomBytes(32).toString('hex'),
         MCP_ACCESS_PASSWORD: SENHA,
         MCP_STATIC_BEARER_TOKENS: ` ${STATIC_TOKEN} `,
+        MCP_OAUTH_CLIENT_ID: CLIENT_ID_FIXO,
+        MCP_OAUTH_REDIRECT_URIS: REDIRECT_FIXO,
         MCP_DATA_DIR: `${process.env.TMPDIR ?? '/tmp'}/mcp-smoke-${process.pid}`,
     },
     stdio: ['ignore', 'pipe', 'pipe'],
@@ -285,6 +289,45 @@ try {
         }),
     })).json();
     check('refresh token emite novo access', Boolean(refreshed.access_token));
+
+    /* ---------- 4b. client OAuth PRÉ-CONFIGURADO (sem DCR) ---------- */
+    // Reproduz o fallback "adicionar um OAuth Client ID" do conector do Claude:
+    // usa o client_id fixo direto, sem passar pelo /register.
+    const verifier2 = crypto.randomBytes(32).toString('base64url');
+    const challenge2 = crypto.createHash('sha256').update(verifier2).digest('base64url');
+    const authUrl2 = new URL(asMeta.authorization_endpoint);
+    authUrl2.searchParams.set('response_type', 'code');
+    authUrl2.searchParams.set('client_id', CLIENT_ID_FIXO);
+    authUrl2.searchParams.set('redirect_uri', REDIRECT_FIXO);
+    authUrl2.searchParams.set('code_challenge', challenge2);
+    authUrl2.searchParams.set('code_challenge_method', 'S256');
+    authUrl2.searchParams.set('resource', `${BASE}/mcp`);
+    const html2 = await (await fetch(authUrl2)).text();
+    const reqToken2 = html2.match(/name="req" value="([^"]+)"/)?.[1];
+    check('client pré-configurado é aceito no /authorize (sem DCR)', typeof reqToken2 === 'string');
+
+    const consent2 = await fetch(`${BASE}/oauth/consent`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: new URLSearchParams({ senha: SENHA, req: reqToken2 }),
+        redirect: 'manual',
+    });
+    const code2 = new URL(consent2.headers.get('location')).searchParams.get('code');
+    const tokens2 = await (await fetch(asMeta.token_endpoint, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: new URLSearchParams({
+            grant_type: 'authorization_code',
+            code: code2,
+            code_verifier: verifier2,
+            client_id: CLIENT_ID_FIXO,
+            redirect_uri: REDIRECT_FIXO,
+            resource: `${BASE}/mcp`,
+        }),
+    })).json();
+    check('client pré-configurado troca código por access token', Boolean(tokens2.access_token));
+    const initFixo = await mcpCall(tokens2.access_token, initPayload);
+    check('token do client pré-configurado fala MCP', initFixo.status === 200);
 
     const tk = tokens.access_token;
 

@@ -45,6 +45,17 @@ export interface Config {
     refreshTokenTtl: number;
     corsOrigins: string[];
     dataDir: string;
+    /**
+     * Client OAuth PRÉ-CONFIGURADO (opcional). Quando definido, esse client_id
+     * é sempre válido — sem depender de Dynamic Client Registration. Serve para
+     * o campo "OAuth Client ID" do conector personalizado do Claude/Cowork,
+     * caso o DCR automático falhe. Vazio = só DCR.
+     */
+    oauthClientId: string;
+    /** Redirect URIs aceitas pelo client pré-configurado (callback do cliente MCP). */
+    oauthClientRedirectUris: string[];
+    /** Desliga o rate-limit interno do SDK nas rotas OAuth (evita falhas atrás de proxy). */
+    disableOauthRateLimit: boolean;
     rm: RmConfig;
 }
 
@@ -151,6 +162,20 @@ export function loadConfig(): Config {
             .map((o) => o.trim())
             .filter((o) => o.length > 0),
         dataDir: env('MCP_DATA_DIR', 'data'),
+        oauthClientId: env('MCP_OAUTH_CLIENT_ID'),
+        // Defaults = callbacks conhecidos do conector do Claude (web/Cowork).
+        // Ajuste por env se o Claude exibir outra "Callback URL".
+        oauthClientRedirectUris: env(
+            'MCP_OAUTH_REDIRECT_URIS',
+            'https://claude.ai/api/mcp/auth_callback,https://claude.com/api/mcp/auth_callback'
+        )
+            .split(',')
+            .map((u) => u.trim())
+            .filter((u) => u.length > 0),
+        // Atrás de um proxy (EasyPanel/Traefik), o rate-limit por IP do SDK pode
+        // tropeçar no X-Forwarded-For e derrubar o /register (DCR). A tela de
+        // senha tem limitador próprio, então desligamos por padrão.
+        disableOauthRateLimit: env('MCP_OAUTH_RATE_LIMIT', 'off') !== 'on',
         rm,
     };
 }

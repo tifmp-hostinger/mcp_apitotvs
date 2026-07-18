@@ -36,8 +36,10 @@ import { signJwt, verifyJwt, safeEquals } from './jwt.js';
 class FileClientsStore implements OAuthRegisteredClientsStore {
     private clients = new Map<string, OAuthClientInformationFull>();
     private readonly file: string;
+    /** Client pré-configurado por env (sempre válido, sem DCR). */
+    private readonly staticClient: OAuthClientInformationFull | null;
 
-    constructor(dataDir: string) {
+    constructor(dataDir: string, staticClientId: string, staticRedirectUris: string[]) {
         this.file = path.join(dataDir, 'clients.json');
         try {
             const raw = JSON.parse(fs.readFileSync(this.file, 'utf8')) as OAuthClientInformationFull[];
@@ -47,9 +49,24 @@ class FileClientsStore implements OAuthRegisteredClientsStore {
         } catch {
             // primeiro boot / arquivo ausente: começa vazio
         }
+
+        this.staticClient = staticClientId !== ''
+            ? {
+                client_id: staticClientId,
+                client_name: 'Cliente pré-configurado (MCP_OAUTH_CLIENT_ID)',
+                redirect_uris: staticRedirectUris,
+                grant_types: ['authorization_code', 'refresh_token'],
+                response_types: ['code'],
+                token_endpoint_auth_method: 'none',   // client público (PKCE)
+                client_id_issued_at: Math.floor(Date.now() / 1000),
+            }
+            : null;
     }
 
     getClient(clientId: string): OAuthClientInformationFull | undefined {
+        if (this.staticClient !== null && clientId === this.staticClient.client_id) {
+            return this.staticClient;
+        }
         return this.clients.get(clientId);
     }
 
@@ -184,7 +201,7 @@ export class FmpOAuthProvider implements OAuthServerProvider {
     private readonly usedJtis = new Map<string, number>();
 
     constructor(private readonly cfg: Config) {
-        this.clientsStore = new FileClientsStore(cfg.dataDir);
+        this.clientsStore = new FileClientsStore(cfg.dataDir, cfg.oauthClientId, cfg.oauthClientRedirectUris);
         setInterval(() => this.gcJtis(), 60_000).unref();
     }
 

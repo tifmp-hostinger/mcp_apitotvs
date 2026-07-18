@@ -133,8 +133,28 @@ claude mcp add --transport http totvs https://mcp-totvs.fmp.edu.br/mcp
 npx @modelcontextprotocol/inspector    # transport: Streamable HTTP → URL /mcp
 ```
 
-No **Claude.ai**: Settings → Connectors → *Add custom connector* → URL
+No **Claude.ai / Cowork**: Settings → Connectors → *Add custom connector* → URL
 `https://mcp-totvs.fmp.edu.br/mcp` (o fluxo OAuth roda sozinho).
+
+### Se o Claude falhar em "registrar no serviço de login"
+
+Alguns ambientes bloqueiam o auto-registro (Dynamic Client Registration) do
+conector — o Claude mostra *"não foi possível registrar… adicionar um OAuth
+Client ID"*. Caminho de contorno:
+
+1. Defina no painel uma env `MCP_OAUTH_CLIENT_ID` com um valor qualquer
+   (ex.: `openssl rand -hex 16`) e redeploy.
+2. No conector do Claude, expanda as opções e cole esse valor no campo
+   **OAuth Client ID**.
+3. Se o Claude exibir uma **Callback URL** diferente das padrão
+   (`https://claude.ai/api/mcp/auth_callback`), acrescente-a em
+   `MCP_OAUTH_REDIRECT_URIS`.
+
+O rate-limit interno do SDK nas rotas OAuth vem **desligado por padrão**
+(`MCP_OAUTH_RATE_LIMIT=off`) porque, atrás do proxy do EasyPanel, ele erra o
+IP (`X-Forwarded-For`) e pode derrubar o registro — a tela de senha tem
+limitador próprio. Os passos de OAuth aparecem no log do EasyPanel
+(`[mcp:oauth] POST /register -> 201` etc.) para diagnóstico.
 
 ## Tools expostas (29)
 
