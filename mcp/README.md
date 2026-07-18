@@ -1,21 +1,41 @@
-# MCP TOTVS FMP — servidor MCP (Streamable HTTP + OAuth 2.1)
+# MCP TOTVS FMP — servidor MCP (Streamable HTTP + OAuth 2.1) com SOAP direto
 
 Servidor **MCP (Model Context Protocol)** que permite a um agente conversacional
-(OpenClaw, Claude, ou qualquer cliente MCP) **gerenciar a API de integração
-TOTVS RM da FMP** — pessoas, alunos, inscrições, matrículas, cupons, contratos
-e financeiro.
+(OpenClaw, Claude, ou qualquer cliente MCP) **gerenciar o TOTVS RM da FMP** —
+pessoas, alunos, inscrições, matrículas, cupons, contratos e financeiro.
+
+**Este servidor É a integração**: fala SOAP direto com o RM (wsDataServer,
+wsProcess, wsReport, wsConsultaSQL), sem API intermediária. Toda a lógica de
+negócio da antiga api-totvs (`www/api`, PHP) foi portada para cá — a pasta
+`www/api` permanece no repositório como referência do porte.
 
 ```
 cliente MCP (OpenClaw, Claude…)
         │  MCP Streamable HTTP + OAuth 2.1
         ▼
-  este servidor (mcp/)  ──── X-API-Key ────▶  api-totvs (www/api)  ──── SOAP ────▶  TOTVS RM
+  este servidor (mcp/)  ────────── SOAP (basic auth) ──────────▶  TOTVS RM
+   Node 22 / TypeScript        wsDataServer · wsProcess
+                               wsReport · wsConsultaSQL
 ```
 
-O servidor **não fala SOAP nem guarda regra de negócio**: cada tool é um espelho
-fino de uma rota da API REST (ver `www/api/API.md`), devolvendo o envelope JSON
-da API (`sucesso`, `mensagem`, `dados`, `retorno_rm`, `etapas`…) para o agente
-interpretar.
+Diferença técnica importante em relação ao PHP: **não carregamos o WSDL** (o
+ext-soap baixava o WSDL gigante do RM só para descobrir contratos fixos). Os
+envelopes SOAP 1.1 são montados à mão — mesmos elementos, mesmo namespace —
+o que elimina o estouro de memória/segfault do WSDL.
+
+## Fidelidade do porte
+
+- Os XMLs de **processos** (matrícula no PL, enturmação, gerar lançamento)
+  foram **extraídos dos heredocs do PHP** para `resources/edu/*.template.xml`
+  pelo script `scripts/extrair-templates-edu.php` — estrutura byte a byte
+  idêntica à validada em produção.
+- Os templates de **baixa** (`resources/fin/`) são cópias dos da API
+  (o TBC é o caminho validado em homologação em 13/07/2026).
+- `npm run diff-xml` compara os 9 builders TS contra os builders PHP com
+  entradas idênticas — **byte a byte iguais** (sessão neutralizada).
+- Envelope de resposta, mensagens, validações (CPF, RNM, telefone…),
+  idempotência e rastreamento de etapas (`etapas`/`etapas_concluidas`)
+  são os mesmos da API.
 
 ## Endpoints
 
@@ -26,36 +46,39 @@ interpretar.
 | `/.well-known/oauth-authorization-server` | Metadados do authorization server (RFC 8414) |
 | `GET /authorize`, `POST /token`, `POST /register` | OAuth 2.1: autorização, tokens, Dynamic Client Registration |
 | `POST /oauth/consent` | Envio da senha da tela de autorização |
+| `GET /sso/{token}` | Auto-login do Portal Educacional (HTML; consumido pelo navegador do aluno) |
 | `GET /healthz` | Health check (sem auth) |
 
-Transporte **stateless**: cada `POST /mcp` é independente (sem sessão), com
-resposta JSON direta — funciona atrás de qualquer proxy, sem sticky session, e
-um restart não derruba clientes.
+Transporte **stateless**: cada `POST /mcp` é independente, com resposta JSON
+direta — funciona atrás de qualquer proxy, sem sticky session, e um restart
+não derruba clientes.
 
 ## Autenticação (duas formas)
 
-**1. OAuth 2.1 (padrão MCP)** — o cliente descobre tudo sozinho pelos
-`/.well-known`, se registra (DCR), abre o navegador na tela de autorização,
-onde o operador digita a **`MCP_ACCESS_PASSWORD`** uma única vez. PKCE S256
-obrigatório; access token de 1 h + refresh token de 30 d com rotação. Os tokens
-são JWT auto-contidos: **restart do container não derruba sessões**.
+**1. OAuth 2.1 (padrão MCP)** — o cliente descobre tudo pelos `/.well-known`,
+se registra (DCR), abre o navegador na tela de autorização, onde o operador
+digita a **`MCP_ACCESS_PASSWORD`** uma única vez. PKCE S256 obrigatório;
+access token de 1 h + refresh de 30 d com rotação. Tokens JWT auto-contidos:
+**restart do container não derruba sessões**.
 
 **2. Token estático (fallback headless)** — para clientes sem navegador
-(OpenClaw rodando em servidor, n8n, scripts): defina
-`MCP_STATIC_BEARER_TOKENS` e configure o cliente com o header
-`Authorization: Bearer <token>`. Vazio = somente OAuth.
+(OpenClaw em servidor, n8n, scripts): defina `MCP_STATIC_BEARER_TOKENS` e
+configure o cliente com `Authorization: Bearer <token>`. Vazio = somente OAuth.
 
 ## Variáveis de ambiente
 
-Referência completa em [`.env.example`](.env.example). As obrigatórias em produção:
+Referência completa em [`.env.example`](.env.example). As envs do TOTVS usam
+**os mesmos nomes da antiga API PHP** — migração 1:1 do painel:
 
 | Env | Uso |
 |---|---|
-| `MCP_PUBLIC_URL` | URL pública deste serviço (issuer OAuth), ex.: `https://mcp-totvs.fmp.edu.br` |
+| `MCP_PUBLIC_URL` | URL pública deste serviço, ex.: `https://mcp-totvs.fmp.edu.br` |
+| `TOTVS_WS_URL` | Base SOAP do RM (produção `...114384...:8051`, homolog `...114385...:8051`) |
+| `TOTVS_WS_USER` / `TOTVS_WS_PASSWORD` | Credenciais do usuário de integração |
+| `APP_CRYPTO_KEY` | Chave de 32 bytes do SSO (a mesma da API PHP mantém tokens válidos) |
 | `MCP_OAUTH_SIGNING_KEY` | Segredo HS256 dos tokens (`openssl rand -hex 32`) |
 | `MCP_ACCESS_PASSWORD` | Senha da tela de autorização |
-| `TOTVS_API_BASE_URL` | Base da API gerenciada (default `https://api-totvs.fmp.edu.br`) |
-| `TOTVS_API_KEY` | Chave `X-API-Key` da API (a env `API_KEY` da API PHP) |
+| `FIN_BAIXA_PROCESSO` etc. | Mesmos ajustes finos do financeiro da API |
 
 ## Rodando
 
@@ -65,27 +88,26 @@ npm ci
 npm run build
 npm start            # dev local: gera senha/chave efêmeras se faltarem envs
 
-npm test             # build + smoke test E2E (OAuth completo + MCP, sem rede externa)
+npm test             # build + smoke E2E (mock SOAP do RM + OAuth + MCP) + diff PHP×TS
 ```
 
-**Docker / EasyPanel:** use o [`Dockerfile`](Dockerfile) deste diretório
-(contexto de build = `mcp/`). Exponha a porta `3300` num domínio próprio
-(ex.: `mcp-totvs.fmp.edu.br`), preencha as envs acima na aba Environment e,
-opcionalmente, monte um volume em `/app/data` (persiste os clients OAuth
-registrados — sem ele, clientes apenas se registram de novo após restart).
+**Docker / EasyPanel:** use o [`Dockerfile`](Dockerfile) (contexto de build =
+`mcp/`). Exponha a porta `3300` num domínio próprio, preencha as envs na aba
+Environment e, opcionalmente, monte um volume em `/app/data` (persiste os
+clients OAuth registrados).
 
 ## Conectando o OpenClaw
 
-O OpenClaw consome servidores MCP remotos via **mcporter**. Registre o servidor:
+O OpenClaw consome servidores MCP remotos via **mcporter**:
 
 ```bash
 npx mcporter config add totvs --url https://mcp-totvs.fmp.edu.br/mcp
 npx mcporter auth totvs        # abre o navegador → digite a MCP_ACCESS_PASSWORD
-npx mcporter list totvs        # deve listar as ~28 tools
+npx mcporter list totvs        # deve listar as ~29 tools
 ```
 
-Ou por configuração (ex.: `~/.config/mcporter/config.json`), usando **token
-estático** quando o gateway roda sem navegador:
+Ou por configuração, usando **token estático** quando o gateway roda sem
+navegador (ex.: `~/.config/mcporter/config.json`):
 
 ```json
 {
@@ -98,10 +120,8 @@ estático** quando o gateway roda sem navegador:
 }
 ```
 
-A partir daí o agente do OpenClaw enxerga as tools (`totvs_status`,
-`inscricao_criar`, `financeiro_baixar`…) e gerencia a API conversando.
 *A forma de plugar MCP no OpenClaw evolui rápido — confira a doc da sua versão
-(docs.openclaw.ai) se os comandos acima divergirem.*
+(docs.openclaw.ai) se os comandos divergirem.*
 
 **Outros clientes:**
 
@@ -113,16 +133,16 @@ claude mcp add --transport http totvs https://mcp-totvs.fmp.edu.br/mcp
 npx @modelcontextprotocol/inspector    # transport: Streamable HTTP → URL /mcp
 ```
 
-No **Claude.ai** (web/desktop): Settings → Connectors → *Add custom connector*
-→ URL `https://mcp-totvs.fmp.edu.br/mcp` (o fluxo OAuth roda sozinho).
+No **Claude.ai**: Settings → Connectors → *Add custom connector* → URL
+`https://mcp-totvs.fmp.edu.br/mcp` (o fluxo OAuth roda sozinho).
 
-## Tools expostas (28)
+## Tools expostas (29)
 
 | Domínio | Tools |
 |---|---|
 | Diagnóstico | `totvs_status`, `totvs_teste_rm`, `rm_schema`, `rm_sql`, `rm_read`, `rm_view`, `rm_save` |
 | Pessoa | `pessoa_buscar`, `pessoa_salvar` |
-| Aluno | `aluno_buscar`, `aluno_criar`, `aluno_vincular_clifor` |
+| Aluno | `aluno_buscar`, `aluno_criar`, `aluno_vincular_clifor`, `aluno_gerar_sso` |
 | Cliente/Fornecedor | `clifor_buscar`, `clifor_criar` |
 | Inscrição | `inscricao_criar` (fluxo completo orquestrado, idempotente) |
 | Matrícula | `matricula_curso`, `matricula_periodo_letivo`, `matricula_disciplinas` |
@@ -132,27 +152,43 @@ No **Claude.ai** (web/desktop): Settings → Connectors → *Add custom connecto
 
 ### Trava de segurança do financeiro
 
-`financeiro_baixar` executa uma **baixa real** no RM. Nesta tool, **`DRY_RUN`
-é `true` por padrão** (diferente da API): a chamada devolve o XML que seria
-enviado, sem efetivar. O agente só executa a baixa de verdade passando
-`DRY_RUN=false` explicitamente — a descrição da tool o instrui a confirmar com
-o usuário antes.
+`financeiro_baixar` executa uma **baixa real** no RM (processo
+`FinTBCBaixaDataProcess`, validado em homologação). Nesta tool, **`DRY_RUN` é
+`true` por padrão**: a chamada devolve o XML que seria enviado, sem efetivar.
+O agente só executa a baixa de verdade passando `DRY_RUN=false`
+explicitamente — a descrição da tool o instrui a confirmar com o usuário.
+
+**Nunca teste nomes de processo de baixa em produção**: nome errado é
+inofensivo, mas o nome certo executa uma baixa real (ver histórico em
+`www/api/API.md`, seção Financeiro).
 
 ## Estrutura
 
 ```
 mcp/
 ├── src/
-│   ├── server.ts      ← bootstrap: express + auth router + POST /mcp (stateless)
-│   ├── oauth.ts       ← OAuth 2.1: provider, DCR, tela de senha, tokens JWT
-│   ├── jwt.ts         ← JWT HS256 com crypto nativo (sem dependência)
-│   ├── tools.ts       ← as 28 tools (espelho 1:1 das rotas da API)
-│   ├── api-client.ts  ← único ponto de contato com a API REST (X-API-Key)
-│   └── config.ts      ← envs com validação de produção
-├── scripts/smoke.mjs  ← teste E2E: OAuth completo + protocolo MCP + travas
+│   ├── server.ts            ← bootstrap: express + OAuth + POST /mcp + GET /sso
+│   ├── oauth.ts             ← OAuth 2.1: provider, DCR, tela de senha, JWTs
+│   ├── jwt.ts               ← JWT HS256 com crypto nativo
+│   ├── config.ts            ← envs (mesmos nomes da API PHP p/ o TOTVS)
+│   ├── tools.ts             ← as 29 tools (envelope idêntico ao da API)
+│   ├── rm/
+│   │   ├── soap-client.ts   ← ÚNICO ponto de contato SOAP (sem WSDL)
+│   │   └── errors.ts        ← RMError, FluxoError, ValidationError
+│   ├── services/            ← regra de negócio (1 domínio por classe, porte 1:1)
+│   ├── support/             ← process-xml, report-xml, schema-parser, sso-crypto
+│   └── helpers/validation.ts
+├── resources/
+│   ├── edu/*.template.xml   ← processos Edu EXTRAÍDOS do PHP (regeráveis)
+│   └── fin/*.template.xml   ← baixa (TBC validado em homolog)
+├── scripts/
+│   ├── smoke.mjs                 ← E2E: mock SOAP do RM + OAuth + MCP (38 checks)
+│   ├── diff-xml.mjs              ← prova de fidelidade: XMLs PHP × TS
+│   ├── dump-xml.php              ← lado PHP do diff
+│   └── extrair-templates-edu.php ← regenera resources/edu a partir do PHP
 ├── Dockerfile
 └── .env.example
 ```
 
-Ao **criar/alterar rota na API PHP**, espelhe aqui (`src/tools.ts`) além dos
-locais listados no `CLAUDE.md` da raiz.
+**Fluxo de dependência** (igual ao da API): `tool → service → RMSoapClient →
+TOTVS RM`. Tools nunca tocam SOAP; services nunca montam envelope de resposta.

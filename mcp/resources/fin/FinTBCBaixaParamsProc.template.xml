@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-16"?>
+<FinTBCBaixaParamsProc xmlns:i="http://www.w3.org/2001/XMLSchema-instance" z:Id="i1" xmlns:z="http://schemas.microsoft.com/2003/10/Serialization/" xmlns="http://www.totvs.com.br/RM/">
+  <Context xmlns:d2p1="http://www.totvs.com.br/RM/" z:Id="i2" xmlns="http://www.totvs.com/">
+    <d2p1:_params xmlns:d3p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+      <d3p1:KeyValueOfanyTypeanyType>
+        <d3p1:Key xmlns:d5p1="http://www.w3.org/2001/XMLSchema" i:type="d5p1:string">$EXERCICIOFISCAL</d3p1:Key>
+        <d3p1:Value xmlns:d5p1="http://www.w3.org/2001/XMLSchema" i:type="d5p1:int">1</d3p1:Value>
+      </d3p1:KeyValueOfanyTypeanyType>
+      <d3p1:KeyValueOfanyTypeanyType>
+        <d3p1:Key xmlns:d5p1="http://www.w3.org/2001/XMLSchema" i:type="d5p1:string">$CODLOCPRT</d3p1:Key>
+        <d3p1:Value xmlns:d5p1="http://www.w3.org/2001/XMLSchema" i:type="d5p1:int">-1</d3p1:Value>
+      </d3p1:KeyValueOfanyTypeanyType>
+      <d3p1:KeyValueOfanyTypeanyType>
+        <d3p1:Key xmlns:d5p1="http://www.w3.org/2001/XMLSchema" i:type="d5p1:string">$CODTIPOCURSO</d3p1:Key>
+        <d3p1:Value xmlns:d5p1="http://www.w3.org/2001/XMLSchema" i:type="d5p1:int">1</d3p1:Value>
+      </d3p1:KeyValueOfanyTypeanyType>
+      <d3p1:KeyValueOfanyTypeanyType>
+        <d3p1:Key xmlns:d5p1="http://www.w3.org/2001/XMLSchema" i:type="d5p1:string">$EDUTIPOUSR</d3p1:Key>
+        <d3p1:Value xmlns:d5p1="http://www.w3.org/2001/XMLSchema" i:type="d5p1:string">-1</d3p1:Value>
+      </d3p1:KeyValueOfanyTypeanyType>
+      <d3p1:KeyValueOfanyTypeanyType>
+        <d3p1:Key xmlns:d5p1="http://www.w3.org/2001/XMLSchema" i:type="d5p1:string">$CODUNIDADEBIB</d3p1:Key>
+        <d3p1:Value xmlns:d5p1="http://www.w3.org/2001/XMLSchema" i:type="d5p1:int">-1</d3p1:Value>
+      </d3p1:KeyValueOfanyTypeanyType>
+      <d3p1:KeyValueOfanyTypeanyType>
+        <d3p1:Key xmlns:d5p1="http://www.w3.org/2001/XMLSchema" i:type="d5p1:string">$CODCOLIGADA</d3p1:Key>
+        <d3p1:Value xmlns:d5p1="http://www.w3.org/2001/XMLSchema" i:type="d5p1:int">{{CODCOLIGADA}}</d3p1:Value>
+      </d3p1:KeyValueOfanyTypeanyType>
+      <d3p1:KeyValueOfanyTypeanyType>
+        <d3p1:Key xmlns:d5p1="http://www.w3.org/2001/XMLSchema" i:type="d5p1:string">$RHTIPOUSR</d3p1:Key>
+        <d3p1:Value xmlns:d5p1="http://www.w3.org/2001/XMLSchema" i:type="d5p1:string">01</d3p1:Value>
+      </d3p1:KeyValueOfanyTypeanyType>
+      <d3p1:KeyValueOfanyTypeanyType>
+        <d3p1:Key xmlns:d5p1="http://www.w3.org/2001/XMLSchema" i:type="d5p1:string">$CODIGOEXTERNO</d3p1:Key>
+        <d3p1:Value xmlns:d5p1="http://www.w3.org/2001/XMLSchema" i:type="d5p1:string">-1</d3p1:Value>
+      </d3p1:KeyValueOfanyTypeanyType>
+      <d3p1:KeyValueOfanyTypeanyType>
+        <d3p1:Key xmlns:d5p1="http://www.w3.org/2001/XMLSchema" i:type="d5p1:string">$CODSISTEMA</d3p1:Key>
+        <d3p1:Value xmlns:d5p1="http://www.w3.org/2001/XMLSchema" i:type="d5p1:string">P</d3p1:Value>
+      </d3p1:KeyValueOfanyTypeanyType>
+      <d3p1:KeyValueOfanyTypeanyType>
+        <d3p1:Key xmlns:d5p1="http://www.w3.org/2001/XMLSchema" i:type="d5p1:string">$CODUSUARIOSERVICO</d3p1:Key>
+        <d3p1:Value xmlns:d5p1="http://www.w3.org/2001/XMLSchema" i:type="d5p1:string"></d3p1:Value>
+      </d3p1:KeyValueOfanyTypeanyType>
+      <d3p1:KeyValueOfanyTypeanyType>
+        <d3p1:Key xmlns:d5p1="http://www.w3.org/2001/XMLSchema" i:type="d5p1:string">$IDPRJ</d3p1:Key>
+        <d3p1:Value xmlns:d5p1="http://www.w3.org/2001/XMLSchema" i:type="d5p1:int">-1</d3p1:Value>
+      </d3p1:KeyValueOfanyTypeanyType>
+      <d3p1:KeyValueOfanyTypeanyType>
+        <d3p1:Key xmlns:d5p1="http://www.w3.org/2001/XMLSchema" i:type="d5p1:string">$CHAPAFUNCIONARIO</d3p1:Key>
+        <d3p1:Value xmlns:d5p1="http://www.w3.org/2001/XMLSchema" i:type="d5p1:string">{{CHAPA}}</d3p1:Value>
+      </d3p1:KeyValueOfanyTypeanyType>
+      <d3p1:KeyValueOfanyTypeanyType>
+        <d3p1:Key xmlns:d5p1="http://www.w3.org/2001/XMLSchema" i:type="d5p1:string">$CODFILIAL</d3p1:Key>
+        <d3p1:Value xmlns:d5p1="http://www.w3.org/2001/XMLSchema" i:type="d5p1:int">{{CODFILIAL}}</d3p1:Value>
+      </d3p1:KeyValueOfanyTypeanyType>
+    </d2p1:_params>
+    <d2p1:Environment>WebServices</d2p1:Environment>
+  </Context>
+  <PrimaryKeyList xmlns:d2p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" xmlns="http://www.totvs.com/">
+    <d2p1:ArrayOfanyType>
+      <d2p1:anyType xmlns:d4p1="http://www.w3.org/2001/XMLSchema" i:type="d4p1:int">{{CODCOLIGADA}}</d2p1:anyType>
+      <d2p1:anyType xmlns:d4p1="http://www.w3.org/2001/XMLSchema" i:type="d4p1:int">{{IDLAN}}</d2p1:anyType>
+    </d2p1:ArrayOfanyType>
+  </PrimaryKeyList>
+  <PrimaryKeyNames xmlns:d2p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" xmlns="http://www.totvs.com/">
+    <d2p1:string>CODCOLIGADA</d2p1:string>
+    <d2p1:string>IDLAN</d2p1:string>
+  </PrimaryKeyNames>
+  <CodColigada>{{CODCOLIGADA}}</CodColigada>
+  <CodMoeda>R$</CodMoeda>
+  <ContabilizarPosBaixa>false</ContabilizarPosBaixa>
+  <CotacaoBaixa>0</CotacaoBaixa>
+  <DataBaixa>{{DATA}}</DataBaixa>
+  <DataSistema>{{DATA}}</DataSistema>
+  <HistoricoBaixa>{{HISTBAIXA}}</HistoricoBaixa>
+  <MotivoBxProtheus i:nil="true" />
+  <TipoGeracaoExtrato>ExtratoParaCadaLancamento</TipoGeracaoExtrato>
+  <UsarDataVencimentoBaixa>false</UsarDataVencimentoBaixa>
+  <Cartao />
+  <Cheques />
+  <Lancamentos>
+    <FinTBCBaixaLancamento>
+      <CampoAlfaOp1 i:nil="true" />
+      <CampoAlfaOp2 i:nil="true" />
+      <CampoAlfaOp3 i:nil="true" />
+      <CodColigada>{{CODCOLIGADA}}</CodColigada>
+      <CodTb1Flx i:nil="true" />
+      <CodTb2Flx i:nil="true" />
+      <CodTb3Flx i:nil="true" />
+      <CodTb4Flx i:nil="true" />
+      <CodTb5Flx i:nil="true" />
+      <DataBaixa>{{DATA}}</DataBaixa>
+      <DataOp1 i:nil="true" />
+      <DataOp2 i:nil="true" />
+      <DataOp3 i:nil="true" />
+      <DataOp4 i:nil="true" />
+      <DataOp5 i:nil="true" />
+      <IdLan>{{IDLAN}}</IdLan>
+      <Pagamentos>
+        <FinTBCBaixaPagamento>
+          <CodColCxa>{{CODCOLIGADA}}</CodColCxa>
+          <CodColigada>{{CODCOLIGADA}}</CodColigada>
+          <CodCxa>{{CODCXA}}</CodCxa>
+          <Contabilizacao>
+            <CodEventoBaixa i:nil="true" />
+            <Data>0001-01-01T00:00:00</Data>
+            <Descricao i:nil="true" />
+            <Partidas />
+            <TipoGeracaoLancamentoContabil>EventoContabil</TipoGeracaoLancamentoContabil>
+          </Contabilizacao>
+          <DataCompensacaoExtrato i:nil="true" />
+          <IdFormaPagamento>{{IDFORMAPAGTO}}</IdFormaPagamento>
+          <IdPagto>1</IdPagto>
+          <NumeroCheque i:nil="true" />
+          <Valor>{{VALOR}}</Valor>
+        </FinTBCBaixaPagamento>
+      </Pagamentos>
+      <ValorDesconto>0</ValorDesconto>
+      <ValorJuros>0</ValorJuros>
+      <ValorMulta>0</ValorMulta>
+      <ValorOp1>0</ValorOp1>
+      <ValorOp2>0</ValorOp2>
+      <ValorOp3>0</ValorOp3>
+      <ValorOp4>0</ValorOp4>
+      <ValorOp5>0</ValorOp5>
+      <ValorOp6>0</ValorOp6>
+      <ValorOp7>0</ValorOp7>
+      <ValorOp8>0</ValorOp8>
+      <ValoresAlteracao>
+        <CodColigada>{{CODCOLIGADA}}</CodColigada>
+        <IdLan>{{IDLAN}}</IdLan>
+        <RetencoesBx i:nil="true" />
+        <SESTSENAT i:nil="true" />
+        <ValorDesconto i:nil="true" />
+        <ValorIRRF_IntegracaoProtheus i:nil="true" />
+        <ValorJuros i:nil="true" />
+        <ValorMulta i:nil="true" />
+        <ValorOp1 i:nil="true" />
+        <ValorOp2 i:nil="true" />
+        <ValorOp3 i:nil="true" />
+        <ValorOp4 i:nil="true" />
+        <ValorOp5 i:nil="true" />
+        <ValorOp6 i:nil="true" />
+        <ValorOp7 i:nil="true" />
+        <ValorOp8 i:nil="true" />
+      </ValoresAlteracao>
+    </FinTBCBaixaLancamento>
+  </Lancamentos>
+  <NumDocExtrato i:nil="true" />
+  <TipoGeracaoExtratoBaixa>ExtratoParaCadaLancamento</TipoGeracaoExtratoBaixa>
+  <UsarDataDefaultBaixa>false</UsarDataDefaultBaixa>
+  <ValidaDataBaixaFeriadoFimDeSemana>false</ValidaDataBaixaFeriadoFimDeSemana>
+</FinTBCBaixaParamsProc>

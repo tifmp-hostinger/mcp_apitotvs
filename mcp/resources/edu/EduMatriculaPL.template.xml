@@ -1,0 +1,684 @@
+<?xml version="1.0" encoding="utf-16"?>
+        <EduMatriculaParamsProc z:Id="i1" xmlns="http://www.totvs.com.br/RM/" xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns:z="http://schemas.microsoft.com/2003/10/Serialization/">
+        <ActionModule xmlns="http://www.totvs.com/">S</ActionModule>
+        <ActionName xmlns="http://www.totvs.com/">EduMatriculaProcAction</ActionName>
+        <CanParallelize xmlns="http://www.totvs.com/">true</CanParallelize>
+        <CanSendMail xmlns="http://www.totvs.com/">false</CanSendMail>
+        <CanWaitSchedule xmlns="http://www.totvs.com/">false</CanWaitSchedule>
+        <CodUsuario xmlns="http://www.totvs.com/">integra.eduvem</CodUsuario>
+        <ConnectionId i:nil="true" xmlns="http://www.totvs.com/" />
+        <ConnectionString i:nil="true" xmlns="http://www.totvs.com/" />
+        <Context z:Id="i2" xmlns="http://www.totvs.com/" xmlns:a="http://www.totvs.com.br/RM/">
+            <a:_params xmlns:b="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+            <b:KeyValueOfanyTypeanyType>
+                <b:Key i:type="c:string" xmlns:c="http://www.w3.org/2001/XMLSchema">$EXERCICIOFISCAL</b:Key>
+                <b:Value i:type="c:int" xmlns:c="http://www.w3.org/2001/XMLSchema">1</b:Value>
+            </b:KeyValueOfanyTypeanyType>
+            <b:KeyValueOfanyTypeanyType>
+                <b:Key i:type="c:string" xmlns:c="http://www.w3.org/2001/XMLSchema">$CODLOCPRT</b:Key>
+                <b:Value i:type="c:int" xmlns:c="http://www.w3.org/2001/XMLSchema">-1</b:Value>
+            </b:KeyValueOfanyTypeanyType>
+            <b:KeyValueOfanyTypeanyType>
+                <b:Key i:type="c:string" xmlns:c="http://www.w3.org/2001/XMLSchema">$CODTIPOCURSO</b:Key>
+                <b:Value i:type="c:int" xmlns:c="http://www.w3.org/2001/XMLSchema">2</b:Value>
+            </b:KeyValueOfanyTypeanyType>
+            <b:KeyValueOfanyTypeanyType>
+                <b:Key i:type="c:string" xmlns:c="http://www.w3.org/2001/XMLSchema">$EDUTIPOUSR</b:Key>
+                <b:Value i:type="c:string" xmlns:c="http://www.w3.org/2001/XMLSchema">-1</b:Value>
+            </b:KeyValueOfanyTypeanyType>
+            <b:KeyValueOfanyTypeanyType>
+                <b:Key i:type="c:string" xmlns:c="http://www.w3.org/2001/XMLSchema">$CODUNIDADEBIB</b:Key>
+                <b:Value i:type="c:int" xmlns:c="http://www.w3.org/2001/XMLSchema">-1</b:Value>
+            </b:KeyValueOfanyTypeanyType>
+            <b:KeyValueOfanyTypeanyType>
+                <b:Key i:type="c:string" xmlns:c="http://www.w3.org/2001/XMLSchema">$CODCOLIGADA</b:Key>
+                <b:Value i:type="c:int" xmlns:c="http://www.w3.org/2001/XMLSchema">1</b:Value>
+            </b:KeyValueOfanyTypeanyType>
+            <b:KeyValueOfanyTypeanyType>
+                <b:Key i:type="c:string" xmlns:c="http://www.w3.org/2001/XMLSchema">$RHTIPOUSR</b:Key>
+                <b:Value i:type="c:string" xmlns:c="http://www.w3.org/2001/XMLSchema">-1</b:Value>
+            </b:KeyValueOfanyTypeanyType>
+            <b:KeyValueOfanyTypeanyType>
+                <b:Key i:type="c:string" xmlns:c="http://www.w3.org/2001/XMLSchema">$CODIGOEXTERNO</b:Key>
+                <b:Value i:type="c:string" xmlns:c="http://www.w3.org/2001/XMLSchema">-1</b:Value>
+            </b:KeyValueOfanyTypeanyType>
+            <b:KeyValueOfanyTypeanyType>
+                <b:Key i:type="c:string" xmlns:c="http://www.w3.org/2001/XMLSchema">$CODSISTEMA</b:Key>
+                <b:Value i:type="c:string" xmlns:c="http://www.w3.org/2001/XMLSchema">S</b:Value>
+            </b:KeyValueOfanyTypeanyType>
+            <b:KeyValueOfanyTypeanyType>
+                <b:Key i:type="c:string" xmlns:c="http://www.w3.org/2001/XMLSchema">$CODUSUARIOSERVICO</b:Key>
+                <b:Value i:type="c:string" xmlns:c="http://www.w3.org/2001/XMLSchema" />
+            </b:KeyValueOfanyTypeanyType>
+            <b:KeyValueOfanyTypeanyType>
+                <b:Key i:type="c:string" xmlns:c="http://www.w3.org/2001/XMLSchema">$CODUSUARIO</b:Key>
+                <b:Value i:type="c:string" xmlns:c="http://www.w3.org/2001/XMLSchema">integra.eduvem</b:Value>
+            </b:KeyValueOfanyTypeanyType>
+            <b:KeyValueOfanyTypeanyType>
+                <b:Key i:type="c:string" xmlns:c="http://www.w3.org/2001/XMLSchema">$IDPRJ</b:Key>
+                <b:Value i:type="c:int" xmlns:c="http://www.w3.org/2001/XMLSchema">-1</b:Value>
+            </b:KeyValueOfanyTypeanyType>
+            <b:KeyValueOfanyTypeanyType>
+                <b:Key i:type="c:string" xmlns:c="http://www.w3.org/2001/XMLSchema">$CHAPAFUNCIONARIO</b:Key>
+                <b:Value i:type="c:string" xmlns:c="http://www.w3.org/2001/XMLSchema">-1</b:Value>
+            </b:KeyValueOfanyTypeanyType>
+            <b:KeyValueOfanyTypeanyType>
+                <b:Key i:type="c:string" xmlns:c="http://www.w3.org/2001/XMLSchema">$CODFILIAL</b:Key>
+                <b:Value i:type="c:int" xmlns:c="http://www.w3.org/2001/XMLSchema">{{CODFILIAL}}</b:Value>
+            </b:KeyValueOfanyTypeanyType>
+            </a:_params>
+            <a:Environment>DotNet</a:Environment>
+        </Context>
+        <CustomData i:nil="true" xmlns="http://www.totvs.com/" />
+        <DisableIsolateProcess xmlns="http://www.totvs.com/">false</DisableIsolateProcess>
+        <DriverType i:nil="true" xmlns="http://www.totvs.com/" />
+        <ExecutionId xmlns="http://www.totvs.com/">{{EXECID}}</ExecutionId>
+        <FailureMessage xmlns="http://www.totvs.com/">Falha na execução do processo</FailureMessage>
+        <FriendlyLogs i:nil="true" xmlns="http://www.totvs.com/" />
+        <HideProgressDialog xmlns="http://www.totvs.com/">false</HideProgressDialog>
+        <HostName xmlns="http://www.totvs.com/">integra-rm-api</HostName>
+        <Initialized xmlns="http://www.totvs.com/">true</Initialized>
+        <Ip xmlns="http://www.totvs.com/">127.0.0.1</Ip>
+        <IsolateProcess xmlns="http://www.totvs.com/">false</IsolateProcess>
+        <JobID xmlns="http://www.totvs.com/">
+            <Children />
+            <ExecID>1</ExecID>
+            <ID>900472</ID>
+            <IsPriorityJob>false</IsPriorityJob>
+        </JobID>
+        <JobServerHostName xmlns="http://www.totvs.com/">114384-core-instance-N-RM-P-CAQB4Z-1-731591WIN-Z2</JobServerHostName>
+        <MasterActionName xmlns="http://www.totvs.com/">EduHabilitacaoAlunoAction</MasterActionName>
+        <MaximumQuantityOfPrimaryKeysPerProcess xmlns="http://www.totvs.com/">1000</MaximumQuantityOfPrimaryKeysPerProcess>
+        <MinimumQuantityOfPrimaryKeysPerProcess xmlns="http://www.totvs.com/">1</MinimumQuantityOfPrimaryKeysPerProcess>
+        <NetworkUser xmlns="http://www.totvs.com/">integra.eduvem</NetworkUser>
+        <NotifyEmail xmlns="http://www.totvs.com/">false</NotifyEmail>
+        <NotifyEmailList i:nil="true" xmlns="http://www.totvs.com/" xmlns:a="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+        <NotifyFluig xmlns="http://www.totvs.com/">false</NotifyFluig>
+        <OnlineMode xmlns="http://www.totvs.com/">false</OnlineMode>
+        <PrimaryKeyList xmlns="http://www.totvs.com/" xmlns:a="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+            <a:ArrayOfanyType>
+            <a:anyType i:type="b:short" xmlns:b="http://www.w3.org/2001/XMLSchema">{{CODCOLIGADA}}</a:anyType>
+            <a:anyType i:type="b:int" xmlns:b="http://www.w3.org/2001/XMLSchema">{{IDHABILITACAOFILIAL}}</a:anyType>
+            <a:anyType i:type="b:string" xmlns:b="http://www.w3.org/2001/XMLSchema">{{RA}}</a:anyType>
+            </a:ArrayOfanyType>
+        </PrimaryKeyList>
+        <PrimaryKeyNames xmlns="http://www.totvs.com/" xmlns:a="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+            <a:string>CODCOLIGADA</a:string>
+            <a:string>IDHABILITACAOFILIAL</a:string>
+            <a:string>RA</a:string>
+        </PrimaryKeyNames>
+        <PrimaryKeyTableName xmlns="http://www.totvs.com/">SHabilitacaoAluno</PrimaryKeyTableName>
+        <ProcessName xmlns="http://www.totvs.com/">Matricular aluno</ProcessName>
+        <QuantityOfSplits xmlns="http://www.totvs.com/">1</QuantityOfSplits>
+        <SaveLogInDatabase xmlns="http://www.totvs.com/">true</SaveLogInDatabase>
+        <SaveParamsExecution xmlns="http://www.totvs.com/">false</SaveParamsExecution>
+        <ScheduleDateTime xmlns="http://www.totvs.com/">{{SCHEDULE}}</ScheduleDateTime>
+        <Scheduler xmlns="http://www.totvs.com/">JobMonitor</Scheduler>
+        <SendMail xmlns="http://www.totvs.com/">false</SendMail>
+        <ServerName xmlns="http://www.totvs.com/">EduMatriculaProcData</ServerName>
+        <ServiceInterface i:type="b:RuntimeType" z:FactoryType="c:UnitySerializationHolder" xmlns="http://www.totvs.com/" xmlns:a="http://schemas.datacontract.org/2004/07/System" xmlns:b="-mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089-System-System.RuntimeType" xmlns:c="-mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089-System-System.UnitySerializationHolder">
+            <Data i:type="d:string" xmlns="" xmlns:d="http://www.w3.org/2001/XMLSchema">RM.Edu.Interfaces.IEduMatriculaProc</Data>
+            <UnityType i:type="d:int" xmlns="" xmlns:d="http://www.w3.org/2001/XMLSchema">4</UnityType>
+            <AssemblyName i:type="d:string" xmlns="" xmlns:d="http://www.w3.org/2001/XMLSchema">RM.Edu.Interfaces.Intf, Version=12.1.2502.152, Culture=neutral, PublicKeyToken=null</AssemblyName>
+        </ServiceInterface>
+        <ShouldParallelize xmlns="http://www.totvs.com/">false</ShouldParallelize>
+        <ShowReExecuteButton xmlns="http://www.totvs.com/">true</ShowReExecuteButton>
+        <StatusMessage i:nil="true" xmlns="http://www.totvs.com/" />
+        <SuccessMessage xmlns="http://www.totvs.com/">Processo executado com sucesso</SuccessMessage>
+        <SyncExecution xmlns="http://www.totvs.com/">false</SyncExecution>
+        <UseJobMonitor xmlns="http://www.totvs.com/">true</UseJobMonitor>
+        <UserName xmlns="http://www.totvs.com/">integra.eduvem</UserName>
+        <WaitSchedule xmlns="http://www.totvs.com/">false</WaitSchedule>
+        <CadastrarDisciplinas>true</CadastrarDisciplinas>
+        <MatricPLParams z:Id="i3">
+            <AlteraMatrizContratoOriginal>false</AlteraMatrizContratoOriginal>
+            <ApagarNumeroDiario>false</ApagarNumeroDiario>
+            <ArquivoRelatorioContrato i:nil="true" />
+            <CR i:nil="true" />
+            <CadastrarContrato>true</CadastrarContrato>
+            <CancelarLancamentos>true</CancelarLancamentos>
+            <CarteiraEmitida>false</CarteiraEmitida>
+            <ChaveRMRegistroMasterTAE i:nil="true" />
+            <ClientIP i:nil="true" />
+            <CobrarDocsTipoIngressoRematriculaEB>true</CobrarDocsTipoIngressoRematriculaEB>
+            <CodColigada>{{CODCOLIGADA}}</CodColigada>
+            <CodContrato i:nil="true" />
+            <CodFilial>{{CODFILIAL}}</CodFilial>
+            <CodFormula i:nil="true" />
+            <CodInstDestino i:nil="true" />
+            <CodMotivo i:nil="true" />
+            <CodMotivoTransferencia i:nil="true" />
+            <CodPlanoPgto>{{CODPLANOPGTO}}</CodPlanoPgto>
+            <CodStatus>23</CodStatus>
+            <CodStatusNovo i:nil="true" />
+            <CodStatusPendenteDisc i:nil="true" />
+            <CodStatusPendentePL i:nil="true" />
+            <CodStatusRes i:nil="true" />
+            <CodTipoCurso>2</CodTipoCurso>
+            <CodTipoMat>7</CodTipoMat>
+            <CodTurma>{{CODTURMA}}</CodTurma>
+            <CodTurmaAnterior i:nil="true" />
+            <CodUsuario>integra.eduvem</CodUsuario>
+            <ColigadaRelatBoleto i:nil="true" />
+            <ColigadaRelatContrato i:nil="true" />
+            <ContratosCanceladosContabilizados xmlns:a="http://www.totvs.com/" />
+            <ContratosTemp xmlns:a="http://www.totvs.com/" />
+            <CopiarDescontoPorAntecipacao>false</CopiarDescontoPorAntecipacao>
+            <CopiarRespFinanceiroContrato>false</CopiarRespFinanceiroContrato>
+            <CopiarVencimentos>false</CopiarVencimentos>
+            <CotaFinal i:nil="true" />
+            <CotaInicial i:nil="true" />
+            <DadosRelatorioManifesto i:nil="true" />
+            <DataCancelamentoContrato i:nil="true" />
+            <DataCancelamentoParcelas i:nil="true" />
+            <DataFinalParc i:nil="true" />
+            <DataIngresso i:nil="true" />
+            <DataInicialParc i:nil="true" />
+            <DataMatricula>{{NOW}}</DataMatricula>
+            <DataMatriculaAnterior i:nil="true" />
+            <DataMatriculaEncerra i:nil="true" />
+            <DataMatriculaEncerraAnterior i:nil="true" />
+            <DataMatriculaEncerraNova i:nil="true" />
+            <DataMatriculaNova i:nil="true" />
+            <DiaFixo>Nao</DiaFixo>
+            <DiaVencimento i:nil="true" />
+            <DiasVencimentoPrimeiraParcela>0</DiasVencimentoPrimeiraParcela>
+            <Disciplinas />
+            <DtCompetenciaFinal>  /</DtCompetenciaFinal>
+            <DtCompetenciaFinalMov>{{COMPETENCIA}}</DtCompetenciaFinalMov>
+            <DtCompetenciaInicial>  /</DtCompetenciaInicial>
+            <DtCompetenciaInicialMov>{{COMPETENCIA}}</DtCompetenciaInicialMov>
+            <DtMatriculaPag i:nil="true" />
+            <DtResultado i:nil="true" />
+            <DtSolicitacaoAlteracao i:nil="true" />
+            <EmTransacao>false</EmTransacao>
+            <GeraManifesto>false</GeraManifesto>
+            <GerarContratoAssinado>false</GerarContratoAssinado>
+            <GerarLancamento>Nao</GerarLancamento>
+            <GerarLog>true</GerarLog>
+            <GerouContratoComPlano>true</GerouContratoComPlano>
+            <IDPS>0</IDPS>
+            <IdHabilitacaoFilial>{{IDHABILITACAOFILIAL}}</IdHabilitacaoFilial>
+            <IdHabilitacaoFilialOrigem i:nil="true" />
+            <IdPerLet>{{IDPERLET}}</IdPerLet>
+            <IdRelatBoleto i:nil="true" />
+            <IdRelatContrato i:nil="true" />
+            <Identificador />
+            <IsDesenturmacao>false</IsDesenturmacao>
+            <IsEnturmacao>false</IsEnturmacao>
+            <IsRematricula>false</IsRematricula>
+            <ListaItinerarioFormativo i:nil="true" />
+            <LogContrato z:Id="i4">
+            <ExceptionCount>0</ExceptionCount>
+            <ExceptionList xmlns:a="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+            <FooterMessageLog />
+            <HeaderMessageLog />
+            <Id>3388</Id>
+            <InformationCount>0</InformationCount>
+            <InformationList xmlns:a="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+            <Name>eduProcessLog3388</Name>
+            <SuccessLogCount>0</SuccessLogCount>
+            <WarningCount>0</WarningCount>
+            <WarningList xmlns:a="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+            </LogContrato>
+            <LogExcecoes z:Id="i5">
+            <Excecoes>
+                <EduExcecaoMatricula z:Id="i6">
+                <GerouExcecao>false</GerouExcecao>
+                <IgnoraExcecao>false</IgnoraExcecao>
+                <Mensagem />
+                <TipoExcecao>PLEncerrado</TipoExcecao>
+                </EduExcecaoMatricula>
+                <EduExcecaoMatricula z:Id="i7">
+                <GerouExcecao>false</GerouExcecao>
+                <IgnoraExcecao>false</IgnoraExcecao>
+                <Mensagem />
+                <TipoExcecao>ForaPeriodoMatricula</TipoExcecao>
+                </EduExcecaoMatricula>
+                <EduExcecaoMatricula z:Id="i8">
+                <GerouExcecao>false</GerouExcecao>
+                <IgnoraExcecao>false</IgnoraExcecao>
+                <Mensagem />
+                <TipoExcecao>AlunoInadimplente</TipoExcecao>
+                </EduExcecaoMatricula>
+                <EduExcecaoMatricula z:Id="i9">
+                <GerouExcecao>false</GerouExcecao>
+                <IgnoraExcecao>false</IgnoraExcecao>
+                <Mensagem />
+                <TipoExcecao>OcorrenciaAluno</TipoExcecao>
+                </EduExcecaoMatricula>
+                <EduExcecaoMatricula z:Id="i10">
+                <GerouExcecao>false</GerouExcecao>
+                <IgnoraExcecao>false</IgnoraExcecao>
+                <Mensagem />
+                <TipoExcecao>TurmaCheia</TipoExcecao>
+                </EduExcecaoMatricula>
+                <EduExcecaoMatricula z:Id="i11">
+                <GerouExcecao>false</GerouExcecao>
+                <IgnoraExcecao>false</IgnoraExcecao>
+                <Mensagem />
+                <TipoExcecao>FaltaDocObrigatorio</TipoExcecao>
+                </EduExcecaoMatricula>
+                <EduExcecaoMatricula z:Id="i12">
+                <GerouExcecao>false</GerouExcecao>
+                <IgnoraExcecao>false</IgnoraExcecao>
+                <Mensagem />
+                <TipoExcecao>EmprestimoAtrasoBib</TipoExcecao>
+                </EduExcecaoMatricula>
+                <EduExcecaoMatricula z:Id="i13">
+                <GerouExcecao>false</GerouExcecao>
+                <IgnoraExcecao>false</IgnoraExcecao>
+                <Mensagem />
+                <TipoExcecao>DebitoBiblioteca</TipoExcecao>
+                </EduExcecaoMatricula>
+                <EduExcecaoMatricula z:Id="i14">
+                <GerouExcecao>false</GerouExcecao>
+                <IgnoraExcecao>false</IgnoraExcecao>
+                <Mensagem />
+                <TipoExcecao>StatusBloqAltSitMat</TipoExcecao>
+                </EduExcecaoMatricula>
+                <EduExcecaoMatricula z:Id="i15">
+                <GerouExcecao>false</GerouExcecao>
+                <IgnoraExcecao>false</IgnoraExcecao>
+                <Mensagem />
+                <TipoExcecao>ForaPeriodoTurma</TipoExcecao>
+                </EduExcecaoMatricula>
+                <EduExcecaoMatricula z:Id="i16">
+                <GerouExcecao>false</GerouExcecao>
+                <IgnoraExcecao>false</IgnoraExcecao>
+                <Mensagem />
+                <TipoExcecao>StatusBloqMatricPL</TipoExcecao>
+                </EduExcecaoMatricula>
+                <EduExcecaoMatricula z:Id="i17">
+                <GerouExcecao>false</GerouExcecao>
+                <IgnoraExcecao>false</IgnoraExcecao>
+                <Mensagem />
+                <TipoExcecao>StatusBloqTranc</TipoExcecao>
+                </EduExcecaoMatricula>
+                <EduExcecaoMatricula z:Id="i18">
+                <GerouExcecao>false</GerouExcecao>
+                <IgnoraExcecao>false</IgnoraExcecao>
+                <Mensagem />
+                <TipoExcecao>ForaPeriodoTranc</TipoExcecao>
+                </EduExcecaoMatricula>
+                <EduExcecaoMatricula z:Id="i19">
+                <GerouExcecao>false</GerouExcecao>
+                <IgnoraExcecao>false</IgnoraExcecao>
+                <Mensagem />
+                <TipoExcecao>TrancPrimeiroPeriodo</TipoExcecao>
+                </EduExcecaoMatricula>
+                <EduExcecaoMatricula z:Id="i20">
+                <GerouExcecao>false</GerouExcecao>
+                <IgnoraExcecao>false</IgnoraExcecao>
+                <Mensagem />
+                <TipoExcecao>MaxPeriodosTranc</TipoExcecao>
+                </EduExcecaoMatricula>
+                <EduExcecaoMatricula z:Id="i21">
+                <GerouExcecao>false</GerouExcecao>
+                <IgnoraExcecao>false</IgnoraExcecao>
+                <Mensagem />
+                <TipoExcecao>NumPeriodosTranc</TipoExcecao>
+                </EduExcecaoMatricula>
+                <EduExcecaoMatricula z:Id="i22">
+                <GerouExcecao>false</GerouExcecao>
+                <IgnoraExcecao>false</IgnoraExcecao>
+                <Mensagem />
+                <TipoExcecao>AlterouNumero</TipoExcecao>
+                </EduExcecaoMatricula>
+                <EduExcecaoMatricula z:Id="i23">
+                <GerouExcecao>false</GerouExcecao>
+                <IgnoraExcecao>false</IgnoraExcecao>
+                <Mensagem />
+                <TipoExcecao>StatusBloqDisc</TipoExcecao>
+                </EduExcecaoMatricula>
+                <EduExcecaoMatricula z:Id="i24">
+                <GerouExcecao>false</GerouExcecao>
+                <IgnoraExcecao>false</IgnoraExcecao>
+                <Mensagem />
+                <TipoExcecao>DiscAtraso</TipoExcecao>
+                </EduExcecaoMatricula>
+                <EduExcecaoMatricula z:Id="i25">
+                <GerouExcecao>false</GerouExcecao>
+                <IgnoraExcecao>false</IgnoraExcecao>
+                <Mensagem />
+                <TipoExcecao>ChoqueHorarios</TipoExcecao>
+                </EduExcecaoMatricula>
+                <EduExcecaoMatricula z:Id="i26">
+                <GerouExcecao>false</GerouExcecao>
+                <IgnoraExcecao>false</IgnoraExcecao>
+                <Mensagem />
+                <TipoExcecao>PreRequisito</TipoExcecao>
+                </EduExcecaoMatricula>
+                <EduExcecaoMatricula z:Id="i27">
+                <GerouExcecao>false</GerouExcecao>
+                <IgnoraExcecao>false</IgnoraExcecao>
+                <Mensagem />
+                <TipoExcecao>CoRequisito</TipoExcecao>
+                </EduExcecaoMatricula>
+                <EduExcecaoMatricula z:Id="i28">
+                <GerouExcecao>false</GerouExcecao>
+                <IgnoraExcecao>false</IgnoraExcecao>
+                <Mensagem />
+                <TipoExcecao>DisciplinaCursada</TipoExcecao>
+                </EduExcecaoMatricula>
+                <EduExcecaoMatricula z:Id="i29">
+                <GerouExcecao>false</GerouExcecao>
+                <IgnoraExcecao>false</IgnoraExcecao>
+                <Mensagem />
+                <TipoExcecao>DisciplinaEmCurso</TipoExcecao>
+                </EduExcecaoMatricula>
+                <EduExcecaoMatricula z:Id="i30">
+                <GerouExcecao>false</GerouExcecao>
+                <IgnoraExcecao>false</IgnoraExcecao>
+                <Mensagem />
+                <TipoExcecao>MinCreditos</TipoExcecao>
+                </EduExcecaoMatricula>
+                <EduExcecaoMatricula z:Id="i31">
+                <GerouExcecao>false</GerouExcecao>
+                <IgnoraExcecao>false</IgnoraExcecao>
+                <Mensagem />
+                <TipoExcecao>MinDisciplinas</TipoExcecao>
+                </EduExcecaoMatricula>
+                <EduExcecaoMatricula z:Id="i32">
+                <GerouExcecao>false</GerouExcecao>
+                <IgnoraExcecao>false</IgnoraExcecao>
+                <Mensagem />
+                <TipoExcecao>MinCargaHoraria</TipoExcecao>
+                </EduExcecaoMatricula>
+                <EduExcecaoMatricula z:Id="i33">
+                <GerouExcecao>false</GerouExcecao>
+                <IgnoraExcecao>false</IgnoraExcecao>
+                <Mensagem />
+                <TipoExcecao>AprovEstudos</TipoExcecao>
+                </EduExcecaoMatricula>
+                <EduExcecaoMatricula z:Id="i34">
+                <GerouExcecao>false</GerouExcecao>
+                <IgnoraExcecao>false</IgnoraExcecao>
+                <Mensagem />
+                <TipoExcecao>LimiteMatricula</TipoExcecao>
+                </EduExcecaoMatricula>
+                <EduExcecaoMatricula z:Id="i35">
+                <GerouExcecao>false</GerouExcecao>
+                <IgnoraExcecao>false</IgnoraExcecao>
+                <Mensagem />
+                <TipoExcecao>PercLimiteMat</TipoExcecao>
+                </EduExcecaoMatricula>
+                <EduExcecaoMatricula z:Id="i36">
+                <GerouExcecao>false</GerouExcecao>
+                <IgnoraExcecao>false</IgnoraExcecao>
+                <Mensagem />
+                <TipoExcecao>MinimoCreditosPL</TipoExcecao>
+                </EduExcecaoMatricula>
+                <EduExcecaoMatricula z:Id="i37">
+                <GerouExcecao>false</GerouExcecao>
+                <IgnoraExcecao>false</IgnoraExcecao>
+                <Mensagem />
+                <TipoExcecao>MaximoCreditosPL</TipoExcecao>
+                </EduExcecaoMatricula>
+                <EduExcecaoMatricula z:Id="i38">
+                <GerouExcecao>false</GerouExcecao>
+                <IgnoraExcecao>false</IgnoraExcecao>
+                <Mensagem />
+                <TipoExcecao>ParamCurso</TipoExcecao>
+                </EduExcecaoMatricula>
+                <EduExcecaoMatricula z:Id="i39">
+                <GerouExcecao>false</GerouExcecao>
+                <IgnoraExcecao>false</IgnoraExcecao>
+                <Mensagem />
+                <TipoExcecao>JaMatriculadoPL</TipoExcecao>
+                </EduExcecaoMatricula>
+                <EduExcecaoMatricula z:Id="i40">
+                <GerouExcecao>false</GerouExcecao>
+                <IgnoraExcecao>false</IgnoraExcecao>
+                <Mensagem />
+                <TipoExcecao>ProcEmail</TipoExcecao>
+                </EduExcecaoMatricula>
+                <EduExcecaoMatricula z:Id="i41">
+                <GerouExcecao>false</GerouExcecao>
+                <IgnoraExcecao>false</IgnoraExcecao>
+                <Mensagem />
+                <TipoExcecao>ExcluiMatriculaComMovimento</TipoExcecao>
+                </EduExcecaoMatricula>
+                <EduExcecaoMatricula z:Id="i42">
+                <GerouExcecao>false</GerouExcecao>
+                <IgnoraExcecao>false</IgnoraExcecao>
+                <Mensagem />
+                <TipoExcecao>PreRequisitoFormula</TipoExcecao>
+                </EduExcecaoMatricula>
+                <EduExcecaoMatricula z:Id="i43">
+                <GerouExcecao>false</GerouExcecao>
+                <IgnoraExcecao>false</IgnoraExcecao>
+                <Mensagem />
+                <TipoExcecao>CoRequisitoFormula</TipoExcecao>
+                </EduExcecaoMatricula>
+                <EduExcecaoMatricula z:Id="i44">
+                <GerouExcecao>false</GerouExcecao>
+                <IgnoraExcecao>false</IgnoraExcecao>
+                <Mensagem />
+                <TipoExcecao>ParamMatricula</TipoExcecao>
+                </EduExcecaoMatricula>
+                <EduExcecaoMatricula z:Id="i45">
+                <GerouExcecao>false</GerouExcecao>
+                <IgnoraExcecao>false</IgnoraExcecao>
+                <Mensagem />
+                <TipoExcecao>StatusBloqAltSitMatDisc</TipoExcecao>
+                </EduExcecaoMatricula>
+                <EduExcecaoMatricula z:Id="i46">
+                <GerouExcecao>false</GerouExcecao>
+                <IgnoraExcecao>false</IgnoraExcecao>
+                <Mensagem />
+                <TipoExcecao>MatriculaEmTurmaDiscGerencial</TipoExcecao>
+                </EduExcecaoMatricula>
+                <EduExcecaoMatricula z:Id="i47">
+                <GerouExcecao>false</GerouExcecao>
+                <IgnoraExcecao>false</IgnoraExcecao>
+                <Mensagem />
+                <TipoExcecao>AlteraDataMatricula</TipoExcecao>
+                </EduExcecaoMatricula>
+                <EduExcecaoMatricula z:Id="i48">
+                <GerouExcecao>false</GerouExcecao>
+                <IgnoraExcecao>false</IgnoraExcecao>
+                <Mensagem />
+                <TipoExcecao>DesenturmacaoTurmaMista</TipoExcecao>
+                </EduExcecaoMatricula>
+                <EduExcecaoMatricula z:Id="i49">
+                <GerouExcecao>false</GerouExcecao>
+                <IgnoraExcecao>false</IgnoraExcecao>
+                <Mensagem />
+                <TipoExcecao>StatusBloqAltSitMatDiscPortal</TipoExcecao>
+                </EduExcecaoMatricula>
+                <EduExcecaoMatricula z:Id="i50">
+                <GerouExcecao>false</GerouExcecao>
+                <IgnoraExcecao>false</IgnoraExcecao>
+                <Mensagem />
+                <TipoExcecao>MatrizCurricularInativa</TipoExcecao>
+                </EduExcecaoMatricula>
+                <EduExcecaoMatricula z:Id="i51">
+                <GerouExcecao>false</GerouExcecao>
+                <IgnoraExcecao>false</IgnoraExcecao>
+                <Mensagem />
+                <TipoExcecao>TurmaCheiaCorrequisito</TipoExcecao>
+                </EduExcecaoMatricula>
+                <EduExcecaoMatricula z:Id="i52">
+                <GerouExcecao>false</GerouExcecao>
+                <IgnoraExcecao>false</IgnoraExcecao>
+                <Mensagem />
+                <TipoExcecao>SincUsuarioIntegracaoPergamum</TipoExcecao>
+                </EduExcecaoMatricula>
+                <EduExcecaoMatricula z:Id="i53">
+                <GerouExcecao>false</GerouExcecao>
+                <IgnoraExcecao>false</IgnoraExcecao>
+                <Mensagem />
+                <TipoExcecao>ErroConsultaPendenciaBiblioteca</TipoExcecao>
+                </EduExcecaoMatricula>
+                <EduExcecaoMatricula z:Id="i54">
+                <GerouExcecao>false</GerouExcecao>
+                <IgnoraExcecao>false</IgnoraExcecao>
+                <Mensagem />
+                <TipoExcecao>PermiteMatOutraFilial</TipoExcecao>
+                </EduExcecaoMatricula>
+                <EduExcecaoMatricula z:Id="i55">
+                <GerouExcecao>false</GerouExcecao>
+                <IgnoraExcecao>false</IgnoraExcecao>
+                <Mensagem />
+                <TipoExcecao>PermiteMatOutroNivelEnsino</TipoExcecao>
+                </EduExcecaoMatricula>
+                <EduExcecaoMatricula z:Id="i56">
+                <GerouExcecao>false</GerouExcecao>
+                <IgnoraExcecao>false</IgnoraExcecao>
+                <Mensagem />
+                <TipoExcecao>MatriculaComMovimentacao</TipoExcecao>
+                </EduExcecaoMatricula>
+                <EduExcecaoMatricula z:Id="i57">
+                <GerouExcecao>false</GerouExcecao>
+                <IgnoraExcecao>false</IgnoraExcecao>
+                <Mensagem />
+                <TipoExcecao>IntegralizacaoNaoAtendidaMatriculaDisciplina</TipoExcecao>
+                </EduExcecaoMatricula>
+                <EduExcecaoMatricula z:Id="i58">
+                <GerouExcecao>false</GerouExcecao>
+                <IgnoraExcecao>false</IgnoraExcecao>
+                <Mensagem />
+                <TipoExcecao>MinCreditosPeriodoNaoAtendidoIntegralizacaoAtendida</TipoExcecao>
+                </EduExcecaoMatricula>
+                <EduExcecaoMatricula z:Id="i59">
+                <GerouExcecao>false</GerouExcecao>
+                <IgnoraExcecao>false</IgnoraExcecao>
+                <Mensagem />
+                <TipoExcecao>IntegralizacaoNaoAtendidaConclusaoCursoMudancaStatus</TipoExcecao>
+                </EduExcecaoMatricula>
+                <EduExcecaoMatricula z:Id="i60">
+                <GerouExcecao>false</GerouExcecao>
+                <IgnoraExcecao>false</IgnoraExcecao>
+                <Mensagem />
+                <TipoExcecao>UltrapassouMaximoMatriculasItinerarioFormativo</TipoExcecao>
+                </EduExcecaoMatricula>
+                <EduExcecaoMatricula z:Id="i61">
+                <GerouExcecao>false</GerouExcecao>
+                <IgnoraExcecao>false</IgnoraExcecao>
+                <Mensagem />
+                <TipoExcecao>RequisitosItinerarioNaoAtendido</TipoExcecao>
+                </EduExcecaoMatricula>
+                <EduExcecaoMatricula z:Id="i62">
+                <GerouExcecao>false</GerouExcecao>
+                <IgnoraExcecao>false</IgnoraExcecao>
+                <Mensagem />
+                <TipoExcecao>ForaPeriodoMatriculaNoItinerarioFormativo</TipoExcecao>
+                </EduExcecaoMatricula>
+                <EduExcecaoMatricula z:Id="i63">
+                <GerouExcecao>false</GerouExcecao>
+                <IgnoraExcecao>false</IgnoraExcecao>
+                <Mensagem />
+                <TipoExcecao>PlanoPagtoDoContratoNaoDisponivelParaMtzDestinoNaTransfInterna</TipoExcecao>
+                </EduExcecaoMatricula>
+                <EduExcecaoMatricula z:Id="i64">
+                <GerouExcecao>false</GerouExcecao>
+                <IgnoraExcecao>false</IgnoraExcecao>
+                <Mensagem />
+                <TipoExcecao>NaoPossuiMinimoMatriculasItinerarioFormativo</TipoExcecao>
+                </EduExcecaoMatricula>
+                <EduExcecaoMatricula z:Id="i65">
+                <GerouExcecao>false</GerouExcecao>
+                <IgnoraExcecao>false</IgnoraExcecao>
+                <Mensagem />
+                <TipoExcecao>FaltaFiadorAprovado</TipoExcecao>
+                </EduExcecaoMatricula>
+                <EduExcecaoMatricula z:Id="i66">
+                <GerouExcecao>false</GerouExcecao>
+                <IgnoraExcecao>false</IgnoraExcecao>
+                <Mensagem />
+                <TipoExcecao>TurmaNaoParametrizadaNaDispItinerarioParamPorCurso</TipoExcecao>
+                </EduExcecaoMatricula>
+                <EduExcecaoMatricula z:Id="i67">
+                <GerouExcecao>false</GerouExcecao>
+                <IgnoraExcecao>false</IgnoraExcecao>
+                <Mensagem />
+                <TipoExcecao>RequisitoDeQtdDiscOuCHItinerarioNaoAtendido</TipoExcecao>
+                </EduExcecaoMatricula>
+                <EduExcecaoMatricula z:Id="i68">
+                <GerouExcecao>false</GerouExcecao>
+                <IgnoraExcecao>false</IgnoraExcecao>
+                <Mensagem />
+                <TipoExcecao>RequisitoDeDisciplinasObrigatoriasNaoAtendido</TipoExcecao>
+                </EduExcecaoMatricula>
+                <EduExcecaoMatricula z:Id="i69">
+                <GerouExcecao>false</GerouExcecao>
+                <IgnoraExcecao>false</IgnoraExcecao>
+                <Mensagem />
+                <TipoExcecao>RequisitoObrigatoriedadeMatriculasItinerarioFormativoNaoAtendido</TipoExcecao>
+                </EduExcecaoMatricula>
+                <EduExcecaoMatricula z:Id="i70">
+                <GerouExcecao>false</GerouExcecao>
+                <IgnoraExcecao>false</IgnoraExcecao>
+                <Mensagem />
+                <TipoExcecao>CancelamentoOnlineMatriculaDisciplinaInconsistente</TipoExcecao>
+                </EduExcecaoMatricula>
+                <EduExcecaoMatricula z:Id="i71">
+                <GerouExcecao>false</GerouExcecao>
+                <IgnoraExcecao>false</IgnoraExcecao>
+                <Mensagem />
+                <TipoExcecao>ErroGenerico</TipoExcecao>
+                </EduExcecaoMatricula>
+            </Excecoes>
+            <NumExcecoes>0</NumExcecoes>
+            <NumExcecoesPermis>0</NumExcecoesPermis>
+            <Texto />
+            </LogExcecoes>
+            <MatriculaNovoPortal>false</MatriculaNovoPortal>
+            <MatriculaPortalItinerarioMenuExclusivo>false</MatriculaPortalItinerarioMenuExclusivo>
+            <MatriculaWeb>false</MatriculaWeb>
+            <MudancaStatus>false</MudancaStatus>
+            <MudancaTurma>false</MudancaTurma>
+            <NaoUsaFlexibilizacaoAlteraDataVencimento>false</NaoUsaFlexibilizacaoAlteraDataVencimento>
+            <NaoUsaFlexibilizacaoRemoverParcelasVencidas>false</NaoUsaFlexibilizacaoRemoverParcelasVencidas>
+            <NomeAluno i:nil="true" />
+            <NumCarteira />
+            <NumeroInscricao>0</NumeroInscricao>
+            <OrigemParcela i:nil="true" />
+            <ParametrosDiversos>
+            <AproveitarContratoNaMudancaTurma>false</AproveitarContratoNaMudancaTurma>
+            <BloquearAltStatusInadimplentes i:nil="true" />
+            <CarregarLstDocumentosCadaAluno>true</CarregarLstDocumentosCadaAluno>
+            <CarregarLstHabilitacaoesCadaAluno>true</CarregarLstHabilitacaoesCadaAluno>
+            <CarregarLstLancamentosCadaAluno>false</CarregarLstLancamentosCadaAluno>
+            <CarregarLstMatricIsoladaCadaAluno>true</CarregarLstMatricIsoladaCadaAluno>
+            <CarregarLstMtzAplicadaCursoHabAluno>true</CarregarLstMtzAplicadaCursoHabAluno>
+            <CarregarLstOcorrenciasCadaAluno>true</CarregarLstOcorrenciasCadaAluno>
+            <DataMatriculaUtilizadaDiscDestino>DisciplinaOrigem</DataMatriculaUtilizadaDiscDestino>
+            <IdPerLetCorrente i:nil="true" />
+            <IgnorarConflitoHorario i:nil="true" />
+            <IgnorarTurmaCheia i:nil="true" />
+            <IsEnturmacao>false</IsEnturmacao>
+            <MatriculaWeb>false</MatriculaWeb>
+            <MudancaStatus>false</MudancaStatus>
+            <NumeroMaximoPeriodosTrancados i:nil="true" />
+            <VerificarInadimplenciaBib>false</VerificarInadimplenciaBib>
+            <VerificarInadimplenciaFin>false</VerificarInadimplenciaFin>
+            </ParametrosDiversos>
+            <ParcelaFinal i:nil="true" />
+            <ParcelaInicial i:nil="true" />
+            <PendenteDocumento>Nao</PendenteDocumento>
+            <PendenteInadimplencia>Nao</PendenteInadimplencia>
+            <PendenteInadimplenciaBib>Nao</PendenteInadimplenciaBib>
+            <PendenteOcorrenciaBloqMatricula>Nao</PendenteOcorrenciaBloqMatricula>
+            <Periodo>1</Periodo>
+            <PermiteTransfInternaAlunoInadimplente>false</PermiteTransfInternaAlunoInadimplente>
+            <PodeRodarNumeracaoAutomatica>true</PodeRodarNumeracaoAutomatica>
+            <PossuiPendencia>false</PossuiPendencia>
+            <RA>{{RA}}</RA>
+            <RematriculaEBasicoAjusteContratoHabFilial>false</RematriculaEBasicoAjusteContratoHabFilial>
+            <ResponsaveisFinanceirosContrato xmlns:a="http://www.totvs.com/" />
+            <ServicosRenovacaoRecorrencia />
+            <TextoContrato i:nil="true" />
+            <TipoOperacao>Inclusao</TipoOperacao>
+            <TipoSelecaoParcela>IdParcela</TipoSelecaoParcela>
+            <TokenAssinaturaTAE i:nil="true" />
+            <TransferenciaInterna>false</TransferenciaInterna>
+            <TurnosDiferentes>false</TurnosDiferentes>
+            <UsarPlanoPgtoParametrizacaoCurso>false</UsarPlanoPgtoParametrizacaoCurso>
+            <ValidarInadimplenciaBiblioteca>true</ValidarInadimplenciaBiblioteca>
+            <ViaCarteira />
+            <grupoRelat i:nil="true" />
+        </MatricPLParams>
+        <MatricularDisc>Nao</MatricularDisc>
+        </EduMatriculaParamsProc>

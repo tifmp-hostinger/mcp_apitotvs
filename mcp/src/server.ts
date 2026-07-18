@@ -1,21 +1,22 @@
 /**
  * MCP TOTVS FMP — servidor MCP (Streamable HTTP) + OAuth 2.1.
  *
- * Ponte conversacional para a API REST api-totvs (www/api), que por sua vez
- * fala SOAP com o TOTVS RM:
+ * Este servidor É a integração com o TOTVS RM: fala SOAP direto com o ERP
+ * (wsDataServer, wsProcess, wsReport, wsConsultaSQL), sem API intermediária.
  *
- *   cliente MCP (OpenClaw, Claude...) ──HTTP/OAuth──▶ este servidor ──X-API-Key──▶ api-totvs ──SOAP──▶ RM
+ *   cliente MCP (OpenClaw, Claude...) ──HTTP/OAuth──▶ este servidor ──SOAP──▶ TOTVS RM
  *
  * Endpoints:
  *   POST /mcp                       — transporte MCP Streamable HTTP (Bearer obrigatório)
  *   /.well-known/*                  — metadados OAuth (RFC 8414 + RFC 9728)
  *   /authorize /token /register     — servidor de autorização (SDK mcpAuthRouter)
  *   POST /oauth/consent             — envio da senha da tela de autorização
+ *   GET  /sso/{token}               — auto-login do Portal Educacional (HTML; sem auth)
  *   GET  /healthz                   — health check (sem auth)
  *
  * Modo stateless: cada POST /mcp cria servidor+transporte descartáveis e
- * responde JSON puro (enableJsonResponse) — sem sessão, sobrevive a restarts
- * e funciona atrás de qualquer proxy sem sticky session.
+ * responde JSON puro — sem sessão, sobrevive a restarts e funciona atrás de
+ * qualquer proxy sem sticky session.
  */
 
 import express from 'express';
@@ -28,28 +29,28 @@ import {
 import { requireBearerAuth } from '@modelcontextprotocol/sdk/server/auth/middleware/bearerAuth.js';
 import { loadConfig } from './config.js';
 import { FmpOAuthProvider } from './oauth.js';
-import { TotvsApiClient } from './api-client.js';
+import { buildServices } from './services/registry.js';
 import { registerTotvsTools } from './tools.js';
 
 const cfg = loadConfig();
 const provider = new FmpOAuthProvider(cfg);
-const api = new TotvsApiClient(cfg.apiBaseUrl, cfg.apiKey, cfg.apiTimeoutMs);
+const services = buildServices(cfg);
 
 function createMcpServer(): McpServer {
     const server = new McpServer({
         name: 'fmp-totvs-rm',
-        title: 'FMP · TOTVS RM (api-totvs)',
-        version: '1.0.0',
+        title: 'FMP · TOTVS RM',
+        version: '2.0.0',
     }, {
         instructions:
-            'Gestão conversacional da integração TOTVS RM da FMP (pessoas, alunos, ' +
+            'Gestão conversacional do TOTVS RM da FMP via SOAP direto (pessoas, alunos, ' +
             'inscrições, matrículas, cupons e financeiro). As tools devolvem o envelope ' +
-            'JSON da API: "sucesso" indica o resultado; em erro, leia "retorno_rm", ' +
+            'JSON padrão: "sucesso" indica o resultado; em erro, leia "retorno_rm", ' +
             '"etapa" e "etapas_concluidas". Ferramentas de escrita causam efeito real ' +
             'no ERP — confirme com o usuário antes de gravar; financeiro_baixar só ' +
             'executa de verdade com DRY_RUN=false explícito.',
     });
-    registerTotvsTools(server, api);
+    registerTotvsTools(server, services, cfg);
     return server;
 }
 
@@ -91,11 +92,54 @@ app.use(mcpAuthRouter({
     provider,
     issuerUrl: new URL(cfg.publicUrl),
     resourceServerUrl: new URL(`${cfg.publicUrl}/mcp`),
-    resourceName: 'FMP TOTVS RM API',
+    resourceName: 'FMP TOTVS RM',
     scopesSupported: ['totvs'],
 }));
 
 app.post('/oauth/consent', (req, res) => provider.handleConsent(req, res));
+
+/* ---------- SSO do Portal Educacional (exceção HTML — porte do SSOController) ----------
+ * Consumida pelo navegador do ALUNO (redirect do fluxo de inscrição/aluno),
+ * por isso fica fora da autenticação MCP — como na API PHP, a segurança é o
+ * próprio token AES-256-GCM (expira junto com a senha padrão).
+ */
+
+app.get('/sso/:token', (req, res) => {
+    let user: string;
+    let password: string;
+    try {
+        const raw = services.crypto.decrypt(req.params.token);
+        [user, password] = raw.split('$_$', 2) as [string, string];
+        if (user === undefined || password === undefined) {
+            throw new Error('token malformado');
+        }
+    } catch {
+        res.status(400).type('html').send('<p>Link de acesso inválido ou expirado.</p>');
+        return;
+    }
+
+    const esc = (v: string): string => v
+        .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;').replace(/'/g, '&#039;');
+
+    res.type('html').send(`<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Redirecionando...</title>
+</head>
+<body>
+    <p>Aguarde... Você está sendo redirecionado.</p>
+    <form id="form-autologin" action="${esc(cfg.rm.portal.autologinUrl)}" method="post" style="display:none">
+        <input type="hidden" name="User" value="${esc(user)}" />
+        <input type="hidden" name="Pass" value="${esc(password)}" />
+        <input type="hidden" name="Alias" value="${esc(cfg.rm.portal.alias)}" />
+    </form>
+    <script>document.getElementById('form-autologin').submit();</script>
+</body>
+</html>`);
+});
 
 /* ---------- Infra ---------- */
 
@@ -109,7 +153,7 @@ app.get('/', (_req, res) => {
         transporte: 'MCP Streamable HTTP',
         endpoint_mcp: `${cfg.publicUrl}/mcp`,
         autenticacao: 'OAuth 2.1 (descoberta automática via /.well-known/oauth-protected-resource/mcp) ou Bearer estático',
-        api_gerenciada: cfg.apiBaseUrl,
+        integracao: `SOAP direto com o TOTVS RM (${cfg.rm.wsUrl !== '' ? cfg.rm.wsUrl : 'TOTVS_WS_URL não configurada'})`,
     });
 });
 
@@ -161,7 +205,7 @@ app.use((_req, res) => {
 app.listen(cfg.port, () => {
     console.log(`[mcp] MCP TOTVS FMP no ar na porta ${cfg.port}`);
     console.log(`[mcp]   endpoint MCP : ${cfg.publicUrl}/mcp`);
-    console.log(`[mcp]   API TOTVS    : ${cfg.apiBaseUrl}${cfg.apiKey !== '' ? ' (X-API-Key configurada)' : ' (SEM X-API-Key)'}`);
+    console.log(`[mcp]   TOTVS RM     : ${cfg.rm.wsUrl !== '' ? cfg.rm.wsUrl : '(TOTVS_WS_URL NÃO CONFIGURADA)'} (SOAP direto)`);
     console.log(`[mcp]   OAuth issuer : ${cfg.publicUrl}`);
     console.log(`[mcp]   tokens estáticos: ${cfg.staticTokens.length}`);
 });

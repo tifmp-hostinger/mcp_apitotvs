@@ -1,4 +1,4 @@
-# MCP TOTVS FMP — Streamable HTTP + OAuth 2.1
+# MCP TOTVS FMP — Streamable HTTP + OAuth 2.1, SOAP direto com o TOTVS RM
 # Build:  docker build -t fmp/mcp-apitotvs .
 # Run:    docker run -p 3300:3300 --env-file .env fmp/mcp-apitotvs
 
@@ -16,6 +16,8 @@ WORKDIR /app
 COPY --from=build /app/node_modules ./node_modules
 COPY --from=build /app/dist ./dist
 COPY package.json ./
+# Templates dos XMLs de processo do RM (matrícula, lançamento, baixa TBC)
+COPY resources ./resources
 # data/ guarda os clients OAuth registrados (monte um volume para persistir)
 RUN mkdir -p /app/data && chown -R node:node /app
 USER node

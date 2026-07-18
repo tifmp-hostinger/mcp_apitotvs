@@ -1,0 +1,253 @@
+<?xml version="1.0" encoding="utf-16"?>
+    <EduGeraLancParamsProc z:Id="i1" xmlns="http://www.totvs.com.br/RM/" xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns:z="http://schemas.microsoft.com/2003/10/Serialization/">
+    <ActionModule xmlns="http://www.totvs.com/">S</ActionModule>
+    <ActionName xmlns="http://www.totvs.com/">EduGerarLancFromContrato</ActionName>
+    <CanParallelize xmlns="http://www.totvs.com/">true</CanParallelize>
+    <CanSendMail xmlns="http://www.totvs.com/">false</CanSendMail>
+    <CanWaitSchedule xmlns="http://www.totvs.com/">false</CanWaitSchedule>
+    <CodUsuario xmlns="http://www.totvs.com/">integra.eduvem</CodUsuario>
+    <ConnectionId i:nil="true" xmlns="http://www.totvs.com/" />
+    <ConnectionString i:nil="true" xmlns="http://www.totvs.com/" />
+    <Context z:Id="i2" xmlns="http://www.totvs.com/" xmlns:a="http://www.totvs.com.br/RM/">
+        <a:_params xmlns:b="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+        <b:KeyValueOfanyTypeanyType>
+            <b:Key i:type="c:string" xmlns:c="http://www.w3.org/2001/XMLSchema">$EXERCICIOFISCAL</b:Key>
+            <b:Value i:type="c:int" xmlns:c="http://www.w3.org/2001/XMLSchema">1</b:Value>
+        </b:KeyValueOfanyTypeanyType>
+        <b:KeyValueOfanyTypeanyType>
+            <b:Key i:type="c:string" xmlns:c="http://www.w3.org/2001/XMLSchema">$CODLOCPRT</b:Key>
+            <b:Value i:type="c:int" xmlns:c="http://www.w3.org/2001/XMLSchema">-1</b:Value>
+        </b:KeyValueOfanyTypeanyType>
+        <b:KeyValueOfanyTypeanyType>
+            <b:Key i:type="c:string" xmlns:c="http://www.w3.org/2001/XMLSchema">$CODTIPOCURSO</b:Key>
+            <b:Value i:type="c:int" xmlns:c="http://www.w3.org/2001/XMLSchema">2</b:Value>
+        </b:KeyValueOfanyTypeanyType>
+        <b:KeyValueOfanyTypeanyType>
+            <b:Key i:type="c:string" xmlns:c="http://www.w3.org/2001/XMLSchema">$EDUTIPOUSR</b:Key>
+            <b:Value i:type="c:string" xmlns:c="http://www.w3.org/2001/XMLSchema">-1</b:Value>
+        </b:KeyValueOfanyTypeanyType>
+        <b:KeyValueOfanyTypeanyType>
+            <b:Key i:type="c:string" xmlns:c="http://www.w3.org/2001/XMLSchema">$CODUNIDADEBIB</b:Key>
+            <b:Value i:type="c:int" xmlns:c="http://www.w3.org/2001/XMLSchema">-1</b:Value>
+        </b:KeyValueOfanyTypeanyType>
+        <b:KeyValueOfanyTypeanyType>
+            <b:Key i:type="c:string" xmlns:c="http://www.w3.org/2001/XMLSchema">$CODCOLIGADA</b:Key>
+            <b:Value i:type="c:int" xmlns:c="http://www.w3.org/2001/XMLSchema">1</b:Value>
+        </b:KeyValueOfanyTypeanyType>
+        <b:KeyValueOfanyTypeanyType>
+            <b:Key i:type="c:string" xmlns:c="http://www.w3.org/2001/XMLSchema">$RHTIPOUSR</b:Key>
+            <b:Value i:type="c:string" xmlns:c="http://www.w3.org/2001/XMLSchema">-1</b:Value>
+        </b:KeyValueOfanyTypeanyType>
+        <b:KeyValueOfanyTypeanyType>
+            <b:Key i:type="c:string" xmlns:c="http://www.w3.org/2001/XMLSchema">$CODIGOEXTERNO</b:Key>
+            <b:Value i:type="c:string" xmlns:c="http://www.w3.org/2001/XMLSchema">-1</b:Value>
+        </b:KeyValueOfanyTypeanyType>
+        <b:KeyValueOfanyTypeanyType>
+            <b:Key i:type="c:string" xmlns:c="http://www.w3.org/2001/XMLSchema">$CODSISTEMA</b:Key>
+            <b:Value i:type="c:string" xmlns:c="http://www.w3.org/2001/XMLSchema">S</b:Value>
+        </b:KeyValueOfanyTypeanyType>
+        <b:KeyValueOfanyTypeanyType>
+            <b:Key i:type="c:string" xmlns:c="http://www.w3.org/2001/XMLSchema">$CODUSUARIOSERVICO</b:Key>
+            <b:Value i:type="c:string" xmlns:c="http://www.w3.org/2001/XMLSchema" />
+        </b:KeyValueOfanyTypeanyType>
+        <b:KeyValueOfanyTypeanyType>
+            <b:Key i:type="c:string" xmlns:c="http://www.w3.org/2001/XMLSchema">$CODUSUARIO</b:Key>
+            <b:Value i:type="c:string" xmlns:c="http://www.w3.org/2001/XMLSchema">integra.eduvem</b:Value>
+        </b:KeyValueOfanyTypeanyType>
+        <b:KeyValueOfanyTypeanyType>
+            <b:Key i:type="c:string" xmlns:c="http://www.w3.org/2001/XMLSchema">$IDPRJ</b:Key>
+            <b:Value i:type="c:int" xmlns:c="http://www.w3.org/2001/XMLSchema">-1</b:Value>
+        </b:KeyValueOfanyTypeanyType>
+        <b:KeyValueOfanyTypeanyType>
+            <b:Key i:type="c:string" xmlns:c="http://www.w3.org/2001/XMLSchema">$CHAPAFUNCIONARIO</b:Key>
+            <b:Value i:type="c:string" xmlns:c="http://www.w3.org/2001/XMLSchema">-1</b:Value>
+        </b:KeyValueOfanyTypeanyType>
+        <b:KeyValueOfanyTypeanyType>
+            <b:Key i:type="c:string" xmlns:c="http://www.w3.org/2001/XMLSchema">$CODFILIAL</b:Key>
+            <b:Value i:type="c:int" xmlns:c="http://www.w3.org/2001/XMLSchema">{{CODFILIAL}}</b:Value>
+        </b:KeyValueOfanyTypeanyType>
+        </a:_params>
+        <a:Environment>DotNet</a:Environment>
+    </Context>
+    <CustomData i:nil="true" xmlns="http://www.totvs.com/" />
+    <DisableIsolateProcess xmlns="http://www.totvs.com/">false</DisableIsolateProcess>
+    <DriverType i:nil="true" xmlns="http://www.totvs.com/" />
+    <ExecutionId xmlns="http://www.totvs.com/">{{EXECID}}</ExecutionId>
+    <FailureMessage xmlns="http://www.totvs.com/">Falha na execução do processo</FailureMessage>
+    <FriendlyLogs i:nil="true" xmlns="http://www.totvs.com/" />
+    <HideProgressDialog xmlns="http://www.totvs.com/">false</HideProgressDialog>
+    <HostName xmlns="http://www.totvs.com/">integra-rm-api</HostName>
+    <Initialized xmlns="http://www.totvs.com/">true</Initialized>
+    <Ip xmlns="http://www.totvs.com/">127.0.0.1</Ip>
+    <IsolateProcess xmlns="http://www.totvs.com/">false</IsolateProcess>
+    <JobID xmlns="http://www.totvs.com/">
+        <Children />
+        <ExecID>1</ExecID>
+        <ID>900807</ID>
+        <IsPriorityJob>false</IsPriorityJob>
+    </JobID>
+    <JobServerHostName xmlns="http://www.totvs.com/">114384-elastic-service-N-RM-P-CAQB4Z-3-d84cWIN-Z2</JobServerHostName>
+    <MasterActionName xmlns="http://www.totvs.com/">EduContratoAction</MasterActionName>
+    <MaximumQuantityOfPrimaryKeysPerProcess xmlns="http://www.totvs.com/">1000</MaximumQuantityOfPrimaryKeysPerProcess>
+    <MinimumQuantityOfPrimaryKeysPerProcess xmlns="http://www.totvs.com/">1</MinimumQuantityOfPrimaryKeysPerProcess>
+    <NetworkUser xmlns="http://www.totvs.com/">integra.eduvem</NetworkUser>
+    <NotifyEmail xmlns="http://www.totvs.com/">false</NotifyEmail>
+    <NotifyEmailList i:nil="true" xmlns="http://www.totvs.com/" xmlns:a="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+    <NotifyFluig xmlns="http://www.totvs.com/">false</NotifyFluig>
+    <OnlineMode xmlns="http://www.totvs.com/">false</OnlineMode>
+    <PrimaryKeyList xmlns="http://www.totvs.com/" xmlns:a="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+        <a:ArrayOfanyType>
+        <a:anyType i:type="b:short" xmlns:b="http://www.w3.org/2001/XMLSchema">{{CODCOLIGADA}}</a:anyType>
+        <a:anyType i:type="b:string" xmlns:b="http://www.w3.org/2001/XMLSchema">{{RA}}</a:anyType>
+        <a:anyType i:type="b:int" xmlns:b="http://www.w3.org/2001/XMLSchema">{{IDPERLET}}</a:anyType>
+        <a:anyType i:type="b:string" xmlns:b="http://www.w3.org/2001/XMLSchema">{{CODCONTRATO}}</a:anyType>
+        </a:ArrayOfanyType>
+    </PrimaryKeyList>
+    <PrimaryKeyNames xmlns="http://www.totvs.com/" xmlns:a="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+        <a:string>CODCOLIGADA</a:string>
+        <a:string>RA</a:string>
+        <a:string>IDPERLET</a:string>
+        <a:string>CODCONTRATO</a:string>
+    </PrimaryKeyNames>
+    <PrimaryKeyTableName xmlns="http://www.totvs.com/">SCONTRATO</PrimaryKeyTableName>
+    <ProcessName xmlns="http://www.totvs.com/">Gerar lançamento</ProcessName>
+    <QuantityOfSplits xmlns="http://www.totvs.com/">0</QuantityOfSplits>
+    <SaveLogInDatabase xmlns="http://www.totvs.com/">true</SaveLogInDatabase>
+    <SaveParamsExecution xmlns="http://www.totvs.com/">false</SaveParamsExecution>
+    <ScheduleDateTime xmlns="http://www.totvs.com/">{{SCHEDULE}}</ScheduleDateTime>
+    <Scheduler xmlns="http://www.totvs.com/">JobMonitor</Scheduler>
+    <SendMail xmlns="http://www.totvs.com/">false</SendMail>
+    <ServerName xmlns="http://www.totvs.com/">EduGerarLancFromContratoSliceableData</ServerName>
+    <ServiceInterface i:type="b:RuntimeType" z:FactoryType="c:UnitySerializationHolder" xmlns="http://www.totvs.com/" xmlns:a="http://schemas.datacontract.org/2004/07/System" xmlns:b="-mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089-System-System.RuntimeType" xmlns:c="-mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089-System-System.UnitySerializationHolder">
+        <Data i:type="d:string" xmlns="" xmlns:d="http://www.w3.org/2001/XMLSchema">RM.Lib.IRMSSliceableProcess`1[[RM.Edu.Financeiro.Lancamento.EduGeraLancSliceableParamsProc, RM.Edu.Financeiro.Intf, Version=12.1.2502.117, Culture=neutral, PublicKeyToken=null]]</Data>
+        <UnityType i:type="d:int" xmlns="" xmlns:d="http://www.w3.org/2001/XMLSchema">4</UnityType>
+        <AssemblyName i:type="d:string" xmlns="" xmlns:d="http://www.w3.org/2001/XMLSchema">RM.Lib, Version=12.1.2502.1, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    </ServiceInterface>
+    <ShouldParallelize xmlns="http://www.totvs.com/">false</ShouldParallelize>
+    <ShowReExecuteButton xmlns="http://www.totvs.com/">true</ShowReExecuteButton>
+    <StatusMessage i:nil="true" xmlns="http://www.totvs.com/" />
+    <SuccessMessage xmlns="http://www.totvs.com/">Processo executado com sucesso</SuccessMessage>
+    <SyncExecution xmlns="http://www.totvs.com/">false</SyncExecution>
+    <UseJobMonitor xmlns="http://www.totvs.com/">true</UseJobMonitor>
+    <UserName xmlns="http://www.totvs.com/">integra.eduvem</UserName>
+    <WaitSchedule xmlns="http://www.totvs.com/">false</WaitSchedule>
+    <EnableJobErrorProgressbar xmlns="http://www.totvs.com/">false</EnableJobErrorProgressbar>
+    <EnableTracing xmlns="http://www.totvs.com/">false</EnableTracing>
+    <LocalOnlyExecutor xmlns="http://www.totvs.com/">RMSJobData</LocalOnlyExecutor>
+    <RMSJobIds i:nil="true" xmlns="http://www.totvs.com/" />
+    <SlicesCount xmlns="http://www.totvs.com/">0</SlicesCount>
+    <CodColigada>0</CodColigada>
+    <CodFilial>0</CodFilial>
+    <CodTipoCurso>0</CodTipoCurso>
+    <ClausulasFiltroRa i:nil="true" xmlns:a="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+    <CodCurso i:nil="true" />
+    <CodGrade i:nil="true" />
+    <CodHabilitacao i:nil="true" />
+    <CodSentencaSql i:nil="true" />
+    <CodTurma i:nil="true" />
+    <CodTurno>0</CodTurno>
+    <IsExcluirPrevia>false</IsExcluirPrevia>
+    <IsProcGeraPrevia>false</IsProcGeraPrevia>
+    <ParamsGeraLanc z:Id="i3">
+        <AgrupaBolentroDeOutrasFiliais i:nil="true" />
+        <AgrupamentoBoleto i:nil="true" />
+        <AtualizarLancamentoGerado i:nil="true" />
+        <BoletoPorServico i:nil="true" />
+        <CampoAlfaOp1 i:nil="true" />
+        <CampoAlfaOp2 i:nil="true" />
+        <CampoAlfaOp3 i:nil="true" />
+        <CnabCarteira i:nil="true" />
+        <CodCCusto i:nil="true" />
+        <CodCfo i:nil="true" />
+        <CodColCfo>0</CodColCfo>
+        <CodColCxa i:nil="true" />
+        <CodColCxaAPagar i:nil="true" />
+        <CodColNatFinanceira i:nil="true" />
+        <CodColigada>0</CodColigada>
+        <CodColigadaConta>0</CodColigadaConta>
+        <CodContrato i:nil="true" />
+        <CodCxa i:nil="true" />
+        <CodCxaAPagar i:nil="true" />
+        <CodDepto i:nil="true" />
+        <CodEvento i:nil="true" />
+        <CodFilial>0</CodFilial>
+        <CodMoeda i:nil="true" />
+        <CodNatFinanceira i:nil="true" />
+        <CodPlanoPgto i:nil="true" />
+        <CodStatusMatriculaDisc>0</CodStatusMatriculaDisc>
+        <CodTabOp1 i:nil="true" />
+        <CodTabOp2 i:nil="true" />
+        <CodTabOp3 i:nil="true" />
+        <CodTabOp4 i:nil="true" />
+        <CodTabOp5 i:nil="true" />
+        <CodTipoCurso>0</CodTipoCurso>
+        <CodTipoDocumento i:nil="true" />
+        <CodTipoDocumentoAPagar i:nil="true" />
+        <CodUsuario i:nil="true" />
+        <ConsideraDescAntecipacao>S</ConsideraDescAntecipacao>
+        <ConsideraDescAntecipacaoBolsa>N</ConsideraDescAntecipacaoBolsa>
+        <ContratoHabNull i:nil="true" />
+        <CotaFinal i:nil="true" />
+        <CotaInicial i:nil="true" />
+        <DataCompetencia i:nil="true" />
+        <DataCompetenciaFinal i:nil="true" />
+        <DataCompetenciaInicial i:nil="true" />
+        <DataFinal i:nil="true" />
+        <DataInicial i:nil="true" />
+        <DataOp1 i:nil="true" />
+        <DataOp2 i:nil="true" />
+        <DataOp3 i:nil="true" />
+        <DataOp4 i:nil="true" />
+        <DataOp5 i:nil="true" />
+        <DataVencimento>0001-01-01T00:00:00</DataVencimento>
+        <FiltraPorIdParcela>false</FiltraPorIdParcela>
+        <Historico i:nil="true" />
+        <IncluirExcluirBolsaRetroativa>Inclusao</IncluirExcluirBolsaRetroativa>
+        <IsBolsaRetroativaModAntigo_NaoReGerarBoleto>false</IsBolsaRetroativaModAntigo_NaoReGerarBoleto>
+        <IsGeracaoPreviaLancamento>false</IsGeracaoPreviaLancamento>
+        <IsIncluirExcluirBolsaRetroativa>false</IsIncluirExcluirBolsaRetroativa>
+        <IsPlanoPagamentoDefault>false</IsPlanoPagamentoDefault>
+        <IsSimulaLancamento>false</IsSimulaLancamento>
+        <IsSomenteContratosAtivos>true</IsSomenteContratosAtivos>
+        <ListaAlunos xmlns:a="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+        <ListaContaCorrente />
+        <ListaHabilitacaoFilial xmlns:a="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+        <ListaIdParcela xmlns:a="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+        <ListaIdTurmaDisc xmlns:a="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+        <ListaPeriodoLetivo xmlns:a="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+        <ListaPlanosPgto xmlns:a="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+        <ListaServicos xmlns:a="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+        <ListaSitMatricula xmlns:a="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+        <ListaTipoContrato xmlns:a="http://schemas.datacontract.org/2004/07/RM.Edu.Consts" />
+        <ListaTipoParcela xmlns:a="http://schemas.datacontract.org/2004/07/RM.Edu.Consts" />
+        <MatriculaOnlineContextoParams i:nil="true" />
+        <NaoUsaFlexibilizacaoAlteraDataVencimento>false</NaoUsaFlexibilizacaoAlteraDataVencimento>
+        <NaoUsaFlexibilizacaoRemoverParcelasVencidas>false</NaoUsaFlexibilizacaoRemoverParcelasVencidas>
+        <NroConta i:nil="true" />
+        <NumAgencia i:nil="true" />
+        <NumAgenciaAPagar i:nil="true" />
+        <NumBanco i:nil="true" />
+        <NumBancoAPagar i:nil="true" />
+        <OperacaoBolsaRetroativa i:nil="true" />
+        <OrigemParcela i:nil="true" />
+        <OrigemSimulacaoIsBolsaRetroativa>false</OrigemSimulacaoIsBolsaRetroativa>
+        <ParcelaFinal i:nil="true" />
+        <ParcelaInicial i:nil="true" />
+        <PermiteAtualizarContaCorrente>true</PermiteAtualizarContaCorrente>
+        <PersonalizacaoListaSituacaoMatricula>Nao</PersonalizacaoListaSituacaoMatricula>
+        <ProcessaDescAntecipacaoDuranteGerPrevia>Nao</ProcessaDescAntecipacaoDuranteGerPrevia>
+        <TipoBolsaContrato>S</TipoBolsaContrato>
+        <TipoCalculoPorCredito>Default</TipoCalculoPorCredito>
+        <TipoCob i:nil="true" />
+        <TipoContaCaixa i:nil="true" />
+        <TipoContabilLan i:nil="true" />
+        <TipoContabilLanAPagar i:nil="true" />
+        <TipoSelecaoParcela>IdParcela</TipoSelecaoParcela>
+        <ValorBolsaRetroativa>0</ValorBolsaRetroativa>
+        <ValorOriginal>0</ValorOriginal>
+    </ParamsGeraLanc>
+    <RA i:nil="true" />
+    <SalvarParams>false</SalvarParams>
+    <TipoFiltro>Nenhum</TipoFiltro>
+    <ValorParamsConsultaSql i:nil="true" xmlns:a="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+    </EduGeraLancParamsProc>

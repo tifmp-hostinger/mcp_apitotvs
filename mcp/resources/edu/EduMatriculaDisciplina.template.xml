@@ -1,0 +1,354 @@
+<?xml version="1.0" encoding="utf-16"?>
+    <EduMatriculaParamsProc z:Id="i1" xmlns="http://www.totvs.com.br/RM/" xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns:z="http://schemas.microsoft.com/2003/10/Serialization/">
+    <ActionModule xmlns="http://www.totvs.com/">S</ActionModule>
+    <ActionName xmlns="http://www.totvs.com/">EduMatriculaDiscAction</ActionName>
+    <CanParallelize xmlns="http://www.totvs.com/">true</CanParallelize>
+    <CanSendMail xmlns="http://www.totvs.com/">false</CanSendMail>
+    <CanWaitSchedule xmlns="http://www.totvs.com/">false</CanWaitSchedule>
+    <CodUsuario xmlns="http://www.totvs.com/">integra.eduvem</CodUsuario>
+    <ConnectionId i:nil="true" xmlns="http://www.totvs.com/" />
+    <ConnectionString i:nil="true" xmlns="http://www.totvs.com/" />
+    <Context z:Id="i2" xmlns="http://www.totvs.com/" xmlns:a="http://www.totvs.com.br/RM/">
+        <a:_params xmlns:b="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+        <b:KeyValueOfanyTypeanyType>
+            <b:Key i:type="c:string" xmlns:c="http://www.w3.org/2001/XMLSchema">$EXERCICIOFISCAL</b:Key>
+            <b:Value i:type="c:int" xmlns:c="http://www.w3.org/2001/XMLSchema">1</b:Value>
+        </b:KeyValueOfanyTypeanyType>
+        <b:KeyValueOfanyTypeanyType>
+            <b:Key i:type="c:string" xmlns:c="http://www.w3.org/2001/XMLSchema">$CODLOCPRT</b:Key>
+            <b:Value i:type="c:int" xmlns:c="http://www.w3.org/2001/XMLSchema">-1</b:Value>
+        </b:KeyValueOfanyTypeanyType>
+        <b:KeyValueOfanyTypeanyType>
+            <b:Key i:type="c:string" xmlns:c="http://www.w3.org/2001/XMLSchema">$CODTIPOCURSO</b:Key>
+            <b:Value i:type="c:int" xmlns:c="http://www.w3.org/2001/XMLSchema">{{G_CODTIPOCURSO}}</b:Value>
+        </b:KeyValueOfanyTypeanyType>
+        <b:KeyValueOfanyTypeanyType>
+            <b:Key i:type="c:string" xmlns:c="http://www.w3.org/2001/XMLSchema">$EDUTIPOUSR</b:Key>
+            <b:Value i:type="c:string" xmlns:c="http://www.w3.org/2001/XMLSchema">-1</b:Value>
+        </b:KeyValueOfanyTypeanyType>
+        <b:KeyValueOfanyTypeanyType>
+            <b:Key i:type="c:string" xmlns:c="http://www.w3.org/2001/XMLSchema">$CODUNIDADEBIB</b:Key>
+            <b:Value i:type="c:int" xmlns:c="http://www.w3.org/2001/XMLSchema">-1</b:Value>
+        </b:KeyValueOfanyTypeanyType>
+        <b:KeyValueOfanyTypeanyType>
+            <b:Key i:type="c:string" xmlns:c="http://www.w3.org/2001/XMLSchema">$CODCOLIGADA</b:Key>
+            <b:Value i:type="c:int" xmlns:c="http://www.w3.org/2001/XMLSchema">{{G_CODCOLIGADA}}</b:Value>
+        </b:KeyValueOfanyTypeanyType>
+        <b:KeyValueOfanyTypeanyType>
+            <b:Key i:type="c:string" xmlns:c="http://www.w3.org/2001/XMLSchema">$RHTIPOUSR</b:Key>
+            <b:Value i:type="c:string" xmlns:c="http://www.w3.org/2001/XMLSchema">-1</b:Value>
+        </b:KeyValueOfanyTypeanyType>
+        <b:KeyValueOfanyTypeanyType>
+            <b:Key i:type="c:string" xmlns:c="http://www.w3.org/2001/XMLSchema">$CODIGOEXTERNO</b:Key>
+            <b:Value i:type="c:string" xmlns:c="http://www.w3.org/2001/XMLSchema">-1</b:Value>
+        </b:KeyValueOfanyTypeanyType>
+        <b:KeyValueOfanyTypeanyType>
+            <b:Key i:type="c:string" xmlns:c="http://www.w3.org/2001/XMLSchema">$CODSISTEMA</b:Key>
+            <b:Value i:type="c:string" xmlns:c="http://www.w3.org/2001/XMLSchema">S</b:Value>
+        </b:KeyValueOfanyTypeanyType>
+        <b:KeyValueOfanyTypeanyType>
+            <b:Key i:type="c:string" xmlns:c="http://www.w3.org/2001/XMLSchema">$CODUSUARIOSERVICO</b:Key>
+            <b:Value i:type="c:string" xmlns:c="http://www.w3.org/2001/XMLSchema" />
+        </b:KeyValueOfanyTypeanyType>
+        <b:KeyValueOfanyTypeanyType>
+            <b:Key i:type="c:string" xmlns:c="http://www.w3.org/2001/XMLSchema">$CODUSUARIO</b:Key>
+            <b:Value i:type="c:string" xmlns:c="http://www.w3.org/2001/XMLSchema">integra.eduvem</b:Value>
+        </b:KeyValueOfanyTypeanyType>
+        <b:KeyValueOfanyTypeanyType>
+            <b:Key i:type="c:string" xmlns:c="http://www.w3.org/2001/XMLSchema">$IDPRJ</b:Key>
+            <b:Value i:type="c:int" xmlns:c="http://www.w3.org/2001/XMLSchema">-1</b:Value>
+        </b:KeyValueOfanyTypeanyType>
+        <b:KeyValueOfanyTypeanyType>
+            <b:Key i:type="c:string" xmlns:c="http://www.w3.org/2001/XMLSchema">$CHAPAFUNCIONARIO</b:Key>
+            <b:Value i:type="c:string" xmlns:c="http://www.w3.org/2001/XMLSchema">-1</b:Value>
+        </b:KeyValueOfanyTypeanyType>
+        <b:KeyValueOfanyTypeanyType>
+            <b:Key i:type="c:string" xmlns:c="http://www.w3.org/2001/XMLSchema">$CODFILIAL</b:Key>
+            <b:Value i:type="c:int" xmlns:c="http://www.w3.org/2001/XMLSchema">{{G_CODFILIAL}}</b:Value>
+        </b:KeyValueOfanyTypeanyType>
+        </a:_params>
+        <a:Environment>DotNet</a:Environment>
+    </Context>
+    <CustomData i:nil="true" xmlns="http://www.totvs.com/" />
+    <DisableIsolateProcess xmlns="http://www.totvs.com/">false</DisableIsolateProcess>
+    <DriverType i:nil="true" xmlns="http://www.totvs.com/" />
+    <ExecutionId xmlns="http://www.totvs.com/">{{EXECID}}</ExecutionId>
+    <FailureMessage xmlns="http://www.totvs.com/">Falha na execu  o do processo</FailureMessage>
+    <FriendlyLogs i:nil="true" xmlns="http://www.totvs.com/" />
+    <HideProgressDialog xmlns="http://www.totvs.com/">false</HideProgressDialog>
+    <HostName xmlns="http://www.totvs.com/">integra-rm-api</HostName>
+    <Initialized xmlns="http://www.totvs.com/">true</Initialized>
+    <Ip xmlns="http://www.totvs.com/">127.0.0.1</Ip>
+    <IsolateProcess xmlns="http://www.totvs.com/">false</IsolateProcess>
+    <JobID xmlns="http://www.totvs.com/">
+        <Children />
+        <ExecID>1</ExecID>
+        <ID>905486</ID>
+        <IsPriorityJob>false</IsPriorityJob>
+    </JobID>
+    <JobServerHostName xmlns="http://www.totvs.com/">114384-elastic-service-N-RM-P-CAQB4Z-2-c7f4WIN-Z2</JobServerHostName>
+    <MasterActionName xmlns="http://www.totvs.com/">EduMatricPLAction</MasterActionName>
+    <MaximumQuantityOfPrimaryKeysPerProcess xmlns="http://www.totvs.com/">1000</MaximumQuantityOfPrimaryKeysPerProcess>
+    <MinimumQuantityOfPrimaryKeysPerProcess xmlns="http://www.totvs.com/">1</MinimumQuantityOfPrimaryKeysPerProcess>
+    <NetworkUser xmlns="http://www.totvs.com/">integra.eduvem</NetworkUser>
+    <NotifyEmail xmlns="http://www.totvs.com/">false</NotifyEmail>
+    <NotifyEmailList i:nil="true" xmlns="http://www.totvs.com/" xmlns:a="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+    <NotifyFluig xmlns="http://www.totvs.com/">false</NotifyFluig>
+    <OnlineMode xmlns="http://www.totvs.com/">false</OnlineMode>
+    <PrimaryKeyList xmlns="http://www.totvs.com/" xmlns:a="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+        <a:ArrayOfanyType>
+        <a:anyType i:type="b:short" xmlns:b="http://www.w3.org/2001/XMLSchema">{{G_CODCOLIGADA}}</a:anyType>
+        <a:anyType i:type="b:int" xmlns:b="http://www.w3.org/2001/XMLSchema">{{IDPERLET}}</a:anyType>
+        <a:anyType i:type="b:int" xmlns:b="http://www.w3.org/2001/XMLSchema">{{G_IDHABILITACAOFILIAL}}</a:anyType>
+        <a:anyType i:type="b:string" xmlns:b="http://www.w3.org/2001/XMLSchema">{{RA}}</a:anyType>
+        </a:ArrayOfanyType>
+    </PrimaryKeyList>
+    <PrimaryKeyNames xmlns="http://www.totvs.com/" xmlns:a="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+        <a:string>CODCOLIGADA</a:string>
+        <a:string>IDPERLET</a:string>
+        <a:string>IDHABILITACAOFILIAL</a:string>
+        <a:string>RA</a:string>
+    </PrimaryKeyNames>
+    <PrimaryKeyTableName xmlns="http://www.totvs.com/">SMatricPL</PrimaryKeyTableName>
+    <ProcessName xmlns="http://www.totvs.com/">Matricular aluno nas disciplinas</ProcessName>
+    <QuantityOfSplits xmlns="http://www.totvs.com/">1</QuantityOfSplits>
+    <SaveLogInDatabase xmlns="http://www.totvs.com/">true</SaveLogInDatabase>
+    <SaveParamsExecution xmlns="http://www.totvs.com/">false</SaveParamsExecution>
+    <ScheduleDateTime xmlns="http://www.totvs.com/">{{SCHEDULE}}</ScheduleDateTime>
+    <Scheduler xmlns="http://www.totvs.com/">JobMonitor</Scheduler>
+    <SendMail xmlns="http://www.totvs.com/">false</SendMail>
+    <ServerName xmlns="http://www.totvs.com/">EduMatriculaProcData</ServerName>
+    <ServiceInterface i:type="b:RuntimeType" z:FactoryType="c:UnitySerializationHolder" xmlns="http://www.totvs.com/" xmlns:a="http://schemas.datacontract.org/2004/07/System" xmlns:b="-mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089-System-System.RuntimeType" xmlns:c="-mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089-System-System.UnitySerializationHolder">
+        <Data i:type="d:string" xmlns="" xmlns:d="http://www.w3.org/2001/XMLSchema">RM.Edu.Interfaces.IEduMatriculaProc</Data>
+        <UnityType i:type="d:int" xmlns="" xmlns:d="http://www.w3.org/2001/XMLSchema">4</UnityType>
+        <AssemblyName i:type="d:string" xmlns="" xmlns:d="http://www.w3.org/2001/XMLSchema">RM.Edu.Interfaces.Intf, Version=12.1.2502.176, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    </ServiceInterface>
+    <ShouldParallelize xmlns="http://www.totvs.com/">false</ShouldParallelize>
+    <ShowReExecuteButton xmlns="http://www.totvs.com/">true</ShowReExecuteButton>
+    <StatusMessage i:nil="true" xmlns="http://www.totvs.com/" />
+    <SuccessMessage xmlns="http://www.totvs.com/">Processo executado com sucesso</SuccessMessage>
+    <SyncExecution xmlns="http://www.totvs.com/">false</SyncExecution>
+    <UseJobMonitor xmlns="http://www.totvs.com/">true</UseJobMonitor>
+    <UserName xmlns="http://www.totvs.com/">integra.eduvem</UserName>
+    <WaitSchedule xmlns="http://www.totvs.com/">false</WaitSchedule>
+    <CadastrarDisciplinas>true</CadastrarDisciplinas>
+    <MatricPLParams z:Id="i3">
+        <AlteraMatrizContratoOriginal>false</AlteraMatrizContratoOriginal>
+        <ApagarNumeroDiario>false</ApagarNumeroDiario>
+        <ArquivoRelatorioContrato i:nil="true" />
+        <CR i:nil="true" />
+        <CadastrarContrato>false</CadastrarContrato>
+        <CancelarLancamentos>true</CancelarLancamentos>
+        <CarteiraEmitida>false</CarteiraEmitida>
+        <ChaveRMRegistroMasterTAE i:nil="true" />
+        <ClientIP i:nil="true" />
+        <CobrarDocsTipoIngressoRematriculaEB>true</CobrarDocsTipoIngressoRematriculaEB>
+        <CodColigada>1</CodColigada>
+        <CodContrato i:nil="true" />
+        <CodFilial>{{CODFILIAL}}</CodFilial>
+        <CodFormula i:nil="true" />
+        <CodInstDestino i:nil="true" />
+        <CodMotivo i:nil="true" />
+        <CodMotivoTransferencia i:nil="true" />
+        <CodPlanoPgto />
+        <CodStatus>23</CodStatus>
+        <CodStatusNovo i:nil="true" />
+        <CodStatusPendenteDisc i:nil="true" />
+        <CodStatusPendentePL i:nil="true" />
+        <CodStatusRes i:nil="true" />
+        <CodTipoCurso>{{G_CODTIPOCURSO}}</CodTipoCurso>
+        <CodTipoMat>7</CodTipoMat>
+        <CodTurma>{{CODTURMA}}</CodTurma>
+        <CodTurmaAnterior i:nil="true" />
+        <CodUsuario>integra.eduvem</CodUsuario>
+        <ColigadaRelatBoleto i:nil="true" />
+        <ColigadaRelatContrato i:nil="true" />
+        <ContratosCanceladosContabilizados xmlns:a="http://www.totvs.com/" />
+        <ContratosTemp xmlns:a="http://www.totvs.com/" />
+        <CopiarDescontoPorAntecipacao>false</CopiarDescontoPorAntecipacao>
+        <CopiarRespFinanceiroContrato>false</CopiarRespFinanceiroContrato>
+        <CopiarVencimentos>false</CopiarVencimentos>
+        <CotaFinal i:nil="true" />
+        <CotaInicial i:nil="true" />
+        <DadosRelatorioManifesto i:nil="true" />
+        <DataCancelamentoContrato i:nil="true" />
+        <DataCancelamentoParcelas i:nil="true" />
+        <DataFinalParc i:nil="true" />
+        <DataIngresso i:nil="true" />
+        <DataInicialParc i:nil="true" />
+        <DataMatricula>{{NOW}}</DataMatricula>
+        <DataMatriculaAnterior i:nil="true" />
+        <DataMatriculaEncerra i:nil="true" />
+        <DataMatriculaEncerraAnterior i:nil="true" />
+        <DataMatriculaEncerraNova i:nil="true" />
+        <DataMatriculaNova i:nil="true" />
+        <DiaFixo>Nao</DiaFixo>
+        <DiaVencimento i:nil="true" />
+        <DiasVencimentoPrimeiraParcela>0</DiasVencimentoPrimeiraParcela>
+        <Disciplinas>
+        <EduMatriculaDiscParams z:Id="i4">
+            <AlunoRegular>false</AlunoRegular>
+            <ApagarNumeroDiario>false</ApagarNumeroDiario>
+            <AtendeuCreditoMinimo>false</AtendeuCreditoMinimo>
+            <CargaHoraria>4</CargaHoraria>
+            <ClientIP i:nil="true" />
+            <CobPosteriorMatric>N</CobPosteriorMatric>
+            <CodCampus i:nil="true" />
+            <CodColigada>1</CodColigada>
+            <CodCurso i:nil="true" />
+            <CodDisc>{{G_CODDISC}}</CodDisc>
+            <CodFilial>{{CODFILIAL}}</CodFilial>
+            <CodFormula i:nil="true" />
+            <CodGrade i:nil="true" />
+            <CodHabilitacao i:nil="true" />
+            <CodItinerarioFormativo i:nil="true" />
+            <CodMotivo i:nil="true" />
+            <CodPerLet i:nil="true" />
+            <CodSituacaoMatriculaEspera>0</CodSituacaoMatriculaEspera>
+            <CodStatus>23</CodStatus>
+            <CodStatusNovo>23</CodStatusNovo>
+            <CodStatusPL>23</CodStatusPL>
+            <CodStatusRes i:nil="true" />
+            <CodSubturma />
+            <CodSubturmaMatriculado i:nil="true" />
+            <CodTipoCurso>{{G_CODTIPOCURSO}}</CodTipoCurso>
+            <CodTurma>{{G_CODTURMA}}</CodTurma>
+            <CodTurno>0</CodTurno>
+            <CodUsuario>integra.eduvem</CodUsuario>
+            <CoeficienteRendimeto i:nil="true" />
+            <DataMatricula>{{NOW}}</DataMatricula>
+            <DescStatusNovo i:nil="true" />
+            <DtAlteracao i:nil="true" />
+            <EnturmandoTurmaMista>false</EnturmandoTurmaMista>
+            <ExcluirMatricula>false</ExcluirMatricula>
+            <GerarLogMatricPL>false</GerarLogMatricPL>
+            <IdHabilitacaoFilial>{{G_IDHABILITACAOFILIAL}}</IdHabilitacaoFilial>
+            <IdHabilitacaoFilialOrigem i:nil="true" />
+            <IdHabilitacaoFilialTurmaDisc i:nil="true" />
+            <IdPerLet>{{IDPERLET}}</IdPerLet>
+            <IdTurmaDisc>{{G_IDTURMADISC}}</IdTurmaDisc>
+            <IdTurmaDiscOrigem i:nil="true" />
+            <IdTurmaDiscPrincipal i:nil="true" />
+            <IdTurmaDiscSubst i:nil="true" />
+            <IncluirListaEspera>false</IncluirListaEspera>
+            <IsEnturmacao>false</IsEnturmacao>
+            <ListaTurmaMista i:nil="true" />
+            <MatriculaIsolada>false</MatriculaIsolada>
+            <MatriculaNoUltimoPeriodo>true</MatriculaNoUltimoPeriodo>
+            <MatriculaNovoPortal>false</MatriculaNovoPortal>
+            <MatriculaPortalItinerarioMenuExclusivo>false</MatriculaPortalItinerarioMenuExclusivo>
+            <MatriculaSubstituicaoAtiva>false</MatriculaSubstituicaoAtiva>
+            <MatriculaViaProcessoSeletivoRM>false</MatriculaViaProcessoSeletivoRM>
+            <MatriculaViaProcessoSeletivoTerceirizado>false</MatriculaViaProcessoSeletivoTerceirizado>
+            <MatriculaWeb>false</MatriculaWeb>
+            <MatricularDisciplinaNaListaDeEspera>false</MatricularDisciplinaNaListaDeEspera>
+            <MatrizAluno>0</MatrizAluno>
+            <MediaGlobal i:nil="true" />
+            <MudancaDeTurmaMista>false</MudancaDeTurmaMista>
+            <MudancaStatus>false</MudancaStatus>
+            <MudancaTurma>false</MudancaTurma>
+            <NomeAluno i:nil="true" />
+            <NomeCampus i:nil="true" />
+            <NomeCurso i:nil="true" />
+            <!-- <NomeDisc>Compet ncia Textual</NomeDisc> -->
+            <NomeFilial i:nil="true" />
+            <NomeHabilitacao i:nil="true" />
+            <NomeMatrizCurricular i:nil="true" />
+            <NomeTurno i:nil="true" />
+            <NumCreditos>0</NumCreditos>
+            <NumCreditosCob>0</NumCreditosCob>
+            <NumCreditosCobAnt i:nil="true" />
+            <NumDiario i:nil="true" />
+            <NumDiarioAnterior i:nil="true" />
+            <ObsHistorico i:nil="true" />
+            <OrdemPriorMatricula i:nil="true" />
+            <Origem>Produto</Origem>
+            <OrigemCriacaoMatriculaDisciplina>ProcMatricula</OrigemCriacaoMatriculaDisciplina>
+            <ParamDiversos i:nil="true" />
+            <Periodo>1</Periodo>
+            <PeriodoDeMatricula>1</PeriodoDeMatricula>
+            <PermiteAlterarDados>true</PermiteAlterarDados>
+            <PermiteTransfInternaAlunoInadimplente>false</PermiteTransfInternaAlunoInadimplente>
+            <PodeRodarNumeracaoAutomatica>true</PodeRodarNumeracaoAutomatica>
+            <PossivelFormando>false</PossivelFormando>
+            <ProcessoListaEsperaPrioridade>false</ProcessoListaEsperaPrioridade>
+            <ProcurarOutraTurma>false</ProcurarOutraTurma>
+            <RA>{{RA}}</RA>
+            <RemanejarTurmaMistaNaMudancaDeTurma>false</RemanejarTurmaMistaNaMudancaDeTurma>
+            <Rematricula>false</Rematricula>
+            <SalvouMatricula>false</SalvouMatricula>
+            <TipoDiscGrade>Obrigatoria</TipoDiscGrade>
+            <TipoDisciplina>Normal</TipoDisciplina>
+            <TipoMat>7</TipoMat>
+            <TipoOperacao>Inclusao</TipoOperacao>
+            <TransferenciaInterna>false</TransferenciaInterna>
+            <UtilizaBalanceamentoTurmaSubTurmasIngressantesPS>false</UtilizaBalanceamentoTurmaSubTurmasIngressantesPS>
+            <ValidadoTurmaMista>false</ValidadoTurmaMista>
+            <ValidarInadimplencia>true</ValidarInadimplencia>
+            <ValidarIntegracaoBiblioteca>true</ValidarIntegracaoBiblioteca>
+            <ValidarRequisitosMatriculaDisciplinaItinerario>true</ValidarRequisitosMatriculaDisciplinaItinerario>
+        </EduMatriculaDiscParams>
+        </Disciplinas>
+        <DtCompetenciaFinal>  /</DtCompetenciaFinal>
+        <DtCompetenciaFinalMov>  /</DtCompetenciaFinalMov>
+        <DtCompetenciaInicial>  /</DtCompetenciaInicial>
+        <DtCompetenciaInicialMov>  /</DtCompetenciaInicialMov>
+        <DtMatriculaPag i:nil="true" />
+        <DtResultado i:nil="true" />
+        <DtSolicitacaoAlteracao i:nil="true" />
+        <EmTransacao>false</EmTransacao>
+        <GeraManifesto>false</GeraManifesto>
+        <GerarContratoAssinado>false</GerarContratoAssinado>
+        <GerarLancamento>Nao</GerarLancamento>
+        <GerarLog>true</GerarLog>
+        <GerouContratoComPlano>false</GerouContratoComPlano>
+        <IDPS>0</IDPS>
+        <IdHabilitacaoFilial>{{IDHABILITACAOFILIAL}}</IdHabilitacaoFilial>
+        <IdHabilitacaoFilialOrigem i:nil="true" />
+        <IdPerLet>{{IDPERLET}}</IdPerLet>
+        <IdRelatBoleto i:nil="true" />
+        <IdRelatContrato i:nil="true" />
+        <Identificador />
+        <IsDesenturmacao>false</IsDesenturmacao>
+        <IsEnturmacao>false</IsEnturmacao>
+        <IsRematricula>true</IsRematricula>
+        <ListaItinerarioFormativo i:nil="true" />
+        <MatriculaNovoPortal>false</MatriculaNovoPortal>
+        <MatriculaPortalItinerarioMenuExclusivo>false</MatriculaPortalItinerarioMenuExclusivo>
+        <MatriculaWeb>false</MatriculaWeb>
+        <MudancaStatus>false</MudancaStatus>
+        <MudancaTurma>false</MudancaTurma>
+        <NaoUsaFlexibilizacaoAlteraDataVencimento>false</NaoUsaFlexibilizacaoAlteraDataVencimento>
+        <NaoUsaFlexibilizacaoRemoverParcelasVencidas>false</NaoUsaFlexibilizacaoRemoverParcelasVencidas>
+        <NomeAluno i:nil="true" />
+        <NumCarteira />
+        <NumeroInscricao>0</NumeroInscricao>
+        <OrigemParcela i:nil="true" />
+        <ParametrosDiversos i:nil="true" />
+        <ParcelaFinal i:nil="true" />
+        <ParcelaInicial i:nil="true" />
+        <PendenteDocumento>Nao</PendenteDocumento>
+        <PendenteInadimplencia>Nao</PendenteInadimplencia>
+        <PendenteInadimplenciaBib>Nao</PendenteInadimplenciaBib>
+        <PendenteOcorrenciaBloqMatricula>Nao</PendenteOcorrenciaBloqMatricula>
+        <Periodo>1</Periodo>
+        <PermiteTransfInternaAlunoInadimplente>false</PermiteTransfInternaAlunoInadimplente>
+        <PodeRodarNumeracaoAutomatica>true</PodeRodarNumeracaoAutomatica>
+        <PossuiPendencia>false</PossuiPendencia>
+        <RA>{{RA}}</RA>
+        <RematriculaEBasicoAjusteContratoHabFilial>false</RematriculaEBasicoAjusteContratoHabFilial>
+        <ResponsaveisFinanceirosContrato xmlns:a="http://www.totvs.com/" />
+        <ServicosRenovacaoRecorrencia />
+        <TextoContrato i:nil="true" />
+        <TipoOperacao>Inclusao</TipoOperacao>
+        <TipoSelecaoParcela>IdParcela</TipoSelecaoParcela>
+        <TokenAssinaturaTAE i:nil="true" />
+        <TransferenciaInterna>false</TransferenciaInterna>
+        <TurnosDiferentes>false</TurnosDiferentes>
+        <UsarPlanoPgtoParametrizacaoCurso>false</UsarPlanoPgtoParametrizacaoCurso>
+        <ValidarInadimplenciaBiblioteca>true</ValidarInadimplenciaBiblioteca>
+        <ViaCarteira />
+        <grupoRelat i:nil="true" />
+    </MatricPLParams>
+    <MatricularDisc>Sim</MatricularDisc>
+    </EduMatriculaParamsProc>

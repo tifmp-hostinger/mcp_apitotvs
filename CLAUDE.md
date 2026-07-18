@@ -1,31 +1,52 @@
-# Convenções do projeto (api-totvs)
+# Convenções do projeto (mcp_apitotvs)
 
-API REST em Slim/PHP que integra com o TOTVS RM via SOAP. App servida na raiz
-(`setBasePath('')`) — rotas são `/pessoas`, `/financeiro/baixas` etc., **sem** `/api`.
+Servidor **MCP** (Streamable HTTP + OAuth 2.1) em **Node 22/TypeScript**
+(`mcp/`) que integra agentes de IA ao **TOTVS RM via SOAP direto** (sem WSDL).
+A antiga API REST PHP (`www/api/`) foi portada para dentro do MCP e permanece
+no repositório **como referência** — o serviço ativo é o `mcp/`.
 
-## Ao criar/alterar uma rota, atualize SEMPRE (mesma alteração):
+## Ao criar/alterar uma tool do MCP, atualize SEMPRE (mesma alteração):
 
-1. **`www/api/config/routes.php`** — a rota em si.
-2. **`www/api/public/docs.html`** — adicione a entrada no array `endpoints`
-   (objeto `{g, method, path, desc, hint?, params?, query?, body?}`), no grupo
-   correspondente. **Não deixe rota fora do docs.** É a referência interativa
-   servida em produção.
-3. **`www/api/API.md`** — documente a rota (tabela/seção do domínio).
-4. **`www/api/config/dependencies.php`** — DI do controller/serviço, se novo.
-5. **`www/api/src/Support/RouteCatalog.php`** — SÓ existe na branch do painel
-   (`claude/api-route-control-ui-*`), não na `main`. Atualize apenas quando
-   estiver trabalhando nessa branch.
+1. **`mcp/src/tools.ts`** — a tool em si (envelope `{sucesso, mensagem, dados}`
+   nos moldes da API; consultas com `readOnlyHint`, gravações com
+   `destructiveHint`).
+2. **`mcp/src/services/*`** — regra de negócio (1 domínio por classe).
+   Fluxo: `tool → service → RMSoapClient → RM`. Tools nunca tocam SOAP.
+3. **`mcp/README.md`** — tabela de tools.
+4. **`mcp/scripts/smoke.mjs`** — cobertura no smoke (mock SOAP do RM).
 
-## URL base
-Domínio de produção: **https://api-totvs.fmp.edu.br** (valor default do campo
-"URL base" no `docs.html`). Ao mudar o domínio, ajuste o `value` do `#base`.
+## XMLs de processo do RM (wsProcess)
 
-## Ambiente de teste local
-Sem `ext-soap` no CLI desta sessão: chamadas ao RM falham com 502
-("Class SoapClient not found") — isso NÃO indica bug de rota/DI, apenas ausência
-da extensão. Valide builder de XML, validações e wiring localmente; a execução
-real do RM confirma-se no deploy (Docker tem `ext-soap`).
+Templates em `mcp/resources/{edu,fin}/*.template.xml` (placeholders `{{...}}`,
+builders em `mcp/src/support/process-xml.ts`):
 
-Servidor de dev (serve estáticos de `public/` + Slim):
-`php -S 127.0.0.1:8099 -t public router-dev.php` (crie o `router-dev.php` se não
-existir na branch).
+- `edu/` é **EXTRAÍDO dos heredocs do PHP** por
+  `mcp/scripts/extrair-templates-edu.php` — se mudar
+  `www/api/src/Support/ProcessXml.php`, regenere e rode `npm run diff-xml`
+  (compara os builders PHP × TS byte a byte; deve dar 9/9 iguais).
+- Baixa financeira: caminho validado em homolog = `FinTBCBaixaDataProcess`.
+  **NUNCA teste nomes de processo de baixa em produção** (nome certo executa
+  baixa real). Na tool `financeiro_baixar`, `DRY_RUN` é `true` por padrão —
+  mantenha assim.
+
+## Testes
+
+`cd mcp && npm test` = build + smoke E2E (38 checks: OAuth 2.1 completo,
+protocolo MCP, tools contra mock SOAP, travas) + diff PHP×TS. Sem rede externa
+e sem RM real; a execução real confirma-se no deploy. Os testes PHP continuam
+em `www/api` (`php tests/run.php`).
+
+## Envs / deploy
+
+Envs do TOTVS com os **mesmos nomes da API PHP** (`TOTVS_WS_URL/USER/PASSWORD`,
+`APP_CRYPTO_KEY`, `FIN_*`, `TOTVS_PORTAL_*`) — referência em
+`mcp/.env.example`. Deploy EasyPanel com `mcp/Dockerfile` (contexto `mcp/`).
+Produção RM = base `114384`; homolog = `114385`.
+
+## Legado (www/api — só referência)
+
+`www/api/API.md` segue sendo a documentação de domínio mais completa
+(sentenças INT.EDUVEM.*, DataServers, histórico da investigação da baixa).
+Se alterar algo lá, siga as convenções antigas (routes.php + docs.html +
+API.md + dependencies.php em sincronia — teste guarda-corpo:
+`RotasDocumentadasTest`).

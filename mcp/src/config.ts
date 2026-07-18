@@ -1,25 +1,40 @@
 /**
- * Configuração central via variáveis de ambiente (mesma filosofia do
- * config/rm.php da API PHP: env real tem precedência, defaults seguros).
+ * Configuração central via variáveis de ambiente.
+ *
+ * As envs do TOTVS RM usam OS MESMOS NOMES da API PHP (config/rm.php):
+ * TOTVS_WS_URL/USER/PASSWORD, APP_CRYPTO_KEY, FIN_BAIXA_*, TOTVS_PORTAL_* —
+ * migração 1:1 do painel (EasyPanel).
  *
  * Em produção (NODE_ENV=production) MCP_PUBLIC_URL, MCP_OAUTH_SIGNING_KEY e
  * MCP_ACCESS_PASSWORD são obrigatórias — sem elas o boot aborta, para evitar
- * subir um servidor de gestão do TOTVS aberto por esquecimento (mesma postura
- * do API_KEY obrigatório da API PHP).
+ * subir um servidor de gestão do TOTVS aberto por esquecimento.
  */
 
 import crypto from 'node:crypto';
 
+export interface RmConfig {
+    /** Base SOAP do RM, ex.: https://fundacaoescola114384.rm.cloudtotvs.com.br:8051 */
+    wsUrl: string;
+    wsUser: string;
+    wsPassword: string;
+    /** Timeout das chamadas SOAP (processos do RM são lentos; a API PHP usava 300s). */
+    timeoutMs: number;
+    contextoPadrao: { CODSISTEMA: string; CODUSUARIO: string };
+    sql: { codcoligada: string; codsistema: string };
+    usuarioServico: string;
+    baixa: { processo: string; operacao: string };
+    codCxaPadrao: string;
+    relatorioContrato: { codcoligada: string; id: string };
+    portal: { loginUrl: string; autologinUrl: string; alias: string };
+    /** Chave de 32 bytes do AES-256-GCM dos tokens de SSO. */
+    cryptoKey: string;
+    debug: boolean;
+}
+
 export interface Config {
     port: number;
-    /** URL pública (issuer OAuth e base dos metadados). Sem barra final. */
+    /** URL pública (issuer OAuth, links de SSO). Sem barra final. */
     publicUrl: string;
-    /** Base da API REST api-totvs (ex.: https://api-totvs.fmp.edu.br). Sem barra final. */
-    apiBaseUrl: string;
-    /** Chave enviada no header X-API-Key para a API REST. */
-    apiKey: string;
-    /** Timeout das chamadas à API REST (processos do RM podem ser lentos). */
-    apiTimeoutMs: number;
     /** Segredo HS256 dos JWTs (códigos, access e refresh tokens). */
     signingKey: string;
     /** Senha pedida na tela de autorização OAuth. */
@@ -28,10 +43,9 @@ export interface Config {
     staticTokens: string[];
     accessTokenTtl: number;
     refreshTokenTtl: number;
-    /** Origens CORS permitidas ("*" = aberto). */
     corsOrigins: string[];
-    /** Diretório de dados (clients OAuth registrados). */
     dataDir: string;
+    rm: RmConfig;
 }
 
 function env(name: string, fallback = ''): string {
@@ -63,7 +77,6 @@ export function loadConfig(): Config {
                 'Defina-as no painel (EasyPanel) antes de subir o serviço.'
             );
         }
-        // Dev local: gera valores efêmeros para permitir experimentar.
         if (signingKey === '') {
             signingKey = crypto.randomBytes(32).toString('hex');
             console.warn('[mcp] MCP_OAUTH_SIGNING_KEY ausente — usando chave EFÊMERA (tokens morrem no restart).');
@@ -78,12 +91,53 @@ export function loadConfig(): Config {
         throw new Error('MCP_OAUTH_SIGNING_KEY precisa ter pelo menos 32 caracteres.');
     }
 
+    const wsUser = env('TOTVS_WS_USER');
+
+    const rm: RmConfig = {
+        wsUrl: stripSlash(env('TOTVS_WS_URL')),
+        wsUser,
+        wsPassword: env('TOTVS_WS_PASSWORD'),
+        timeoutMs: Number(env('TOTVS_WS_TIMEOUT_MS', '300000')),
+        contextoPadrao: {
+            CODSISTEMA: 'S',
+            CODUSUARIO: wsUser !== '' ? wsUser : 'integra.eduvem',
+        },
+        sql: { codcoligada: '0', codsistema: 'G' },
+        usuarioServico: wsUser !== '' ? wsUser : 'integra.eduvem',
+        baixa: {
+            processo: env('FIN_BAIXA_PROCESSO', 'FinTBCBaixaDataProcess'),
+            operacao: env('FIN_BAIXA_OPERACAO', 'ExecuteWithXMLParams'),
+        },
+        codCxaPadrao: env('FIN_CODCXA_PADRAO'),
+        relatorioContrato: {
+            codcoligada: '0',
+            id: env('FIN_RELATORIO_CONTRATO_ID', '1664'),
+        },
+        portal: {
+            loginUrl: env(
+                'TOTVS_PORTAL_LOGIN_URL',
+                'https://fundacaoescola114384.rm.cloudtotvs.com.br/FrameHTML/Web/App/Edu/PortalEducacional/login/'
+            ),
+            autologinUrl: env(
+                'TOTVS_PORTAL_AUTOLOGIN_URL',
+                'https://fundacaoescola114384.rm.cloudtotvs.com.br/Corpore.Net/Source/EDU-EDUCACIONAL/Public/EduPortalAlunoLogin.aspx?AutoLoginType=ExternalLogin&redirect=financeiro.new'
+            ),
+            alias: env('TOTVS_PORTAL_ALIAS', 'CorporeRM'),
+        },
+        cryptoKey: env('APP_CRYPTO_KEY'),
+        debug: env('APP_DEBUG', 'false') === 'true',
+    };
+
+    if (rm.wsUrl === '' || rm.wsUser === '' || rm.wsPassword === '') {
+        console.warn(
+            '[mcp] AVISO: TOTVS_WS_URL/TOTVS_WS_USER/TOTVS_WS_PASSWORD incompletas — ' +
+            'as chamadas ao RM vão falhar até que sejam configuradas.'
+        );
+    }
+
     return {
         port,
         publicUrl,
-        apiBaseUrl: stripSlash(env('TOTVS_API_BASE_URL', 'https://api-totvs.fmp.edu.br')),
-        apiKey: env('TOTVS_API_KEY'),
-        apiTimeoutMs: Number(env('TOTVS_API_TIMEOUT_MS', '300000')),
         signingKey,
         accessPassword,
         staticTokens: env('MCP_STATIC_BEARER_TOKENS')
@@ -97,5 +151,6 @@ export function loadConfig(): Config {
             .map((o) => o.trim())
             .filter((o) => o.length > 0),
         dataDir: env('MCP_DATA_DIR', 'data'),
+        rm,
     };
 }

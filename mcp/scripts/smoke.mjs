@@ -1,13 +1,15 @@
 /**
- * Smoke test ponta a ponta — roda sem rede externa e sem RM:
+ * Smoke test ponta a ponta — roda sem rede externa e sem RM real:
  *
- *   1. sobe uma API mock (papel do api-totvs) que confere o X-API-Key;
- *   2. sobe o servidor MCP compilado (dist/server.js) apontando para a mock;
+ *   1. sobe um MOCK SOAP do TOTVS RM (wsDataServer/wsProcess/wsConsultaSQL),
+ *      que confere basic auth + SOAPAction e devolve respostas canônicas;
+ *   2. sobe o servidor MCP compilado apontando para o mock;
  *   3. executa o fluxo OAuth 2.1 completo: descoberta (RFC 9728/8414) →
  *      registro dinâmico → /authorize (senha) → /token (PKCE S256) → refresh;
- *   4. fala MCP de verdade: initialize, tools/list, tools/call;
+ *   4. fala MCP de verdade: initialize, tools/list, tools/call cobrindo
+ *      consulta SQL, SaveRecord, validação, 404, SoapFault e a baixa;
  *   5. confere as travas: 401 sem token, senha errada, código single-use,
- *      DRY_RUN=true por padrão na baixa, token estático.
+ *      DRY_RUN=true por padrão na baixa, token estático, rota /sso.
  *
  * Uso: npm run smoke   (exit != 0 em falha — utilizável em CI)
  */
@@ -16,12 +18,14 @@ import http from 'node:http';
 import crypto from 'node:crypto';
 import { spawn } from 'node:child_process';
 
-const MOCK_PORT = 18099;
+const MOCK_PORT = 18098;
 const MCP_PORT = 18300;
 const BASE = `http://127.0.0.1:${MCP_PORT}`;
-const API_KEY = 'chave-teste-api';
+const RM_USER = 'integra.teste';
+const RM_PASS = 'senha-rm';
 const SENHA = 'senha-super-secreta';
 const STATIC_TOKEN = 'token-estatico-para-openclaw-1234567890';
+const CRYPTO_KEY = '0123456789abcdef0123456789abcdef'; // 32 bytes
 
 let okCount = 0;
 let failCount = 0;
@@ -36,27 +40,85 @@ function check(nome, cond, extra = '') {
     }
 }
 
-/* ---------- 1. API mock (simula o api-totvs) ---------- */
+const esc = (s) => s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
 
-const chamadasMock = [];
+/* ---------- 1. mock SOAP do TOTVS RM ---------- */
+
+const chamadasRm = [];
+
+function soapEnvelope(op, result) {
+    return '<s:Envelope xmlns:s="http://schemas.xmlsoap.org/soap/envelope/"><s:Body>'
+        + `<${op}Response xmlns="http://www.totvs.com/"><${op}Result>${esc(result)}</${op}Result></${op}Response>`
+        + '</s:Body></s:Envelope>';
+}
+
+function linhas(rows) {
+    const cols = rows.map((r) => `<Resultado>${Object.entries(r).map(([k, v]) => `<${k}>${esc(String(v))}</${k}>`).join('')}</Resultado>`);
+    return `<NewDataSet>${cols.join('')}</NewDataSet>`;
+}
+
+const OFERTA_OK = {
+    CODCOLIGADA: '1', IDHABILITACAOFILIAL: '333', CODCURSO: 'DIR', CODHABILITACAO: 'H1',
+    CODGRADE: 'G1', CODFILIAL: '1', CODTURNO: '3', IDPERLET: '44', CODTURMA: 'T01',
+    CODTIPOCURSO: '2', CODPERLET: '2026/1',
+};
+
 const mock = http.createServer((req, res) => {
     let corpo = '';
     req.on('data', (c) => (corpo += c));
     req.on('end', () => {
-        const body = corpo ? JSON.parse(corpo) : null;
-        chamadasMock.push({ method: req.method, url: req.url, apiKey: req.headers['x-api-key'], body });
-        res.setHeader('Content-Type', 'application/json');
+        const auth = req.headers.authorization ?? '';
+        const soapAction = String(req.headers.soapaction ?? '');
+        chamadasRm.push({ url: req.url, auth, soapAction, corpo });
 
-        if (req.url === '/status') {
-            res.end(JSON.stringify({ sucesso: true, mensagem: 'API no ar', dados: { versao: 'mock' } }));
-        } else if (req.url === '/financeiro/baixas') {
-            res.end(JSON.stringify({ sucesso: true, mensagem: 'dry-run', dados: { DRY_RUN: body?.DRY_RUN } }));
-        } else if (req.url?.startsWith('/pessoas/busca')) {
-            res.statusCode = 404;
-            res.end(JSON.stringify({ sucesso: false, mensagem: 'Pessoa não encontrada' }));
-        } else {
-            res.end(JSON.stringify({ sucesso: true, dados: { url: req.url } }));
+        const authOk = auth === 'Basic ' + Buffer.from(`${RM_USER}:${RM_PASS}`).toString('base64');
+        if (!authOk) {
+            res.statusCode = 401;
+            res.end('Unauthorized');
+            return;
         }
+
+        res.setHeader('Content-Type', 'text/xml; charset=utf-8');
+
+        if (req.url === '/wsConsultaSQL/MEX') {
+            const sentenca = corpo.match(/<codSentenca>([^<]+)<\/codSentenca>/)?.[1] ?? '';
+            const params = corpo.match(/<parameters>([^<]*)<\/parameters>/)?.[1] ?? '';
+            let rows = [];
+            if (sentenca === 'INT.EDUVEM.00001') {
+                rows = [{ OK: '1', MENSAGEM: 'RM no ar (mock)' }];
+            } else if (sentenca === 'INT.EDUVEM.00006' && params.includes('OF-EXISTE')) {
+                rows = [OFERTA_OK];
+            } // demais sentenças: vazio
+            res.end(soapEnvelope('RealizarConsultaSQL', linhas(rows)));
+            return;
+        }
+
+        if (req.url === '/wsDataServer/MEX') {
+            const ds = corpo.match(/<DataServerName>([^<]+)<\/DataServerName>/)?.[1] ?? '';
+            if (soapAction.includes('SaveRecord')) {
+                if (ds === 'FalhaData') {
+                    res.statusCode = 500;
+                    res.end('<s:Envelope xmlns:s="http://schemas.xmlsoap.org/soap/envelope/"><s:Body><s:Fault>'
+                        + '<faultcode>s:Client</faultcode><faultstring>Coluna NOME não permite nulos (mock)</faultstring>'
+                        + '</s:Fault></s:Body></s:Envelope>');
+                    return;
+                }
+                res.end(soapEnvelope('SaveRecord', ds === 'RhuPessoaData' ? '12345' : '1;OK'));
+                return;
+            }
+            if (soapAction.includes('ReadRecord')) {
+                res.end(soapEnvelope('ReadRecord', '<RhuPessoa><PPessoa><CODIGO>12345</CODIGO><NOME>Fulano Mock</NOME></PPessoa></RhuPessoa>'));
+                return;
+            }
+        }
+
+        if (req.url === '/wsProcess/MEX') {
+            res.end(soapEnvelope('ExecuteWithXmlParams', '1'));
+            return;
+        }
+
+        res.statusCode = 404;
+        res.end('rota mock desconhecida: ' + req.url);
     });
 });
 await new Promise((r) => mock.listen(MOCK_PORT, '127.0.0.1', r));
@@ -68,8 +130,10 @@ const child = spawn(process.execPath, ['dist/server.js'], {
         ...process.env,
         PORT: String(MCP_PORT),
         MCP_PUBLIC_URL: BASE,
-        TOTVS_API_BASE_URL: `http://127.0.0.1:${MOCK_PORT}`,
-        TOTVS_API_KEY: API_KEY,
+        TOTVS_WS_URL: `http://127.0.0.1:${MOCK_PORT}`,
+        TOTVS_WS_USER: RM_USER,
+        TOTVS_WS_PASSWORD: RM_PASS,
+        APP_CRYPTO_KEY: CRYPTO_KEY,
         MCP_OAUTH_SIGNING_KEY: crypto.randomBytes(32).toString('hex'),
         MCP_ACCESS_PASSWORD: SENHA,
         MCP_STATIC_BEARER_TOKENS: ` ${STATIC_TOKEN} `,
@@ -106,6 +170,13 @@ async function mcpCall(token, payload) {
     return { status: r.status, headers: r.headers, body };
 }
 
+let idSeq = 0;
+const callTool = (token, name, args) => mcpCall(token, {
+    jsonrpc: '2.0', id: ++idSeq + 100, method: 'tools/call',
+    params: { name, arguments: args },
+});
+const toolText = (r) => r.body?.result?.content?.[0]?.text ?? '';
+
 const initPayload = {
     jsonrpc: '2.0', id: 1, method: 'initialize',
     params: {
@@ -122,21 +193,17 @@ try {
     check('POST /mcp sem token devolve 401', semToken.status === 401);
     check(
         'WWW-Authenticate aponta o resource metadata',
-        (semToken.headers.get('www-authenticate') ?? '').includes('/.well-known/oauth-protected-resource'),
-        semToken.headers.get('www-authenticate') ?? '(ausente)'
+        (semToken.headers.get('www-authenticate') ?? '').includes('/.well-known/oauth-protected-resource')
     );
 
-    /* ---------- 4. descoberta OAuth ---------- */
+    /* ---------- 4. descoberta OAuth + DCR + senha + PKCE + refresh ---------- */
 
     const prm = await (await fetch(`${BASE}/.well-known/oauth-protected-resource/mcp`)).json();
-    check('protected resource metadata: resource = /mcp', prm.resource === `${BASE}/mcp`, JSON.stringify(prm));
-    check('protected resource metadata: authorization_servers', Array.isArray(prm.authorization_servers) && prm.authorization_servers.length > 0);
+    check('protected resource metadata: resource = /mcp', prm.resource === `${BASE}/mcp`);
 
     const asMeta = await (await fetch(`${BASE}/.well-known/oauth-authorization-server`)).json();
-    check('AS metadata: PKCE S256', (asMeta.code_challenge_methods_supported ?? []).includes('S256'));
-    check('AS metadata: endpoints presentes', Boolean(asMeta.authorization_endpoint && asMeta.token_endpoint && asMeta.registration_endpoint));
-
-    /* ---------- 5. registro dinâmico ---------- */
+    check('AS metadata: PKCE S256 + endpoints', (asMeta.code_challenge_methods_supported ?? []).includes('S256')
+        && Boolean(asMeta.authorization_endpoint && asMeta.token_endpoint && asMeta.registration_endpoint));
 
     const redirectUri = 'http://127.0.0.1:19999/callback';
     const reg = await (await fetch(asMeta.registration_endpoint, {
@@ -150,9 +217,7 @@ try {
             token_endpoint_auth_method: 'none',
         }),
     })).json();
-    check('registro dinâmico devolve client_id', typeof reg.client_id === 'string' && reg.client_id.length > 0, JSON.stringify(reg));
-
-    /* ---------- 6. /authorize + senha ---------- */
+    check('registro dinâmico devolve client_id', typeof reg.client_id === 'string' && reg.client_id.length > 0);
 
     const verifier = crypto.randomBytes(32).toString('base64url');
     const challenge = crypto.createHash('sha256').update(verifier).digest('base64url');
@@ -165,35 +230,28 @@ try {
     authUrl.searchParams.set('state', 'estado-xyz');
     authUrl.searchParams.set('resource', `${BASE}/mcp`);
 
-    const authPage = await fetch(authUrl);
-    const html = await authPage.text();
-    check('GET /authorize devolve página de senha', authPage.status === 200 && html.includes('name="req"'));
-
+    const html = await (await fetch(authUrl)).text();
     const reqToken = html.match(/name="req" value="([^"]+)"/)?.[1];
-    check('página contém o pedido assinado', typeof reqToken === 'string');
+    check('GET /authorize devolve página de senha assinada', typeof reqToken === 'string');
 
-    // senha errada
     const errado = await fetch(`${BASE}/oauth/consent`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
         body: new URLSearchParams({ senha: 'senha-errada', req: reqToken }),
         redirect: 'manual',
     });
-    check('senha errada devolve 401 (re-renderiza)', errado.status === 401);
+    check('senha errada devolve 401', errado.status === 401);
 
-    // senha certa
     const consent = await fetch(`${BASE}/oauth/consent`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
         body: new URLSearchParams({ senha: SENHA, req: reqToken }),
         redirect: 'manual',
     });
-    check('senha certa redireciona (302)', consent.status === 302);
+    check('senha certa redireciona com code+state', consent.status === 302);
     const loc = new URL(consent.headers.get('location'));
     const code = loc.searchParams.get('code');
-    check('redirect carrega code + state', Boolean(code) && loc.searchParams.get('state') === 'estado-xyz');
-
-    /* ---------- 7. /token (PKCE) + refresh ---------- */
+    check('state preservado', loc.searchParams.get('state') === 'estado-xyz');
 
     const tokenParams = {
         grant_type: 'authorization_code',
@@ -208,9 +266,8 @@ try {
         headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
         body: new URLSearchParams(tokenParams),
     })).json();
-    check('token endpoint emite access + refresh', Boolean(tokens.access_token && tokens.refresh_token), JSON.stringify(tokens));
+    check('token endpoint emite access + refresh', Boolean(tokens.access_token && tokens.refresh_token));
 
-    // código não pode ser reutilizado
     const reuso = await fetch(asMeta.token_endpoint, {
         method: 'POST',
         headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
@@ -227,57 +284,119 @@ try {
             client_id: reg.client_id,
         }),
     })).json();
-    check('refresh token emite novo access', Boolean(refreshed.access_token), JSON.stringify(refreshed));
+    check('refresh token emite novo access', Boolean(refreshed.access_token));
 
-    /* ---------- 8. protocolo MCP com o access token ---------- */
+    const tk = tokens.access_token;
 
-    const init = await mcpCall(tokens.access_token, initPayload);
-    check('initialize responde 200', init.status === 200, JSON.stringify(init.body));
+    /* ---------- 5. protocolo MCP ---------- */
+
+    const init = await mcpCall(tk, initPayload);
     check('initialize devolve serverInfo', init.body?.result?.serverInfo?.name === 'fmp-totvs-rm');
 
-    const list = await mcpCall(tokens.access_token, { jsonrpc: '2.0', id: 2, method: 'tools/list', params: {} });
+    const list = await mcpCall(tk, { jsonrpc: '2.0', id: 2, method: 'tools/list', params: {} });
     const nomes = (list.body?.result?.tools ?? []).map((t) => t.name);
-    check('tools/list devolve as tools', nomes.length >= 25, `total: ${nomes.length}`);
-    for (const esperado of ['totvs_status', 'inscricao_criar', 'financeiro_baixar', 'rm_sql', 'pessoa_buscar']) {
+    check('tools/list devolve as tools', nomes.length >= 26, `total: ${nomes.length}`);
+    for (const esperado of ['totvs_status', 'inscricao_criar', 'financeiro_baixar', 'rm_sql', 'pessoa_salvar', 'aluno_gerar_sso']) {
         check(`tools/list contém ${esperado}`, nomes.includes(esperado));
     }
 
-    const status = await mcpCall(tokens.access_token, {
-        jsonrpc: '2.0', id: 3, method: 'tools/call',
-        params: { name: 'totvs_status', arguments: {} },
+    /* ---------- 6. tools contra o RM mock (SOAP direto) ---------- */
+
+    const status = await callTool(tk, 'totvs_status', {});
+    check('totvs_status executa a sentença 00001 no RM', toolText(status).includes('RM no ar (mock)'));
+    check(
+        'chamada SOAP com basic auth + SOAPAction corretos',
+        chamadasRm.some((c) => c.url === '/wsConsultaSQL/MEX'
+            && c.soapAction.includes('IwsConsultaSQL/RealizarConsultaSQL'))
+    );
+
+    const sql = await callTool(tk, 'rm_sql', {
+        codsentenca: 'INT.EDUVEM.00006',
+        parametros: { CODOFERTA_S: 'OF-EXISTE' },
     });
-    const statusTexto = status.body?.result?.content?.[0]?.text ?? '';
-    check('tools/call totvs_status chega na API', statusTexto.includes('API no ar'), statusTexto.slice(0, 120));
-    check('API mock recebeu o X-API-Key', chamadasMock.some((c) => c.url === '/status' && c.apiKey === API_KEY));
+    check('rm_sql devolve linhas da consulta', toolText(sql).includes('IDHABILITACAOFILIAL'));
+    check(
+        'parâmetros da consulta no formato CHAVE=VALOR',
+        chamadasRm.some((c) => c.corpo.includes('<parameters>CODOFERTA_S=OF-EXISTE</parameters>'))
+    );
 
-    /* ---------- 9. trava da baixa: DRY_RUN default true ---------- */
-
-    await mcpCall(tokens.access_token, {
-        jsonrpc: '2.0', id: 4, method: 'tools/call',
-        params: {
-            name: 'financeiro_baixar',
-            arguments: { IDLAN: '123', VALORBAIXA: '10.00', TIPOFORMAPAGTO: 'Pix' },
-        },
+    const pessoa = await callTool(tk, 'pessoa_salvar', {
+        campos: { NOME: 'Fulano & Cia', CPF: '529.982.247-25', CEP: '90.000-000' },
     });
-    const baixa = chamadasMock.find((c) => c.url === '/financeiro/baixas');
-    check('financeiro_baixar envia DRY_RUN=true por padrão', baixa?.body?.DRY_RUN === true, JSON.stringify(baixa?.body));
+    check('pessoa_salvar grava e devolve CODPESSOA (HTTP 201)', toolText(pessoa).startsWith('HTTP 201') && toolText(pessoa).includes('"CODPESSOA": "12345"'));
+    const savePessoa = chamadasRm.find((c) => c.corpo.includes('RhuPessoaData'));
+    check(
+        'XML da pessoa vai escapado e com CPF/CEP normalizados',
+        savePessoa !== undefined
+            && savePessoa.corpo.includes('Fulano &amp;amp; Cia')   // & do valor escapado no XML interno, reescapado no envelope
+            && savePessoa.corpo.includes('&lt;CPF&gt;52998224725&lt;/CPF&gt;')
+            && savePessoa.corpo.includes('&lt;CEP&gt;90000000&lt;/CEP&gt;')
+    );
 
-    /* ---------- 10. token estático + erro de tool ---------- */
+    const buscaPessoa = await callTool(tk, 'pessoa_buscar', { codigo: '12345' });
+    check('pessoa_buscar por código lê via ReadRecord', toolText(buscaPessoa).includes('Fulano Mock'));
+
+    const cpfInvalido = await callTool(tk, 'pessoa_buscar', { cpf: '123' });
+    check('CPF inválido vira 422 com feedback de validação',
+        buscaFalhou(cpfInvalido) && toolText(cpfInvalido).includes('não parece correto'));
+
+    const ofertaNaoExiste = await callTool(tk, 'oferta_consultar', { codoferta: 'OF-NAO-EXISTE' });
+    check('oferta inexistente devolve 404', toolText(ofertaNaoExiste).startsWith('HTTP 404'));
+
+    const ofertaExiste = await callTool(tk, 'oferta_consultar', { codoferta: 'OF-EXISTE' });
+    check('oferta existente devolve os dados', toolText(ofertaExiste).includes('"CODTURMA": "T01"'));
+
+    const fault = await callTool(tk, 'rm_save', { dataserver: 'FalhaData', xml: '<X/>' });
+    check('SoapFault do RM vira 502 com retorno_rm',
+        toolText(fault).startsWith('HTTP 502') && toolText(fault).includes('não permite nulos'));
+
+    /* ---------- 7. baixa: DRY_RUN default + execução real no mock ---------- */
+
+    const chamadasAntes = chamadasRm.filter((c) => c.url === '/wsProcess/MEX').length;
+    const dry = await callTool(tk, 'financeiro_baixar', {
+        IDLAN: '555', VALORBAIXA: '465,00', TIPOFORMAPAGTO: 'Pix', CODCXA: '1',
+    });
+    check('financeiro_baixar é DRY_RUN por padrão (não chama o RM)',
+        toolText(dry).includes('"dry_run": true')
+        && chamadasRm.filter((c) => c.url === '/wsProcess/MEX').length === chamadasAntes);
+    check('dry-run devolve o XML TBC com valor normalizado',
+        toolText(dry).includes('FinTBCBaixaDataProcess') && toolText(dry).includes('465.00'));
+
+    const real = await callTool(tk, 'financeiro_baixar', {
+        IDLAN: '555', VALORBAIXA: '465,00', TIPOFORMAPAGTO: 'Pix', CODCXA: '1', DRY_RUN: false,
+    });
+    check('DRY_RUN=false executa o processo no RM (retorno_rm=1)',
+        toolText(real).includes('"retorno_rm": "1"')
+        && chamadasRm.some((c) => c.url === '/wsProcess/MEX' && c.corpo.includes('FinTBCBaixaDataProcess')));
+
+    /* ---------- 8. /sso + token estático ---------- */
+
+    // Token gerado com a MESMA chave/formato (iv+tag+cipher, base64url)
+    const iv = crypto.randomBytes(12);
+    const cipher = crypto.createCipheriv('aes-256-gcm', Buffer.from(CRYPTO_KEY), iv);
+    const enc = Buffer.concat([cipher.update('aluno.teste$_$senha123', 'utf8'), cipher.final()]);
+    const ssoToken = Buffer.concat([iv, cipher.getAuthTag(), enc]).toString('base64url');
+
+    const sso = await fetch(`${BASE}/sso/${ssoToken}`);
+    const ssoHtml = await sso.text();
+    check('GET /sso/{token} devolve form de auto-login',
+        sso.status === 200 && ssoHtml.includes('name="User" value="aluno.teste"') && ssoHtml.includes('form-autologin'));
+
+    const ssoInvalido = await fetch(`${BASE}/sso/token-invalido`);
+    check('token de SSO inválido devolve 400', ssoInvalido.status === 400);
 
     const initEstatico = await mcpCall(STATIC_TOKEN, initPayload);
     check('token estático é aceito', initEstatico.status === 200);
-
-    const buscaVazia = await mcpCall(STATIC_TOKEN, {
-        jsonrpc: '2.0', id: 5, method: 'tools/call',
-        params: { name: 'pessoa_buscar', arguments: { cpf: '00000000000' } },
-    });
-    check('404 da API vira isError na tool', buscaVazia.body?.result?.isError === true);
 
     const tokenInvalido = await mcpCall('token-que-nao-existe', initPayload);
     check('token inválido devolve 401', tokenInvalido.status === 401);
 } finally {
     child.kill('SIGTERM');
     mock.close();
+}
+
+function buscaFalhou(r) {
+    return r.body?.result?.isError === true;
 }
 
 console.log(`\n== ${okCount} verificações OK, ${failCount} falha(s)`);
