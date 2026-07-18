@@ -1,0 +1,26 @@
+{
+    "name": "fmp/rm-api",
+    "description": "API REST de integração com TOTVS RM via SOAP",
+    "type": "project",
+    "authors": [
+        {
+            "name": "Henrique Malia",
+            "email": "malia@lbhm.com.br"
+        }
+    ],
+    "require": {
+        "php": ">=8.1",
+        "ext-soap": "*",
+        "slim/slim": "4.*",
+        "slim/psr7": "^1.7",
+        "php-di/php-di": "^7.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "FMP\\RMApi\\": "src/"
+        }
+    },
+    "scripts": {
+        "test": "php tests/run.php"
+    }
+}

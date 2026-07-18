@@ -1,0 +1,1809 @@
+<?xml version="1.0" encoding="utf-16"?>
+<FinLanBaixaParamsProc xmlns:i="http://www.w3.org/2001/XMLSchema-instance" z:Id="i1" xmlns:z="http://schemas.microsoft.com/2003/10/Serialization/" xmlns="http://www.totvs.com.br/RM/">
+  <Context xmlns:d2p1="http://www.totvs.com.br/RM/" z:Id="i2" xmlns="http://www.totvs.com/">
+    <d2p1:_params xmlns:d3p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+      <d3p1:KeyValueOfanyTypeanyType>
+        <d3p1:Key xmlns:d5p1="http://www.w3.org/2001/XMLSchema" i:type="d5p1:string">$EXERCICIOFISCAL</d3p1:Key>
+        <d3p1:Value xmlns:d5p1="http://www.w3.org/2001/XMLSchema" i:type="d5p1:int">1</d3p1:Value>
+      </d3p1:KeyValueOfanyTypeanyType>
+      <d3p1:KeyValueOfanyTypeanyType>
+        <d3p1:Key xmlns:d5p1="http://www.w3.org/2001/XMLSchema" i:type="d5p1:string">$CODLOCPRT</d3p1:Key>
+        <d3p1:Value xmlns:d5p1="http://www.w3.org/2001/XMLSchema" i:type="d5p1:int">-1</d3p1:Value>
+      </d3p1:KeyValueOfanyTypeanyType>
+      <d3p1:KeyValueOfanyTypeanyType>
+        <d3p1:Key xmlns:d5p1="http://www.w3.org/2001/XMLSchema" i:type="d5p1:string">$CODTIPOCURSO</d3p1:Key>
+        <d3p1:Value xmlns:d5p1="http://www.w3.org/2001/XMLSchema" i:type="d5p1:int">1</d3p1:Value>
+      </d3p1:KeyValueOfanyTypeanyType>
+      <d3p1:KeyValueOfanyTypeanyType>
+        <d3p1:Key xmlns:d5p1="http://www.w3.org/2001/XMLSchema" i:type="d5p1:string">$EDUTIPOUSR</d3p1:Key>
+        <d3p1:Value xmlns:d5p1="http://www.w3.org/2001/XMLSchema" i:type="d5p1:string">-1</d3p1:Value>
+      </d3p1:KeyValueOfanyTypeanyType>
+      <d3p1:KeyValueOfanyTypeanyType>
+        <d3p1:Key xmlns:d5p1="http://www.w3.org/2001/XMLSchema" i:type="d5p1:string">$CODUNIDADEBIB</d3p1:Key>
+        <d3p1:Value xmlns:d5p1="http://www.w3.org/2001/XMLSchema" i:type="d5p1:int">-1</d3p1:Value>
+      </d3p1:KeyValueOfanyTypeanyType>
+      <d3p1:KeyValueOfanyTypeanyType>
+        <d3p1:Key xmlns:d5p1="http://www.w3.org/2001/XMLSchema" i:type="d5p1:string">$CODCOLIGADA</d3p1:Key>
+        <d3p1:Value xmlns:d5p1="http://www.w3.org/2001/XMLSchema" i:type="d5p1:int">1</d3p1:Value>
+      </d3p1:KeyValueOfanyTypeanyType>
+      <d3p1:KeyValueOfanyTypeanyType>
+        <d3p1:Key xmlns:d5p1="http://www.w3.org/2001/XMLSchema" i:type="d5p1:string">$RHTIPOUSR</d3p1:Key>
+        <d3p1:Value xmlns:d5p1="http://www.w3.org/2001/XMLSchema" i:type="d5p1:string">01</d3p1:Value>
+      </d3p1:KeyValueOfanyTypeanyType>
+      <d3p1:KeyValueOfanyTypeanyType>
+        <d3p1:Key xmlns:d5p1="http://www.w3.org/2001/XMLSchema" i:type="d5p1:string">$CODIGOEXTERNO</d3p1:Key>
+        <d3p1:Value xmlns:d5p1="http://www.w3.org/2001/XMLSchema" i:type="d5p1:string">-1</d3p1:Value>
+      </d3p1:KeyValueOfanyTypeanyType>
+      <d3p1:KeyValueOfanyTypeanyType>
+        <d3p1:Key xmlns:d5p1="http://www.w3.org/2001/XMLSchema" i:type="d5p1:string">$CODSISTEMA</d3p1:Key>
+        <d3p1:Value xmlns:d5p1="http://www.w3.org/2001/XMLSchema" i:type="d5p1:string">P</d3p1:Value>
+      </d3p1:KeyValueOfanyTypeanyType>
+      <d3p1:KeyValueOfanyTypeanyType>
+        <d3p1:Key xmlns:d5p1="http://www.w3.org/2001/XMLSchema" i:type="d5p1:string">$CODUSUARIOSERVICO</d3p1:Key>
+        <d3p1:Value xmlns:d5p1="http://www.w3.org/2001/XMLSchema" i:type="d5p1:string"></d3p1:Value>
+      </d3p1:KeyValueOfanyTypeanyType>
+      <d3p1:KeyValueOfanyTypeanyType>
+        <d3p1:Key xmlns:d5p1="http://www.w3.org/2001/XMLSchema" i:type="d5p1:string">$IDPRJ</d3p1:Key>
+        <d3p1:Value xmlns:d5p1="http://www.w3.org/2001/XMLSchema" i:type="d5p1:int">-1</d3p1:Value>
+      </d3p1:KeyValueOfanyTypeanyType>
+      <d3p1:KeyValueOfanyTypeanyType>
+        <d3p1:Key xmlns:d5p1="http://www.w3.org/2001/XMLSchema" i:type="d5p1:string">$CHAPAFUNCIONARIO</d3p1:Key>
+        <d3p1:Value xmlns:d5p1="http://www.w3.org/2001/XMLSchema" i:type="d5p1:string">000964</d3p1:Value>
+      </d3p1:KeyValueOfanyTypeanyType>
+      <d3p1:KeyValueOfanyTypeanyType>
+        <d3p1:Key xmlns:d5p1="http://www.w3.org/2001/XMLSchema" i:type="d5p1:string">$CODFILIAL</d3p1:Key>
+        <d3p1:Value xmlns:d5p1="http://www.w3.org/2001/XMLSchema" i:type="d5p1:int">1</d3p1:Value>
+      </d3p1:KeyValueOfanyTypeanyType>
+    </d2p1:_params>
+    <d2p1:Environment>WebServices</d2p1:Environment>
+  </Context>
+  <PrimaryKeyList xmlns:d2p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" xmlns="http://www.totvs.com/">
+    <d2p1:ArrayOfanyType>
+      <d2p1:anyType xmlns:d4p1="http://www.w3.org/2001/XMLSchema" i:type="d4p1:int">0</d2p1:anyType>
+    </d2p1:ArrayOfanyType>
+    <d2p1:ArrayOfanyType>
+      <d2p1:anyType xmlns:d4p1="http://www.w3.org/2001/XMLSchema" i:type="d4p1:decimal">0</d2p1:anyType>
+    </d2p1:ArrayOfanyType>
+    <d2p1:ArrayOfanyType>
+      <d2p1:anyType xmlns:d4p1="http://www.w3.org/2001/XMLSchema" i:type="d4p1:string">TEXTO</d2p1:anyType>
+    </d2p1:ArrayOfanyType>
+    <d2p1:ArrayOfanyType>
+      <d2p1:anyType xmlns:d4p1="http://www.w3.org/2001/XMLSchema" i:type="d4p1:dateTime">2026-07-13T00:00:00-03:00</d2p1:anyType>
+    </d2p1:ArrayOfanyType>
+  </PrimaryKeyList>
+  <PrimaryKeyNames xmlns:d2p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" xmlns="http://www.totvs.com/">
+    <d2p1:string>COLUNAPK</d2p1:string>
+  </PrimaryKeyNames>
+  <CodColigada>0</CodColigada>
+  <CodMoeda>R$</CodMoeda>
+  <ContabilizarPosBaixa>false</ContabilizarPosBaixa>
+  <CotacaoBaixa>0</CotacaoBaixa>
+  <DataBaixa i:nil="true" />
+  <DataSistema i:nil="true" />
+  <HistoricoBaixa></HistoricoBaixa>
+  <MotivoBxProtheus i:nil="true" />
+  <TipoGeracaoExtrato>ExtratoParaCadaLancamento</TipoGeracaoExtrato>
+  <UsarDataVencimentoBaixa>false</UsarDataVencimentoBaixa>
+  <BaixaCredDevVinculado>false</BaixaCredDevVinculado>
+  <CodColCxa>0</CodColCxa>
+  <CodColCxaCaixa>0</CodColCxaCaixa>
+  <CodCxa></CodCxa>
+  <CodCxaCaixa i:nil="true" />
+  <DataCaixa>0001-01-01T00:00:00</DataCaixa>
+  <FormasPagamento>
+    <FinFormaPagtoBaixaParamsProc>
+      <Cartao>
+        <FinCartaoBaixaParamsProc>
+          <CartaoAutorizacao i:nil="true" />
+          <CartaoBandeira>0</CartaoBandeira>
+          <CartaoEstabelecimento i:nil="true" />
+          <CartaoNsu i:nil="true" />
+          <CartaoNumParcela>1</CartaoNumParcela>
+          <CartaoOperadora>0</CartaoOperadora>
+          <CartaoTid i:nil="true" />
+          <IdPagto>0</IdPagto>
+        </FinCartaoBaixaParamsProc>
+      </Cartao>
+      <Cheque>
+        <FinChequeBaixaParamsProc>
+          <AtualizaProximoNumeroCheque>false</AtualizaProximoNumeroCheque>
+          <CampoCompl>
+            <xs:schema id="NewDataSet" xmlns="" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+              <xs:element name="NewDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true">
+                <xs:complexType>
+                  <xs:choice minOccurs="0" maxOccurs="unbounded" />
+                </xs:complexType>
+              </xs:element>
+            </xs:schema>
+            <diffgr:diffgram xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:diffgr="urn:schemas-microsoft-com:xml-diffgram-v1" />
+          </CampoCompl>
+          <CodCCusto i:nil="true" />
+          <CodColCxa>0</CodColCxa>
+          <CodColNatFinanceira i:nil="true" />
+          <CodColProp>0</CodColProp>
+          <CodColigada>0</CodColigada>
+          <CodCxa i:nil="true" />
+          <CodDepartamento i:nil="true" />
+          <CodEvento i:nil="true" />
+          <CodFilial i:nil="true" />
+          <CodNatFinanceira i:nil="true" />
+          <CodTb1Flx i:nil="true" />
+          <CodTb2Flx i:nil="true" />
+          <CodTb3Flx i:nil="true" />
+          <CodTb4Flx i:nil="true" />
+          <CodTb5Flx i:nil="true" />
+          <CodigoAgencia i:nil="true" />
+          <CodigoBanco i:nil="true" />
+          <ContaCorrente i:nil="true" />
+          <Contabil>0</Contabil>
+          <CpfCnpj i:nil="true" />
+          <Data i:nil="true" />
+          <DataProrrogacao i:nil="true" />
+          <DataVencimento i:nil="true" />
+          <Historico i:nil="true" />
+          <ImprimirCheque>false</ImprimirCheque>
+          <LinhaDigitavel i:nil="true" />
+          <NomeEmitente i:nil="true" />
+          <Nominal i:nil="true" />
+          <Numero i:nil="true" />
+          <PracaCheque i:nil="true" />
+          <PreDatado>0</PreDatado>
+          <TelEmitente i:nil="true" />
+          <TipoInscricaoCh i:nil="true" />
+          <Valor>0</Valor>
+        </FinChequeBaixaParamsProc>
+      </Cheque>
+      <CodColCxa>0</CodColCxa>
+      <CodColProp>0</CodColProp>
+      <CodColigada>0</CodColigada>
+      <CodCxa i:nil="true" />
+      <CodFilial i:nil="true" />
+      <CodFormaPagto i:nil="true" />
+      <CodImg>0</CodImg>
+      <CodUsuario i:nil="true" />
+      <CompensarExtratoBaixa>Parametrizacao</CompensarExtratoBaixa>
+      <Contabilizacao xmlns:d4p1="http://schemas.datacontract.org/2004/07/RM.Fin.Lan">
+        <d4p1:FinLanBaixaCont>
+          <xs:schema id="FinLanBaixaCont" targetNamespace="http://tempuri.org/FinLanBaixaCont.xsd" xmlns:mstns="http://tempuri.org/FinLanBaixaCont.xsd" xmlns="http://tempuri.org/FinLanBaixaCont.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" attributeFormDefault="qualified" elementFormDefault="qualified">
+            <xs:element name="FinLanBaixaCont" msdata:IsDataSet="true" msdata:UseCurrentLocale="true">
+              <xs:complexType>
+                <xs:choice minOccurs="0" maxOccurs="unbounded">
+                  <xs:element name="FLANRATBX">
+                    <xs:complexType>
+                      <xs:sequence>
+                        <xs:element name="CODCOLIGADA" type="xs:short" />
+                        <xs:element name="IDLANCONT" type="xs:int" />
+                        <xs:element name="IDLAN" type="xs:int" minOccurs="0" />
+                        <xs:element name="TIPO" type="xs:short" minOccurs="0" />
+                        <xs:element name="INCOUBX" type="xs:short" minOccurs="0" />
+                        <xs:element name="CODCOLCONTA" type="xs:short" minOccurs="0" />
+                        <xs:element name="CODCONTA" minOccurs="0">
+                          <xs:simpleType>
+                            <xs:restriction base="xs:string">
+                              <xs:maxLength value="40" />
+                            </xs:restriction>
+                          </xs:simpleType>
+                        </xs:element>
+                        <xs:element name="CODCOLCONTAGER" type="xs:short" />
+                        <xs:element name="CODCONTAGER">
+                          <xs:simpleType>
+                            <xs:restriction base="xs:string">
+                              <xs:maxLength value="40" />
+                            </xs:restriction>
+                          </xs:simpleType>
+                        </xs:element>
+                        <xs:element name="VALOR" type="xs:decimal" minOccurs="0" />
+                        <xs:element name="DESCRICAO" type="xs:string" minOccurs="0" />
+                        <xs:element name="REDUZIDO" type="xs:string" minOccurs="0" />
+                        <xs:element name="RECCREATEDBY" minOccurs="0">
+                          <xs:simpleType>
+                            <xs:restriction base="xs:string">
+                              <xs:maxLength value="50" />
+                            </xs:restriction>
+                          </xs:simpleType>
+                        </xs:element>
+                        <xs:element name="RECCREATEDON" type="xs:dateTime" minOccurs="0" />
+                        <xs:element name="RECMODIFIEDBY" minOccurs="0">
+                          <xs:simpleType>
+                            <xs:restriction base="xs:string">
+                              <xs:maxLength value="50" />
+                            </xs:restriction>
+                          </xs:simpleType>
+                        </xs:element>
+                        <xs:element name="RECMODIFIEDON" type="xs:dateTime" minOccurs="0" />
+                      </xs:sequence>
+                    </xs:complexType>
+                  </xs:element>
+                  <xs:element name="FLANBAIXA">
+                    <xs:complexType>
+                      <xs:sequence>
+                        <xs:element name="CODCOLIGADA" type="xs:short" />
+                        <xs:element name="IDBAIXA" type="xs:int" minOccurs="0" />
+                        <xs:element name="IDLAN" type="xs:int" />
+                        <xs:element name="RECCREATEDBY" minOccurs="0">
+                          <xs:simpleType>
+                            <xs:restriction base="xs:string">
+                              <xs:maxLength value="50" />
+                            </xs:restriction>
+                          </xs:simpleType>
+                        </xs:element>
+                        <xs:element name="RECCREATEDON" type="xs:dateTime" minOccurs="0" />
+                        <xs:element name="RECMODIFIEDBY" minOccurs="0">
+                          <xs:simpleType>
+                            <xs:restriction base="xs:string">
+                              <xs:maxLength value="50" />
+                            </xs:restriction>
+                          </xs:simpleType>
+                        </xs:element>
+                        <xs:element name="RECMODIFIEDON" type="xs:dateTime" minOccurs="0" />
+                      </xs:sequence>
+                    </xs:complexType>
+                  </xs:element>
+                  <xs:element name="FLANCONTBX">
+                    <xs:complexType>
+                      <xs:sequence>
+                        <xs:element name="CODCOLIGADA" type="xs:short" />
+                        <xs:element name="IDLANCONT" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" type="xs:int" />
+                        <xs:element name="IDLAN" type="xs:int" />
+                        <xs:element name="TIPO" type="xs:short" />
+                        <xs:element name="INCOUBX" type="xs:short" />
+                        <xs:element name="VALOR" type="xs:decimal" minOccurs="0" />
+                        <xs:element name="CODFILIAL" type="xs:short" />
+                        <xs:element name="CODDEPARTAMENTO" minOccurs="0">
+                          <xs:simpleType>
+                            <xs:restriction base="xs:string">
+                              <xs:maxLength value="25" />
+                            </xs:restriction>
+                          </xs:simpleType>
+                        </xs:element>
+                        <xs:element name="CODCCUSTO" minOccurs="0">
+                          <xs:simpleType>
+                            <xs:restriction base="xs:string">
+                              <xs:maxLength value="25" />
+                            </xs:restriction>
+                          </xs:simpleType>
+                        </xs:element>
+                        <xs:element name="CODHISTP" minOccurs="0">
+                          <xs:simpleType>
+                            <xs:restriction base="xs:string">
+                              <xs:maxLength value="10" />
+                            </xs:restriction>
+                          </xs:simpleType>
+                        </xs:element>
+                        <xs:element name="COMPLHISTORICO" minOccurs="0">
+                          <xs:simpleType>
+                            <xs:restriction base="xs:string">
+                              <xs:maxLength value="250" />
+                            </xs:restriction>
+                          </xs:simpleType>
+                        </xs:element>
+                        <xs:element name="CODCOLCONTA" type="xs:short" />
+                        <xs:element name="CODCONTA">
+                          <xs:simpleType>
+                            <xs:restriction base="xs:string">
+                              <xs:maxLength value="40" />
+                            </xs:restriction>
+                          </xs:simpleType>
+                        </xs:element>
+                        <xs:element name="DESCRICAO" type="xs:string" minOccurs="0" />
+                        <xs:element name="REDUZIDO" type="xs:string" minOccurs="0" />
+                        <xs:element name="RECCREATEDBY" minOccurs="0">
+                          <xs:simpleType>
+                            <xs:restriction base="xs:string">
+                              <xs:maxLength value="50" />
+                            </xs:restriction>
+                          </xs:simpleType>
+                        </xs:element>
+                        <xs:element name="RECCREATEDON" type="xs:dateTime" minOccurs="0" />
+                        <xs:element name="RECMODIFIEDBY" minOccurs="0">
+                          <xs:simpleType>
+                            <xs:restriction base="xs:string">
+                              <xs:maxLength value="50" />
+                            </xs:restriction>
+                          </xs:simpleType>
+                        </xs:element>
+                        <xs:element name="RECMODIFIEDON" type="xs:dateTime" minOccurs="0" />
+                      </xs:sequence>
+                    </xs:complexType>
+                  </xs:element>
+                </xs:choice>
+              </xs:complexType>
+              <xs:unique name="PKFLANRAT" msdata:PrimaryKey="true">
+                <xs:selector xpath=".//mstns:FLANRATBX" />
+                <xs:field xpath="mstns:CODCOLIGADA" />
+                <xs:field xpath="mstns:IDLANCONT" />
+                <xs:field xpath="mstns:CODCOLCONTAGER" />
+                <xs:field xpath="mstns:CODCONTAGER" />
+              </xs:unique>
+              <xs:unique name="Constraint1">
+                <xs:selector xpath=".//mstns:FLANBAIXA" />
+                <xs:field xpath="mstns:CODCOLIGADA" />
+                <xs:field xpath="mstns:IDBAIXA" />
+                <xs:field xpath="mstns:IDLAN" />
+              </xs:unique>
+              <xs:unique name="Constraint2">
+                <xs:selector xpath=".//mstns:FLANBAIXA" />
+                <xs:field xpath="mstns:CODCOLIGADA" />
+                <xs:field xpath="mstns:IDLAN" />
+              </xs:unique>
+              <xs:unique name="PKFLANCONT" msdata:PrimaryKey="true">
+                <xs:selector xpath=".//mstns:FLANCONTBX" />
+                <xs:field xpath="mstns:CODCOLIGADA" />
+                <xs:field xpath="mstns:IDLANCONT" />
+              </xs:unique>
+              <xs:unique name="FLANCONTBX_Constraint1" msdata:ConstraintName="Constraint1">
+                <xs:selector xpath=".//mstns:FLANCONTBX" />
+                <xs:field xpath="mstns:CODCOLIGADA" />
+                <xs:field xpath="mstns:IDLANCONT" />
+                <xs:field xpath="mstns:IDLAN" />
+                <xs:field xpath="mstns:TIPO" />
+                <xs:field xpath="mstns:INCOUBX" />
+                <xs:field xpath="mstns:CODCOLCONTA" />
+                <xs:field xpath="mstns:CODCONTA" />
+              </xs:unique>
+              <xs:keyref name="FK_FLANBAIXA_FLANCONTBX" refer="Constraint2">
+                <xs:selector xpath=".//mstns:FLANCONTBX" />
+                <xs:field xpath="mstns:CODCOLIGADA" />
+                <xs:field xpath="mstns:IDLAN" />
+              </xs:keyref>
+              <xs:keyref name="FK_FLANCONTBX_FLANRATBX" refer="FLANCONTBX_Constraint1">
+                <xs:selector xpath=".//mstns:FLANRATBX" />
+                <xs:field xpath="mstns:CODCOLIGADA" />
+                <xs:field xpath="mstns:IDLANCONT" />
+                <xs:field xpath="mstns:IDLAN" />
+                <xs:field xpath="mstns:TIPO" />
+                <xs:field xpath="mstns:INCOUBX" />
+                <xs:field xpath="mstns:CODCOLCONTA" />
+                <xs:field xpath="mstns:CODCONTA" />
+              </xs:keyref>
+            </xs:element>
+          </xs:schema>
+          <diffgr:diffgram xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:diffgr="urn:schemas-microsoft-com:xml-diffgram-v1" />
+        </d4p1:FinLanBaixaCont>
+      </Contabilizacao>
+      <DataCompensacaoExtrato i:nil="true" />
+      <DescFormaPagto i:nil="true" />
+      <IdFormaPagto>0</IdFormaPagto>
+      <IdLan>0</IdLan>
+      <IdPagto>0</IdPagto>
+      <IdParcelamento>0</IdParcelamento>
+      <Img xmlns:d4p1="http://schemas.datacontract.org/2004/07/System.Drawing" i:nil="true" />
+      <ImprimeCheque>false</ImprimeCheque>
+      <MotivoBxProtheus i:nil="true" />
+      <Mutuo>
+        <FinLanBaixaMutuoParamsProc>
+          <CodCCusto i:nil="true" />
+          <CodColNatFinanceira i:nil="true" />
+          <CodColigada>0</CodColigada>
+          <CodDepartamento i:nil="true" />
+          <CodEvento i:nil="true" />
+          <CodFilial i:nil="true" />
+          <CodNatFinanceira i:nil="true" />
+          <CodTb1Flx i:nil="true" />
+          <CodTb2Flx i:nil="true" />
+          <CodTb3Flx i:nil="true" />
+          <CodTb4Flx i:nil="true" />
+          <CodTb5Flx i:nil="true" />
+          <UsarDadosMutuo>false</UsarDadosMutuo>
+        </FinLanBaixaMutuoParamsProc>
+      </Mutuo>
+      <OpcaoParcelamento>1</OpcaoParcelamento>
+      <PagRec i:nil="true" />
+      <SequencialPagto>0</SequencialPagto>
+      <TipoFormaPagto>Dinheiro</TipoFormaPagto>
+      <TipoTransacao>WCF</TipoTransacao>
+      <Valor>0</Valor>
+    </FinFormaPagtoBaixaParamsProc>
+  </FormasPagamento>
+  <IdFormaPagto i:nil="true" />
+  <IdSessaoCaixa>0</IdSessaoCaixa>
+  <IdTransacaoPIX i:nil="true" />
+  <IsBoleto>false</IsBoleto>
+  <IsHabilitaPIX>false</IsHabilitaPIX>
+  <IsHabilitaTEF>false</IsHabilitaTEF>
+  <IsModuloDeCaixa>false</IsModuloDeCaixa>
+  <ItensBaixa>
+    <FinItemBaixa z:Id="i3">
+      <InternalId i:nil="true" xmlns="http://www.totvs.com/" />
+      <ServicoAlteracaoRepasse>false</ServicoAlteracaoRepasse>
+      <AplicarDescontoTotal i:nil="true" />
+      <CampoAlfaOp1 i:nil="true" />
+      <CampoAlfaOp2 i:nil="true" />
+      <CampoAlfaOp3 i:nil="true" />
+      <CampoDiferenca i:nil="true" />
+      <CamposComplementares xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" i:nil="true" />
+      <CodCCusto i:nil="true" />
+      <CodColCxa>0</CodColCxa>
+      <CodColXCX>0</CodColXCX>
+      <CodColigada>0</CodColigada>
+      <CodCxa i:nil="true" />
+      <CodDepartamento i:nil="true" />
+      <CodEventoBaixa i:nil="true" />
+      <CodFilial i:nil="true" />
+      <CodTabOp1 i:nil="true" />
+      <CodTabOp2 i:nil="true" />
+      <CodTabOp3 i:nil="true" />
+      <CodTabOp4 i:nil="true" />
+      <CodTabOp5 i:nil="true" />
+      <CompensarExtratoBaixa>Parametrizacao</CompensarExtratoBaixa>
+      <CotacaoBaixa>0</CotacaoBaixa>
+      <DataBaixa>0001-01-01T00:00:00</DataBaixa>
+      <DataCheque i:nil="true" />
+      <DataCompensacaoExtrato>0001-01-01T00:00:00</DataCompensacaoExtrato>
+      <DataContabilizBx>0001-01-01T00:00:00</DataContabilizBx>
+      <DataOp1 i:nil="true" />
+      <DataOp2 i:nil="true" />
+      <DataOp3 i:nil="true" />
+      <DataOp4 i:nil="true" />
+      <DataOp5 i:nil="true" />
+      <DataVencimentoLancamento i:nil="true" />
+      <IdBaixa>0</IdBaixa>
+      <IdFormaPagto>0</IdFormaPagto>
+      <IdLan>0</IdLan>
+      <IdPagto>0</IdPagto>
+      <IdParcelamento>0</IdParcelamento>
+      <IdTransacao>0</IdTransacao>
+      <IdTransacaoSiTef>0</IdTransacaoSiTef>
+      <IdXCX>0</IdXCX>
+      <ImprimirCheque>false</ImprimirCheque>
+      <LancamentoLiquido>
+        <CodColigada>0</CodColigada>
+        <IdLan>0</IdLan>
+        <OrigemValoresParaCalculoValorLiquido i:nil="true" />
+        <ValorAcrescimoAcordo>0</ValorAcrescimoAcordo>
+        <ValorAdiantamento>0</ValorAdiantamento>
+        <ValorCap>0</ValorCap>
+        <ValorDesconto>0</ValorDesconto>
+        <ValorDescontoAcordo>0</ValorDescontoAcordo>
+        <ValorDevolucao>0</ValorDevolucao>
+        <ValorINSS>0</ValorINSS>
+        <ValorIRRF>0</ValorIRRF>
+        <ValorJuros>0</ValorJuros>
+        <ValorJurosAcordo>0</ValorJurosAcordo>
+        <ValorJurosVendor>0</ValorJurosVendor>
+        <ValorLiquido>0</ValorLiquido>
+        <ValorMulta>0</ValorMulta>
+        <ValorNotaCredito>0</ValorNotaCredito>
+        <ValorOp1>0</ValorOp1>
+        <ValorOp2>0</ValorOp2>
+        <ValorOp3>0</ValorOp3>
+        <ValorOp4>0</ValorOp4>
+        <ValorOp5>0</ValorOp5>
+        <ValorOp6>0</ValorOp6>
+        <ValorOp7>0</ValorOp7>
+        <ValorOp8>0</ValorOp8>
+        <ValorOriginal>0</ValorOriginal>
+        <ValorPerdaFinanceira>0</ValorPerdaFinanceira>
+        <ValorRetencoes>0</ValorRetencoes>
+        <ValorSESTSENAT>0</ValorSESTSENAT>
+      </LancamentoLiquido>
+      <ListTributos />
+      <ListaDeExtrato />
+      <ListaValoresIntegracaoItemBaixaPar />
+      <ModeloContabilizacao>0</ModeloContabilizacao>
+      <MotivoBxProtheus i:nil="true" />
+      <NaoIncluirBaixa>false</NaoIncluirBaixa>
+      <NumEventoBaixa i:nil="true" />
+      <NumeroCheque i:nil="true" />
+      <OpcaoParcelamento>0</OpcaoParcelamento>
+      <OperacaoValorOp1>Nada</OperacaoValorOp1>
+      <OperacaoValorOp2>Nada</OperacaoValorOp2>
+      <OperacaoValorOp3>Nada</OperacaoValorOp3>
+      <OperacaoValorOp4>Nada</OperacaoValorOp4>
+      <OperacaoValorOp5>Nada</OperacaoValorOp5>
+      <OperacaoValorOp6>Nada</OperacaoValorOp6>
+      <OperacaoValorOp7>Nada</OperacaoValorOp7>
+      <OperacaoValorOp8>Nada</OperacaoValorOp8>
+      <OrigemContabilizacao>EventoContabil</OrigemContabilizacao>
+      <OrigemValorCap>BaseDados</OrigemValorCap>
+      <OrigemValorDesconto>BaseDados</OrigemValorDesconto>
+      <OrigemValorJuros>BaseDados</OrigemValorJuros>
+      <OrigemValorMulta>BaseDados</OrigemValorMulta>
+      <OrigemValorOp1>BaseDados</OrigemValorOp1>
+      <OrigemValorOp2>BaseDados</OrigemValorOp2>
+      <OrigemValorOp3>BaseDados</OrigemValorOp3>
+      <OrigemValorOp4>BaseDados</OrigemValorOp4>
+      <OrigemValorOp5>BaseDados</OrigemValorOp5>
+      <OrigemValorOp6>BaseDados</OrigemValorOp6>
+      <OrigemValorOp7>BaseDados</OrigemValorOp7>
+      <OrigemValorOp8>BaseDados</OrigemValorOp8>
+      <OrigemValores>
+        <OrigemValorCap>BaseDados</OrigemValorCap>
+        <OrigemValorDesconto>BaseDados</OrigemValorDesconto>
+        <OrigemValorIntegracao>BaseDados</OrigemValorIntegracao>
+        <OrigemValorJuros>BaseDados</OrigemValorJuros>
+        <OrigemValorMulta>BaseDados</OrigemValorMulta>
+        <OrigemValorOp1>BaseDados</OrigemValorOp1>
+        <OrigemValorOp2>BaseDados</OrigemValorOp2>
+        <OrigemValorOp3>BaseDados</OrigemValorOp3>
+        <OrigemValorOp4>BaseDados</OrigemValorOp4>
+        <OrigemValorOp5>BaseDados</OrigemValorOp5>
+        <OrigemValorOp6>BaseDados</OrigemValorOp6>
+        <OrigemValorOp7>BaseDados</OrigemValorOp7>
+        <OrigemValorOp8>BaseDados</OrigemValorOp8>
+        <OrigemValoresAcordo>BaseDados</OrigemValoresAcordo>
+      </OrigemValores>
+      <PagRec>WCF</PagRec>
+      <RateiosCCu />
+      <RateiosCCuLan />
+      <RateiosDepto />
+      <SequencialPagto>0</SequencialPagto>
+      <SinalOp1></SinalOp1>
+      <SinalOp2></SinalOp2>
+      <SinalOp3></SinalOp3>
+      <SinalOp4></SinalOp4>
+      <SinalOp5></SinalOp5>
+      <SinalOp6></SinalOp6>
+      <SinalOp7></SinalOp7>
+      <SinalOp8></SinalOp8>
+      <TipoBaixa>BaixaManual</TipoBaixa>
+      <TipoDiferenca i:nil="true" />
+      <TipoFormaPagto>Dinheiro</TipoFormaPagto>
+      <TipoRetornoBancario>Nenhum</TipoRetornoBancario>
+      <TipoTransacao>WCF</TipoTransacao>
+      <Usuario i:nil="true" />
+      <ValorAcrescimoAcordo>0</ValorAcrescimoAcordo>
+      <ValorBaixa>0</ValorBaixa>
+      <ValorCap>0</ValorCap>
+      <ValorDesconto>0</ValorDesconto>
+      <ValorDescontoAcordo>0</ValorDescontoAcordo>
+      <ValorDescontoPontual>0</ValorDescontoPontual>
+      <ValorDevolucao>0</ValorDevolucao>
+      <ValorDiferenca i:nil="true" />
+      <ValorINSS>0</ValorINSS>
+      <ValorIRRF>0</ValorIRRF>
+      <ValorJuros>0</ValorJuros>
+      <ValorJurosAcordo>0</ValorJurosAcordo>
+      <ValorJurosVendor>0</ValorJurosVendor>
+      <ValorMulta>0</ValorMulta>
+      <ValorNotaCredito>0</ValorNotaCredito>
+      <ValorNotaCreditoAdiantamento>0</ValorNotaCreditoAdiantamento>
+      <ValorOp1>0</ValorOp1>
+      <ValorOp2>0</ValorOp2>
+      <ValorOp3>0</ValorOp3>
+      <ValorOp4>0</ValorOp4>
+      <ValorOp5>0</ValorOp5>
+      <ValorOp6>0</ValorOp6>
+      <ValorOp7>0</ValorOp7>
+      <ValorOp8>0</ValorOp8>
+      <ValorOpComSinal1>0</ValorOpComSinal1>
+      <ValorOpComSinal2>0</ValorOpComSinal2>
+      <ValorOpComSinal3>0</ValorOpComSinal3>
+      <ValorOpComSinal4>0</ValorOpComSinal4>
+      <ValorOpComSinal5>0</ValorOpComSinal5>
+      <ValorOpComSinal6>0</ValorOpComSinal6>
+      <ValorOpComSinal7>0</ValorOpComSinal7>
+      <ValorOpComSinal8>0</ValorOpComSinal8>
+      <ValorOriginal>0</ValorOriginal>
+      <ValorPerdaFinanceira>0</ValorPerdaFinanceira>
+      <ValorRetencoes>0</ValorRetencoes>
+      <ValorSESTSENAT>0</ValorSESTSENAT>
+      <ValorVinculado>0</ValorVinculado>
+      <contabil i:nil="true" />
+    </FinItemBaixa>
+  </ItensBaixa>
+  <Lancamentos>
+    <FinLancamentoBaixaResult z:Id="i4">
+      <InternalId i:nil="true" xmlns="http://www.totvs.com/" />
+      <Codigo i:nil="true" />
+      <Coligada>0</Coligada>
+      <ID>0</ID>
+      <CodColigada>0</CodColigada>
+      <IdBaixa>0</IdBaixa>
+      <IdLan>0</IdLan>
+      <ServicoAlteracaoRepasse>false</ServicoAlteracaoRepasse>
+      <AlteracaoBloqueada>0</AlteracaoBloqueada>
+      <Antecipado>Nenhum</Antecipado>
+      <AplicarDescontoTotal>false</AplicarDescontoTotal>
+      <BaixaInvaldaMsg i:nil="true" />
+      <BaixaInvalida>false</BaixaInvalida>
+      <BaseCalculoTributosLancamento>0</BaseCalculoTributosLancamento>
+      <CGC i:nil="true" />
+      <CampoAlfaOp1 i:nil="true" />
+      <CampoAlfaOp2 i:nil="true" />
+      <CampoAlfaOp3 i:nil="true" />
+      <CapMensal>0</CapMensal>
+      <CarenciaJuros>0</CarenciaJuros>
+      <Chapa i:nil="true" />
+      <Classificacao>SemClassificacao</Classificacao>
+      <ClassificacaoFatura>SemClassificacao</ClassificacaoFatura>
+      <ClassificacaoTipoDoc>SemClassificacao</ClassificacaoTipoDoc>
+      <CodCCusto i:nil="true" />
+      <CodCfo i:nil="true" />
+      <CodColCfo>0</CodColCfo>
+      <CodColCxa>0</CodColCxa>
+      <CodColigada>0</CodColigada>
+      <CodCxa i:nil="true" />
+      <CodDepartamento i:nil="true" />
+      <CodEventoAux i:nil="true" />
+      <CodFilial>0</CodFilial>
+      <CodIndexador i:nil="true" />
+      <CodMoeda i:nil="true" />
+      <CodMoedaCxa i:nil="true" />
+      <CodSistema i:nil="true" />
+      <CodTb1Flx i:nil="true" />
+      <CodTb2Flx i:nil="true" />
+      <CodTb3Flx i:nil="true" />
+      <CodTb4Flx i:nil="true" />
+      <CodTb5Flx i:nil="true" />
+      <CodTdo i:nil="true" />
+      <ComBoletoParcial>false</ComBoletoParcial>
+      <CotacaoBaixa>0</CotacaoBaixa>
+      <DataBaixa>0001-01-01T00:00:00</DataBaixa>
+      <DataContabilizacaoInclusao i:nil="true" />
+      <DataEmissao>0001-01-01T00:00:00</DataEmissao>
+      <DataLiqDuvidosa>0001-01-01T00:00:00</DataLiqDuvidosa>
+      <DataOp1 i:nil="true" />
+      <DataOp2 i:nil="true" />
+      <DataOp3 i:nil="true" />
+      <DataOp4 i:nil="true" />
+      <DataOp5 i:nil="true" />
+      <DataPrevBaixa i:nil="true" />
+      <DataVencimento>0001-01-01T00:00:00</DataVencimento>
+      <DataVencimentoAnterior i:nil="true" />
+      <Descontado>false</Descontado>
+      <FormulaCapitalizacao i:nil="true" />
+      <FormulaDesconto i:nil="true" />
+      <FormulaJuros i:nil="true" />
+      <FormulaMulta i:nil="true" />
+      <FormulaValorOp1 i:nil="true" />
+      <FormulaValorOp2 i:nil="true" />
+      <FormulaValorOp3 i:nil="true" />
+      <FormulaValorOp4 i:nil="true" />
+      <FormulaValorOp5 i:nil="true" />
+      <FormulaValorOp6 i:nil="true" />
+      <FormulaValorOp7 i:nil="true" />
+      <FormulaValorOp8 i:nil="true" />
+      <Historico i:nil="true" />
+      <IdBoleto i:nil="true" />
+      <IdBordero i:nil="true" />
+      <IdFormaPagto i:nil="true" />
+      <IdLan>0</IdLan>
+      <JurosDia>0</JurosDia>
+      <JurosVendor>0</JurosVendor>
+      <ListTributos xmlns:d4p1="http://www.totvs.com/">
+        <d4p1:FinLanTrbResult z:Id="i5">
+          <d4p1:InternalId i:nil="true" />
+          <Aliquota>0</Aliquota>
+          <BaseDeCalculo>0</BaseDeCalculo>
+          <CodColigada>0</CodColigada>
+          <CodRetencao i:nil="true" />
+          <CodTrb i:nil="true" />
+          <Editado>false</Editado>
+          <IdLan>0</IdLan>
+          <RefTributo>0</RefTributo>
+          <Valor>0</Valor>
+        </d4p1:FinLanTrbResult>
+      </ListTributos>
+      <ListaDeItemBaixa xmlns:d4p1="http://www.totvs.com/">
+        <d4p1:FinItemBaixa z:Id="i6">
+          <d4p1:InternalId i:nil="true" />
+          <ServicoAlteracaoRepasse>false</ServicoAlteracaoRepasse>
+          <AplicarDescontoTotal i:nil="true" />
+          <CampoAlfaOp1 i:nil="true" />
+          <CampoAlfaOp2 i:nil="true" />
+          <CampoAlfaOp3 i:nil="true" />
+          <CampoDiferenca i:nil="true" />
+          <CamposComplementares xmlns:d6p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+          <CodCCusto i:nil="true" />
+          <CodColCxa>0</CodColCxa>
+          <CodColXCX>0</CodColXCX>
+          <CodColigada>0</CodColigada>
+          <CodCxa i:nil="true" />
+          <CodDepartamento i:nil="true" />
+          <CodEventoBaixa i:nil="true" />
+          <CodFilial i:nil="true" />
+          <CodTabOp1 i:nil="true" />
+          <CodTabOp2 i:nil="true" />
+          <CodTabOp3 i:nil="true" />
+          <CodTabOp4 i:nil="true" />
+          <CodTabOp5 i:nil="true" />
+          <CompensarExtratoBaixa>Parametrizacao</CompensarExtratoBaixa>
+          <CotacaoBaixa>0</CotacaoBaixa>
+          <DataBaixa>0001-01-01T00:00:00</DataBaixa>
+          <DataCheque i:nil="true" />
+          <DataCompensacaoExtrato>0001-01-01T00:00:00</DataCompensacaoExtrato>
+          <DataContabilizBx>0001-01-01T00:00:00</DataContabilizBx>
+          <DataOp1 i:nil="true" />
+          <DataOp2 i:nil="true" />
+          <DataOp3 i:nil="true" />
+          <DataOp4 i:nil="true" />
+          <DataOp5 i:nil="true" />
+          <DataVencimentoLancamento i:nil="true" />
+          <IdBaixa>0</IdBaixa>
+          <IdFormaPagto>0</IdFormaPagto>
+          <IdLan>0</IdLan>
+          <IdPagto>0</IdPagto>
+          <IdParcelamento>0</IdParcelamento>
+          <IdTransacao>0</IdTransacao>
+          <IdTransacaoSiTef>0</IdTransacaoSiTef>
+          <IdXCX>0</IdXCX>
+          <ImprimirCheque>false</ImprimirCheque>
+          <LancamentoLiquido>
+            <CodColigada>0</CodColigada>
+            <IdLan>0</IdLan>
+            <OrigemValoresParaCalculoValorLiquido>
+              <OrigemValorCap>BaseDados</OrigemValorCap>
+              <OrigemValorDesconto>BaseDados</OrigemValorDesconto>
+              <OrigemValorIntegracao>BaseDados</OrigemValorIntegracao>
+              <OrigemValorJuros>BaseDados</OrigemValorJuros>
+              <OrigemValorMulta>BaseDados</OrigemValorMulta>
+              <OrigemValorOp1>BaseDados</OrigemValorOp1>
+              <OrigemValorOp2>BaseDados</OrigemValorOp2>
+              <OrigemValorOp3>BaseDados</OrigemValorOp3>
+              <OrigemValorOp4>BaseDados</OrigemValorOp4>
+              <OrigemValorOp5>BaseDados</OrigemValorOp5>
+              <OrigemValorOp6>BaseDados</OrigemValorOp6>
+              <OrigemValorOp7>BaseDados</OrigemValorOp7>
+              <OrigemValorOp8>BaseDados</OrigemValorOp8>
+              <OrigemValoresAcordo>BaseDados</OrigemValoresAcordo>
+            </OrigemValoresParaCalculoValorLiquido>
+            <ValorAcrescimoAcordo>0</ValorAcrescimoAcordo>
+            <ValorAdiantamento>0</ValorAdiantamento>
+            <ValorCap>0</ValorCap>
+            <ValorDesconto>0</ValorDesconto>
+            <ValorDescontoAcordo>0</ValorDescontoAcordo>
+            <ValorDevolucao>0</ValorDevolucao>
+            <ValorINSS>0</ValorINSS>
+            <ValorIRRF>0</ValorIRRF>
+            <ValorJuros>0</ValorJuros>
+            <ValorJurosAcordo>0</ValorJurosAcordo>
+            <ValorJurosVendor>0</ValorJurosVendor>
+            <ValorLiquido>0</ValorLiquido>
+            <ValorMulta>0</ValorMulta>
+            <ValorNotaCredito>0</ValorNotaCredito>
+            <ValorOp1>0</ValorOp1>
+            <ValorOp2>0</ValorOp2>
+            <ValorOp3>0</ValorOp3>
+            <ValorOp4>0</ValorOp4>
+            <ValorOp5>0</ValorOp5>
+            <ValorOp6>0</ValorOp6>
+            <ValorOp7>0</ValorOp7>
+            <ValorOp8>0</ValorOp8>
+            <ValorOriginal>0</ValorOriginal>
+            <ValorPerdaFinanceira>0</ValorPerdaFinanceira>
+            <ValorRetencoes>0</ValorRetencoes>
+            <ValorSESTSENAT>0</ValorSESTSENAT>
+          </LancamentoLiquido>
+          <ListTributos>
+            <FinItemBaixaTrb z:Id="i7">
+              <d4p1:InternalId i:nil="true" />
+              <ServicoAlteracaoRepasse>false</ServicoAlteracaoRepasse>
+              <Aliquota>0</Aliquota>
+              <BaseDeCalculo>0</BaseDeCalculo>
+              <CGCCFO i:nil="true" />
+              <CodColNatFinanceira i:nil="true" />
+              <CodColigada>0</CodColigada>
+              <CodNatFinanceira i:nil="true" />
+              <CodRetencao i:nil="true" />
+              <CodTrb i:nil="true" />
+              <IdBaixa>0</IdBaixa>
+              <IdLan>0</IdLan>
+              <RefTributo>0</RefTributo>
+              <TipoTribFisc i:nil="true" />
+              <Valor>0</Valor>
+            </FinItemBaixaTrb>
+          </ListTributos>
+          <ListaDeExtrato>
+            <FinXcxItemBaixa z:Id="i8">
+              <d4p1:InternalId i:nil="true" />
+              <ServicoAlteracaoRepasse>false</ServicoAlteracaoRepasse>
+              <CartaoAutorizacao i:nil="true" />
+              <CartaoBandeira>0</CartaoBandeira>
+              <CartaoNsu i:nil="true" />
+              <CartaoNumParcela>0</CartaoNumParcela>
+              <CartaoOperadora>0</CartaoOperadora>
+              <CartaoTid i:nil="true" />
+              <CodCCusto i:nil="true" />
+              <CodColCxa>0</CodColCxa>
+              <CodColNatFinanceira>0</CodColNatFinanceira>
+              <CodColXcxTransf>0</CodColXcxTransf>
+              <CodColigada>0</CodColigada>
+              <CodCxa i:nil="true" />
+              <CodCxaTransf i:nil="true" />
+              <CodDepartamento i:nil="true" />
+              <CodEvento>0</CodEvento>
+              <CodFilial>0</CodFilial>
+              <CodNatFinanceira i:nil="true" />
+              <CodTb1Flx i:nil="true" />
+              <CodTb2Flx i:nil="true" />
+              <CodTb3Flx i:nil="true" />
+              <CodTb4Flx i:nil="true" />
+              <CodTb5Flx i:nil="true" />
+              <Compensado>NaoCompensado</Compensado>
+              <Contabil>NaoContabil</Contabil>
+              <Data>0001-01-01T00:00:00</Data>
+              <DataCancelamento>0001-01-01T00:00:00</DataCancelamento>
+              <DataCompensacao>0001-01-01T00:00:00</DataCompensacao>
+              <DataContabiliz>0001-01-01T00:00:00</DataContabiliz>
+              <DataCriacao>0001-01-01T00:00:00</DataCriacao>
+              <DataCustodiaBanco>0001-01-01T00:00:00</DataCustodiaBanco>
+              <DataCustodiaFilial>0001-01-01T00:00:00</DataCustodiaFilial>
+              <DataEstorno>0001-01-01T00:00:00</DataEstorno>
+              <DataProrrogacao>0001-01-01T00:00:00</DataProrrogacao>
+              <DataReconciliacao>0001-01-01T00:00:00</DataReconciliacao>
+              <DataVencimento>0001-01-01T00:00:00</DataVencimento>
+              <ECheque>0</ECheque>
+              <Estornado>0</Estornado>
+              <FilialContabil>0</FilialContabil>
+              <Historico i:nil="true" />
+              <IdAplFin>0</IdAplFin>
+              <IdConvenio>0</IdConvenio>
+              <IdOperacaoCont>0</IdOperacaoCont>
+              <IdPagto>0</IdPagto>
+              <IdSessao>0</IdSessao>
+              <IdXcx>0</IdXcx>
+              <IdXcxTransf>0</IdXcxTransf>
+              <ModeloContabilizacao i:nil="true" />
+              <NumContabil i:nil="true" />
+              <NumLoteContabil>0</NumLoteContabil>
+              <NumeroDocumento i:nil="true" />
+              <PreDatado>0</PreDatado>
+              <RECCREATEDBY i:nil="true" />
+              <RECCREATEDON>0001-01-01T00:00:00</RECCREATEDON>
+              <RECMODIFIEDBY i:nil="true" />
+              <RECMODIFIEDON>0001-01-01T00:00:00</RECMODIFIEDON>
+              <Reconciliado>0</Reconciliado>
+              <Tipo>WCF</Tipo>
+              <TipoMovCH i:nil="true" />
+              <Valor>0</Valor>
+            </FinXcxItemBaixa>
+          </ListaDeExtrato>
+          <ListaValoresIntegracaoItemBaixaPar>
+            <FinFLanBaixaIntegracaoPar z:Id="i9">
+              <d4p1:InternalId i:nil="true" />
+              <ServicoAlteracaoRepasse>false</ServicoAlteracaoRepasse>
+              <CodColigada>0</CodColigada>
+              <Definicao z:Id="i10">
+                <d4p1:InternalId i:nil="true" />
+                <ServicoAlteracaoRepasse>false</ServicoAlteracaoRepasse>
+                <Acao>Nada</Acao>
+                <AteVencimento>false</AteVencimento>
+                <CodColigada>0</CodColigada>
+                <CodSistema i:nil="true" />
+                <CompoeValorAVP>false</CompoeValorAVP>
+                <CompoeValorExtratoCliFor>false</CompoeValorExtratoCliFor>
+                <Descricao i:nil="true" />
+                <DiasAtraso>0</DiasAtraso>
+                <Formula i:nil="true" />
+              </Definicao>
+              <IdBaixa>0</IdBaixa>
+              <IdCampo>0</IdCampo>
+              <IdLan>0</IdLan>
+              <Valor>0</Valor>
+              <ValorComSinal>0</ValorComSinal>
+            </FinFLanBaixaIntegracaoPar>
+          </ListaValoresIntegracaoItemBaixaPar>
+          <ModeloContabilizacao>0</ModeloContabilizacao>
+          <MotivoBxProtheus i:nil="true" />
+          <NaoIncluirBaixa>false</NaoIncluirBaixa>
+          <NumEventoBaixa i:nil="true" />
+          <NumeroCheque i:nil="true" />
+          <OpcaoParcelamento>0</OpcaoParcelamento>
+          <OperacaoValorOp1>Nada</OperacaoValorOp1>
+          <OperacaoValorOp2>Nada</OperacaoValorOp2>
+          <OperacaoValorOp3>Nada</OperacaoValorOp3>
+          <OperacaoValorOp4>Nada</OperacaoValorOp4>
+          <OperacaoValorOp5>Nada</OperacaoValorOp5>
+          <OperacaoValorOp6>Nada</OperacaoValorOp6>
+          <OperacaoValorOp7>Nada</OperacaoValorOp7>
+          <OperacaoValorOp8>Nada</OperacaoValorOp8>
+          <OrigemContabilizacao>EventoContabil</OrigemContabilizacao>
+          <OrigemValorCap>BaseDados</OrigemValorCap>
+          <OrigemValorDesconto>BaseDados</OrigemValorDesconto>
+          <OrigemValorJuros>BaseDados</OrigemValorJuros>
+          <OrigemValorMulta>BaseDados</OrigemValorMulta>
+          <OrigemValorOp1>BaseDados</OrigemValorOp1>
+          <OrigemValorOp2>BaseDados</OrigemValorOp2>
+          <OrigemValorOp3>BaseDados</OrigemValorOp3>
+          <OrigemValorOp4>BaseDados</OrigemValorOp4>
+          <OrigemValorOp5>BaseDados</OrigemValorOp5>
+          <OrigemValorOp6>BaseDados</OrigemValorOp6>
+          <OrigemValorOp7>BaseDados</OrigemValorOp7>
+          <OrigemValorOp8>BaseDados</OrigemValorOp8>
+          <OrigemValores>
+            <OrigemValorCap>BaseDados</OrigemValorCap>
+            <OrigemValorDesconto>BaseDados</OrigemValorDesconto>
+            <OrigemValorIntegracao>BaseDados</OrigemValorIntegracao>
+            <OrigemValorJuros>BaseDados</OrigemValorJuros>
+            <OrigemValorMulta>BaseDados</OrigemValorMulta>
+            <OrigemValorOp1>BaseDados</OrigemValorOp1>
+            <OrigemValorOp2>BaseDados</OrigemValorOp2>
+            <OrigemValorOp3>BaseDados</OrigemValorOp3>
+            <OrigemValorOp4>BaseDados</OrigemValorOp4>
+            <OrigemValorOp5>BaseDados</OrigemValorOp5>
+            <OrigemValorOp6>BaseDados</OrigemValorOp6>
+            <OrigemValorOp7>BaseDados</OrigemValorOp7>
+            <OrigemValorOp8>BaseDados</OrigemValorOp8>
+            <OrigemValoresAcordo>BaseDados</OrigemValoresAcordo>
+          </OrigemValores>
+          <PagRec>WCF</PagRec>
+          <RateiosCCu>
+            <FinItemBaixaRatCCu z:Id="i11">
+              <d4p1:InternalId i:nil="true" />
+              <ServicoAlteracaoRepasse>false</ServicoAlteracaoRepasse>
+              <CodCCusto i:nil="true" />
+              <CodColNatFinanceira>0</CodColNatFinanceira>
+              <CodColigada>0</CodColigada>
+              <CodNatFinanceira i:nil="true" />
+              <CodTbGrupoOrc i:nil="true" />
+              <IdBaixa>0</IdBaixa>
+              <IdLan>0</IdLan>
+              <IdPrj i:nil="true" />
+              <IdRatCCu>0</IdRatCCu>
+              <IdTrf i:nil="true" />
+              <Percentual>0</Percentual>
+              <Valor>0</Valor>
+            </FinItemBaixaRatCCu>
+          </RateiosCCu>
+          <RateiosCCuLan>
+            <FinItemBaixaRatCCu z:Id="i12">
+              <d4p1:InternalId i:nil="true" />
+              <ServicoAlteracaoRepasse>false</ServicoAlteracaoRepasse>
+              <CodCCusto i:nil="true" />
+              <CodColNatFinanceira>0</CodColNatFinanceira>
+              <CodColigada>0</CodColigada>
+              <CodNatFinanceira i:nil="true" />
+              <CodTbGrupoOrc i:nil="true" />
+              <IdBaixa>0</IdBaixa>
+              <IdLan>0</IdLan>
+              <IdPrj i:nil="true" />
+              <IdRatCCu>0</IdRatCCu>
+              <IdTrf i:nil="true" />
+              <Percentual>0</Percentual>
+              <Valor>0</Valor>
+            </FinItemBaixaRatCCu>
+          </RateiosCCuLan>
+          <RateiosDepto>
+            <FinItemBaixaRatDepto z:Id="i13">
+              <d4p1:InternalId i:nil="true" />
+              <ServicoAlteracaoRepasse>false</ServicoAlteracaoRepasse>
+              <CodColigada>0</CodColigada>
+              <CodDepartamento i:nil="true" />
+              <CodFilial>0</CodFilial>
+              <IdBaixa>0</IdBaixa>
+              <IdLan>0</IdLan>
+              <Percentual>0</Percentual>
+              <Valor>0</Valor>
+            </FinItemBaixaRatDepto>
+          </RateiosDepto>
+          <SequencialPagto>0</SequencialPagto>
+          <SinalOp1></SinalOp1>
+          <SinalOp2></SinalOp2>
+          <SinalOp3></SinalOp3>
+          <SinalOp4></SinalOp4>
+          <SinalOp5></SinalOp5>
+          <SinalOp6></SinalOp6>
+          <SinalOp7></SinalOp7>
+          <SinalOp8></SinalOp8>
+          <TipoBaixa>BaixaManual</TipoBaixa>
+          <TipoDiferenca i:nil="true" />
+          <TipoFormaPagto>Dinheiro</TipoFormaPagto>
+          <TipoRetornoBancario>Nenhum</TipoRetornoBancario>
+          <TipoTransacao>WCF</TipoTransacao>
+          <Usuario i:nil="true" />
+          <ValorAcrescimoAcordo>0</ValorAcrescimoAcordo>
+          <ValorBaixa>0</ValorBaixa>
+          <ValorCap>0</ValorCap>
+          <ValorDesconto>0</ValorDesconto>
+          <ValorDescontoAcordo>0</ValorDescontoAcordo>
+          <ValorDescontoPontual>0</ValorDescontoPontual>
+          <ValorDevolucao>0</ValorDevolucao>
+          <ValorDiferenca i:nil="true" />
+          <ValorINSS>0</ValorINSS>
+          <ValorIRRF>0</ValorIRRF>
+          <ValorJuros>0</ValorJuros>
+          <ValorJurosAcordo>0</ValorJurosAcordo>
+          <ValorJurosVendor>0</ValorJurosVendor>
+          <ValorMulta>0</ValorMulta>
+          <ValorNotaCredito>0</ValorNotaCredito>
+          <ValorNotaCreditoAdiantamento>0</ValorNotaCreditoAdiantamento>
+          <ValorOp1>0</ValorOp1>
+          <ValorOp2>0</ValorOp2>
+          <ValorOp3>0</ValorOp3>
+          <ValorOp4>0</ValorOp4>
+          <ValorOp5>0</ValorOp5>
+          <ValorOp6>0</ValorOp6>
+          <ValorOp7>0</ValorOp7>
+          <ValorOp8>0</ValorOp8>
+          <ValorOpComSinal1>0</ValorOpComSinal1>
+          <ValorOpComSinal2>0</ValorOpComSinal2>
+          <ValorOpComSinal3>0</ValorOpComSinal3>
+          <ValorOpComSinal4>0</ValorOpComSinal4>
+          <ValorOpComSinal5>0</ValorOpComSinal5>
+          <ValorOpComSinal6>0</ValorOpComSinal6>
+          <ValorOpComSinal7>0</ValorOpComSinal7>
+          <ValorOpComSinal8>0</ValorOpComSinal8>
+          <ValorOriginal>0</ValorOriginal>
+          <ValorPerdaFinanceira>0</ValorPerdaFinanceira>
+          <ValorRetencoes>0</ValorRetencoes>
+          <ValorSESTSENAT>0</ValorSESTSENAT>
+          <ValorVinculado>0</ValorVinculado>
+          <contabil z:Id="i14">
+            <d4p1:InternalId i:nil="true" />
+            <CodColCFO i:nil="true" />
+            <CodColigada>0</CodColigada>
+            <CodEventoContabil i:nil="true" />
+            <CodEventoContabilDefault i:nil="true" />
+            <CodLoteDefault>0</CodLoteDefault>
+            <CodigoCliFor_Filial i:nil="true" />
+            <ContabilizacaoReadOnly>false</ContabilizacaoReadOnly>
+            <DataContabilizacao>0001-01-01T00:00:00</DataContabilizacao>
+            <DataContabilizacaoDefault>0001-01-01T00:00:00</DataContabilizacaoDefault>
+            <DesabilitarVisualizacaoEdicaoPartida>false</DesabilitarVisualizacaoEdicaoPartida>
+            <DescricaoDefault i:nil="true" />
+            <ExecutaEventoContabilAutomatico>false</ExecutaEventoContabilAutomatico>
+            <FiltroProc_LookupEventoContabil>Default</FiltroProc_LookupEventoContabil>
+            <HabilitaInfoEventoContabil>true</HabilitaInfoEventoContabil>
+            <HasChanges>false</HasChanges>
+            <HasFilterProc_EventoContabil>false</HasFilterProc_EventoContabil>
+            <IdLogEventoContabil></IdLogEventoContabil>
+            <IdOperacao i:nil="true" />
+            <IdOperacao_LancamentoExcluido i:nil="true" />
+            <LancamentoContabil z:Id="i15">
+              <d4p1:InternalId i:nil="true" />
+              <CodColigada>0</CodColigada>
+              <CodLote>0</CodLote>
+              <CodUsuario i:nil="true" />
+              <Descricao i:nil="true" />
+              <Estorno>false</Estorno>
+              <IdLancamento>0</IdLancamento>
+              <IdOperacao>0</IdOperacao>
+              <IntegraAplicacao i:nil="true" />
+              <Partidas>
+                <d4p1:CtbPartidaPar z:Id="i16">
+                  <d4p1:InternalId i:nil="true" />
+                  <CodCCusto i:nil="true" />
+                  <CodColContaEliminacao i:nil="true" />
+                  <CodColCredito>0</CodColCredito>
+                  <CodColDebito>0</CodColDebito>
+                  <CodColEliminacao i:nil="true" />
+                  <CodColPartida>0</CodColPartida>
+                  <CodColigada>0</CodColigada>
+                  <CodContaEliminacao i:nil="true" />
+                  <CodDepartamento i:nil="true" />
+                  <CodFilial>0</CodFilial>
+                  <CodHistp i:nil="true" />
+                  <CodLote>0</CodLote>
+                  <Complemento i:nil="true" />
+                  <Credito i:nil="true" />
+                  <Data>0001-01-01T00:00:00</Data>
+                  <Data2 i:nil="true" />
+                  <Debito i:nil="true" />
+                  <DescricaoCredito i:nil="true" />
+                  <DescricaoDebito i:nil="true" />
+                  <DescricaoHistp i:nil="true" />
+                  <Dimensao>
+                    <d4p1:CtbDimensaoPar z:Id="i17">
+                      <d4p1:InternalId i:nil="true" />
+                      <CodColDimensao>0</CodColDimensao>
+                      <CodColigada>0</CodColigada>
+                      <Entidade>FCFO</Entidade>
+                      <IdCont>0</IdCont>
+                      <IdDimensao>0</IdDimensao>
+                      <IdDimensaoPartida>0</IdDimensaoPartida>
+                      <IdPartida>0</IdPartida>
+                      <Percentual>0</Percentual>
+                      <Valor i:nil="true" />
+                    </d4p1:CtbDimensaoPar>
+                  </Dimensao>
+                  <Documento i:nil="true" />
+                  <ExigeRateioCredito i:nil="true" />
+                  <ExigeRateioDebito i:nil="true" />
+                  <IdClasseValorProtheus>0</IdClasseValorProtheus>
+                  <IdCont>0</IdCont>
+                  <IdItemContabilProtheus>0</IdItemContabilProtheus>
+                  <IdLancamento>0</IdLancamento>
+                  <IdPartida>0</IdPartida>
+                  <Image>0</Image>
+                  <IntegraAplicacao i:nil="true" />
+                  <NomeCCusto i:nil="true" />
+                  <NomeDepartamento i:nil="true" />
+                  <NomeFilial i:nil="true" />
+                  <OwnerData />
+                  <Partida i:nil="true" />
+                  <RateioCredito>
+                    <d4p1:CtbRateioPar z:Id="i18">
+                      <d4p1:InternalId i:nil="true" />
+                      <CodColConta>0</CodColConta>
+                      <CodColGerencial>0</CodColGerencial>
+                      <CodColigada>0</CodColigada>
+                      <CodConta i:nil="true" />
+                      <CodGerencial i:nil="true" />
+                      <CodLote>0</CodLote>
+                      <ContaGerencialInativa>0</ContaGerencialInativa>
+                      <Data>0001-01-01T00:00:00</Data>
+                      <IdCont>0</IdCont>
+                      <IdPartida>0</IdPartida>
+                      <IdRateio>0</IdRateio>
+                      <LctRef>0</LctRef>
+                      <Percentual i:nil="true" />
+                      <Valor i:nil="true" />
+                      <VlrCredito>0</VlrCredito>
+                      <VlrDebito>0</VlrDebito>
+                    </d4p1:CtbRateioPar>
+                  </RateioCredito>
+                  <RateioDebito>
+                    <d4p1:CtbRateioPar z:Id="i19">
+                      <d4p1:InternalId i:nil="true" />
+                      <CodColConta>0</CodColConta>
+                      <CodColGerencial>0</CodColGerencial>
+                      <CodColigada>0</CodColigada>
+                      <CodConta i:nil="true" />
+                      <CodGerencial i:nil="true" />
+                      <CodLote>0</CodLote>
+                      <ContaGerencialInativa>0</ContaGerencialInativa>
+                      <Data>0001-01-01T00:00:00</Data>
+                      <IdCont>0</IdCont>
+                      <IdPartida>0</IdPartida>
+                      <IdRateio>0</IdRateio>
+                      <LctRef>0</LctRef>
+                      <Percentual i:nil="true" />
+                      <Valor i:nil="true" />
+                      <VlrCredito>0</VlrCredito>
+                      <VlrDebito>0</VlrDebito>
+                    </d4p1:CtbRateioPar>
+                  </RateioDebito>
+                  <RateioDimensao>
+                    <d4p1:CtbRateioDimensaoPar z:Id="i20">
+                      <d4p1:InternalId i:nil="true" />
+                      <CodColigada>0</CodColigada>
+                      <Dimensao>
+                        <d4p1:CtbDimensaoPar z:Id="i21">
+                          <d4p1:InternalId i:nil="true" />
+                          <CodColDimensao>0</CodColDimensao>
+                          <CodColigada>0</CodColigada>
+                          <Entidade>FCFO</Entidade>
+                          <IdCont>0</IdCont>
+                          <IdDimensao>0</IdDimensao>
+                          <IdDimensaoPartida>0</IdDimensaoPartida>
+                          <IdPartida>0</IdPartida>
+                          <Percentual>0</Percentual>
+                          <Valor i:nil="true" />
+                        </d4p1:CtbDimensaoPar>
+                      </Dimensao>
+                      <IdCont>0</IdCont>
+                      <IdPartida>0</IdPartida>
+                      <IdRateioDimensao>0</IdRateioDimensao>
+                      <Valor>0</Valor>
+                    </d4p1:CtbRateioDimensaoPar>
+                  </RateioDimensao>
+                  <ReduzidoCCusto i:nil="true" />
+                  <ReduzidoCredito i:nil="true" />
+                  <ReduzidoDebito i:nil="true" />
+                  <Usuario i:nil="true" />
+                  <Valor>0</Valor>
+                  <Valor2 i:nil="true" />
+                  <idParticipante i:nil="true" />
+                </d4p1:CtbPartidaPar>
+              </Partidas>
+            </LancamentoContabil>
+            <LancamentoExcluido>false</LancamentoExcluido>
+            <LancamentosAutomaticos>false</LancamentosAutomaticos>
+            <LogAtivado>false</LogAtivado>
+            <LogEvc>
+              <CtbLogItemEvento z:Id="i22">
+                <ItemEvento z:Id="i23">
+                  <Log xmlns:d10p1="http://schemas.datacontract.org/2004/07/System.Text">
+                    <m_MaxCapacity xmlns:d11p1="http://www.w3.org/2001/XMLSchema" i:type="d11p1:int" xmlns="">2147483647</m_MaxCapacity>
+                    <Capacity xmlns:d11p1="http://www.w3.org/2001/XMLSchema" i:type="d11p1:int" xmlns="">16</Capacity>
+                    <m_StringValue xmlns:d11p1="http://www.w3.org/2001/XMLSchema" i:type="d11p1:string" xmlns=""></m_StringValue>
+                    <m_currentThread xmlns:d11p1="http://www.w3.org/2001/XMLSchema" i:type="d11p1:int" xmlns="">0</m_currentThread>
+                  </Log>
+                  <TipoLog>ItemEvc</TipoLog>
+                  <Title i:nil="true" />
+                </ItemEvento>
+                <Lancamentos>
+                  <CtbLogLancamento z:Id="i24">
+                    <Departamento>
+                      <CtbLogDepto z:Id="i25">
+                        <Ccusto />
+                        <Departamento z:Id="i26">
+                          <Log xmlns:d14p1="http://schemas.datacontract.org/2004/07/System.Text">
+                            <m_MaxCapacity xmlns:d15p1="http://www.w3.org/2001/XMLSchema" i:type="d15p1:int" xmlns="">2147483647</m_MaxCapacity>
+                            <Capacity xmlns:d15p1="http://www.w3.org/2001/XMLSchema" i:type="d15p1:int" xmlns="">16</Capacity>
+                            <m_StringValue xmlns:d15p1="http://www.w3.org/2001/XMLSchema" i:type="d15p1:string" xmlns=""></m_StringValue>
+                            <m_currentThread xmlns:d15p1="http://www.w3.org/2001/XMLSchema" i:type="d15p1:int" xmlns="">0</m_currentThread>
+                          </Log>
+                          <TipoLog>Departamentos</TipoLog>
+                          <Title i:nil="true" />
+                        </Departamento>
+                      </CtbLogDepto>
+                    </Departamento>
+                    <Dimensao z:Id="i27">
+                      <Dimensao z:Id="i28">
+                        <Log xmlns:d13p1="http://schemas.datacontract.org/2004/07/System.Text">
+                          <m_MaxCapacity xmlns:d14p1="http://www.w3.org/2001/XMLSchema" i:type="d14p1:int" xmlns="">2147483647</m_MaxCapacity>
+                          <Capacity xmlns:d14p1="http://www.w3.org/2001/XMLSchema" i:type="d14p1:int" xmlns="">16</Capacity>
+                          <m_StringValue xmlns:d14p1="http://www.w3.org/2001/XMLSchema" i:type="d14p1:string" xmlns=""></m_StringValue>
+                          <m_currentThread xmlns:d14p1="http://www.w3.org/2001/XMLSchema" i:type="d14p1:int" xmlns="">0</m_currentThread>
+                        </Log>
+                        <TipoLog>Dimensoes</TipoLog>
+                        <Title i:nil="true" />
+                      </Dimensao>
+                      <Dimensoes />
+                    </Dimensao>
+                    <Lancamento z:Id="i29">
+                      <Log xmlns:d12p1="http://schemas.datacontract.org/2004/07/System.Text">
+                        <m_MaxCapacity xmlns:d13p1="http://www.w3.org/2001/XMLSchema" i:type="d13p1:int" xmlns="">2147483647</m_MaxCapacity>
+                        <Capacity xmlns:d13p1="http://www.w3.org/2001/XMLSchema" i:type="d13p1:int" xmlns="">16</Capacity>
+                        <m_StringValue xmlns:d13p1="http://www.w3.org/2001/XMLSchema" i:type="d13p1:string" xmlns=""></m_StringValue>
+                        <m_currentThread xmlns:d13p1="http://www.w3.org/2001/XMLSchema" i:type="d13p1:int" xmlns="">0</m_currentThread>
+                      </Log>
+                      <TipoLog>Lancamento</TipoLog>
+                      <Title i:nil="true" />
+                    </Lancamento>
+                    <Rateio z:Id="i30">
+                      <Rateio z:Id="i31">
+                        <Log xmlns:d13p1="http://schemas.datacontract.org/2004/07/System.Text">
+                          <m_MaxCapacity xmlns:d14p1="http://www.w3.org/2001/XMLSchema" i:type="d14p1:int" xmlns="">2147483647</m_MaxCapacity>
+                          <Capacity xmlns:d14p1="http://www.w3.org/2001/XMLSchema" i:type="d14p1:int" xmlns="">16</Capacity>
+                          <m_StringValue xmlns:d14p1="http://www.w3.org/2001/XMLSchema" i:type="d14p1:string" xmlns=""></m_StringValue>
+                          <m_currentThread xmlns:d14p1="http://www.w3.org/2001/XMLSchema" i:type="d14p1:int" xmlns="">0</m_currentThread>
+                        </Log>
+                        <TipoLog>Rateios</TipoLog>
+                        <Title i:nil="true" />
+                      </Rateio>
+                      <Rateios />
+                    </Rateio>
+                  </CtbLogLancamento>
+                </Lancamentos>
+              </CtbLogItemEvento>
+            </LogEvc>
+            <NaoVisualizarInfoEventoContabil>false</NaoVisualizarInfoEventoContabil>
+            <NumDocumentoPartida></NumDocumentoPartida>
+            <OwnerData />
+            <PermiteAlterarLanctoLoteZero>false</PermiteAlterarLanctoLoteZero>
+            <PermiteExcluirLancamento>true</PermiteExcluirLancamento>
+            <PermitirManutencaoLanLoteZero>false</PermitirManutencaoLanLoteZero>
+            <Processo i:nil="true" />
+            <StatusContabilizacao>C</StatusContabilizacao>
+            <TipoParticipante i:nil="true" />
+            <UsaEventoContabil>true</UsaEventoContabil>
+            <ValidaContaContabilSemRateio>false</ValidaContaContabilSemRateio>
+            <ValidaUsuarioModificouContabilizacaoGeradaPeloEvento>false</ValidaUsuarioModificouContabilizacaoGeradaPeloEvento>
+            <_HasFilterProc_EventoContabil>false</_HasFilterProc_EventoContabil>
+          </contabil>
+        </d4p1:FinItemBaixa>
+      </ListaDeItemBaixa>
+      <ListaVaLorIntegracaoLancamento xmlns:d4p1="http://www.totvs.com/">
+        <d4p1:FinFLanIntegracao z:Id="i32">
+          <d4p1:InternalId i:nil="true" />
+          <CodColigada>0</CodColigada>
+          <Definicao z:Id="i33">
+            <d4p1:InternalId i:nil="true" />
+            <Acao>Nada</Acao>
+            <AteVencimento>false</AteVencimento>
+            <CodAplicacao i:nil="true" />
+            <CodColigada>0</CodColigada>
+            <CompoeValorAVP>false</CompoeValorAVP>
+            <CompoeValorExtratoCliFor>false</CompoeValorExtratoCliFor>
+            <Descricao i:nil="true" />
+            <DiasAtraso>0</DiasAtraso>
+            <Formula i:nil="true" />
+            <IdCampo>0</IdCampo>
+            <Ordem>0</Ordem>
+          </Definicao>
+          <IdCampo>0</IdCampo>
+          <IdLan>0</IdLan>
+          <OrigemCalculo>Nenhum</OrigemCalculo>
+          <RecCreatedBy i:nil="true" />
+          <RecModifiedBy i:nil="true" />
+          <Valor>0</Valor>
+          <ValorBx>0</ValorBx>
+          <ValorComSinal>0</ValorComSinal>
+          <ValorReaj>0</ValorReaj>
+          <ValorReajComSinal>0</ValorReajComSinal>
+        </d4p1:FinFLanIntegracao>
+      </ListaVaLorIntegracaoLancamento>
+      <MesdeCompetencia i:nil="true" />
+      <ModoCalculoBx i:nil="true" />
+      <MultaDia>0</MultaDia>
+      <Nome i:nil="true" />
+      <NumBloqueios>Sem</NumBloqueios>
+      <NumMovNuclues i:nil="true" />
+      <NumeroContabilInclusao i:nil="true" />
+      <NumeroDocumento i:nil="true" />
+      <OrigemValoresParaCalculoValorLiquido>
+        <OrigemValorCap>BaseDados</OrigemValorCap>
+        <OrigemValorDesconto>BaseDados</OrigemValorDesconto>
+        <OrigemValorIntegracao>BaseDados</OrigemValorIntegracao>
+        <OrigemValorJuros>BaseDados</OrigemValorJuros>
+        <OrigemValorMulta>BaseDados</OrigemValorMulta>
+        <OrigemValorOp1>BaseDados</OrigemValorOp1>
+        <OrigemValorOp2>BaseDados</OrigemValorOp2>
+        <OrigemValorOp3>BaseDados</OrigemValorOp3>
+        <OrigemValorOp4>BaseDados</OrigemValorOp4>
+        <OrigemValorOp5>BaseDados</OrigemValorOp5>
+        <OrigemValorOp6>BaseDados</OrigemValorOp6>
+        <OrigemValorOp7>BaseDados</OrigemValorOp7>
+        <OrigemValorOp8>BaseDados</OrigemValorOp8>
+        <OrigemValoresAcordo>BaseDados</OrigemValoresAcordo>
+      </OrigemValoresParaCalculoValorLiquido>
+      <PagRec>WCF</PagRec>
+      <RatCCusto xmlns:d4p1="http://www.totvs.com/">
+        <d4p1:FinLanRatCCuResult z:Id="i34">
+          <d4p1:InternalId i:nil="true" />
+          <ClasseValor i:nil="true" />
+          <CodCCusto i:nil="true" />
+          <CodColNatFinanceira>0</CodColNatFinanceira>
+          <CodColigada>0</CodColigada>
+          <CodNatFinanceira i:nil="true" />
+          <CodTbGrupoOrc i:nil="true" />
+          <Historico i:nil="true" />
+          <IdLan>0</IdLan>
+          <IdPrj i:nil="true" />
+          <IdRatCCu>0</IdRatCCu>
+          <IdTrf i:nil="true" />
+          <ItemContabil i:nil="true" />
+          <Percentual>0</Percentual>
+          <Valor>0</Valor>
+        </d4p1:FinLanRatCCuResult>
+      </RatCCusto>
+      <RatDepto xmlns:d4p1="http://www.totvs.com/">
+        <d4p1:FinLanRatDepResult z:Id="i35">
+          <d4p1:InternalId i:nil="true" />
+          <CodColigada>0</CodColigada>
+          <CodDepartamento i:nil="true" />
+          <CodFilial>0</CodFilial>
+          <IdLan>0</IdLan>
+          <Valor>0</Valor>
+        </d4p1:FinLanRatDepResult>
+      </RatDepto>
+      <RetencoesBx_IntegracaoProtheus i:nil="true" />
+      <SESTSENATBx_IntegracaoProtheus i:nil="true" />
+      <SegundoNumero i:nil="true" />
+      <SinalOp1 i:nil="true" />
+      <SinalOp2 i:nil="true" />
+      <SinalOp3 i:nil="true" />
+      <SinalOp4 i:nil="true" />
+      <SinalOp5 i:nil="true" />
+      <SinalOp6 i:nil="true" />
+      <SinalOp7 i:nil="true" />
+      <SinalOp8 i:nil="true" />
+      <StatusAprovacao>NaoSeAplica</StatusAprovacao>
+      <StatusCNAB>NaoRemetido</StatusCNAB>
+      <StatusExtrato>Nenhum</StatusExtrato>
+      <StatusLan>Aberto</StatusLan>
+      <StatusLiqDuvidosa>NaoDuvidosa</StatusLiqDuvidosa>
+      <StatusRepasse>ERepasse</StatusRepasse>
+      <TemChequeParcial>false</TemChequeParcial>
+      <TipoContabil>NaoContabil</TipoContabil>
+      <TipoDocumento z:Id="i36">
+        <InternalId i:nil="true" xmlns="http://www.totvs.com/" />
+        <Classificacao>SemClassificacao</Classificacao>
+        <CodCfo i:nil="true" />
+        <CodColCfo i:nil="true" />
+        <CodColigada>0</CodColigada>
+        <CodTdo i:nil="true" />
+        <GeraNumDoc>DefinidoPeloUsuario</GeraNumDoc>
+        <GerarExtCompNaBaixa>false</GerarExtCompNaBaixa>
+        <NaoContabilizaBx0>false</NaoContabilizaBx0>
+        <PagRec>WCF</PagRec>
+        <UsarParametrosGerais>false</UsarParametrosGerais>
+      </TipoDocumento>
+      <TipoJurosDia>Taxa</TipoJurosDia>
+      <ValorAcrescimoAcordo>0</ValorAcrescimoAcordo>
+      <ValorAdiantamento>0</ValorAdiantamento>
+      <ValorBaixado>0</ValorBaixado>
+      <ValorCap>0</ValorCap>
+      <ValorCheque>0</ValorCheque>
+      <ValorDesconto>0</ValorDesconto>
+      <ValorDescontoAcordo>0</ValorDescontoAcordo>
+      <ValorDescontoPontual>0</ValorDescontoPontual>
+      <ValorDevolucao>0</ValorDevolucao>
+      <ValorINSS>0</ValorINSS>
+      <ValorIRRF>0</ValorIRRF>
+      <ValorIRRF_IntegracaoProtheus i:nil="true" />
+      <ValorJuros>0</ValorJuros>
+      <ValorJurosAcordo>0</ValorJurosAcordo>
+      <ValorLimiteRetencoes>0</ValorLimiteRetencoes>
+      <ValorLiquido>0</ValorLiquido>
+      <ValorLiquidoCalculado z:Id="i37">
+        <InternalId i:nil="true" xmlns="http://www.totvs.com/" />
+        <Codigo i:nil="true" />
+        <Coligada>0</Coligada>
+        <ID>0</ID>
+        <CodColigada>0</CodColigada>
+        <IdBaixa>0</IdBaixa>
+        <IdLan>0</IdLan>
+        <ServicoAlteracaoRepasse>false</ServicoAlteracaoRepasse>
+        <CodColigada>0</CodColigada>
+        <Data>0001-01-01T00:00:00</Data>
+        <IdLan>0</IdLan>
+        <IdLog>0</IdLog>
+        <ValorAcrescimoAcordo>0</ValorAcrescimoAcordo>
+        <ValorAdiantamento>0</ValorAdiantamento>
+        <ValorCap>0</ValorCap>
+        <ValorDesconto>0</ValorDesconto>
+        <ValorDescontoAcordo>0</ValorDescontoAcordo>
+        <ValorDevolucao>0</ValorDevolucao>
+        <ValorINSS>0</ValorINSS>
+        <ValorIRRF>0</ValorIRRF>
+        <ValorJuros>0</ValorJuros>
+        <ValorJurosAcordo>0</ValorJurosAcordo>
+        <ValorJurosVendor>0</ValorJurosVendor>
+        <ValorLiquido>0</ValorLiquido>
+        <ValorMulta>0</ValorMulta>
+        <ValorNotaCredito>0</ValorNotaCredito>
+        <ValorOp1>0</ValorOp1>
+        <ValorOp2>0</ValorOp2>
+        <ValorOp3>0</ValorOp3>
+        <ValorOp4>0</ValorOp4>
+        <ValorOp5>0</ValorOp5>
+        <ValorOp6>0</ValorOp6>
+        <ValorOp7>0</ValorOp7>
+        <ValorOp8>0</ValorOp8>
+        <ValorOriginal>0</ValorOriginal>
+        <ValorPerdaFinanceira>0</ValorPerdaFinanceira>
+        <ValorRetencoes>0</ValorRetencoes>
+        <ValorSESTSENAT>0</ValorSESTSENAT>
+        <CodColigada>0</CodColigada>
+        <IdLan>0</IdLan>
+        <Operacao>LancamentoInclusao</Operacao>
+        <ValorCapCalc>Nenhum</ValorCapCalc>
+        <ValorDescontoCalc>Nenhum</ValorDescontoCalc>
+        <ValorDescontoPontualidadeCalc>Nenhum</ValorDescontoPontualidadeCalc>
+        <ValorJurosCalc>Nenhum</ValorJurosCalc>
+        <ValorMultaCalc>Nenhum</ValorMultaCalc>
+        <ValorOp1Calc>Nenhum</ValorOp1Calc>
+        <ValorOp2Calc>Nenhum</ValorOp2Calc>
+        <ValorOp3Calc>Nenhum</ValorOp3Calc>
+        <ValorOp4Calc>Nenhum</ValorOp4Calc>
+        <ValorOp5Calc>Nenhum</ValorOp5Calc>
+        <ValorOp6Calc>Nenhum</ValorOp6Calc>
+        <ValorOp7Calc>Nenhum</ValorOp7Calc>
+        <ValorOp8Calc>Nenhum</ValorOp8Calc>
+      </ValorLiquidoCalculado>
+      <ValorLiquidoFLogValores z:Id="i38">
+        <InternalId i:nil="true" xmlns="http://www.totvs.com/" />
+        <ServicoAlteracaoRepasse>false</ServicoAlteracaoRepasse>
+        <CodColigada>0</CodColigada>
+        <Data>0001-01-01T00:00:00</Data>
+        <IdBaixa i:nil="true" />
+        <IdLan>0</IdLan>
+        <IdLog>0</IdLog>
+        <ListaHistoricoValoresIntegracao>
+          <FinFHistValoresIntegracaoPar z:Id="i39">
+            <InternalId i:nil="true" xmlns="http://www.totvs.com/" />
+            <ServicoAlteracaoRepasse>false</ServicoAlteracaoRepasse>
+            <CodColigada>0</CodColigada>
+            <Definicao z:Id="i40">
+              <InternalId i:nil="true" xmlns="http://www.totvs.com/" />
+              <ServicoAlteracaoRepasse>false</ServicoAlteracaoRepasse>
+              <Acao>Nada</Acao>
+              <AteVencimento>false</AteVencimento>
+              <CodColigada>0</CodColigada>
+              <CodSistema i:nil="true" />
+              <CompoeValorAVP>false</CompoeValorAVP>
+              <CompoeValorExtratoCliFor>false</CompoeValorExtratoCliFor>
+              <Descricao i:nil="true" />
+              <DiasAtraso>0</DiasAtraso>
+              <Formula i:nil="true" />
+            </Definicao>
+            <IdCampo>0</IdCampo>
+            <IdLan>0</IdLan>
+            <IdLog>0</IdLog>
+            <IdValoresIntegracao>0</IdValoresIntegracao>
+            <Valor>0</Valor>
+            <ValorCalc>Nenhum</ValorCalc>
+            <ValorComSinal>0</ValorComSinal>
+          </FinFHistValoresIntegracaoPar>
+        </ListaHistoricoValoresIntegracao>
+        <Operacao>LancamentoInclusao</Operacao>
+        <ValorAcrescimoAcordo>0</ValorAcrescimoAcordo>
+        <ValorAdiantamento>0</ValorAdiantamento>
+        <ValorCap>0</ValorCap>
+        <ValorCapCalc>Nenhum</ValorCapCalc>
+        <ValorDesconto>0</ValorDesconto>
+        <ValorDescontoAcordo>0</ValorDescontoAcordo>
+        <ValorDescontoCalc>Nenhum</ValorDescontoCalc>
+        <ValorDescontoPontual>0</ValorDescontoPontual>
+        <ValorDevolucao>0</ValorDevolucao>
+        <ValorINSS>0</ValorINSS>
+        <ValorIRRF>0</ValorIRRF>
+        <ValorJuros>0</ValorJuros>
+        <ValorJurosAcordo>0</ValorJurosAcordo>
+        <ValorJurosVendor>0</ValorJurosVendor>
+        <ValorLiquido>0</ValorLiquido>
+        <ValorMulta>0</ValorMulta>
+        <ValorMultaCalc>Nenhum</ValorMultaCalc>
+        <ValorNotaCredito>0</ValorNotaCredito>
+        <ValorOp1>0</ValorOp1>
+        <ValorOp1Calc>Nenhum</ValorOp1Calc>
+        <ValorOp2>0</ValorOp2>
+        <ValorOp2Calc>Nenhum</ValorOp2Calc>
+        <ValorOp3>0</ValorOp3>
+        <ValorOp3Calc>Nenhum</ValorOp3Calc>
+        <ValorOp4>0</ValorOp4>
+        <ValorOp4Calc>Nenhum</ValorOp4Calc>
+        <ValorOp5>0</ValorOp5>
+        <ValorOp5Calc>Nenhum</ValorOp5Calc>
+        <ValorOp6>0</ValorOp6>
+        <ValorOp6Calc>Nenhum</ValorOp6Calc>
+        <ValorOp7>0</ValorOp7>
+        <ValorOp7Calc>Nenhum</ValorOp7Calc>
+        <ValorOp8>0</ValorOp8>
+        <ValorOp8Calc>Nenhum</ValorOp8Calc>
+        <ValorOriginal>0</ValorOriginal>
+        <ValorPerdaFinanceira>0</ValorPerdaFinanceira>
+        <ValorRetencoes>0</ValorRetencoes>
+        <ValorSESTSENAT>0</ValorSESTSENAT>
+      </ValorLiquidoFLogValores>
+      <ValorLiquidoParcial>0</ValorLiquidoParcial>
+      <ValorMulta>0</ValorMulta>
+      <ValorNotaCredito>0</ValorNotaCredito>
+      <ValorOp1>0</ValorOp1>
+      <ValorOp2>0</ValorOp2>
+      <ValorOp3>0</ValorOp3>
+      <ValorOp4>0</ValorOp4>
+      <ValorOp5>0</ValorOp5>
+      <ValorOp6>0</ValorOp6>
+      <ValorOp7>0</ValorOp7>
+      <ValorOp8>0</ValorOp8>
+      <ValorOpComSinal1>0</ValorOpComSinal1>
+      <ValorOpComSinal2>0</ValorOpComSinal2>
+      <ValorOpComSinal3>0</ValorOpComSinal3>
+      <ValorOpComSinal4>0</ValorOpComSinal4>
+      <ValorOpComSinal5>0</ValorOpComSinal5>
+      <ValorOpComSinal6>0</ValorOpComSinal6>
+      <ValorOpComSinal7>0</ValorOpComSinal7>
+      <ValorOpComSinal8>0</ValorOpComSinal8>
+      <ValorOriginal>0</ValorOriginal>
+      <ValorOriginalIndexado>0</ValorOriginalIndexado>
+      <ValorRetencoes>0</ValorRetencoes>
+      <ValorSESTSENAT>0</ValorSESTSENAT>
+      <ValorVinculado>0</ValorVinculado>
+      <ValordaBaixadoLancto>0</ValordaBaixadoLancto>
+      <Valores z:Id="i41">
+        <InternalId i:nil="true" xmlns="http://www.totvs.com/" />
+        <Codigo i:nil="true" />
+        <Coligada>0</Coligada>
+        <ID>0</ID>
+        <CodColigada>0</CodColigada>
+        <IdBaixa>0</IdBaixa>
+        <IdLan>0</IdLan>
+        <ServicoAlteracaoRepasse>false</ServicoAlteracaoRepasse>
+        <ValorAcrescimoAcordo>0</ValorAcrescimoAcordo>
+        <ValorAdiantamento>0</ValorAdiantamento>
+        <ValorCap>0</ValorCap>
+        <ValorDesconto>0</ValorDesconto>
+        <ValorDescontoAcordo>0</ValorDescontoAcordo>
+        <ValorDescontoPontual>0</ValorDescontoPontual>
+        <ValorDevolucao>0</ValorDevolucao>
+        <ValorINSS>0</ValorINSS>
+        <ValorIRRF>0</ValorIRRF>
+        <ValorJuros>0</ValorJuros>
+        <ValorJurosAcordo>0</ValorJurosAcordo>
+        <ValorJurosVendor>0</ValorJurosVendor>
+        <ValorLiquido>0</ValorLiquido>
+        <ValorMulta>0</ValorMulta>
+        <ValorNotaCredito>0</ValorNotaCredito>
+        <ValorOp1>0</ValorOp1>
+        <ValorOp2>0</ValorOp2>
+        <ValorOp3>0</ValorOp3>
+        <ValorOp4>0</ValorOp4>
+        <ValorOp5>0</ValorOp5>
+        <ValorOp6>0</ValorOp6>
+        <ValorOp7>0</ValorOp7>
+        <ValorOp8>0</ValorOp8>
+        <ValorOriginal>0</ValorOriginal>
+        <ValorPerdaFinanceira>0</ValorPerdaFinanceira>
+        <ValorRetencoes>0</ValorRetencoes>
+        <ValorSESTSENAT>0</ValorSESTSENAT>
+        <ValordaBaixadoLancto>0</ValordaBaixadoLancto>
+      </Valores>
+    </FinLancamentoBaixaResult>
+  </Lancamentos>
+  <ListBaixaGeradas>
+    <FinIdBaixaGeradoPar z:Id="i42">
+      <InternalId i:nil="true" xmlns="http://www.totvs.com/" />
+      <ServicoAlteracaoRepasse>false</ServicoAlteracaoRepasse>
+      <CodColigada>0</CodColigada>
+      <IdBaixa>0</IdBaixa>
+      <IdLan>0</IdLan>
+      <IdPagto>0</IdPagto>
+      <IdformaPagto i:nil="true" />
+      <Idxcx i:nil="true" />
+      <ImprimirCheque>false</ImprimirCheque>
+      <IntegracaoAcordoProtheus />
+      <PagRec>WCF</PagRec>
+    </FinIdBaixaGeradoPar>
+  </ListBaixaGeradas>
+  <ListContabilLan>
+    <FinLanBaixaContabParamsProc>
+      <IdFormaPagto>0</IdFormaPagto>
+      <IdLan>0</IdLan>
+      <contabilizacao>
+        <CtbEventoLancContabilPar z:Id="i43">
+          <CodCCusto i:nil="true" />
+          <CodColConta>-1</CodColConta>
+          <CodColContaEliminacao i:nil="true" />
+          <CodColEliminacao i:nil="true" />
+          <CodConta i:nil="true" />
+          <CodContaEliminacao i:nil="true" />
+          <CodDepartamento i:nil="true" />
+          <CodFilial i:nil="true" />
+          <CodHistP i:nil="true" />
+          <CodeAplicarNoValor i:nil="true" />
+          <ComplHistorico i:nil="true" />
+          <DescricaoConta i:nil="true" />
+          <Dimensao>
+            <CtbEventoDimensaoPar z:Id="i44">
+              <InternalId i:nil="true" xmlns="http://www.totvs.com/" />
+              <CodColDimensao>0</CodColDimensao>
+              <Entidade>FCFO</Entidade>
+              <IdDimensao>0</IdDimensao>
+              <Percentual>0</Percentual>
+              <Valor i:nil="true" />
+            </CtbEventoDimensaoPar>
+          </Dimensao>
+          <IdClasseValor i:nil="true" />
+          <IdItemContabil i:nil="true" />
+          <IdLogEventoContabil i:nil="true" />
+          <LogEvc>
+            <CtbLogItemEvento z:Id="i45">
+              <ItemEvento z:Id="i46">
+                <Log xmlns:d9p1="http://schemas.datacontract.org/2004/07/System.Text">
+                  <m_MaxCapacity xmlns:d10p1="http://www.w3.org/2001/XMLSchema" i:type="d10p1:int" xmlns="">2147483647</m_MaxCapacity>
+                  <Capacity xmlns:d10p1="http://www.w3.org/2001/XMLSchema" i:type="d10p1:int" xmlns="">16</Capacity>
+                  <m_StringValue xmlns:d10p1="http://www.w3.org/2001/XMLSchema" i:type="d10p1:string" xmlns=""></m_StringValue>
+                  <m_currentThread xmlns:d10p1="http://www.w3.org/2001/XMLSchema" i:type="d10p1:int" xmlns="">0</m_currentThread>
+                </Log>
+                <TipoLog>ItemEvc</TipoLog>
+                <Title i:nil="true" />
+              </ItemEvento>
+              <Lancamentos />
+            </CtbLogItemEvento>
+          </LogEvc>
+          <LogEventoAtivado>false</LogEventoAtivado>
+          <NumeroInterno>0</NumeroInterno>
+          <Rateio>
+            <CtbEventoRateioContabilPar z:Id="i47">
+              <InternalId i:nil="true" xmlns="http://www.totvs.com/" />
+              <AplicaNo>Master</AplicaNo>
+              <CentroCustoOrigem xmlns:d8p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+              <CodColContaGer>-1</CodColContaGer>
+              <CodContaGer i:nil="true" />
+              <ContaGerencialInativa>0</ContaGerencialInativa>
+              <PercentualAplicado>0</PercentualAplicado>
+              <Valor>0</Valor>
+            </CtbEventoRateioContabilPar>
+          </Rateio>
+          <RateioDimensao>
+            <CtbEventoRateioDimensaoPar z:Id="i48">
+              <InternalId i:nil="true" xmlns="http://www.totvs.com/" />
+              <Dimensao>
+                <CtbEventoDimensaoPar z:Id="i49">
+                  <InternalId i:nil="true" xmlns="http://www.totvs.com/" />
+                  <CodColDimensao>0</CodColDimensao>
+                  <Entidade>FCFO</Entidade>
+                  <IdDimensao>0</IdDimensao>
+                  <Percentual>0</Percentual>
+                  <Valor i:nil="true" />
+                </CtbEventoDimensaoPar>
+              </Dimensao>
+              <IdRateio>0</IdRateio>
+              <Valor>0</Valor>
+            </CtbEventoRateioDimensaoPar>
+          </RateioDimensao>
+          <ReduzidoConta i:nil="true" />
+          <Tipo>Defaul</Tipo>
+          <Valor>0</Valor>
+          <ValorSegundaMoeda>0</ValorSegundaMoeda>
+        </CtbEventoLancContabilPar>
+      </contabilizacao>
+    </FinLanBaixaContabParamsProc>
+  </ListContabilLan>
+  <ListaBaixas>
+    <FinIdBaixaGeradoPar z:Id="i50">
+      <InternalId i:nil="true" xmlns="http://www.totvs.com/" />
+      <ServicoAlteracaoRepasse>false</ServicoAlteracaoRepasse>
+      <CodColigada>0</CodColigada>
+      <IdBaixa>0</IdBaixa>
+      <IdLan>0</IdLan>
+      <IdPagto>0</IdPagto>
+      <IdformaPagto i:nil="true" />
+      <Idxcx i:nil="true" />
+      <ImprimirCheque>false</ImprimirCheque>
+      <IntegracaoAcordoProtheus i:nil="true" />
+      <PagRec>WCF</PagRec>
+    </FinIdBaixaGeradoPar>
+  </ListaBaixas>
+  <ListaIdBoletoBaixa>
+    <FinIdBoletoBaixaPar>
+      <CodColigada>0</CodColigada>
+      <IdBoleto>0</IdBoleto>
+    </FinIdBoletoBaixaPar>
+  </ListaIdBoletoBaixa>
+  <MotivoBxProtheus i:nil="true" />
+  <MudouData>true</MudouData>
+  <MudouMoeda>true</MudouMoeda>
+  <MudouTipoBaixa>true</MudouTipoBaixa>
+  <MudouTipoExtrato>true</MudouTipoExtrato>
+  <NSUTransacaoPIX i:nil="true" />
+  <NaoVisualizarValoresEContabilidade>false</NaoVisualizarValoresEContabilidade>
+  <NumDocExtrato i:nil="true" />
+  <OrigemContabilizacao>EventoContabil</OrigemContabilizacao>
+  <PagtoPorLan>
+    <FinPagtoLanParamsProc z:Id="i51">
+      <CodFormaPagto i:nil="true" />
+      <IdFormaPagto>0</IdFormaPagto>
+      <IdLan>0</IdLan>
+      <IdPagto>0</IdPagto>
+      <IdParcela>1</IdParcela>
+      <MotivoBxProtheus i:nil="true" />
+      <Valor>0</Valor>
+    </FinPagtoLanParamsProc>
+  </PagtoPorLan>
+  <ReajusteParcelaTIN>DataBaixa</ReajusteParcelaTIN>
+  <RetencoesAcumuladas>
+    <FinBaixaRetAcumul z:Id="i52">
+      <InternalId i:nil="true" xmlns="http://www.totvs.com/" />
+      <ServicoAlteracaoRepasse>false</ServicoAlteracaoRepasse>
+      <BaseDeCalculo>0</BaseDeCalculo>
+      <CgcCfo i:nil="true" />
+      <CodCfo i:nil="true" />
+      <CodColCfo>0</CodColCfo>
+      <CodColigada>0</CodColigada>
+      <CodTrb i:nil="true" />
+      <Data>0001-01-01T00:00:00</Data>
+      <Id>0</Id>
+      <IdBaixa>0</IdBaixa>
+      <IdLan>0</IdLan>
+      <OperacaoBd>Insert</OperacaoBd>
+      <Status>NaoAcumulado</Status>
+      <ValorRetencao>0</ValorRetencao>
+    </FinBaixaRetAcumul>
+  </RetencoesAcumuladas>
+  <RetencoesAcumuladasRateio>
+    <FinBaixaRetRateio z:Id="i53">
+      <InternalId i:nil="true" xmlns="http://www.totvs.com/" />
+      <ServicoAlteracaoRepasse>false</ServicoAlteracaoRepasse>
+      <CodColigada>0</CodColigada>
+      <Id>0</Id>
+      <IdBaixa>0</IdBaixa>
+      <IdLanAcumul>0</IdLanAcumul>
+      <Origem>Base</Origem>
+      <ValorRateio>0</ValorRateio>
+    </FinBaixaRetRateio>
+  </RetencoesAcumuladasRateio>
+  <TIDTransacaoPIX i:nil="true" />
+  <TipoBaixa>Completa</TipoBaixa>
+  <TransacoesSiTef>
+    <FinLanBaixaSiTefPar z:Id="i54">
+      <InternalId i:nil="true" xmlns="http://www.totvs.com/" />
+      <ServicoAlteracaoRepasse>false</ServicoAlteracaoRepasse>
+      <Bandeira>WCF</Bandeira>
+      <CancelamentoID i:nil="true" />
+      <CodAutorizacao i:nil="true" />
+      <CodColigada>0</CodColigada>
+      <CodEstabelecimento i:nil="true" />
+      <CodigoRede i:nil="true" />
+      <ComprovanteCliente i:nil="true" />
+      <ComprovanteEstabelecimento i:nil="true" />
+      <Data>0001-01-01T00:00:00</Data>
+      <Estornado>false</Estornado>
+      <FormaPagto>Credito</FormaPagto>
+      <Id>0</Id>
+      <IdFormaPagto>0</IdFormaPagto>
+      <IdLan i:nil="true" />
+      <IdStatus>WCF</IdStatus>
+      <IdsBaixa xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+        <d4p1:int>0</d4p1:int>
+      </IdsBaixa>
+      <ModeloTransacao>WCF</ModeloTransacao>
+      <NSUAutorizador i:nil="true" />
+      <NSUSiTef i:nil="true" />
+      <NumParcelas>0</NumParcelas>
+      <RequestID i:nil="true" />
+      <TID i:nil="true" />
+      <Valor>0</Valor>
+    </FinLanBaixaSiTefPar>
+  </TransacoesSiTef>
+  <Troco>0</Troco>
+  <UsarDataBaixaReajuste>true</UsarDataBaixaReajuste>
+  <Usuario>felipe.silva</Usuario>
+  <ValidaOrcExcedido>false</ValidaOrcExcedido>
+  <_usarDataVencimentoBaixa>false</_usarDataVencimentoBaixa>
+</FinLanBaixaParamsProc>

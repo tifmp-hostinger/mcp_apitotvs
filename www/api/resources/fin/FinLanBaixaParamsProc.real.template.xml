@@ -1,0 +1,1669 @@
+<?xml version="1.0" encoding="utf-16"?>
+<FinLanBaixaParamsProc z:Id="i1" xmlns="http://www.totvs.com.br/RM/" xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns:z="http://schemas.microsoft.com/2003/10/Serialization/">
+  <ActionModule xmlns="http://www.totvs.com/">F</ActionModule>
+  <ActionName xmlns="http://www.totvs.com/">FinLanBaixaAction</ActionName>
+  <CanParallelize xmlns="http://www.totvs.com/">true</CanParallelize>
+  <CanSendMail xmlns="http://www.totvs.com/">false</CanSendMail>
+  <CanWaitSchedule xmlns="http://www.totvs.com/">false</CanWaitSchedule>
+  <CodUsuario xmlns="http://www.totvs.com/">{{USUARIO}}</CodUsuario>
+  <ConnectionId i:nil="true" xmlns="http://www.totvs.com/" />
+  <ConnectionString i:nil="true" xmlns="http://www.totvs.com/" />
+  <Context z:Id="i2" xmlns="http://www.totvs.com/" xmlns:a="http://www.totvs.com.br/RM/">
+    <a:_params xmlns:b="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+      <b:KeyValueOfanyTypeanyType>
+        <b:Key i:type="c:string" xmlns:c="http://www.w3.org/2001/XMLSchema">$EXERCICIOFISCAL</b:Key>
+        <b:Value i:type="c:int" xmlns:c="http://www.w3.org/2001/XMLSchema">1</b:Value>
+      </b:KeyValueOfanyTypeanyType>
+      <b:KeyValueOfanyTypeanyType>
+        <b:Key i:type="c:string" xmlns:c="http://www.w3.org/2001/XMLSchema">$CODLOCPRT</b:Key>
+        <b:Value i:type="c:int" xmlns:c="http://www.w3.org/2001/XMLSchema">-1</b:Value>
+      </b:KeyValueOfanyTypeanyType>
+      <b:KeyValueOfanyTypeanyType>
+        <b:Key i:type="c:string" xmlns:c="http://www.w3.org/2001/XMLSchema">$CODTIPOCURSO</b:Key>
+        <b:Value i:type="c:int" xmlns:c="http://www.w3.org/2001/XMLSchema">2</b:Value>
+      </b:KeyValueOfanyTypeanyType>
+      <b:KeyValueOfanyTypeanyType>
+        <b:Key i:type="c:string" xmlns:c="http://www.w3.org/2001/XMLSchema">$EDUTIPOUSR</b:Key>
+        <b:Value i:type="c:string" xmlns:c="http://www.w3.org/2001/XMLSchema">-1</b:Value>
+      </b:KeyValueOfanyTypeanyType>
+      <b:KeyValueOfanyTypeanyType>
+        <b:Key i:type="c:string" xmlns:c="http://www.w3.org/2001/XMLSchema">$CODUNIDADEBIB</b:Key>
+        <b:Value i:type="c:int" xmlns:c="http://www.w3.org/2001/XMLSchema">-1</b:Value>
+      </b:KeyValueOfanyTypeanyType>
+      <b:KeyValueOfanyTypeanyType>
+        <b:Key i:type="c:string" xmlns:c="http://www.w3.org/2001/XMLSchema">$CODCOLIGADA</b:Key>
+        <b:Value i:type="c:int" xmlns:c="http://www.w3.org/2001/XMLSchema">{{CODCOLIGADA}}</b:Value>
+      </b:KeyValueOfanyTypeanyType>
+      <b:KeyValueOfanyTypeanyType>
+        <b:Key i:type="c:string" xmlns:c="http://www.w3.org/2001/XMLSchema">$RHTIPOUSR</b:Key>
+        <b:Value i:type="c:string" xmlns:c="http://www.w3.org/2001/XMLSchema">-1</b:Value>
+      </b:KeyValueOfanyTypeanyType>
+      <b:KeyValueOfanyTypeanyType>
+        <b:Key i:type="c:string" xmlns:c="http://www.w3.org/2001/XMLSchema">$CODIGOEXTERNO</b:Key>
+        <b:Value i:type="c:string" xmlns:c="http://www.w3.org/2001/XMLSchema">-1</b:Value>
+      </b:KeyValueOfanyTypeanyType>
+      <b:KeyValueOfanyTypeanyType>
+        <b:Key i:type="c:string" xmlns:c="http://www.w3.org/2001/XMLSchema">$CODSISTEMA</b:Key>
+        <b:Value i:type="c:string" xmlns:c="http://www.w3.org/2001/XMLSchema">S</b:Value>
+      </b:KeyValueOfanyTypeanyType>
+      <b:KeyValueOfanyTypeanyType>
+        <b:Key i:type="c:string" xmlns:c="http://www.w3.org/2001/XMLSchema">$CODUSUARIOSERVICO</b:Key>
+        <b:Value i:type="c:string" xmlns:c="http://www.w3.org/2001/XMLSchema" />
+      </b:KeyValueOfanyTypeanyType>
+      <b:KeyValueOfanyTypeanyType>
+        <b:Key i:type="c:string" xmlns:c="http://www.w3.org/2001/XMLSchema">$CODUSUARIO</b:Key>
+        <b:Value i:type="c:string" xmlns:c="http://www.w3.org/2001/XMLSchema">{{USUARIO}}</b:Value>
+      </b:KeyValueOfanyTypeanyType>
+      <b:KeyValueOfanyTypeanyType>
+        <b:Key i:type="c:string" xmlns:c="http://www.w3.org/2001/XMLSchema">$IDPRJ</b:Key>
+        <b:Value i:type="c:int" xmlns:c="http://www.w3.org/2001/XMLSchema">-1</b:Value>
+      </b:KeyValueOfanyTypeanyType>
+      <b:KeyValueOfanyTypeanyType>
+        <b:Key i:type="c:string" xmlns:c="http://www.w3.org/2001/XMLSchema">$CHAPAFUNCIONARIO</b:Key>
+        <b:Value i:type="c:string" xmlns:c="http://www.w3.org/2001/XMLSchema">{{CHAPA}}</b:Value>
+      </b:KeyValueOfanyTypeanyType>
+      <b:KeyValueOfanyTypeanyType>
+        <b:Key i:type="c:string" xmlns:c="http://www.w3.org/2001/XMLSchema">$CODFILIAL</b:Key>
+        <b:Value i:type="c:int" xmlns:c="http://www.w3.org/2001/XMLSchema">{{CODFILIAL}}</b:Value>
+      </b:KeyValueOfanyTypeanyType>
+    </a:_params>
+    <a:Environment>DotNet</a:Environment>
+  </Context>
+  <CustomData i:nil="true" xmlns="http://www.totvs.com/" />
+  <DisableIsolateProcess xmlns="http://www.totvs.com/">false</DisableIsolateProcess>
+  <DriverType i:nil="true" xmlns="http://www.totvs.com/" />
+  <ExecutionId xmlns="http://www.totvs.com/">{{EXECID}}</ExecutionId>
+  <FailureMessage xmlns="http://www.totvs.com/">Falha na execução do processo</FailureMessage>
+  <FriendlyLogs i:nil="true" xmlns="http://www.totvs.com/" />
+  <HideProgressDialog xmlns="http://www.totvs.com/">false</HideProgressDialog>
+  <HostName xmlns="http://www.totvs.com/">integra-rm-api</HostName>
+  <Initialized xmlns="http://www.totvs.com/">true</Initialized>
+  <Ip xmlns="http://www.totvs.com/">127.0.0.1</Ip>
+  <IsolateProcess xmlns="http://www.totvs.com/">false</IsolateProcess>
+  <JobID xmlns="http://www.totvs.com/">
+    <Children />
+    <ExecID>1</ExecID>
+    <ID>1075856</ID>
+    <IsPriorityJob>false</IsPriorityJob>
+  </JobID>
+  <JobServerHostName xmlns="http://www.totvs.com/">114385-core-instance-N-RM-D-CAQB4Z-1-28cb77WIN-Z2</JobServerHostName>
+  <MasterActionName xmlns="http://www.totvs.com/">FinLanAction</MasterActionName>
+  <MaximumQuantityOfPrimaryKeysPerProcess xmlns="http://www.totvs.com/">1000</MaximumQuantityOfPrimaryKeysPerProcess>
+  <MinimumQuantityOfPrimaryKeysPerProcess xmlns="http://www.totvs.com/">1</MinimumQuantityOfPrimaryKeysPerProcess>
+  <NetworkUser xmlns="http://www.totvs.com/">{{USUARIO}}</NetworkUser>
+  <NotifyEmail xmlns="http://www.totvs.com/">false</NotifyEmail>
+  <NotifyEmailList i:nil="true" xmlns="http://www.totvs.com/" xmlns:a="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+  <NotifyFluig xmlns="http://www.totvs.com/">false</NotifyFluig>
+  <OnlineMode xmlns="http://www.totvs.com/">false</OnlineMode>
+  <PrimaryKeyList xmlns="http://www.totvs.com/" xmlns:a="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+    <a:ArrayOfanyType>
+      <a:anyType i:type="b:int" xmlns:b="http://www.w3.org/2001/XMLSchema">{{CODCOLIGADA}}</a:anyType>
+      <a:anyType i:type="b:int" xmlns:b="http://www.w3.org/2001/XMLSchema">{{IDLAN}}</a:anyType>
+    </a:ArrayOfanyType>
+  </PrimaryKeyList>
+  <PrimaryKeyNames xmlns="http://www.totvs.com/" xmlns:a="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+    <a:string>CODCOLIGADA</a:string>
+    <a:string>IDLAN</a:string>
+  </PrimaryKeyNames>
+  <PrimaryKeyTableName xmlns="http://www.totvs.com/">FLAN</PrimaryKeyTableName>
+  <ProcessName xmlns="http://www.totvs.com/">Baixar Lançamento</ProcessName>
+  <QuantityOfSplits xmlns="http://www.totvs.com/">0</QuantityOfSplits>
+  <SaveLogInDatabase xmlns="http://www.totvs.com/">true</SaveLogInDatabase>
+  <SaveParamsExecution xmlns="http://www.totvs.com/">false</SaveParamsExecution>
+  <ScheduleDateTime xmlns="http://www.totvs.com/">{{SCHEDULE}}</ScheduleDateTime>
+  <Scheduler xmlns="http://www.totvs.com/">JobMonitor</Scheduler>
+  <SendMail xmlns="http://www.totvs.com/">false</SendMail>
+  <ServerName xmlns="http://www.totvs.com/">FinLanBaixaData</ServerName>
+  <ServiceInterface i:type="b:RuntimeType" z:FactoryType="c:UnitySerializationHolder" xmlns="http://www.totvs.com/" xmlns:a="http://schemas.datacontract.org/2004/07/System" xmlns:b="-mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089-System-System.RuntimeType" xmlns:c="-mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089-System-System.UnitySerializationHolder">
+    <Data i:type="d:string" xmlns="" xmlns:d="http://www.w3.org/2001/XMLSchema">RM.Fin.Lan.IFinLanBaixaData</Data>
+    <UnityType i:type="d:int" xmlns="" xmlns:d="http://www.w3.org/2001/XMLSchema">4</UnityType>
+    <AssemblyName i:type="d:string" xmlns="" xmlns:d="http://www.w3.org/2001/XMLSchema">RM.Fin.Lan.Intf, Version=12.1.2510.167, Culture=neutral, PublicKeyToken=null</AssemblyName>
+  </ServiceInterface>
+  <ShouldParallelize xmlns="http://www.totvs.com/">false</ShouldParallelize>
+  <ShowReExecuteButton xmlns="http://www.totvs.com/">true</ShowReExecuteButton>
+  <StatusMessage i:nil="true" xmlns="http://www.totvs.com/" />
+  <SuccessMessage xmlns="http://www.totvs.com/">Processo executado com sucesso</SuccessMessage>
+  <SyncExecution xmlns="http://www.totvs.com/">false</SyncExecution>
+  <UseJobMonitor xmlns="http://www.totvs.com/">true</UseJobMonitor>
+  <UserName xmlns="http://www.totvs.com/">{{USUARIO}}</UserName>
+  <WaitSchedule xmlns="http://www.totvs.com/">false</WaitSchedule>
+  <CodColigada>1</CodColigada>
+  <CodMoeda>R$</CodMoeda>
+  <ContabilizarPosBaixa>false</ContabilizarPosBaixa>
+  <CotacaoBaixa>0</CotacaoBaixa>
+  <DataBaixa>{{DATA}}T00:00:00-03:00</DataBaixa>
+  <DataSistema>{{DATA}}T00:00:00-03:00</DataSistema>
+  <HistoricoBaixa>{{HISTBAIXA}}</HistoricoBaixa>
+  <MotivoBxProtheus i:nil="true" />
+  <TipoGeracaoExtrato>ExtratoParaCadaLancamento</TipoGeracaoExtrato>
+  <UsarDataVencimentoBaixa>false</UsarDataVencimentoBaixa>
+  <BaixaCredDevVinculado>false</BaixaCredDevVinculado>
+  <CodColCxa>1</CodColCxa>
+  <CodColCxaCaixa>-1</CodColCxaCaixa>
+  <CodCxa>{{CODCXA}}</CodCxa>
+  <CodCxaCaixa />
+  <DataCaixa>0001-01-01T00:00:00</DataCaixa>
+  <FormasPagamento>
+    <FinFormaPagtoBaixaParamsProc>
+      <Cartao />
+      <Cheque />
+      <CodColCxa>1</CodColCxa>
+      <CodColProp>1</CodColProp>
+      <CodColigada>1</CodColigada>
+      <CodCxa>{{CODCXA}}</CodCxa>
+      <CodFilial>1</CodFilial>
+      <CodFormaPagto i:nil="true" />
+      <CodImg>0</CodImg>
+      <CodUsuario i:nil="true" />
+      <CompensarExtratoBaixa>Parametrizacao</CompensarExtratoBaixa>
+      <Contabilizacao xmlns:a="http://schemas.datacontract.org/2004/07/RM.Fin.Lan" />
+      <DataCompensacaoExtrato i:nil="true" />
+      <DescFormaPagto>{{FORMAPAGTO}}</DescFormaPagto>
+      <IdFormaPagto>1</IdFormaPagto>
+      <IdLan>0</IdLan>
+      <IdPagto>1</IdPagto>
+      <IdParcelamento>0</IdParcelamento>
+      <Img i:nil="true" xmlns:a="http://schemas.datacontract.org/2004/07/System.Drawing" />
+      <ImprimeCheque>false</ImprimeCheque>
+      <MotivoBxProtheus i:nil="true" />
+      <Mutuo />
+      <OpcaoParcelamento>1</OpcaoParcelamento>
+      <PagRec i:nil="true" />
+      <SequencialPagto>0</SequencialPagto>
+      <TipoFormaPagto>{{FORMAPAGTO}}</TipoFormaPagto>
+      <TipoTransacao>WCF</TipoTransacao>
+      <Valor>{{VALOR2}}</Valor>
+    </FinFormaPagtoBaixaParamsProc>
+  </FormasPagamento>
+  <IdFormaPagto>1</IdFormaPagto>
+  <IdSessaoCaixa>-1</IdSessaoCaixa>
+  <IdTransacaoPIX i:nil="true" />
+  <IsBoleto>false</IsBoleto>
+  <IsHabilitaPIX>false</IsHabilitaPIX>
+  <IsHabilitaTEF>false</IsHabilitaTEF>
+  <IsModuloDeCaixa>false</IsModuloDeCaixa>
+  <ItensBaixa>
+    <FinItemBaixa z:Id="i3">
+      <InternalId i:nil="true" xmlns="http://www.totvs.com/" />
+      <ServicoAlteracaoRepasse>false</ServicoAlteracaoRepasse>
+      <AplicarDescontoTotal i:nil="true" />
+      <CampoAlfaOp1 />
+      <CampoAlfaOp2 />
+      <CampoAlfaOp3 />
+      <CampoDiferenca i:nil="true" />
+      <CamposComplementares xmlns:a="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+        <a:KeyValueOfstringanyType>
+          <a:Key>CODCOLIGADA</a:Key>
+          <a:Value i:type="b:short" xmlns:b="http://www.w3.org/2001/XMLSchema">1</a:Value>
+        </a:KeyValueOfstringanyType>
+        <a:KeyValueOfstringanyType>
+          <a:Key>IDLAN</a:Key>
+          <a:Value i:type="b:int" xmlns:b="http://www.w3.org/2001/XMLSchema">{{IDLAN}}</a:Value>
+        </a:KeyValueOfstringanyType>
+        <a:KeyValueOfstringanyType>
+          <a:Key>IDBAIXA</a:Key>
+          <a:Value i:type="b:int" xmlns:b="http://www.w3.org/2001/XMLSchema">-1</a:Value>
+        </a:KeyValueOfstringanyType>
+        <a:KeyValueOfstringanyType>
+          <a:Key>RECCREATEDBY</a:Key>
+          <a:Value i:nil="true" />
+        </a:KeyValueOfstringanyType>
+        <a:KeyValueOfstringanyType>
+          <a:Key>RECCREATEDON</a:Key>
+          <a:Value i:nil="true" />
+        </a:KeyValueOfstringanyType>
+        <a:KeyValueOfstringanyType>
+          <a:Key>RECMODIFIEDBY</a:Key>
+          <a:Value i:nil="true" />
+        </a:KeyValueOfstringanyType>
+        <a:KeyValueOfstringanyType>
+          <a:Key>RECMODIFIEDON</a:Key>
+          <a:Value i:nil="true" />
+        </a:KeyValueOfstringanyType>
+      </CamposComplementares>
+      <CodCCusto>3.03.01.10</CodCCusto>
+      <CodColCxa>1</CodColCxa>
+      <CodColXCX>0</CodColXCX>
+      <CodColigada>1</CodColigada>
+      <CodCxa>{{CODCXA}}</CodCxa>
+      <CodDepartamento />
+      <CodEventoBaixa>64</CodEventoBaixa>
+      <CodFilial>1</CodFilial>
+      <CodTabOp1>1.02.004</CodTabOp1>
+      <CodTabOp2 />
+      <CodTabOp3 />
+      <CodTabOp4 />
+      <CodTabOp5 />
+      <CompensarExtratoBaixa>Parametrizacao</CompensarExtratoBaixa>
+      <CotacaoBaixa>1</CotacaoBaixa>
+      <DataBaixa>{{DATA}}T00:00:00-03:00</DataBaixa>
+      <DataCheque i:nil="true" />
+      <DataCompensacaoExtrato>0001-01-01T00:00:00</DataCompensacaoExtrato>
+      <DataContabilizBx>{{DATA}}T00:00:00-03:00</DataContabilizBx>
+      <DataOp1 i:nil="true" />
+      <DataOp2 i:nil="true" />
+      <DataOp3 i:nil="true" />
+      <DataOp4 i:nil="true" />
+      <DataOp5 i:nil="true" />
+      <DataVencimentoLancamento>{{DATA}}T00:00:00</DataVencimentoLancamento>
+      <IdBaixa>-1</IdBaixa>
+      <IdFormaPagto>1</IdFormaPagto>
+      <IdLan>{{IDLAN}}</IdLan>
+      <IdPagto>1</IdPagto>
+      <IdParcelamento>0</IdParcelamento>
+      <IdTransacao>0</IdTransacao>
+      <IdTransacaoSiTef>0</IdTransacaoSiTef>
+      <IdXCX>0</IdXCX>
+      <ImprimirCheque>false</ImprimirCheque>
+      <LancamentoLiquido>
+        <CodColigada>1</CodColigada>
+        <IdLan>{{IDLAN}}</IdLan>
+        <OrigemValoresParaCalculoValorLiquido>
+          <OrigemValorCap>BaseDados</OrigemValorCap>
+          <OrigemValorDesconto>BaseDados</OrigemValorDesconto>
+          <OrigemValorIntegracao>BaseDados</OrigemValorIntegracao>
+          <OrigemValorJuros>BaseDados</OrigemValorJuros>
+          <OrigemValorMulta>BaseDados</OrigemValorMulta>
+          <OrigemValorOp1>BaseDados</OrigemValorOp1>
+          <OrigemValorOp2>BaseDados</OrigemValorOp2>
+          <OrigemValorOp3>BaseDados</OrigemValorOp3>
+          <OrigemValorOp4>BaseDados</OrigemValorOp4>
+          <OrigemValorOp5>BaseDados</OrigemValorOp5>
+          <OrigemValorOp6>BaseDados</OrigemValorOp6>
+          <OrigemValorOp7>BaseDados</OrigemValorOp7>
+          <OrigemValorOp8>BaseDados</OrigemValorOp8>
+          <OrigemValoresAcordo>BaseDados</OrigemValoresAcordo>
+        </OrigemValoresParaCalculoValorLiquido>
+        <ValorAcrescimoAcordo>0.0000</ValorAcrescimoAcordo>
+        <ValorAdiantamento>0</ValorAdiantamento>
+        <ValorCap>0</ValorCap>
+        <ValorDesconto>0</ValorDesconto>
+        <ValorDescontoAcordo>0.0000</ValorDescontoAcordo>
+        <ValorDevolucao>0</ValorDevolucao>
+        <ValorINSS>0</ValorINSS>
+        <ValorIRRF>0</ValorIRRF>
+        <ValorJuros>0</ValorJuros>
+        <ValorJurosAcordo>0.0000</ValorJurosAcordo>
+        <ValorJurosVendor>0</ValorJurosVendor>
+        <ValorLiquido>{{VALOR2}}</ValorLiquido>
+        <ValorMulta>0</ValorMulta>
+        <ValorNotaCredito>0</ValorNotaCredito>
+        <ValorOp1>0</ValorOp1>
+        <ValorOp2>0</ValorOp2>
+        <ValorOp3>0</ValorOp3>
+        <ValorOp4>0</ValorOp4>
+        <ValorOp5>0</ValorOp5>
+        <ValorOp6>0</ValorOp6>
+        <ValorOp7>0</ValorOp7>
+        <ValorOp8>0.0000</ValorOp8>
+        <ValorOriginal>{{VALOR4}}</ValorOriginal>
+        <ValorPerdaFinanceira>0</ValorPerdaFinanceira>
+        <ValorRetencoes>0</ValorRetencoes>
+        <ValorSESTSENAT>0</ValorSESTSENAT>
+      </LancamentoLiquido>
+      <ListTributos />
+      <ListaDeExtrato />
+      <ListaValoresIntegracaoItemBaixaPar>
+        <FinFLanBaixaIntegracaoPar z:Id="i4">
+          <InternalId i:nil="true" xmlns="http://www.totvs.com/" />
+          <ServicoAlteracaoRepasse>false</ServicoAlteracaoRepasse>
+          <CodColigada>1</CodColigada>
+          <Definicao z:Id="i5">
+            <InternalId i:nil="true" xmlns="http://www.totvs.com/" />
+            <ServicoAlteracaoRepasse>false</ServicoAlteracaoRepasse>
+            <Acao>Desconta</Acao>
+            <AteVencimento>false</AteVencimento>
+            <CodColigada>1</CodColigada>
+            <CodSistema>F</CodSistema>
+            <CompoeValorAVP>false</CompoeValorAVP>
+            <CompoeValorExtratoCliFor>false</CompoeValorExtratoCliFor>
+            <Descricao>Bolsa Incondicional</Descricao>
+            <DiasAtraso>0</DiasAtraso>
+            <Formula />
+          </Definicao>
+          <IdBaixa>-1</IdBaixa>
+          <IdCampo>52</IdCampo>
+          <IdLan>{{IDLAN}}</IdLan>
+          <Valor>0.0000</Valor>
+          <ValorComSinal>0.0000</ValorComSinal>
+        </FinFLanBaixaIntegracaoPar>
+        <FinFLanBaixaIntegracaoPar z:Id="i6">
+          <InternalId i:nil="true" xmlns="http://www.totvs.com/" />
+          <ServicoAlteracaoRepasse>false</ServicoAlteracaoRepasse>
+          <CodColigada>1</CodColigada>
+          <Definicao z:Id="i7">
+            <InternalId i:nil="true" xmlns="http://www.totvs.com/" />
+            <ServicoAlteracaoRepasse>false</ServicoAlteracaoRepasse>
+            <Acao>Desconta</Acao>
+            <AteVencimento>true</AteVencimento>
+            <CodColigada>1</CodColigada>
+            <CodSistema>F</CodSistema>
+            <CompoeValorAVP>false</CompoeValorAVP>
+            <CompoeValorExtratoCliFor>false</CompoeValorExtratoCliFor>
+            <Descricao>Bolsa Condicional</Descricao>
+            <DiasAtraso>0</DiasAtraso>
+            <Formula />
+          </Definicao>
+          <IdBaixa>-1</IdBaixa>
+          <IdCampo>53</IdCampo>
+          <IdLan>{{IDLAN}}</IdLan>
+          <Valor>0.0000</Valor>
+          <ValorComSinal>0.0000</ValorComSinal>
+        </FinFLanBaixaIntegracaoPar>
+        <FinFLanBaixaIntegracaoPar z:Id="i8">
+          <InternalId i:nil="true" xmlns="http://www.totvs.com/" />
+          <ServicoAlteracaoRepasse>false</ServicoAlteracaoRepasse>
+          <CodColigada>1</CodColigada>
+          <Definicao z:Id="i9">
+            <InternalId i:nil="true" xmlns="http://www.totvs.com/" />
+            <ServicoAlteracaoRepasse>false</ServicoAlteracaoRepasse>
+            <Acao>Desconta</Acao>
+            <AteVencimento>false</AteVencimento>
+            <CodColigada>1</CodColigada>
+            <CodSistema>S</CodSistema>
+            <CompoeValorAVP>false</CompoeValorAVP>
+            <CompoeValorExtratoCliFor>false</CompoeValorExtratoCliFor>
+            <Descricao>Pagto. a Menor</Descricao>
+            <DiasAtraso>0</DiasAtraso>
+            <Formula />
+          </Definicao>
+          <IdBaixa>-1</IdBaixa>
+          <IdCampo>55</IdCampo>
+          <IdLan>{{IDLAN}}</IdLan>
+          <Valor>0.0000</Valor>
+          <ValorComSinal>0.0000</ValorComSinal>
+        </FinFLanBaixaIntegracaoPar>
+        <FinFLanBaixaIntegracaoPar z:Id="i10">
+          <InternalId i:nil="true" xmlns="http://www.totvs.com/" />
+          <ServicoAlteracaoRepasse>false</ServicoAlteracaoRepasse>
+          <CodColigada>1</CodColigada>
+          <Definicao z:Id="i11">
+            <InternalId i:nil="true" xmlns="http://www.totvs.com/" />
+            <ServicoAlteracaoRepasse>false</ServicoAlteracaoRepasse>
+            <Acao>Desconta</Acao>
+            <AteVencimento>false</AteVencimento>
+            <CodColigada>1</CodColigada>
+            <CodSistema>F</CodSistema>
+            <CompoeValorAVP>false</CompoeValorAVP>
+            <CompoeValorExtratoCliFor>false</CompoeValorExtratoCliFor>
+            <Descricao>Desconta no Líquido</Descricao>
+            <DiasAtraso>0</DiasAtraso>
+            <Formula />
+          </Definicao>
+          <IdBaixa>-1</IdBaixa>
+          <IdCampo>60</IdCampo>
+          <IdLan>{{IDLAN}}</IdLan>
+          <Valor>0.0000</Valor>
+          <ValorComSinal>0.0000</ValorComSinal>
+        </FinFLanBaixaIntegracaoPar>
+        <FinFLanBaixaIntegracaoPar z:Id="i12">
+          <InternalId i:nil="true" xmlns="http://www.totvs.com/" />
+          <ServicoAlteracaoRepasse>false</ServicoAlteracaoRepasse>
+          <CodColigada>1</CodColigada>
+          <Definicao z:Id="i13">
+            <InternalId i:nil="true" xmlns="http://www.totvs.com/" />
+            <ServicoAlteracaoRepasse>false</ServicoAlteracaoRepasse>
+            <Acao>Acrescenta</Acao>
+            <AteVencimento>false</AteVencimento>
+            <CodColigada>1</CodColigada>
+            <CodSistema>S</CodSistema>
+            <CompoeValorAVP>false</CompoeValorAVP>
+            <CompoeValorExtratoCliFor>false</CompoeValorExtratoCliFor>
+            <Descricao>Pagto. a Maior</Descricao>
+            <DiasAtraso>0</DiasAtraso>
+            <Formula />
+          </Definicao>
+          <IdBaixa>-1</IdBaixa>
+          <IdCampo>54</IdCampo>
+          <IdLan>{{IDLAN}}</IdLan>
+          <Valor>0.0000</Valor>
+          <ValorComSinal>0.0000</ValorComSinal>
+        </FinFLanBaixaIntegracaoPar>
+      </ListaValoresIntegracaoItemBaixaPar>
+      <ModeloContabilizacao>0</ModeloContabilizacao>
+      <MotivoBxProtheus i:nil="true" />
+      <NaoIncluirBaixa>false</NaoIncluirBaixa>
+      <NumEventoBaixa>12002</NumEventoBaixa>
+      <NumeroCheque i:nil="true" />
+      <OpcaoParcelamento>1</OpcaoParcelamento>
+      <OperacaoValorOp1>Desconta</OperacaoValorOp1>
+      <OperacaoValorOp2>Desconta</OperacaoValorOp2>
+      <OperacaoValorOp3>Desconta</OperacaoValorOp3>
+      <OperacaoValorOp4>Acrescenta</OperacaoValorOp4>
+      <OperacaoValorOp5>Acrescenta</OperacaoValorOp5>
+      <OperacaoValorOp6>Acrescenta</OperacaoValorOp6>
+      <OperacaoValorOp7>Desconta</OperacaoValorOp7>
+      <OperacaoValorOp8>Nada</OperacaoValorOp8>
+      <OrigemContabilizacao>EventoContabil</OrigemContabilizacao>
+      <OrigemValorCap>BaseDados</OrigemValorCap>
+      <OrigemValorDesconto>BaseDados</OrigemValorDesconto>
+      <OrigemValorJuros>BaseDados</OrigemValorJuros>
+      <OrigemValorMulta>BaseDados</OrigemValorMulta>
+      <OrigemValorOp1>BaseDados</OrigemValorOp1>
+      <OrigemValorOp2>BaseDados</OrigemValorOp2>
+      <OrigemValorOp3>BaseDados</OrigemValorOp3>
+      <OrigemValorOp4>BaseDados</OrigemValorOp4>
+      <OrigemValorOp5>BaseDados</OrigemValorOp5>
+      <OrigemValorOp6>BaseDados</OrigemValorOp6>
+      <OrigemValorOp7>BaseDados</OrigemValorOp7>
+      <OrigemValorOp8>BaseDados</OrigemValorOp8>
+      <OrigemValores>
+        <OrigemValorCap>BaseDados</OrigemValorCap>
+        <OrigemValorDesconto>BaseDados</OrigemValorDesconto>
+        <OrigemValorIntegracao>BaseDados</OrigemValorIntegracao>
+        <OrigemValorJuros>BaseDados</OrigemValorJuros>
+        <OrigemValorMulta>BaseDados</OrigemValorMulta>
+        <OrigemValorOp1>BaseDados</OrigemValorOp1>
+        <OrigemValorOp2>BaseDados</OrigemValorOp2>
+        <OrigemValorOp3>BaseDados</OrigemValorOp3>
+        <OrigemValorOp4>BaseDados</OrigemValorOp4>
+        <OrigemValorOp5>BaseDados</OrigemValorOp5>
+        <OrigemValorOp6>BaseDados</OrigemValorOp6>
+        <OrigemValorOp7>BaseDados</OrigemValorOp7>
+        <OrigemValorOp8>BaseDados</OrigemValorOp8>
+        <OrigemValoresAcordo>BaseDados</OrigemValoresAcordo>
+      </OrigemValores>
+      <PagRec>Receber</PagRec>
+      <RateiosCCu>
+        <FinItemBaixaRatCCu z:Id="i14">
+          <InternalId i:nil="true" xmlns="http://www.totvs.com/" />
+          <ServicoAlteracaoRepasse>false</ServicoAlteracaoRepasse>
+          <CodCCusto>3.03.01.10</CodCCusto>
+          <CodColNatFinanceira>1</CodColNatFinanceira>
+          <CodColigada>1</CodColigada>
+          <CodNatFinanceira>1.01.001.008</CodNatFinanceira>
+          <CodTbGrupoOrc />
+          <IdBaixa>-1</IdBaixa>
+          <IdLan>{{IDLAN}}</IdLan>
+          <IdPrj i:nil="true" />
+          <IdRatCCu>-1</IdRatCCu>
+          <IdTrf i:nil="true" />
+          <Percentual>100</Percentual>
+          <Valor>{{VALOR2}}</Valor>
+        </FinItemBaixaRatCCu>
+      </RateiosCCu>
+      <RateiosCCuLan>
+        <FinItemBaixaRatCCu z:Id="i15">
+          <InternalId i:nil="true" xmlns="http://www.totvs.com/" />
+          <ServicoAlteracaoRepasse>false</ServicoAlteracaoRepasse>
+          <CodCCusto>3.03.01.10</CodCCusto>
+          <CodColNatFinanceira>1</CodColNatFinanceira>
+          <CodColigada>1</CodColigada>
+          <CodNatFinanceira>1.01.001.008</CodNatFinanceira>
+          <CodTbGrupoOrc />
+          <IdBaixa>-1</IdBaixa>
+          <IdLan>{{IDLAN}}</IdLan>
+          <IdPrj i:nil="true" />
+          <IdRatCCu>955709</IdRatCCu>
+          <IdTrf i:nil="true" />
+          <Percentual>100</Percentual>
+          <Valor>{{VALOR4}}</Valor>
+        </FinItemBaixaRatCCu>
+      </RateiosCCuLan>
+      <RateiosDepto />
+      <SequencialPagto>0</SequencialPagto>
+      <SinalOp1>(- )</SinalOp1>
+      <SinalOp2>(- )</SinalOp2>
+      <SinalOp3>(- )</SinalOp3>
+      <SinalOp4>(+)</SinalOp4>
+      <SinalOp5>(+)</SinalOp5>
+      <SinalOp6>(+)</SinalOp6>
+      <SinalOp7>(- )</SinalOp7>
+      <SinalOp8 />
+      <TipoBaixa>BaixaManual</TipoBaixa>
+      <TipoDiferenca i:nil="true" />
+      <TipoFormaPagto>{{FORMAPAGTO}}</TipoFormaPagto>
+      <TipoRetornoBancario>Nenhum</TipoRetornoBancario>
+      <TipoTransacao>WCF</TipoTransacao>
+      <Usuario>{{USUARIO}}</Usuario>
+      <ValorAcrescimoAcordo>0.0000</ValorAcrescimoAcordo>
+      <ValorBaixa>{{VALOR2}}</ValorBaixa>
+      <ValorCap>0</ValorCap>
+      <ValorDesconto>0</ValorDesconto>
+      <ValorDescontoAcordo>0.0000</ValorDescontoAcordo>
+      <ValorDescontoPontual>0</ValorDescontoPontual>
+      <ValorDevolucao>0</ValorDevolucao>
+      <ValorDiferenca i:nil="true" />
+      <ValorINSS>0</ValorINSS>
+      <ValorIRRF>0</ValorIRRF>
+      <ValorJuros>0</ValorJuros>
+      <ValorJurosAcordo>0.0000</ValorJurosAcordo>
+      <ValorJurosVendor>0.0000</ValorJurosVendor>
+      <ValorMulta>0</ValorMulta>
+      <ValorNotaCredito>0</ValorNotaCredito>
+      <ValorNotaCreditoAdiantamento>0</ValorNotaCreditoAdiantamento>
+      <ValorOp1>0</ValorOp1>
+      <ValorOp2>0</ValorOp2>
+      <ValorOp3>0</ValorOp3>
+      <ValorOp4>0</ValorOp4>
+      <ValorOp5>0</ValorOp5>
+      <ValorOp6>0</ValorOp6>
+      <ValorOp7>0</ValorOp7>
+      <ValorOp8>0.0000</ValorOp8>
+      <ValorOpComSinal1>0</ValorOpComSinal1>
+      <ValorOpComSinal2>0</ValorOpComSinal2>
+      <ValorOpComSinal3>0</ValorOpComSinal3>
+      <ValorOpComSinal4>0</ValorOpComSinal4>
+      <ValorOpComSinal5>0</ValorOpComSinal5>
+      <ValorOpComSinal6>0</ValorOpComSinal6>
+      <ValorOpComSinal7>0</ValorOpComSinal7>
+      <ValorOpComSinal8>0.0000</ValorOpComSinal8>
+      <ValorOriginal>{{VALOR2}}</ValorOriginal>
+      <ValorPerdaFinanceira>0</ValorPerdaFinanceira>
+      <ValorRetencoes>0</ValorRetencoes>
+      <ValorSESTSENAT>0</ValorSESTSENAT>
+      <ValorVinculado>0</ValorVinculado>
+      <contabil z:Id="i16">
+        <InternalId i:nil="true" xmlns="http://www.totvs.com/" />
+        <CodColCFO>0</CodColCFO>
+        <CodColigada>1</CodColigada>
+        <CodEventoContabil>64</CodEventoContabil>
+        <CodEventoContabilDefault>64</CodEventoContabilDefault>
+        <CodLoteDefault>1006</CodLoteDefault>
+        <CodigoCliFor_Filial>00000000073220</CodigoCliFor_Filial>
+        <ContabilizacaoReadOnly>false</ContabilizacaoReadOnly>
+        <DataContabilizacao>{{DATA}}T00:00:00-03:00</DataContabilizacao>
+        <DataContabilizacaoDefault>{{DATA}}T00:00:00-03:00</DataContabilizacaoDefault>
+        <DesabilitarVisualizacaoEdicaoPartida>false</DesabilitarVisualizacaoEdicaoPartida>
+        <DescricaoDefault>Contabilização da baixa do lançamento 1-{{IDLAN}}</DescricaoDefault>
+        <ExecutaEventoContabilAutomatico>true</ExecutaEventoContabilAutomatico>
+        <FiltroProc_LookupEventoContabil>Default</FiltroProc_LookupEventoContabil>
+        <HabilitaInfoEventoContabil>true</HabilitaInfoEventoContabil>
+        <HasChanges>false</HasChanges>
+        <HasFilterProc_EventoContabil>false</HasFilterProc_EventoContabil>
+        <IdLogEventoContabil />
+        <IdOperacao i:nil="true" />
+        <IdOperacao_LancamentoExcluido i:nil="true" />
+        <LancamentoContabil i:nil="true" />
+        <LancamentoExcluido>false</LancamentoExcluido>
+        <LancamentosAutomaticos>false</LancamentosAutomaticos>
+        <LogAtivado>false</LogAtivado>
+        <LogEvc i:nil="true" />
+        <NaoVisualizarInfoEventoContabil>false</NaoVisualizarInfoEventoContabil>
+        <NumDocumentoPartida />
+        <OwnerData i:type="a:List`1" xmlns:a="-mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089-System.Collections.Generic-System.Collections.Generic.List`1[[RM.Fin.Lan.FinLanEventoContabilPar, RM.Fin.Lan.IService, Version=12.1.2510.235, Culture=neutral, PublicKeyToken=null]]">
+          <FinLanEventoContabilPar z:Id="i17">
+            <InternalId i:nil="true" xmlns="http://www.totvs.com/" />
+            <ServicoAlteracaoRepasse>false</ServicoAlteracaoRepasse>
+            <CampoAlfaOp1 />
+            <CampoAlfaOp2 />
+            <CampoAlfaOp3 />
+            <ChapaFuncionario />
+            <CodCCusto>3.03.01.10</CodCCusto>
+            <CodCfo>00000000073220</CodCfo>
+            <CodColCfo>0</CodColCfo>
+            <CodColCxa>1</CodColCxa>
+            <CodColXCx i:nil="true" />
+            <CodColigada>1</CodColigada>
+            <CodCxa>{{CODCXA}}</CodCxa>
+            <CodDepartamento />
+            <CodEvento>64</CodEvento>
+            <CodEventoBaixa>64</CodEventoBaixa>
+            <CodFilial>1</CodFilial>
+            <CodReceita i:nil="true" />
+            <CodServico i:nil="true" />
+            <CodTabOp1>1.02.004</CodTabOp1>
+            <CodTabOp2 />
+            <CodTabOp3 />
+            <CodTabOp4 />
+            <CodTabOp5 />
+            <CodTdo>BOLETO</CodTdo>
+            <Contabilizacao>
+              <CtbEventoLancContabilPar z:Id="i18">
+                <CodCCusto>3.03.01.10</CodCCusto>
+                <CodColConta>1</CodColConta>
+                <CodColContaEliminacao i:nil="true" />
+                <CodColEliminacao i:nil="true" />
+                <CodConta>6.1.1.02.00004</CodConta>
+                <CodContaEliminacao />
+                <CodDepartamento />
+                <CodFilial>1</CodFilial>
+                <CodHistP>999</CodHistP>
+                <CodeAplicarNoValor i:nil="true" />
+                <ComplHistorico>Português Jurídico - 24001268::teste teste - Mensalidade Cursos Livres Modular</ComplHistorico>
+                <DescricaoConta>Sicredi - AG 0105 CC {{CODCXA}}-0</DescricaoConta>
+                <Dimensao />
+                <IdClasseValor i:nil="true" />
+                <IdItemContabil i:nil="true" />
+                <IdLogEventoContabil i:nil="true" />
+                <LogEvc />
+                <LogEventoAtivado>false</LogEventoAtivado>
+                <NumeroInterno>0</NumeroInterno>
+                <Rateio />
+                <RateioDimensao />
+                <ReduzidoConta>6011</ReduzidoConta>
+                <Tipo>Debito</Tipo>
+                <Valor>{{VALOR2}}</Valor>
+                <ValorSegundaMoeda>0.00</ValorSegundaMoeda>
+              </CtbEventoLancContabilPar>
+              <CtbEventoLancContabilPar z:Id="i19">
+                <CodCCusto>3.03.01.10</CodCCusto>
+                <CodColConta>1</CodColConta>
+                <CodColContaEliminacao i:nil="true" />
+                <CodColEliminacao i:nil="true" />
+                <CodConta>6.1.2.01.00001</CodConta>
+                <CodContaEliminacao />
+                <CodDepartamento />
+                <CodFilial>1</CodFilial>
+                <CodHistP>999</CodHistP>
+                <CodeAplicarNoValor i:nil="true" />
+                <ComplHistorico>Português Jurídico - 24001268::teste teste - Mensalidade Cursos Livres Modular</ComplHistorico>
+                <DescricaoConta>Mensalidades a Receber</DescricaoConta>
+                <Dimensao />
+                <IdClasseValor i:nil="true" />
+                <IdItemContabil i:nil="true" />
+                <IdLogEventoContabil i:nil="true" />
+                <LogEvc />
+                <LogEventoAtivado>false</LogEventoAtivado>
+                <NumeroInterno>0</NumeroInterno>
+                <Rateio />
+                <RateioDimensao />
+                <ReduzidoConta>6026</ReduzidoConta>
+                <Tipo>Credito</Tipo>
+                <Valor>{{VALOR2}}</Valor>
+                <ValorSegundaMoeda>0.00</ValorSegundaMoeda>
+              </CtbEventoLancContabilPar>
+            </Contabilizacao>
+            <DataAcordo i:nil="true" />
+            <DataBaixa>{{DATA}}T00:00:00-03:00</DataBaixa>
+            <DataCheque i:nil="true" />
+            <DataContabiliz i:nil="true" />
+            <DataContabilizBx>{{DATA}}T00:00:00-03:00</DataContabilizBx>
+            <DataCotacaoMoedaOrigem>{{DATA}}T00:00:00-03:00</DataCotacaoMoedaOrigem>
+            <DataEmissao>{{DATA}}T00:00:00</DataEmissao>
+            <DataOp1 i:nil="true" />
+            <DataOp2 i:nil="true" />
+            <DataOp3 i:nil="true" />
+            <DataOp4 i:nil="true" />
+            <DataOp5 i:nil="true" />
+            <DataVencimento>{{DATA}}T00:00:00</DataVencimento>
+            <DescricaoLancamento i:nil="true" />
+            <FormataComplHistoricoValorZerado>true</FormataComplHistoricoValorZerado>
+            <Historico>Português Jurídico - 24001268::teste teste - Mensalidade Cursos Livres Modular</Historico>
+            <IdBaixa>-1</IdBaixa>
+            <IdFatura i:nil="true" />
+            <IdHabilitacaoFilial i:nil="true" />
+            <IdLan>{{IDLAN}}</IdLan>
+            <IdLanOrigemRepasse i:nil="true" />
+            <IdXCx i:nil="true" />
+            <IgnoraLogDeEventoContabilAtivado>false</IgnoraLogDeEventoContabilAtivado>
+            <ListaBolsaEvento i:nil="true" xmlns:b="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+            <MesCompetencia>2026-05-01T00:00:00</MesCompetencia>
+            <MoedaOrigem>R$</MoedaOrigem>
+            <Natureza>Baixa</Natureza>
+            <NumAdit>0</NumAdit>
+            <NumContabil i:nil="true" />
+            <NumContabilBx>{{IDLAN}}</NumContabilBx>
+            <NumVenda>0</NumVenda>
+            <NumeroCheque i:nil="true" />
+            <NumeroDocumento>{{IDLAN}}</NumeroDocumento>
+            <OwnerDataFormula z:Id="i20" i:type="b:FinItemBaixa" xmlns:b="-RM.Fin.Lan.IService, Version=12.1.2510.235, Culture=neutral, PublicKeyToken=null-RM.Fin.Lan-RM.Fin.Lan.FinItemBaixa">
+              <InternalId i:nil="true" xmlns="http://www.totvs.com/" />
+              <ServicoAlteracaoRepasse>false</ServicoAlteracaoRepasse>
+              <AplicarDescontoTotal i:nil="true" />
+              <CampoAlfaOp1 />
+              <CampoAlfaOp2 />
+              <CampoAlfaOp3 />
+              <CampoDiferenca i:nil="true" />
+              <CamposComplementares xmlns:c="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+                <c:KeyValueOfstringanyType>
+                  <c:Key>CODCOLIGADA</c:Key>
+                  <c:Value i:type="d:short" xmlns:d="http://www.w3.org/2001/XMLSchema">1</c:Value>
+                </c:KeyValueOfstringanyType>
+                <c:KeyValueOfstringanyType>
+                  <c:Key>IDLAN</c:Key>
+                  <c:Value i:type="d:int" xmlns:d="http://www.w3.org/2001/XMLSchema">{{IDLAN}}</c:Value>
+                </c:KeyValueOfstringanyType>
+                <c:KeyValueOfstringanyType>
+                  <c:Key>IDBAIXA</c:Key>
+                  <c:Value i:type="d:int" xmlns:d="http://www.w3.org/2001/XMLSchema">-1</c:Value>
+                </c:KeyValueOfstringanyType>
+                <c:KeyValueOfstringanyType>
+                  <c:Key>RECCREATEDBY</c:Key>
+                  <c:Value i:nil="true" />
+                </c:KeyValueOfstringanyType>
+                <c:KeyValueOfstringanyType>
+                  <c:Key>RECCREATEDON</c:Key>
+                  <c:Value i:nil="true" />
+                </c:KeyValueOfstringanyType>
+                <c:KeyValueOfstringanyType>
+                  <c:Key>RECMODIFIEDBY</c:Key>
+                  <c:Value i:nil="true" />
+                </c:KeyValueOfstringanyType>
+                <c:KeyValueOfstringanyType>
+                  <c:Key>RECMODIFIEDON</c:Key>
+                  <c:Value i:nil="true" />
+                </c:KeyValueOfstringanyType>
+              </CamposComplementares>
+              <CodCCusto>3.03.01.10</CodCCusto>
+              <CodColCxa>1</CodColCxa>
+              <CodColXCX>0</CodColXCX>
+              <CodColigada>1</CodColigada>
+              <CodCxa>{{CODCXA}}</CodCxa>
+              <CodDepartamento />
+              <CodEventoBaixa i:nil="true" />
+              <CodFilial>1</CodFilial>
+              <CodTabOp1>1.02.004</CodTabOp1>
+              <CodTabOp2 />
+              <CodTabOp3 />
+              <CodTabOp4 />
+              <CodTabOp5 />
+              <CompensarExtratoBaixa>Parametrizacao</CompensarExtratoBaixa>
+              <CotacaoBaixa>1</CotacaoBaixa>
+              <DataBaixa>{{DATA}}T00:00:00-03:00</DataBaixa>
+              <DataCheque i:nil="true" />
+              <DataCompensacaoExtrato>0001-01-01T00:00:00</DataCompensacaoExtrato>
+              <DataContabilizBx>{{DATA}}T00:00:00-03:00</DataContabilizBx>
+              <DataOp1 i:nil="true" />
+              <DataOp2 i:nil="true" />
+              <DataOp3 i:nil="true" />
+              <DataOp4 i:nil="true" />
+              <DataOp5 i:nil="true" />
+              <DataVencimentoLancamento i:nil="true" />
+              <IdBaixa>-1</IdBaixa>
+              <IdFormaPagto>1</IdFormaPagto>
+              <IdLan>{{IDLAN}}</IdLan>
+              <IdPagto>1</IdPagto>
+              <IdParcelamento>0</IdParcelamento>
+              <IdTransacao>0</IdTransacao>
+              <IdTransacaoSiTef>0</IdTransacaoSiTef>
+              <IdXCX>0</IdXCX>
+              <ImprimirCheque>false</ImprimirCheque>
+              <LancamentoLiquido>
+                <CodColigada>1</CodColigada>
+                <IdLan>{{IDLAN}}</IdLan>
+                <OrigemValoresParaCalculoValorLiquido>
+                  <OrigemValorCap>BaseDados</OrigemValorCap>
+                  <OrigemValorDesconto>BaseDados</OrigemValorDesconto>
+                  <OrigemValorIntegracao>BaseDados</OrigemValorIntegracao>
+                  <OrigemValorJuros>BaseDados</OrigemValorJuros>
+                  <OrigemValorMulta>BaseDados</OrigemValorMulta>
+                  <OrigemValorOp1>BaseDados</OrigemValorOp1>
+                  <OrigemValorOp2>BaseDados</OrigemValorOp2>
+                  <OrigemValorOp3>BaseDados</OrigemValorOp3>
+                  <OrigemValorOp4>BaseDados</OrigemValorOp4>
+                  <OrigemValorOp5>BaseDados</OrigemValorOp5>
+                  <OrigemValorOp6>BaseDados</OrigemValorOp6>
+                  <OrigemValorOp7>BaseDados</OrigemValorOp7>
+                  <OrigemValorOp8>BaseDados</OrigemValorOp8>
+                  <OrigemValoresAcordo>BaseDados</OrigemValoresAcordo>
+                </OrigemValoresParaCalculoValorLiquido>
+                <ValorAcrescimoAcordo>0.0000</ValorAcrescimoAcordo>
+                <ValorAdiantamento>0</ValorAdiantamento>
+                <ValorCap>0</ValorCap>
+                <ValorDesconto>0</ValorDesconto>
+                <ValorDescontoAcordo>0.0000</ValorDescontoAcordo>
+                <ValorDevolucao>0</ValorDevolucao>
+                <ValorINSS>0</ValorINSS>
+                <ValorIRRF>0</ValorIRRF>
+                <ValorJuros>0</ValorJuros>
+                <ValorJurosAcordo>0.0000</ValorJurosAcordo>
+                <ValorJurosVendor>0</ValorJurosVendor>
+                <ValorLiquido>{{VALOR2}}</ValorLiquido>
+                <ValorMulta>0</ValorMulta>
+                <ValorNotaCredito>0</ValorNotaCredito>
+                <ValorOp1>0</ValorOp1>
+                <ValorOp2>0</ValorOp2>
+                <ValorOp3>0</ValorOp3>
+                <ValorOp4>0</ValorOp4>
+                <ValorOp5>0</ValorOp5>
+                <ValorOp6>0</ValorOp6>
+                <ValorOp7>0</ValorOp7>
+                <ValorOp8>0.0000</ValorOp8>
+                <ValorOriginal>{{VALOR4}}</ValorOriginal>
+                <ValorPerdaFinanceira>0</ValorPerdaFinanceira>
+                <ValorRetencoes>0</ValorRetencoes>
+                <ValorSESTSENAT>0</ValorSESTSENAT>
+              </LancamentoLiquido>
+              <ListTributos />
+              <ListaDeExtrato />
+              <ListaValoresIntegracaoItemBaixaPar>
+                <FinFLanBaixaIntegracaoPar z:Id="i21">
+                  <InternalId i:nil="true" xmlns="http://www.totvs.com/" />
+                  <ServicoAlteracaoRepasse>false</ServicoAlteracaoRepasse>
+                  <CodColigada>1</CodColigada>
+                  <Definicao z:Id="i22">
+                    <InternalId i:nil="true" xmlns="http://www.totvs.com/" />
+                    <ServicoAlteracaoRepasse>false</ServicoAlteracaoRepasse>
+                    <Acao>Desconta</Acao>
+                    <AteVencimento>false</AteVencimento>
+                    <CodColigada>1</CodColigada>
+                    <CodSistema>F</CodSistema>
+                    <CompoeValorAVP>false</CompoeValorAVP>
+                    <CompoeValorExtratoCliFor>false</CompoeValorExtratoCliFor>
+                    <Descricao>Bolsa Incondicional</Descricao>
+                    <DiasAtraso>0</DiasAtraso>
+                    <Formula />
+                  </Definicao>
+                  <IdBaixa>-1</IdBaixa>
+                  <IdCampo>52</IdCampo>
+                  <IdLan>{{IDLAN}}</IdLan>
+                  <Valor>0.0000</Valor>
+                  <ValorComSinal>0.0000</ValorComSinal>
+                </FinFLanBaixaIntegracaoPar>
+                <FinFLanBaixaIntegracaoPar z:Id="i23">
+                  <InternalId i:nil="true" xmlns="http://www.totvs.com/" />
+                  <ServicoAlteracaoRepasse>false</ServicoAlteracaoRepasse>
+                  <CodColigada>1</CodColigada>
+                  <Definicao z:Id="i24">
+                    <InternalId i:nil="true" xmlns="http://www.totvs.com/" />
+                    <ServicoAlteracaoRepasse>false</ServicoAlteracaoRepasse>
+                    <Acao>Desconta</Acao>
+                    <AteVencimento>true</AteVencimento>
+                    <CodColigada>1</CodColigada>
+                    <CodSistema>F</CodSistema>
+                    <CompoeValorAVP>false</CompoeValorAVP>
+                    <CompoeValorExtratoCliFor>false</CompoeValorExtratoCliFor>
+                    <Descricao>Bolsa Condicional</Descricao>
+                    <DiasAtraso>0</DiasAtraso>
+                    <Formula />
+                  </Definicao>
+                  <IdBaixa>-1</IdBaixa>
+                  <IdCampo>53</IdCampo>
+                  <IdLan>{{IDLAN}}</IdLan>
+                  <Valor>0.0000</Valor>
+                  <ValorComSinal>0.0000</ValorComSinal>
+                </FinFLanBaixaIntegracaoPar>
+                <FinFLanBaixaIntegracaoPar z:Id="i25">
+                  <InternalId i:nil="true" xmlns="http://www.totvs.com/" />
+                  <ServicoAlteracaoRepasse>false</ServicoAlteracaoRepasse>
+                  <CodColigada>1</CodColigada>
+                  <Definicao z:Id="i26">
+                    <InternalId i:nil="true" xmlns="http://www.totvs.com/" />
+                    <ServicoAlteracaoRepasse>false</ServicoAlteracaoRepasse>
+                    <Acao>Desconta</Acao>
+                    <AteVencimento>false</AteVencimento>
+                    <CodColigada>1</CodColigada>
+                    <CodSistema>S</CodSistema>
+                    <CompoeValorAVP>false</CompoeValorAVP>
+                    <CompoeValorExtratoCliFor>false</CompoeValorExtratoCliFor>
+                    <Descricao>Pagto. a Menor</Descricao>
+                    <DiasAtraso>0</DiasAtraso>
+                    <Formula />
+                  </Definicao>
+                  <IdBaixa>-1</IdBaixa>
+                  <IdCampo>55</IdCampo>
+                  <IdLan>{{IDLAN}}</IdLan>
+                  <Valor>0.0000</Valor>
+                  <ValorComSinal>0.0000</ValorComSinal>
+                </FinFLanBaixaIntegracaoPar>
+                <FinFLanBaixaIntegracaoPar z:Id="i27">
+                  <InternalId i:nil="true" xmlns="http://www.totvs.com/" />
+                  <ServicoAlteracaoRepasse>false</ServicoAlteracaoRepasse>
+                  <CodColigada>1</CodColigada>
+                  <Definicao z:Id="i28">
+                    <InternalId i:nil="true" xmlns="http://www.totvs.com/" />
+                    <ServicoAlteracaoRepasse>false</ServicoAlteracaoRepasse>
+                    <Acao>Desconta</Acao>
+                    <AteVencimento>false</AteVencimento>
+                    <CodColigada>1</CodColigada>
+                    <CodSistema>F</CodSistema>
+                    <CompoeValorAVP>false</CompoeValorAVP>
+                    <CompoeValorExtratoCliFor>false</CompoeValorExtratoCliFor>
+                    <Descricao>Desconta no Líquido</Descricao>
+                    <DiasAtraso>0</DiasAtraso>
+                    <Formula />
+                  </Definicao>
+                  <IdBaixa>-1</IdBaixa>
+                  <IdCampo>60</IdCampo>
+                  <IdLan>{{IDLAN}}</IdLan>
+                  <Valor>0.0000</Valor>
+                  <ValorComSinal>0.0000</ValorComSinal>
+                </FinFLanBaixaIntegracaoPar>
+                <FinFLanBaixaIntegracaoPar z:Id="i29">
+                  <InternalId i:nil="true" xmlns="http://www.totvs.com/" />
+                  <ServicoAlteracaoRepasse>false</ServicoAlteracaoRepasse>
+                  <CodColigada>1</CodColigada>
+                  <Definicao z:Id="i30">
+                    <InternalId i:nil="true" xmlns="http://www.totvs.com/" />
+                    <ServicoAlteracaoRepasse>false</ServicoAlteracaoRepasse>
+                    <Acao>Acrescenta</Acao>
+                    <AteVencimento>false</AteVencimento>
+                    <CodColigada>1</CodColigada>
+                    <CodSistema>S</CodSistema>
+                    <CompoeValorAVP>false</CompoeValorAVP>
+                    <CompoeValorExtratoCliFor>false</CompoeValorExtratoCliFor>
+                    <Descricao>Pagto. a Maior</Descricao>
+                    <DiasAtraso>0</DiasAtraso>
+                    <Formula />
+                  </Definicao>
+                  <IdBaixa>-1</IdBaixa>
+                  <IdCampo>54</IdCampo>
+                  <IdLan>{{IDLAN}}</IdLan>
+                  <Valor>0.0000</Valor>
+                  <ValorComSinal>0.0000</ValorComSinal>
+                </FinFLanBaixaIntegracaoPar>
+              </ListaValoresIntegracaoItemBaixaPar>
+              <ModeloContabilizacao>0</ModeloContabilizacao>
+              <MotivoBxProtheus i:nil="true" />
+              <NaoIncluirBaixa>false</NaoIncluirBaixa>
+              <NumEventoBaixa i:nil="true" />
+              <NumeroCheque i:nil="true" />
+              <OpcaoParcelamento>1</OpcaoParcelamento>
+              <OperacaoValorOp1>Desconta</OperacaoValorOp1>
+              <OperacaoValorOp2>Desconta</OperacaoValorOp2>
+              <OperacaoValorOp3>Desconta</OperacaoValorOp3>
+              <OperacaoValorOp4>Acrescenta</OperacaoValorOp4>
+              <OperacaoValorOp5>Acrescenta</OperacaoValorOp5>
+              <OperacaoValorOp6>Acrescenta</OperacaoValorOp6>
+              <OperacaoValorOp7>Desconta</OperacaoValorOp7>
+              <OperacaoValorOp8>Nada</OperacaoValorOp8>
+              <OrigemContabilizacao>EventoContabil</OrigemContabilizacao>
+              <OrigemValorCap>BaseDados</OrigemValorCap>
+              <OrigemValorDesconto>BaseDados</OrigemValorDesconto>
+              <OrigemValorJuros>BaseDados</OrigemValorJuros>
+              <OrigemValorMulta>BaseDados</OrigemValorMulta>
+              <OrigemValorOp1>BaseDados</OrigemValorOp1>
+              <OrigemValorOp2>BaseDados</OrigemValorOp2>
+              <OrigemValorOp3>BaseDados</OrigemValorOp3>
+              <OrigemValorOp4>BaseDados</OrigemValorOp4>
+              <OrigemValorOp5>BaseDados</OrigemValorOp5>
+              <OrigemValorOp6>BaseDados</OrigemValorOp6>
+              <OrigemValorOp7>BaseDados</OrigemValorOp7>
+              <OrigemValorOp8>BaseDados</OrigemValorOp8>
+              <OrigemValores>
+                <OrigemValorCap>BaseDados</OrigemValorCap>
+                <OrigemValorDesconto>BaseDados</OrigemValorDesconto>
+                <OrigemValorIntegracao>BaseDados</OrigemValorIntegracao>
+                <OrigemValorJuros>BaseDados</OrigemValorJuros>
+                <OrigemValorMulta>BaseDados</OrigemValorMulta>
+                <OrigemValorOp1>BaseDados</OrigemValorOp1>
+                <OrigemValorOp2>BaseDados</OrigemValorOp2>
+                <OrigemValorOp3>BaseDados</OrigemValorOp3>
+                <OrigemValorOp4>BaseDados</OrigemValorOp4>
+                <OrigemValorOp5>BaseDados</OrigemValorOp5>
+                <OrigemValorOp6>BaseDados</OrigemValorOp6>
+                <OrigemValorOp7>BaseDados</OrigemValorOp7>
+                <OrigemValorOp8>BaseDados</OrigemValorOp8>
+                <OrigemValoresAcordo>BaseDados</OrigemValoresAcordo>
+              </OrigemValores>
+              <PagRec>Receber</PagRec>
+              <RateiosCCu>
+                <FinItemBaixaRatCCu z:Id="i31">
+                  <InternalId i:nil="true" xmlns="http://www.totvs.com/" />
+                  <ServicoAlteracaoRepasse>false</ServicoAlteracaoRepasse>
+                  <CodCCusto>3.03.01.10</CodCCusto>
+                  <CodColNatFinanceira>1</CodColNatFinanceira>
+                  <CodColigada>1</CodColigada>
+                  <CodNatFinanceira>1.01.001.008</CodNatFinanceira>
+                  <CodTbGrupoOrc />
+                  <IdBaixa>-1</IdBaixa>
+                  <IdLan>{{IDLAN}}</IdLan>
+                  <IdPrj i:nil="true" />
+                  <IdRatCCu>-1</IdRatCCu>
+                  <IdTrf i:nil="true" />
+                  <Percentual>100</Percentual>
+                  <Valor>{{VALOR2}}</Valor>
+                </FinItemBaixaRatCCu>
+              </RateiosCCu>
+              <RateiosCCuLan>
+                <FinItemBaixaRatCCu z:Id="i32">
+                  <InternalId i:nil="true" xmlns="http://www.totvs.com/" />
+                  <ServicoAlteracaoRepasse>false</ServicoAlteracaoRepasse>
+                  <CodCCusto>3.03.01.10</CodCCusto>
+                  <CodColNatFinanceira>1</CodColNatFinanceira>
+                  <CodColigada>1</CodColigada>
+                  <CodNatFinanceira>1.01.001.008</CodNatFinanceira>
+                  <CodTbGrupoOrc />
+                  <IdBaixa>-1</IdBaixa>
+                  <IdLan>{{IDLAN}}</IdLan>
+                  <IdPrj i:nil="true" />
+                  <IdRatCCu>955709</IdRatCCu>
+                  <IdTrf i:nil="true" />
+                  <Percentual>100</Percentual>
+                  <Valor>{{VALOR4}}</Valor>
+                </FinItemBaixaRatCCu>
+              </RateiosCCuLan>
+              <RateiosDepto />
+              <SequencialPagto>0</SequencialPagto>
+              <SinalOp1>(- )</SinalOp1>
+              <SinalOp2>(- )</SinalOp2>
+              <SinalOp3>(- )</SinalOp3>
+              <SinalOp4>(+)</SinalOp4>
+              <SinalOp5>(+)</SinalOp5>
+              <SinalOp6>(+)</SinalOp6>
+              <SinalOp7>(- )</SinalOp7>
+              <SinalOp8 />
+              <TipoBaixa>BaixaManual</TipoBaixa>
+              <TipoDiferenca i:nil="true" />
+              <TipoFormaPagto>{{FORMAPAGTO}}</TipoFormaPagto>
+              <TipoRetornoBancario>Nenhum</TipoRetornoBancario>
+              <TipoTransacao>WCF</TipoTransacao>
+              <Usuario>{{USUARIO}}</Usuario>
+              <ValorAcrescimoAcordo>0.0000</ValorAcrescimoAcordo>
+              <ValorBaixa>{{VALOR2}}</ValorBaixa>
+              <ValorCap>0</ValorCap>
+              <ValorDesconto>0</ValorDesconto>
+              <ValorDescontoAcordo>0.0000</ValorDescontoAcordo>
+              <ValorDescontoPontual>0</ValorDescontoPontual>
+              <ValorDevolucao>0</ValorDevolucao>
+              <ValorDiferenca i:nil="true" />
+              <ValorINSS>0</ValorINSS>
+              <ValorIRRF>0</ValorIRRF>
+              <ValorJuros>0</ValorJuros>
+              <ValorJurosAcordo>0.0000</ValorJurosAcordo>
+              <ValorJurosVendor>0.0000</ValorJurosVendor>
+              <ValorMulta>0</ValorMulta>
+              <ValorNotaCredito>0</ValorNotaCredito>
+              <ValorNotaCreditoAdiantamento>0</ValorNotaCreditoAdiantamento>
+              <ValorOp1>0</ValorOp1>
+              <ValorOp2>0</ValorOp2>
+              <ValorOp3>0</ValorOp3>
+              <ValorOp4>0</ValorOp4>
+              <ValorOp5>0</ValorOp5>
+              <ValorOp6>0</ValorOp6>
+              <ValorOp7>0</ValorOp7>
+              <ValorOp8>0.0000</ValorOp8>
+              <ValorOpComSinal1>0</ValorOpComSinal1>
+              <ValorOpComSinal2>0</ValorOpComSinal2>
+              <ValorOpComSinal3>0</ValorOpComSinal3>
+              <ValorOpComSinal4>0</ValorOpComSinal4>
+              <ValorOpComSinal5>0</ValorOpComSinal5>
+              <ValorOpComSinal6>0</ValorOpComSinal6>
+              <ValorOpComSinal7>0</ValorOpComSinal7>
+              <ValorOpComSinal8>0.0000</ValorOpComSinal8>
+              <ValorOriginal>{{VALOR2}}</ValorOriginal>
+              <ValorPerdaFinanceira>0</ValorPerdaFinanceira>
+              <ValorRetencoes>0</ValorRetencoes>
+              <ValorSESTSENAT>0</ValorSESTSENAT>
+              <ValorVinculado>0</ValorVinculado>
+              <contabil i:nil="true" />
+            </OwnerDataFormula>
+            <PagRec>Receber</PagRec>
+            <RateioCCusto xmlns:b="http://www.totvs.com/">
+              <b:FinLanEventoContabilRatCCuPar z:Id="i33">
+                <b:InternalId i:nil="true" />
+                <CodCCusto>3.03.01.10</CodCCusto>
+                <CodColNatFinanceira>1</CodColNatFinanceira>
+                <CodColigada>0</CodColigada>
+                <CodNatFinanceira>1.01.001.008</CodNatFinanceira>
+                <CodTBGrupoOrc />
+                <IdBaixa>-1</IdBaixa>
+                <IdLan>0</IdLan>
+                <IdPrj i:nil="true" />
+                <IdRatCCu>-1</IdRatCCu>
+                <IdTrf i:nil="true" />
+                <Percentual>100</Percentual>
+                <Valor>{{VALOR2}}</Valor>
+              </b:FinLanEventoContabilRatCCuPar>
+            </RateioCCusto>
+            <RateioCCustoLan xmlns:b="http://www.totvs.com/">
+              <b:FinLanEventoContabilRatCCuPar z:Id="i34">
+                <b:InternalId i:nil="true" />
+                <CodCCusto>3.03.01.10</CodCCusto>
+                <CodColNatFinanceira>1</CodColNatFinanceira>
+                <CodColigada>0</CodColigada>
+                <CodNatFinanceira>1.01.001.008</CodNatFinanceira>
+                <CodTBGrupoOrc />
+                <IdBaixa>0</IdBaixa>
+                <IdLan>0</IdLan>
+                <IdPrj i:nil="true" />
+                <IdRatCCu>955709</IdRatCCu>
+                <IdTrf i:nil="true" />
+                <Percentual>100</Percentual>
+                <Valor>{{VALOR4}}</Valor>
+              </b:FinLanEventoContabilRatCCuPar>
+            </RateioCCustoLan>
+            <RateioDepto xmlns:b="http://www.totvs.com/" />
+            <Retencao xmlns:b="http://www.totvs.com/" />
+            <SegundoNumero />
+            <StatusLanAposbaixa>Baixado</StatusLanAposbaixa>
+            <Usuario>{{USUARIO}}</Usuario>
+            <ValorAdiantamento>0</ValorAdiantamento>
+            <ValorBaixado>{{VALOR2}}</ValorBaixado>
+            <ValorDesconto>0</ValorDesconto>
+            <ValorDevolucao>0</ValorDevolucao>
+            <ValorINSS>0</ValorINSS>
+            <ValorIRRF>0</ValorIRRF>
+            <ValorJuros>0</ValorJuros>
+            <ValorJurosVendor>0.0000</ValorJurosVendor>
+            <ValorMulta>0</ValorMulta>
+            <ValorNotaCredito>0</ValorNotaCredito>
+            <ValorOp1>0</ValorOp1>
+            <ValorOp2>0</ValorOp2>
+            <ValorOp3>0</ValorOp3>
+            <ValorOp4>0</ValorOp4>
+            <ValorOp5>0</ValorOp5>
+            <ValorOp6>0</ValorOp6>
+            <ValorOp7>0</ValorOp7>
+            <ValorOp8>0.0000</ValorOp8>
+            <ValorOriginal>{{VALOR2}}</ValorOriginal>
+            <VrPerdaFinanceira>0</VrPerdaFinanceira>
+          </FinLanEventoContabilPar>
+        </OwnerData>
+        <PermiteAlterarLanctoLoteZero>false</PermiteAlterarLanctoLoteZero>
+        <PermiteExcluirLancamento>true</PermiteExcluirLancamento>
+        <PermitirManutencaoLanLoteZero>false</PermitirManutencaoLanLoteZero>
+        <Processo>LancamentoFinanceiro</Processo>
+        <StatusContabilizacao>C</StatusContabilizacao>
+        <TipoParticipante>ClienteFornecedor</TipoParticipante>
+        <UsaEventoContabil>true</UsaEventoContabil>
+        <ValidaContaContabilSemRateio>false</ValidaContaContabilSemRateio>
+        <ValidaUsuarioModificouContabilizacaoGeradaPeloEvento>false</ValidaUsuarioModificouContabilizacaoGeradaPeloEvento>
+        <_HasFilterProc_EventoContabil>false</_HasFilterProc_EventoContabil>
+      </contabil>
+    </FinItemBaixa>
+  </ItensBaixa>
+  <Lancamentos>
+    <FinLancamentoBaixaResult z:Id="i35">
+      <InternalId i:nil="true" xmlns="http://www.totvs.com/" />
+      <Codigo i:nil="true" />
+      <Coligada>1</Coligada>
+      <ID>{{IDLAN}}</ID>
+      <CodColigada>1</CodColigada>
+      <IdBaixa>0</IdBaixa>
+      <IdLan>{{IDLAN}}</IdLan>
+      <ServicoAlteracaoRepasse>false</ServicoAlteracaoRepasse>
+      <AlteracaoBloqueada>1</AlteracaoBloqueada>
+      <Antecipado>Nenhum</Antecipado>
+      <AplicarDescontoTotal>false</AplicarDescontoTotal>
+      <BaixaInvaldaMsg i:nil="true" />
+      <BaixaInvalida>false</BaixaInvalida>
+      <BaseCalculoTributosLancamento>0</BaseCalculoTributosLancamento>
+      <CGC>336.668.970-61</CGC>
+      <CampoAlfaOp1 />
+      <CampoAlfaOp2 />
+      <CampoAlfaOp3 />
+      <CapMensal>0.0000</CapMensal>
+      <CarenciaJuros>0</CarenciaJuros>
+      <Chapa />
+      <Classificacao>SemClassificacao</Classificacao>
+      <ClassificacaoFatura>SemClassificacao</ClassificacaoFatura>
+      <ClassificacaoTipoDoc>SemClassificacao</ClassificacaoTipoDoc>
+      <CodCCusto>3.03.01.10</CodCCusto>
+      <CodCfo>00000000073220</CodCfo>
+      <CodColCfo>0</CodColCfo>
+      <CodColCxa>1</CodColCxa>
+      <CodColigada>1</CodColigada>
+      <CodCxa>{{CODCXA}}</CodCxa>
+      <CodDepartamento />
+      <CodEventoAux>64</CodEventoAux>
+      <CodFilial>1</CodFilial>
+      <CodIndexador />
+      <CodMoeda>R$</CodMoeda>
+      <CodMoedaCxa>R$</CodMoedaCxa>
+      <CodSistema>S</CodSistema>
+      <CodTb1Flx>1.02.004</CodTb1Flx>
+      <CodTb2Flx />
+      <CodTb3Flx />
+      <CodTb4Flx />
+      <CodTb5Flx />
+      <CodTdo>BOLETO</CodTdo>
+      <ComBoletoParcial>false</ComBoletoParcial>
+      <CotacaoBaixa>1</CotacaoBaixa>
+      <DataBaixa>{{DATA}}T00:00:00-03:00</DataBaixa>
+      <DataContabilizacaoInclusao>2026-05-01T00:00:00</DataContabilizacaoInclusao>
+      <DataEmissao>{{DATA}}T00:00:00</DataEmissao>
+      <DataLiqDuvidosa>0001-01-01T00:00:00</DataLiqDuvidosa>
+      <DataOp1 i:nil="true" />
+      <DataOp2 i:nil="true" />
+      <DataOp3 i:nil="true" />
+      <DataOp4 i:nil="true" />
+      <DataOp5 i:nil="true" />
+      <DataPrevBaixa>{{DATA}}T00:00:00</DataPrevBaixa>
+      <DataVencimento>{{DATA}}T00:00:00</DataVencimento>
+      <DataVencimentoAnterior>{{DATA}}T00:00:00</DataVencimentoAnterior>
+      <Descontado>false</Descontado>
+      <FormulaCapitalizacao />
+      <FormulaDesconto />
+      <FormulaJuros />
+      <FormulaMulta />
+      <FormulaValorOp1 />
+      <FormulaValorOp2 />
+      <FormulaValorOp3 />
+      <FormulaValorOp4 />
+      <FormulaValorOp5 />
+      <FormulaValorOp6 />
+      <FormulaValorOp7 />
+      <FormulaValorOp8 />
+      <Historico>Português Jurídico - 24001268::teste teste - Mensalidade Cursos Livres Modular</Historico>
+      <IdBoleto i:nil="true" />
+      <IdBordero i:nil="true" />
+      <IdFormaPagto i:nil="true" />
+      <IdLan>{{IDLAN}}</IdLan>
+      <JurosDia>0.0333</JurosDia>
+      <JurosVendor>0.0000</JurosVendor>
+      <ListTributos xmlns:a="http://www.totvs.com/" />
+      <ListaDeItemBaixa xmlns:a="http://www.totvs.com/" />
+      <ListaVaLorIntegracaoLancamento xmlns:a="http://www.totvs.com/">
+        <a:FinFLanIntegracao z:Id="i36">
+          <a:InternalId i:nil="true" />
+          <CodColigada>1</CodColigada>
+          <Definicao z:Id="i37">
+            <a:InternalId i:nil="true" />
+            <Acao>Desconta</Acao>
+            <AteVencimento>false</AteVencimento>
+            <CodAplicacao>F</CodAplicacao>
+            <CodColigada>1</CodColigada>
+            <CompoeValorAVP>false</CompoeValorAVP>
+            <CompoeValorExtratoCliFor>false</CompoeValorExtratoCliFor>
+            <Descricao>Bolsa Incondicional</Descricao>
+            <DiasAtraso>0</DiasAtraso>
+            <Formula />
+            <IdCampo>52</IdCampo>
+            <Ordem>0</Ordem>
+          </Definicao>
+          <IdCampo>52</IdCampo>
+          <IdLan>{{IDLAN}}</IdLan>
+          <OrigemCalculo>Lancamento</OrigemCalculo>
+          <RecCreatedBy i:nil="true" />
+          <RecModifiedBy>victor.forte</RecModifiedBy>
+          <Valor>0.0000</Valor>
+          <ValorBx>0</ValorBx>
+          <ValorComSinal>0.0000</ValorComSinal>
+          <ValorReaj>0</ValorReaj>
+          <ValorReajComSinal>0</ValorReajComSinal>
+        </a:FinFLanIntegracao>
+        <a:FinFLanIntegracao z:Id="i38">
+          <a:InternalId i:nil="true" />
+          <CodColigada>1</CodColigada>
+          <Definicao z:Id="i39">
+            <a:InternalId i:nil="true" />
+            <Acao>Desconta</Acao>
+            <AteVencimento>true</AteVencimento>
+            <CodAplicacao>F</CodAplicacao>
+            <CodColigada>1</CodColigada>
+            <CompoeValorAVP>false</CompoeValorAVP>
+            <CompoeValorExtratoCliFor>false</CompoeValorExtratoCliFor>
+            <Descricao>Bolsa Condicional</Descricao>
+            <DiasAtraso>0</DiasAtraso>
+            <Formula />
+            <IdCampo>53</IdCampo>
+            <Ordem>0</Ordem>
+          </Definicao>
+          <IdCampo>53</IdCampo>
+          <IdLan>{{IDLAN}}</IdLan>
+          <OrigemCalculo>Lancamento</OrigemCalculo>
+          <RecCreatedBy i:nil="true" />
+          <RecModifiedBy>victor.forte</RecModifiedBy>
+          <Valor>0.0000</Valor>
+          <ValorBx>0</ValorBx>
+          <ValorComSinal>0.0000</ValorComSinal>
+          <ValorReaj>0</ValorReaj>
+          <ValorReajComSinal>0</ValorReajComSinal>
+        </a:FinFLanIntegracao>
+        <a:FinFLanIntegracao z:Id="i40">
+          <a:InternalId i:nil="true" />
+          <CodColigada>1</CodColigada>
+          <Definicao z:Id="i41">
+            <a:InternalId i:nil="true" />
+            <Acao>Acrescenta</Acao>
+            <AteVencimento>false</AteVencimento>
+            <CodAplicacao>S</CodAplicacao>
+            <CodColigada>1</CodColigada>
+            <CompoeValorAVP>false</CompoeValorAVP>
+            <CompoeValorExtratoCliFor>false</CompoeValorExtratoCliFor>
+            <Descricao>Pagto. a Maior</Descricao>
+            <DiasAtraso>0</DiasAtraso>
+            <Formula />
+            <IdCampo>54</IdCampo>
+            <Ordem>0</Ordem>
+          </Definicao>
+          <IdCampo>54</IdCampo>
+          <IdLan>{{IDLAN}}</IdLan>
+          <OrigemCalculo>Lancamento</OrigemCalculo>
+          <RecCreatedBy i:nil="true" />
+          <RecModifiedBy>victor.forte</RecModifiedBy>
+          <Valor>0.0000</Valor>
+          <ValorBx>0</ValorBx>
+          <ValorComSinal>0.0000</ValorComSinal>
+          <ValorReaj>0</ValorReaj>
+          <ValorReajComSinal>0</ValorReajComSinal>
+        </a:FinFLanIntegracao>
+        <a:FinFLanIntegracao z:Id="i42">
+          <a:InternalId i:nil="true" />
+          <CodColigada>1</CodColigada>
+          <Definicao z:Id="i43">
+            <a:InternalId i:nil="true" />
+            <Acao>Desconta</Acao>
+            <AteVencimento>false</AteVencimento>
+            <CodAplicacao>S</CodAplicacao>
+            <CodColigada>1</CodColigada>
+            <CompoeValorAVP>false</CompoeValorAVP>
+            <CompoeValorExtratoCliFor>false</CompoeValorExtratoCliFor>
+            <Descricao>Pagto. a Menor</Descricao>
+            <DiasAtraso>0</DiasAtraso>
+            <Formula />
+            <IdCampo>55</IdCampo>
+            <Ordem>0</Ordem>
+          </Definicao>
+          <IdCampo>55</IdCampo>
+          <IdLan>{{IDLAN}}</IdLan>
+          <OrigemCalculo>Lancamento</OrigemCalculo>
+          <RecCreatedBy i:nil="true" />
+          <RecModifiedBy>victor.forte</RecModifiedBy>
+          <Valor>0.0000</Valor>
+          <ValorBx>0</ValorBx>
+          <ValorComSinal>0.0000</ValorComSinal>
+          <ValorReaj>0</ValorReaj>
+          <ValorReajComSinal>0</ValorReajComSinal>
+        </a:FinFLanIntegracao>
+        <a:FinFLanIntegracao z:Id="i44">
+          <a:InternalId i:nil="true" />
+          <CodColigada>1</CodColigada>
+          <Definicao z:Id="i45">
+            <a:InternalId i:nil="true" />
+            <Acao>Desconta</Acao>
+            <AteVencimento>false</AteVencimento>
+            <CodAplicacao>F</CodAplicacao>
+            <CodColigada>1</CodColigada>
+            <CompoeValorAVP>false</CompoeValorAVP>
+            <CompoeValorExtratoCliFor>false</CompoeValorExtratoCliFor>
+            <Descricao>Desconta no Líquido</Descricao>
+            <DiasAtraso>0</DiasAtraso>
+            <Formula />
+            <IdCampo>60</IdCampo>
+            <Ordem>0</Ordem>
+          </Definicao>
+          <IdCampo>60</IdCampo>
+          <IdLan>{{IDLAN}}</IdLan>
+          <OrigemCalculo>Lancamento</OrigemCalculo>
+          <RecCreatedBy i:nil="true" />
+          <RecModifiedBy>victor.forte</RecModifiedBy>
+          <Valor>0.0000</Valor>
+          <ValorBx>0</ValorBx>
+          <ValorComSinal>0.0000</ValorComSinal>
+          <ValorReaj>0</ValorReaj>
+          <ValorReajComSinal>0</ValorReajComSinal>
+        </a:FinFLanIntegracao>
+      </ListaVaLorIntegracaoLancamento>
+      <MesdeCompetencia>2026-05-01T00:00:00</MesdeCompetencia>
+      <ModoCalculoBx>Prioridade</ModoCalculoBx>
+      <MultaDia>0.0000</MultaDia>
+      <Nome>teste teste</Nome>
+      <NumBloqueios>Sem</NumBloqueios>
+      <NumMovNuclues i:nil="true" />
+      <NumeroContabilInclusao>{{IDLAN}}</NumeroContabilInclusao>
+      <NumeroDocumento>{{IDLAN}}</NumeroDocumento>
+      <OrigemValoresParaCalculoValorLiquido>
+        <OrigemValorCap>BaseDados</OrigemValorCap>
+        <OrigemValorDesconto>BaseDados</OrigemValorDesconto>
+        <OrigemValorIntegracao>BaseDados</OrigemValorIntegracao>
+        <OrigemValorJuros>BaseDados</OrigemValorJuros>
+        <OrigemValorMulta>BaseDados</OrigemValorMulta>
+        <OrigemValorOp1>BaseDados</OrigemValorOp1>
+        <OrigemValorOp2>BaseDados</OrigemValorOp2>
+        <OrigemValorOp3>BaseDados</OrigemValorOp3>
+        <OrigemValorOp4>BaseDados</OrigemValorOp4>
+        <OrigemValorOp5>BaseDados</OrigemValorOp5>
+        <OrigemValorOp6>BaseDados</OrigemValorOp6>
+        <OrigemValorOp7>BaseDados</OrigemValorOp7>
+        <OrigemValorOp8>BaseDados</OrigemValorOp8>
+        <OrigemValoresAcordo>BaseDados</OrigemValoresAcordo>
+      </OrigemValoresParaCalculoValorLiquido>
+      <PagRec>Receber</PagRec>
+      <RatCCusto xmlns:a="http://www.totvs.com/">
+        <a:FinLanRatCCuResult z:Id="i46">
+          <a:InternalId i:nil="true" />
+          <ClasseValor i:nil="true" />
+          <CodCCusto>3.03.01.10</CodCCusto>
+          <CodColNatFinanceira>1</CodColNatFinanceira>
+          <CodColigada>1</CodColigada>
+          <CodNatFinanceira>1.01.001.008</CodNatFinanceira>
+          <CodTbGrupoOrc />
+          <Historico />
+          <IdLan>{{IDLAN}}</IdLan>
+          <IdPrj i:nil="true" />
+          <IdRatCCu>955709</IdRatCCu>
+          <IdTrf i:nil="true" />
+          <ItemContabil i:nil="true" />
+          <Percentual>100.0000</Percentual>
+          <Valor>{{VALOR4}}</Valor>
+        </a:FinLanRatCCuResult>
+      </RatCCusto>
+      <RatDepto xmlns:a="http://www.totvs.com/" />
+      <RetencoesBx_IntegracaoProtheus i:nil="true" />
+      <SESTSENATBx_IntegracaoProtheus i:nil="true" />
+      <SegundoNumero />
+      <SinalOp1>(- )</SinalOp1>
+      <SinalOp2>(- )</SinalOp2>
+      <SinalOp3>(- )</SinalOp3>
+      <SinalOp4>(+)</SinalOp4>
+      <SinalOp5>(+)</SinalOp5>
+      <SinalOp6>(+)</SinalOp6>
+      <SinalOp7>(- )</SinalOp7>
+      <SinalOp8 />
+      <StatusAprovacao>NaoSeAplica</StatusAprovacao>
+      <StatusCNAB>NaoRemetido</StatusCNAB>
+      <StatusExtrato>Nenhum</StatusExtrato>
+      <StatusLan>Aberto</StatusLan>
+      <StatusLiqDuvidosa>NaoDuvidosa</StatusLiqDuvidosa>
+      <StatusRepasse>SemRepasse</StatusRepasse>
+      <TemChequeParcial>false</TemChequeParcial>
+      <TipoContabil>Contabil</TipoContabil>
+      <TipoDocumento z:Id="i47">
+        <InternalId i:nil="true" xmlns="http://www.totvs.com/" />
+        <Classificacao>SemClassificacao</Classificacao>
+        <CodCfo />
+        <CodColCfo i:nil="true" />
+        <CodColigada>1</CodColigada>
+        <CodTdo>BOLETO</CodTdo>
+        <GeraNumDoc>CopiarReferencia</GeraNumDoc>
+        <GerarExtCompNaBaixa>true</GerarExtCompNaBaixa>
+        <NaoContabilizaBx0>false</NaoContabilizaBx0>
+        <PagRec>Ambos</PagRec>
+        <UsarParametrosGerais>true</UsarParametrosGerais>
+      </TipoDocumento>
+      <TipoJurosDia>Taxa</TipoJurosDia>
+      <ValorAcrescimoAcordo>0.0000</ValorAcrescimoAcordo>
+      <ValorAdiantamento>0</ValorAdiantamento>
+      <ValorBaixado>0.0000</ValorBaixado>
+      <ValorCap>0</ValorCap>
+      <ValorCheque>0.0000</ValorCheque>
+      <ValorDesconto>0</ValorDesconto>
+      <ValorDescontoAcordo>0.0000</ValorDescontoAcordo>
+      <ValorDescontoPontual>0</ValorDescontoPontual>
+      <ValorDevolucao>0</ValorDevolucao>
+      <ValorINSS>0</ValorINSS>
+      <ValorIRRF>0</ValorIRRF>
+      <ValorIRRF_IntegracaoProtheus i:nil="true" />
+      <ValorJuros>0</ValorJuros>
+      <ValorJurosAcordo>0.0000</ValorJurosAcordo>
+      <ValorLimiteRetencoes>0</ValorLimiteRetencoes>
+      <ValorLiquido>{{VALOR2}}</ValorLiquido>
+      <ValorLiquidoCalculado z:Id="i48">
+        <InternalId i:nil="true" xmlns="http://www.totvs.com/" />
+        <Codigo i:nil="true" />
+        <Coligada>1</Coligada>
+        <ID>{{IDLAN}}</ID>
+        <CodColigada>1</CodColigada>
+        <IdBaixa>0</IdBaixa>
+        <IdLan>{{IDLAN}}</IdLan>
+        <ServicoAlteracaoRepasse>false</ServicoAlteracaoRepasse>
+        <CodColigada>1</CodColigada>
+        <Data>0001-01-01T00:00:00</Data>
+        <IdLan>{{IDLAN}}</IdLan>
+        <IdLog>0</IdLog>
+        <ValorAcrescimoAcordo>0.0000</ValorAcrescimoAcordo>
+        <ValorAdiantamento>0</ValorAdiantamento>
+        <ValorCap>0</ValorCap>
+        <ValorDesconto>0</ValorDesconto>
+        <ValorDescontoAcordo>0.0000</ValorDescontoAcordo>
+        <ValorDevolucao>0</ValorDevolucao>
+        <ValorINSS>0</ValorINSS>
+        <ValorIRRF>0</ValorIRRF>
+        <ValorJuros>0</ValorJuros>
+        <ValorJurosAcordo>0.0000</ValorJurosAcordo>
+        <ValorJurosVendor>0</ValorJurosVendor>
+        <ValorLiquido>{{VALOR2}}</ValorLiquido>
+        <ValorMulta>0</ValorMulta>
+        <ValorNotaCredito>0</ValorNotaCredito>
+        <ValorOp1>0</ValorOp1>
+        <ValorOp2>0</ValorOp2>
+        <ValorOp3>0</ValorOp3>
+        <ValorOp4>0</ValorOp4>
+        <ValorOp5>0</ValorOp5>
+        <ValorOp6>0</ValorOp6>
+        <ValorOp7>0</ValorOp7>
+        <ValorOp8>0.0000</ValorOp8>
+        <ValorOriginal>{{VALOR4}}</ValorOriginal>
+        <ValorPerdaFinanceira>0</ValorPerdaFinanceira>
+        <ValorRetencoes>0</ValorRetencoes>
+        <ValorSESTSENAT>0</ValorSESTSENAT>
+        <CodColigada>1</CodColigada>
+        <IdLan>{{IDLAN}}</IdLan>
+        <Operacao>LancamentoInclusao</Operacao>
+        <ValorCapCalc>Calculado</ValorCapCalc>
+        <ValorDescontoCalc>Calculado</ValorDescontoCalc>
+        <ValorDescontoPontualidadeCalc>Nenhum</ValorDescontoPontualidadeCalc>
+        <ValorJurosCalc>Calculado</ValorJurosCalc>
+        <ValorMultaCalc>Lancamento</ValorMultaCalc>
+        <ValorOp1Calc>Nenhum</ValorOp1Calc>
+        <ValorOp2Calc>Nenhum</ValorOp2Calc>
+        <ValorOp3Calc>Nenhum</ValorOp3Calc>
+        <ValorOp4Calc>Nenhum</ValorOp4Calc>
+        <ValorOp5Calc>Nenhum</ValorOp5Calc>
+        <ValorOp6Calc>Nenhum</ValorOp6Calc>
+        <ValorOp7Calc>Nenhum</ValorOp7Calc>
+        <ValorOp8Calc>Nenhum</ValorOp8Calc>
+      </ValorLiquidoCalculado>
+      <ValorLiquidoFLogValores z:Id="i49">
+        <InternalId i:nil="true" xmlns="http://www.totvs.com/" />
+        <ServicoAlteracaoRepasse>false</ServicoAlteracaoRepasse>
+        <CodColigada>0</CodColigada>
+        <Data>0001-01-01T00:00:00</Data>
+        <IdBaixa i:nil="true" />
+        <IdLan>0</IdLan>
+        <IdLog>0</IdLog>
+        <ListaHistoricoValoresIntegracao />
+        <Operacao>LancamentoInclusao</Operacao>
+        <ValorAcrescimoAcordo>0</ValorAcrescimoAcordo>
+        <ValorAdiantamento>0</ValorAdiantamento>
+        <ValorCap>0</ValorCap>
+        <ValorCapCalc>Nenhum</ValorCapCalc>
+        <ValorDesconto>0</ValorDesconto>
+        <ValorDescontoAcordo>0</ValorDescontoAcordo>
+        <ValorDescontoCalc>Nenhum</ValorDescontoCalc>
+        <ValorDescontoPontual>0</ValorDescontoPontual>
+        <ValorDevolucao>0</ValorDevolucao>
+        <ValorINSS>0</ValorINSS>
+        <ValorIRRF>0</ValorIRRF>
+        <ValorJuros>0</ValorJuros>
+        <ValorJurosAcordo>0</ValorJurosAcordo>
+        <ValorJurosVendor>0</ValorJurosVendor>
+        <ValorLiquido>0</ValorLiquido>
+        <ValorMulta>0</ValorMulta>
+        <ValorMultaCalc>Nenhum</ValorMultaCalc>
+        <ValorNotaCredito>0</ValorNotaCredito>
+        <ValorOp1>0</ValorOp1>
+        <ValorOp1Calc>Nenhum</ValorOp1Calc>
+        <ValorOp2>0</ValorOp2>
+        <ValorOp2Calc>Nenhum</ValorOp2Calc>
+        <ValorOp3>0</ValorOp3>
+        <ValorOp3Calc>Nenhum</ValorOp3Calc>
+        <ValorOp4>0</ValorOp4>
+        <ValorOp4Calc>Nenhum</ValorOp4Calc>
+        <ValorOp5>0</ValorOp5>
+        <ValorOp5Calc>Nenhum</ValorOp5Calc>
+        <ValorOp6>0</ValorOp6>
+        <ValorOp6Calc>Nenhum</ValorOp6Calc>
+        <ValorOp7>0</ValorOp7>
+        <ValorOp7Calc>Nenhum</ValorOp7Calc>
+        <ValorOp8>0</ValorOp8>
+        <ValorOp8Calc>Nenhum</ValorOp8Calc>
+        <ValorOriginal>0</ValorOriginal>
+        <ValorPerdaFinanceira>0</ValorPerdaFinanceira>
+        <ValorRetencoes>0</ValorRetencoes>
+        <ValorSESTSENAT>0</ValorSESTSENAT>
+      </ValorLiquidoFLogValores>
+      <ValorLiquidoParcial>{{VALOR4}}</ValorLiquidoParcial>
+      <ValorMulta>0</ValorMulta>
+      <ValorNotaCredito>0</ValorNotaCredito>
+      <ValorOp1>0</ValorOp1>
+      <ValorOp2>0</ValorOp2>
+      <ValorOp3>0</ValorOp3>
+      <ValorOp4>0</ValorOp4>
+      <ValorOp5>0</ValorOp5>
+      <ValorOp6>0</ValorOp6>
+      <ValorOp7>0</ValorOp7>
+      <ValorOp8>0.0000</ValorOp8>
+      <ValorOpComSinal1>0</ValorOpComSinal1>
+      <ValorOpComSinal2>0</ValorOpComSinal2>
+      <ValorOpComSinal3>0</ValorOpComSinal3>
+      <ValorOpComSinal4>0</ValorOpComSinal4>
+      <ValorOpComSinal5>0</ValorOpComSinal5>
+      <ValorOpComSinal6>0</ValorOpComSinal6>
+      <ValorOpComSinal7>0</ValorOpComSinal7>
+      <ValorOpComSinal8>0.0000</ValorOpComSinal8>
+      <ValorOriginal>{{VALOR4}}</ValorOriginal>
+      <ValorOriginalIndexado>{{VALOR4}}</ValorOriginalIndexado>
+      <ValorRetencoes>0</ValorRetencoes>
+      <ValorSESTSENAT>0</ValorSESTSENAT>
+      <ValorVinculado>0</ValorVinculado>
+      <ValordaBaixadoLancto>0</ValordaBaixadoLancto>
+      <Valores z:Id="i50">
+        <InternalId i:nil="true" xmlns="http://www.totvs.com/" />
+        <Codigo i:nil="true" />
+        <Coligada>1</Coligada>
+        <ID>{{IDLAN}}</ID>
+        <CodColigada>1</CodColigada>
+        <IdBaixa>0</IdBaixa>
+        <IdLan>{{IDLAN}}</IdLan>
+        <ServicoAlteracaoRepasse>false</ServicoAlteracaoRepasse>
+        <ValorAcrescimoAcordo>0.0000</ValorAcrescimoAcordo>
+        <ValorAdiantamento>0</ValorAdiantamento>
+        <ValorCap>0</ValorCap>
+        <ValorDesconto>0</ValorDesconto>
+        <ValorDescontoAcordo>0.0000</ValorDescontoAcordo>
+        <ValorDescontoPontual>0</ValorDescontoPontual>
+        <ValorDevolucao>0</ValorDevolucao>
+        <ValorINSS>0</ValorINSS>
+        <ValorIRRF>0</ValorIRRF>
+        <ValorJuros>0</ValorJuros>
+        <ValorJurosAcordo>0.0000</ValorJurosAcordo>
+        <ValorJurosVendor>0</ValorJurosVendor>
+        <ValorLiquido>{{VALOR2}}</ValorLiquido>
+        <ValorMulta>0</ValorMulta>
+        <ValorNotaCredito>0</ValorNotaCredito>
+        <ValorOp1>0</ValorOp1>
+        <ValorOp2>0</ValorOp2>
+        <ValorOp3>0</ValorOp3>
+        <ValorOp4>0</ValorOp4>
+        <ValorOp5>0</ValorOp5>
+        <ValorOp6>0</ValorOp6>
+        <ValorOp7>0</ValorOp7>
+        <ValorOp8>0.0000</ValorOp8>
+        <ValorOriginal>{{VALOR4}}</ValorOriginal>
+        <ValorPerdaFinanceira>0</ValorPerdaFinanceira>
+        <ValorRetencoes>0</ValorRetencoes>
+        <ValorSESTSENAT>0</ValorSESTSENAT>
+        <ValordaBaixadoLancto>0</ValordaBaixadoLancto>
+      </Valores>
+    </FinLancamentoBaixaResult>
+  </Lancamentos>
+  <ListBaixaGeradas />
+  <ListContabilLan />
+  <ListaBaixas />
+  <ListaIdBoletoBaixa />
+  <MotivoBxProtheus i:nil="true" />
+  <MudouData>false</MudouData>
+  <MudouMoeda>false</MudouMoeda>
+  <MudouTipoBaixa>true</MudouTipoBaixa>
+  <MudouTipoExtrato>false</MudouTipoExtrato>
+  <NSUTransacaoPIX i:nil="true" />
+  <NaoVisualizarValoresEContabilidade>false</NaoVisualizarValoresEContabilidade>
+  <NumDocExtrato />
+  <OrigemContabilizacao>EventoContabil</OrigemContabilizacao>
+  <PagtoPorLan>
+    <FinPagtoLanParamsProc z:Id="i51">
+      <CodFormaPagto i:nil="true" />
+      <IdFormaPagto>1</IdFormaPagto>
+      <IdLan>{{IDLAN}}</IdLan>
+      <IdPagto>1</IdPagto>
+      <IdParcela>1</IdParcela>
+      <MotivoBxProtheus i:nil="true" />
+      <Valor>{{VALOR2}}</Valor>
+    </FinPagtoLanParamsProc>
+  </PagtoPorLan>
+  <ReajusteParcelaTIN>DataBaixa</ReajusteParcelaTIN>
+  <RetencoesAcumuladas />
+  <RetencoesAcumuladasRateio />
+  <TIDTransacaoPIX i:nil="true" />
+  <TipoBaixa>{{TIPOBAIXA}}</TipoBaixa>
+  <TransacoesSiTef />
+  <Troco>0</Troco>
+  <UsarDataBaixaReajuste>true</UsarDataBaixaReajuste>
+  <Usuario>{{USUARIO}}</Usuario>
+  <ValidaOrcExcedido>false</ValidaOrcExcedido>
+  <_usarDataVencimentoBaixa>false</_usarDataVencimentoBaixa>
+</FinLanBaixaParamsProc>

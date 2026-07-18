@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="robots" content="noindex, nofollow" />
+<title>FMP RM-API — Referência de Endpoints</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,600;1,400;1,600&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --fmp-red:#EE2A42; --fmp-ink:#191818; --fmp-cream:#EFEEEA; --fmp-sand:#BFBAA4;
+    --ink-2:#3a3838; --line:#e2e0d8; --card:#ffffff; --ok:#1f9d6b; --warn:#d97706; --err:#dc2626;
+    --get:#2563eb; --post:#16a34a; --mono:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;font-family:"Outfit",system-ui,sans-serif;color:var(--fmp-ink);background:var(--fmp-cream);line-height:1.55}
+  a{color:var(--fmp-red)}
+  header{background:var(--fmp-ink);color:#fff;padding:28px 24px 24px}
+  header .wrap{max-width:1080px;margin:0 auto}
+  .brand{display:flex;align-items:center;gap:12px;font-weight:700;letter-spacing:.18em;font-size:13px;color:var(--fmp-sand);text-transform:uppercase}
+  .spark{color:var(--fmp-red);font-size:18px;line-height:1}
+  h1{font-family:"Noto Serif",serif;font-style:italic;font-weight:600;font-size:30px;margin:10px 0 4px}
+  h1 b{color:var(--fmp-red);font-weight:600}
+  .sub{color:#cfcbbf;font-size:14px;max-width:760px}
+  .stats{margin-top:10px;font-size:12px;color:var(--fmp-sand);letter-spacing:.06em}
+  .stats b{color:#fff}
+
+  .controls{position:sticky;top:0;z-index:50;background:var(--fmp-cream);border-bottom:1px solid var(--line);box-shadow:0 4px 14px rgba(25,24,24,.06)}
+  .controls .inner{max-width:1080px;margin:0 auto;padding:14px 24px;display:flex;gap:12px;flex-wrap:wrap;align-items:flex-end}
+  .field{display:flex;flex-direction:column;gap:5px}
+  .field label{font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--ink-2)}
+  .field input,.field select{font-family:var(--mono);font-size:13px;padding:9px 11px;border:1px solid var(--line);border-radius:10px;background:#fff}
+  .field select{cursor:pointer}
+  .base-wrap{display:flex;gap:6px;align-items:center}
+  #base{min-width:290px} #apikey{min-width:200px} .field.search input{min-width:200px;font-family:"Outfit"}
+  .mini{background:#fff;border:1px solid var(--line);border-radius:8px;padding:8px 10px;font-size:11px;font-weight:600;cursor:pointer;color:var(--ink-2);font-family:"Outfit";white-space:nowrap}
+  .mini:hover{border-color:var(--fmp-red);color:var(--fmp-red)}
+
+  main{max-width:1080px;margin:0 auto;padding:8px 24px 80px}
+  .note{background:#fff;border:1px solid var(--line);border-left:4px solid var(--fmp-red);border-radius:12px;padding:12px 16px;margin:20px 0 14px;font-size:13.5px;color:var(--ink-2)}
+  .note b{color:var(--fmp-ink)}
+  .gnav{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 6px}
+  .gnav a{display:inline-flex;align-items:center;gap:6px;background:#fff;border:1px solid var(--line);border-radius:999px;padding:6px 13px;font-size:12.5px;font-weight:600;color:var(--ink-2);text-decoration:none}
+  .gnav a:hover{border-color:var(--fmp-red);color:var(--fmp-red)}
+  .gnav .n{font-family:var(--mono);font-size:10.5px;background:var(--fmp-cream);border-radius:999px;padding:1px 7px;color:#8a8678}
+  .toolbar{display:flex;gap:10px;margin:14px 0 0}
+  .toolbar button{background:#fff;border:1px solid var(--line);border-radius:999px;padding:7px 14px;font-size:12.5px;font-weight:600;cursor:pointer;font-family:"Outfit";color:var(--ink-2)}
+  .toolbar button:hover{border-color:var(--fmp-red);color:var(--fmp-red)}
+
+  .group{margin-top:30px;scroll-margin-top:96px}
+  .group h2{font-family:"Noto Serif",serif;font-style:italic;font-size:20px;margin:0 0 4px;border-bottom:1px solid var(--line);padding-bottom:8px}
+  .group h2 .n{font-family:var(--mono);font-style:normal;font-size:11px;color:#8a8678;margin-left:8px}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:16px;margin:12px 0;overflow:hidden}
+  .card-head{display:flex;align-items:center;gap:12px;padding:13px 16px;cursor:pointer;user-select:none}
+  .card-head:hover{background:#faf9f6}
+  .method{font-family:var(--mono);font-size:11px;font-weight:700;color:#fff;padding:3px 9px;border-radius:999px;letter-spacing:.04em;min-width:52px;text-align:center}
+  .m-GET{background:var(--get)} .m-POST{background:var(--post)}
+  .path{font-family:var(--mono);font-size:14px;font-weight:500;flex:1;word-break:break-all}
+  .chev{color:var(--fmp-sand);transition:transform .18s;font-size:13px}
+  .card.open .chev{transform:rotate(90deg)}
+  .card-body{display:none;padding:0 16px 18px;border-top:1px solid var(--line)}
+  .card.open .card-body{display:block}
+  .desc{font-size:13.5px;color:var(--ink-2);margin:14px 0 4px}
+  .desc.hint{color:#8a8678;font-size:12.5px;font-style:italic}
+  .inputs{display:flex;flex-wrap:wrap;gap:10px;margin:12px 0 4px}
+  .inp{display:flex;flex-direction:column;gap:4px}
+  .inp label{font-size:11px;font-weight:600;color:var(--ink-2);font-family:var(--mono)}
+  .inp input{font-family:var(--mono);font-size:13px;padding:7px 9px;border:1px solid var(--line);border-radius:8px;min-width:160px}
+  textarea{width:100%;font-family:var(--mono);font-size:13px;padding:11px;border:1px solid var(--line);border-radius:10px;background:#fdfdfb;min-height:120px;resize:vertical;margin-top:8px}
+
+  .snippet{margin-top:14px;border-radius:12px;overflow:hidden;border:1px solid #2a2a2a}
+  .snippet-head{display:flex;align-items:center;justify-content:space-between;background:#222;color:#cfcbbf;padding:7px 12px;font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;flex-wrap:wrap;gap:6px}
+  .snippet pre{margin:0;background:var(--fmp-ink);color:#f3f1ea;padding:14px;font-family:var(--mono);font-size:12.5px;overflow-x:auto;white-space:pre}
+  .btns{display:flex;gap:8px;flex-wrap:wrap}
+  button.copy{background:transparent;border:1px solid #4a4a4a;color:#cfcbbf;border-radius:7px;padding:4px 10px;font-size:11px;cursor:pointer;font-family:"Outfit";font-weight:600}
+  button.copy:hover{border-color:var(--fmp-red);color:#fff}
+  button.copy.done{border-color:var(--ok);color:var(--ok)}
+  button.exec{background:var(--fmp-red);border:1px solid var(--fmp-red);color:#fff;border-radius:7px;padding:4px 14px;font-size:11px;cursor:pointer;font-family:"Outfit";font-weight:700;letter-spacing:.04em}
+  button.exec:hover{filter:brightness(1.08)}
+  button.exec[disabled]{opacity:.55;cursor:wait}
+
+  .resp{display:none;margin-top:10px;border:1px solid var(--line);border-radius:12px;overflow:hidden;background:#fff}
+  .resp.show{display:block}
+  .resp-head{display:flex;align-items:center;gap:10px;padding:8px 12px;border-bottom:1px solid var(--line);font-size:12px;flex-wrap:wrap}
+  .status-pill{font-family:var(--mono);font-weight:700;font-size:11.5px;color:#fff;border-radius:999px;padding:2px 10px}
+  .s-ok{background:var(--ok)} .s-warn{background:var(--warn)} .s-err{background:var(--err)}
+  .resp-meta{color:#8a8678;font-family:var(--mono);font-size:11.5px}
+  .resp-head .btns{margin-left:auto}
+  .resp-head button{background:#fff;border:1px solid var(--line);color:var(--ink-2);border-radius:7px;padding:3px 10px;font-size:11px;cursor:pointer;font-family:"Outfit";font-weight:600}
+  .resp-head button:hover{border-color:var(--fmp-red);color:var(--fmp-red)}
+  .resp pre{margin:0;padding:12px 14px;font-family:var(--mono);font-size:12.5px;max-height:420px;overflow:auto;white-space:pre-wrap;word-break:break-word;background:#fdfdfb}
+
+  footer{max-width:1080px;margin:0 auto;padding:24px;color:#8a8678;font-size:12.5px;border-top:1px solid var(--line)}
+  kbd{font-family:var(--mono);font-size:11px;background:#fff;border:1px solid var(--line);border-bottom-width:2px;border-radius:5px;padding:1px 6px}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <div class="brand"><span class="spark">&#10022;</span> FMP &middot; Funda&ccedil;&atilde;o Escola Superior do Minist&eacute;rio P&uacute;blico</div>
+    <h1>RM-API &mdash; refer&ecirc;ncia de <b>endpoints</b></h1>
+    <div class="sub">Integra&ccedil;&atilde;o com o TOTVS RM via SOAP. Ajuste a URL base, a chave e os campos; cada endpoint gera o <b>cURL</b> pronto (terminal ou <i>Import cURL</i> do n8n) e pode ser <b>executado direto daqui</b> com resposta na tela.</div>
+    <div class="stats" id="stats"></div>
+  </div>
+</header>
+
+<div class="controls">
+  <div class="inner">
+    <div class="field">
+      <label for="base">URL base do servi&ccedil;o</label>
+      <div class="base-wrap">
+        <input id="base" value="https://api-totvs.fmp.edu.br" spellcheck="false" />
+        <button class="mini" id="useOrigin" type="button" title="Usar a origem desta p&aacute;gina como base (mesma origem = sem CORS)">usar esta origem</button>
+      </div>
+    </div>
+    <div class="field">
+      <label for="apikey">API key (header X-API-Key)</label>
+      <input id="apikey" placeholder="cole sua chave" spellcheck="false" />
+    </div>
+    <div class="field">
+      <label for="fmt">Formato do corpo (POST)</label>
+      <select id="fmt">
+        <option value="json">JSON</option>
+        <option value="form">Campos (form / "Using Fields Below")</option>
+      </select>
+    </div>
+    <div class="field">
+      <label for="mf">M&eacute;todo</label>
+      <select id="mf">
+        <option value="">Todos</option>
+        <option value="GET">GET</option>
+        <option value="POST">POST</option>
+      </select>
+    </div>
+    <div class="field search">
+      <label for="q">Filtrar (<kbd>/</kbd> foca &middot; <kbd>Esc</kbd> limpa)</label>
+      <input id="q" placeholder="ex: pessoa, baixa, schema&hellip;" />
+    </div>
+  </div>
+</div>
+
+<main>
+  <div class="note">
+    <b>Base path na raiz:</b> as rotas s&atilde;o <code>/pessoas</code>, <code>/rm/test</code> etc., <b>sem</b> <code>/api</code>.
+    <b>Autentica&ccedil;&atilde;o:</b> se o servidor tiver <code>API_KEY</code>, preencha o campo acima &mdash; o header <code>X-API-Key</code> entra nos cURLs e no Executar.
+    <b>Executar:</b> roda a requisi&ccedil;&atilde;o do seu navegador. Servida desta mesma origem n&atilde;o h&aacute; CORS; para outra base, configure <code>CORS_ALLOWED_ORIGINS</code> no servidor.
+    <b>POST grava dados reais no RM</b> &mdash; a p&aacute;gina pede confirma&ccedil;&atilde;o antes de executar (exce&ccedil;&atilde;o: corpo com <code>"DRY_RUN": true</code>, que n&atilde;o envia nada ao RM &mdash; e &eacute; o default do exemplo da baixa).
+  </div>
+  <nav class="gnav" id="gnav"></nav>
+  <div class="toolbar">
+    <button id="expandAll" type="button">Expandir tudo</button>
+    <button id="collapseAll" type="button">Recolher tudo</button>
+  </div>
+  <div id="catalog"></div>
+</main>
+
+<footer>
+  FMP RM-API &middot; gerado a partir de <code>docs/CURLS.md</code>. Diagn&oacute;stico: <code>GET /teste.php</code>, <code>/status</code>, <code>/rm/test</code>. Deploy e troubleshooting em <code>docs/DEPLOY-EASYPANEL.md</code>.
+</footer>
+
+<script>
+const endpoints = [
+  {g:"Sistema", method:"GET", path:"/status", desc:"Health check do RM (INT.EDUVEM.00001). Isento de API key."},
+
+  {g:"RM genérico (diagnóstico)", method:"GET", path:"/rm/test", desc:"Valida conectividade e credenciais SOAP."},
+  {g:"RM genérico (diagnóstico)", method:"GET", path:"/rm/schema/{dataserver}", desc:"Schema parseado. Marque xml=1 para o XSD bruto.", params:{dataserver:"RhuPessoaData"}, query:[{name:"xml", val:"", label:"xml (1 = XSD bruto)"}]},
+  {g:"RM genérico (diagnóstico)", method:"POST", path:"/rm/sql/{codsentenca}", desc:"Executa uma sentença SQL cadastrada no RM.", params:{codsentenca:"INT.EDUVEM.00007"}, body:{parametros:{CPF_S:"12345678901", RNM_S:"0"}, codcoligada:"0", codsistema:"G"}},
+  {g:"RM genérico (diagnóstico)", method:"POST", path:"/rm/read/{dataserver}", desc:"ReadRecord: lê um registro pela chave primária.", hint:"chave = partes da PK na ordem.", params:{dataserver:"RhuPessoaData"}, body:{chave:["12345"], contexto:{}}},
+  {g:"RM genérico (diagnóstico)", method:"POST", path:"/rm/view/{dataserver}", desc:"ReadView: consulta com filtro SQL na view do DataServer.", params:{dataserver:"GlbColigadaData"}, body:{filtro:"CODCOLIGADA=1", contexto:{}}},
+  {g:"RM genérico (diagnóstico)", method:"POST", path:"/rm/save/{dataserver}", desc:"SaveRecord genérico (uso avançado/diagnóstico).", params:{dataserver:"RhuPessoaData"}, body:{xml:"<RhuPessoa><PPessoa><CODIGO>0</CODIGO><NOME>Teste Da Silva</NOME><CPF>12345678901</CPF></PPessoa><VPCompl><CODPESSOA>0</CODPESSOA></VPCompl></RhuPessoa>", contexto:{CODCOLIGADA:"1", CODSISTEMA:"S", CODUSUARIO:"integra.eduvem"}}},
+
+  {g:"Pessoa", method:"POST", path:"/pessoas", desc:"CODIGO=0/ausente cria; CODIGO>0 atualiza. CPF/CEP aceitam máscara (a API remove). Retorna CODPESSOA.", body:{CODIGO:0,NOME:"Fulano de Tal",DTNASCIMENTO:"1990-01-15",SEXO:"M",CPF:"123.456.789-01",CEP:"01310-100",TELEFONE1:"11987654321",EMAIL:"fulano@email.com"}},
+  {g:"Pessoa", method:"GET", path:"/pessoas/{codigo}", desc:"ReadRecord RhuPessoaData pelo código.", params:{codigo:"12345"}},
+  {g:"Pessoa", method:"GET", path:"/pessoas/busca", desc:"Localiza por CPF ou RNM (preencha um). Aceita cpf/CPF em qualquer caixa.", query:[{name:"cpf", val:"12345678901", label:"cpf"},{name:"rnm", val:"", label:"rnm"}]},
+
+  {g:"Aluno", method:"POST", path:"/alunos", desc:"Cria/atualiza o aluno com etapas rastreadas (igual à inscrição): CLIENTE/FORNECEDOR → ALUNO → USUÁRIO/FILIAL → ACESSO (SSO). Resposta traz dados.etapas (sucesso) ou etapas_concluidas (erro).", body:{CODPESSOA:12345,CODCOLIGADA:1,CODTIPOCURSO:2,CODFILIAL:1,CPF:"12345678901",RNM:""}},
+  {g:"Aluno", method:"POST", path:"/alunos/cliente-fornecedor", desc:"Vincula um Cliente/Fornecedor já gravado a um aluno existente (por RA). Informe CODCFO+CODCOLCFO e o RA junto ao seu CODCOLIGADA. CODTIPOCURSO e CODFILIAL são exigidos pelo contexto do EduAlunoData.", body:{RA:"000123",CODCOLIGADA:1,CODTIPOCURSO:2,CODFILIAL:1,CODCOLCFO:0,CODCFO:""}},
+  {g:"Aluno", method:"GET", path:"/alunos/{codcoligada}/{codpessoa}", desc:"Retorna RA, CODUSUARIO, SENHAPADRAO…", params:{codcoligada:"1", codpessoa:"12345"}},
+
+  {g:"Cliente/Fornecedor", method:"GET", path:"/clientes-fornecedores/busca", desc:"Consulta o CFO por CPF/RNM ANTES de criar (reusa INT.EDUVEM.00009). 404 = não existe, pode criar.", query:[{name:"cpf", val:"12345678901", label:"cpf"},{name:"rnm", val:"", label:"rnm"}]},
+  {g:"Cliente/Fornecedor", method:"POST", path:"/clientes-fornecedores", desc:"Cria o CFO com etapas (VALIDAÇÃO → CONSULTA → GRAVAÇÃO). Idempotente: se o documento já existir, não duplica (JA_EXISTIA). CODCFO=0 → o RM gera; coligada 0, PAGREC 3, F/J automático pelo documento.", body:{NOME:"Felipe Machado da Silva",CGCCFO:"517.420.330-08",RUA:"Av. Ipiranga",NUMERO:"6681",BAIRRO:"Partenon",CIDADE:"Porto Alegre",CODETD:"RS",CEP:"90619-900",TELEFONE:"(51) 3333-6565",EMAIL:"felipe@exemplo.com"}},
+
+  {g:"Inscrição (fluxo completo)", method:"POST", path:"/inscricoes", desc:"Fluxo orquestrado (brasileiro): pessoa → aluno → matrículas → enturmação → cupom → lançamento. Idempotente.", hint:"CIDADE/BAIRRO/NATURALIDADE são códigos (use /enderecos). CUPOM é opcional.", body:{OFERTA:"OF2026-001",PLANOPAGAMENTO:"PP01",CPF:"12345678901",NOME:"Fulano de Tal",NASCIMENTO:"1990-01-15",SEXO:"M",EMAIL:"fulano@email.com",TELEFONE:"11987654321",CEP:"01310100",ESTADO:"SP",CIDADE:"3550308",BAIRRO:"123",RUA:"Av. Paulista",NUMERO:"1000",COMPLEMENTO:"",NATURALIDADE:"3550308",CUPOM:"PROMO10"}},
+  {g:"Inscrição (fluxo completo)", method:"POST", path:"/inscricoes", desc:"Fluxo orquestrado (estrangeiro): usa RNM; endereço fica como 'Outro'.", body:{OFERTA:"OF2026-001",PLANOPAGAMENTO:"PP01",RNM:"A123456-7",NOME:"John Doe Smith",NASCIMENTO:"1985-06-20",SEXO:"M",EMAIL:"john@email.com",TELEFONE:"11987654321"}},
+
+  {g:"Matrícula (etapas)", method:"POST", path:"/matriculas/curso", desc:"Pré-matrícula (CODSTATUS 23) via EduHabilitacaoAlunoData.", body:{RA:"000123",OFERTA:"OF2026-001"}},
+  {g:"Matrícula (etapas)", method:"POST", path:"/matriculas/periodo-letivo", desc:"Processo 'Matricular aluno' — gera o contrato. Retorna CODCONTRATO.", body:{RA:"000123",OFERTA:"OF2026-001",PLANOPAGAMENTO:"PP01"}},
+  {g:"Matrícula (etapas)", method:"POST", path:"/matriculas/disciplinas", desc:"Processo 'Matricular aluno nas disciplinas' por turma da oferta.", body:{RA:"000123",OFERTA:"OF2026-001"}},
+
+  {g:"Contrato", method:"POST", path:"/contratos", desc:"GenerateReport 1664 → GetGeneratedReportSize → GetFileChunk. Retorna CONTEUDO (PDF).", hint:"CIDADE e BAIRRO são códigos; a API resolve via INT.EDUVEM.00010/00020.", body:{NOME:"Fulano de Tal",CPF:"12345678901",ESTADO:"SP",CIDADE:"3550308",BAIRRO:"123",RUA:"Av. Paulista",NUMERO:"1000",COMPLEMENTO:"",NACIONALIDADE:"Brasileira",NASCIMENTO:"1990-01-15"}},
+
+  {g:"Financeiro", method:"POST", path:"/financeiro/baixas", desc:"Baixa (quita) um lançamento financeiro no RM — processo FinTBCBaixaDataProcess (baixa via WS oficial da TOTVS, validada em homologação). GRAVA movimento real na conta/caixa. Contrapartida da geração de lançamentos.", hint:"O exemplo vem com DRY_RUN:true (devolve o XML gerado SEM enviar ao RM) — troque para false para executar de verdade. VALORBAIXA aceita 465,00 ou 465.00. TIPOFORMAPAGTO: Dinheiro|Cheque|Cartao|CartaoCredito|CartaoDebito|Transferencia|DebitoConta|Boleto|Pix|Outros. IDFORMAPAGTO = id da Forma de Pagamento no RM (default 1 = Dinheiro). TIPOBAIXA: Simplificada (default)|Completa|Parcial. CODCXA pode vir do env FIN_CODCXA_PADRAO.", body:{IDLAN:"1082893",VALORBAIXA:"2000.00",CODCXA:"50380",TIPOFORMAPAGTO:"Dinheiro",IDFORMAPAGTO:1,CODCOLIGADA:1,CODFILIAL:1,DATABAIXA:"2026-07-13",HISTORICOBAIXA:"Baixa via API",TIPOBAIXA:"Simplificada",DRY_RUN:true}},
+  {g:"Financeiro", method:"POST", path:"/financeiro/lancamentos", desc:"Gera os lançamentos financeiros do contrato do aluno (EduGerarLancFromContratoSliceableData). Autônomo (não roda a inscrição) e idempotente.", hint:"CODCONTRATO é opcional: se enviado, é usado direto; se vazio, a API resolve pelo RA+OFERTA (matrícula no PL, 00014). Se já existirem lançamentos, não regera.", body:{RA:"000123",OFERTA:"OF2026-001",CODCONTRATO:""}},
+
+  {g:"Oferta", method:"GET", path:"/ofertas/{codoferta}", desc:"Dados da oferta (INT.EDUVEM.00006).", params:{codoferta:"OF2026-001"}},
+  {g:"Oferta", method:"GET", path:"/ofertas/{codoferta}/planos-pagamento", desc:"Planos de pagamento (INT.EDUVEM.00013).", params:{codoferta:"OF2026-001"}},
+
+  {g:"Endereço", method:"GET", path:"/enderecos/estados", desc:"Lista de estados (INT.EDUVEM.00002)."},
+  {g:"Endereço", method:"GET", path:"/enderecos/estados/{codestado}/cidades", desc:"Cidades do estado (INT.EDUVEM.00003).", params:{codestado:"SP"}},
+  {g:"Endereço", method:"GET", path:"/enderecos/cidades/{codcidade}/bairros", desc:"Bairros da cidade (INT.EDUVEM.00004).", params:{codcidade:"3550308"}},
+  {g:"Endereço", method:"GET", path:"/enderecos/cep/{cep}", desc:"Endereço por CEP (INT.EDUVEM.00005).", params:{cep:"01310100"}},
+
+  {g:"Cupom", method:"GET", path:"/cupons/{codoferta}/{codplano}/{cupom}", desc:"Valida cupom (INT.EDUVEM.00016).", params:{codoferta:"OF2026-001",codplano:"PP01",cupom:"PROMO10"}},
+  {g:"Cupom", method:"POST", path:"/cupons/aplicar", desc:"Aplica o cupom (bolsa) ao contrato do aluno (EduBolsaAlunoData). Autônomo (não roda a inscrição) e idempotente. Valida o cupom e resolve a oferta pelo OFERTA.", hint:"CODCONTRATO é opcional: se enviado, é usado direto; se vazio, a API resolve pelo RA+OFERTA (matrícula no PL, 00014).", body:{RA:"000123",OFERTA:"OF2026-001",PLANOPAGAMENTO:"PP01",CUPOM:"PROMO10",CODCONTRATO:""}},
+
+  {g:"SSO (exceção HTML)", method:"GET", path:"/sso/{token}", desc:"Único endpoint HTML — auto-login no Portal. Isento de API key. O token vem em dados.nextUrl de POST /inscricoes.", params:{token:"TOKEN_GERADO_PELA_INSCRICAO"}}
+];
+
+const $ = s => document.querySelector(s);
+const baseInput = $("#base");
+const apiKeyInput = $("#apikey");
+const fmtSelect = $("#fmt");
+const mfSelect = $("#mf");
+try{
+  const sb = localStorage.getItem("fmp_api_base"); if(sb) baseInput.value = sb;
+  const sk = localStorage.getItem("fmp_api_key"); if(sk) apiKeyInput.value = sk;
+  const sf = localStorage.getItem("fmp_api_fmt"); if(sf) fmtSelect.value = sf;
+}catch(e){}
+
+function trimBase(){ return baseInput.value.trim().replace(/\/+$/,""); }
+function esc(s){ return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;"); }
+function isFlat(obj){ return obj && typeof obj==="object" && !Array.isArray(obj) && Object.values(obj).every(v => v===null || typeof v!=="object"); }
+
+function buildUrl(ep, card){
+  let path = ep.path;
+  if(ep.params){
+    card.querySelectorAll("[data-param]").forEach(inp=>{
+      path = path.replace("{"+inp.dataset.param+"}", encodeURIComponent(inp.value.trim() || ("{"+inp.dataset.param+"}")));
+    });
+  }
+  let qs = [];
+  if(ep.query){
+    card.querySelectorAll("[data-query]").forEach(inp=>{
+      const v = inp.value.trim();
+      if(v!=="") qs.push(encodeURIComponent(inp.dataset.query)+"="+encodeURIComponent(v));
+    });
+  }
+  return trimBase()+path+(qs.length?("?"+qs.join("&")):"");
+}
+
+function corpoAtual(ep, card){
+  if(!ep.body) return null;
+  const ta = card.querySelector("textarea");
+  let obj = null;
+  try{ obj = JSON.parse(ta.value); }catch(e){ obj = null; }
+  return {texto: ta.value, obj, useForm: fmtSelect.value==="form" && isFlat(obj)};
+}
+
+function buildCurl(ep, card){
+  const url = buildUrl(ep, card);
+  const key = apiKeyInput.value.trim();
+  let lines = ['curl -X '+ep.method+' "'+url+'"'];
+  if(key){ lines.push('  -H "X-API-Key: '+key+'"'); }
+
+  const corpo = corpoAtual(ep, card);
+  if(!corpo){
+    lines.push('  -H "Accept: application/json"');
+    return lines.join(" \\\n");
+  }
+
+  if(corpo.useForm){
+    lines.push('  -H "Accept: application/json"');
+    Object.keys(corpo.obj).forEach(k=>{ lines.push('  --data-urlencode "'+k+'='+corpo.obj[k]+'"'); });
+  } else {
+    lines.push('  -H "Content-Type: application/json"');
+    lines.push('  -H "Accept: application/json"');
+    lines.push("  -d '"+corpo.texto+"'");
+  }
+  return lines.join(" \\\n");
+}
+
+function refresh(ep, card){ card.querySelector(".curl").textContent = buildCurl(ep, card); }
+
+/* ---------- Executar direto da página ---------- */
+
+async function executar(ep, card, btn){
+  const corpo = corpoAtual(ep, card);
+
+  if(ep.method !== "GET"){
+    const dryRun = corpo && corpo.obj && corpo.obj.DRY_RUN === true;
+    if(!dryRun && !confirm("Este "+ep.method+" GRAVA dados reais no RM.\n\n"+ep.method+" "+ep.path+"\n\nExecutar mesmo assim?")) return;
+  }
+
+  const url = buildUrl(ep, card);
+  const headers = {"Accept":"application/json"};
+  const key = apiKeyInput.value.trim();
+  if(key) headers["X-API-Key"] = key;
+
+  const opts = {method: ep.method, headers};
+  if(corpo){
+    if(corpo.useForm){
+      opts.body = new URLSearchParams(Object.entries(corpo.obj).map(([k,v])=>[k, String(v)]));
+    } else {
+      headers["Content-Type"] = "application/json";
+      opts.body = corpo.texto;
+    }
+  }
+
+  const ctrl = new AbortController();
+  opts.signal = ctrl.signal;
+  const timer = setTimeout(()=>ctrl.abort(), 300000); // acompanha o timeout do servidor (300s)
+
+  const painel = card.querySelector(".resp");
+  const pill = painel.querySelector(".status-pill");
+  const meta = painel.querySelector(".resp-meta");
+  const pre  = painel.querySelector("pre");
+  painel.classList.add("show");
+  pill.className = "status-pill s-warn"; pill.textContent = "…";
+  meta.textContent = "executando";
+  pre.textContent = "";
+  btn.disabled = true;
+
+  const t0 = performance.now();
+  try{
+    const res = await fetch(url, opts);
+    const ms = Math.round(performance.now() - t0);
+    const texto = await res.text();
+    let corpoFmt = texto;
+    try{ corpoFmt = JSON.stringify(JSON.parse(texto), null, 2); }catch(e){}
+    pill.className = "status-pill " + (res.ok ? "s-ok" : (res.status < 500 ? "s-warn" : "s-err"));
+    pill.textContent = res.status + " " + (res.statusText || "");
+    meta.textContent = ms + " ms · " + (res.headers.get("content-type")||"").split(";")[0];
+    pre.textContent = corpoFmt || "(resposta vazia)";
+  }catch(err){
+    const ms = Math.round(performance.now() - t0);
+    pill.className = "status-pill s-err";
+    pill.textContent = err.name === "AbortError" ? "timeout" : "erro de rede";
+    meta.textContent = ms + " ms";
+    pre.textContent = (err.name === "AbortError")
+      ? "A requisição excedeu 300s e foi abortada."
+      : String(err) + "\n\nSe a base for outra origem, verifique o CORS do servidor (CORS_ALLOWED_ORIGINS) e o certificado TLS.";
+  }finally{
+    clearTimeout(timer);
+    btn.disabled = false;
+  }
+}
+
+/* ---------- Montagem do catálogo ---------- */
+
+const catalog = $("#catalog");
+const groups = {};
+endpoints.forEach((ep,i)=>{ (groups[ep.g] = groups[ep.g]||[]).push({ep,i}); });
+
+const gnav = $("#gnav");
+Object.keys(groups).forEach((gname, gi)=>{
+  const a = document.createElement("a");
+  a.href = "#g"+gi;
+  a.innerHTML = esc(gname)+' <span class="n">'+groups[gname].length+"</span>";
+  gnav.appendChild(a);
+});
+$("#stats").innerHTML = "<b>"+endpoints.length+"</b> endpoints &middot; <b>"+Object.keys(groups).length+"</b> grupos";
+
+Object.keys(groups).forEach((gname, gi)=>{
+  const sec = document.createElement("div");
+  sec.className = "group";
+  sec.id = "g"+gi;
+  sec.innerHTML = "<h2>"+esc(gname)+'<span class="n">'+groups[gname].length+"</span></h2>";
+  groups[gname].forEach(({ep})=>{
+    const card = document.createElement("div");
+    card.className = "card";
+    card.dataset.text = (ep.g+" "+ep.method+" "+ep.path+" "+ep.desc).toLowerCase();
+    card.dataset.method = ep.method;
+
+    let inputsHtml = "";
+    if(ep.params){
+      inputsHtml += Object.keys(ep.params).map(p=>
+        '<div class="inp"><label>'+p+'</label><input data-param="'+p+'" value="'+esc(ep.params[p])+'"></div>').join("");
+    }
+    if(ep.query){
+      inputsHtml += ep.query.map(q=>
+        '<div class="inp"><label>'+esc(q.label||q.name)+'</label><input data-query="'+q.name+'" value="'+esc(q.val||"")+'" placeholder="vazio = ignora"></div>').join("");
+    }
+    const inputsBlock = inputsHtml ? '<div class="inputs">'+inputsHtml+'</div>' : "";
+    const bodyBlock = ep.body ? '<textarea spellcheck="false">'+esc(JSON.stringify(ep.body,null,2))+'</textarea>' : "";
+    const hintBlock = ep.hint ? '<p class="desc hint">'+esc(ep.hint)+'</p>' : "";
+
+    card.innerHTML =
+      '<div class="card-head">'+
+        '<span class="method m-'+ep.method+'">'+ep.method+'</span>'+
+        '<code class="path">'+esc(ep.path)+'</code>'+
+        '<span class="chev">&#9656;</span>'+
+      '</div>'+
+      '<div class="card-body">'+
+        '<p class="desc">'+esc(ep.desc)+'</p>'+
+        hintBlock + inputsBlock + bodyBlock +
+        '<div class="snippet">'+
+          '<div class="snippet-head"><span>cURL</span>'+
+            '<div class="btns">'+
+              '<button class="copy" data-act="url" type="button">Copiar URL</button>'+
+              '<button class="copy" data-act="curl" type="button">Copiar cURL</button>'+
+              '<button class="exec" type="button">Executar &#9654;</button>'+
+            '</div>'+
+          '</div>'+
+          '<pre class="curl"></pre>'+
+        '</div>'+
+        '<div class="resp">'+
+          '<div class="resp-head">'+
+            '<span class="status-pill s-warn">&hellip;</span>'+
+            '<span class="resp-meta"></span>'+
+            '<div class="btns">'+
+              '<button data-act="copyresp" type="button">Copiar resposta</button>'+
+              '<button data-act="clearresp" type="button">Fechar</button>'+
+            '</div>'+
+          '</div>'+
+          '<pre></pre>'+
+        '</div>'+
+      '</div>';
+
+    card.querySelector(".card-head").addEventListener("click", ()=> card.classList.toggle("open"));
+    card.querySelectorAll("input,textarea").forEach(el=> el.addEventListener("input", ()=> refresh(ep, card)));
+    card.querySelectorAll("button.copy").forEach(btn=>{
+      btn.addEventListener("click", e=>{
+        e.stopPropagation();
+        const text = btn.dataset.act==="url" ? buildUrl(ep, card) : buildCurl(ep, card);
+        navigator.clipboard.writeText(text).then(()=>{
+          const old = btn.textContent; btn.textContent="Copiado ✓"; btn.classList.add("done");
+          setTimeout(()=>{ btn.textContent=old; btn.classList.remove("done"); }, 1400);
+        });
+      });
+    });
+    const execBtn = card.querySelector("button.exec");
+    execBtn.addEventListener("click", e=>{ e.stopPropagation(); executar(ep, card, execBtn); });
+    card.querySelector('[data-act="copyresp"]').addEventListener("click", e=>{
+      e.stopPropagation();
+      navigator.clipboard.writeText(card.querySelector(".resp pre").textContent);
+    });
+    card.querySelector('[data-act="clearresp"]').addEventListener("click", e=>{
+      e.stopPropagation();
+      card.querySelector(".resp").classList.remove("show");
+    });
+
+    refresh(ep, card);
+    sec.appendChild(card);
+  });
+  catalog.appendChild(sec);
+});
+
+function rebuildAll(){
+  let flat=[]; Object.keys(groups).forEach(g=> groups[g].forEach(o=> flat.push(o.ep)));
+  document.querySelectorAll(".card").forEach((card,idx)=> refresh(flat[idx], card));
+}
+baseInput.addEventListener("input", ()=>{ try{ localStorage.setItem("fmp_api_base", baseInput.value.trim()); }catch(e){} rebuildAll(); });
+apiKeyInput.addEventListener("input", ()=>{ try{ localStorage.setItem("fmp_api_key", apiKeyInput.value.trim()); }catch(e){} rebuildAll(); });
+fmtSelect.addEventListener("change", ()=>{ try{ localStorage.setItem("fmp_api_fmt", fmtSelect.value); }catch(e){} rebuildAll(); });
+$("#useOrigin").addEventListener("click", ()=>{
+  baseInput.value = window.location.origin;
+  try{ localStorage.setItem("fmp_api_base", baseInput.value); }catch(e){}
+  rebuildAll();
+});
+
+/* ---------- Filtros ---------- */
+
+function aplicarFiltros(){
+  const term = $("#q").value.toLowerCase().trim();
+  const mf = mfSelect.value;
+  document.querySelectorAll(".card").forEach(card=>{
+    const okTexto = card.dataset.text.includes(term);
+    const okMetodo = !mf || card.dataset.method === mf;
+    card.style.display = (okTexto && okMetodo) ? "" : "none";
+  });
+  document.querySelectorAll(".group").forEach(sec=>{
+    const any = [...sec.querySelectorAll(".card")].some(c=> c.style.display!=="none");
+    sec.style.display = any ? "" : "none";
+  });
+}
+$("#q").addEventListener("input", aplicarFiltros);
+mfSelect.addEventListener("change", aplicarFiltros);
+
+document.addEventListener("keydown", e=>{
+  if(e.key === "/" && !["INPUT","TEXTAREA","SELECT"].includes(document.activeElement.tagName)){
+    e.preventDefault(); $("#q").focus();
+  }
+  if(e.key === "Escape" && document.activeElement === $("#q")){
+    $("#q").value = ""; aplicarFiltros();
+  }
+});
+
+$("#expandAll").addEventListener("click", ()=> document.querySelectorAll(".card").forEach(c=>c.classList.add("open")));
+$("#collapseAll").addEventListener("click", ()=> document.querySelectorAll(".card").forEach(c=>c.classList.remove("open")));
+</script>
+</body>
+</html>

@@ -1,0 +1,1126 @@
+{
+ "info": {
+  "name": "FMP RM-API (TOTVS RM)",
+  "description": "API REST de integração com TOTVS RM via SOAP. Servida na RAIZ (sem /api). Defina baseUrl (ex.: https://api-totvs.fmp.edu.br) e apiKey (header X-API-Key, exigido quando a env API_KEY está ativa no servidor).",
+  "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+ },
+ "variable": [
+  {
+   "key": "baseUrl",
+   "value": "https://api-totvs.fmp.edu.br"
+  },
+  {
+   "key": "apiKey",
+   "value": "SUA_CHAVE_AQUI"
+  }
+ ],
+ "item": [
+  {
+   "name": "Sistema",
+   "item": [
+    {
+     "name": "Health check",
+     "request": {
+      "method": "GET",
+      "header": [
+       {
+        "key": "Accept",
+        "value": "application/json"
+       }
+      ],
+      "url": {
+       "raw": "{{baseUrl}}/status",
+       "host": [
+        "{{baseUrl}}"
+       ],
+       "path": [
+        "status"
+       ]
+      },
+      "description": "Verifica disponibilidade do RM (INT.EDUVEM.00001)"
+     }
+    }
+   ]
+  },
+  {
+   "name": "RM genérico",
+   "item": [
+    {
+     "name": "Testar conexão",
+     "request": {
+      "method": "GET",
+      "header": [
+       {
+        "key": "Accept",
+        "value": "application/json"
+       }
+      ],
+      "url": {
+       "raw": "{{baseUrl}}/rm/test",
+       "host": [
+        "{{baseUrl}}"
+       ],
+       "path": [
+        "rm",
+        "test"
+       ]
+      },
+      "description": "Valida conectividade e credenciais SOAP"
+     }
+    },
+    {
+     "name": "Schema de DataServer",
+     "request": {
+      "method": "GET",
+      "header": [
+       {
+        "key": "Accept",
+        "value": "application/json"
+       }
+      ],
+      "url": {
+       "raw": "{{baseUrl}}/rm/schema/RhuPessoaData",
+       "host": [
+        "{{baseUrl}}"
+       ],
+       "path": [
+        "rm",
+        "schema",
+        "RhuPessoaData"
+       ]
+      },
+      "description": "Schema parseado (tabelas, campos, chaves). Acrescente ?raw=1 para o XSD bruto\n\nObs: Troque RhuPessoaData pelo DataServer desejado (EduAlunoData, EduHabilitacaoAlunoData...)"
+     }
+    },
+    {
+     "name": "Consulta SQL cadastrada",
+     "request": {
+      "method": "POST",
+      "header": [
+       {
+        "key": "Accept",
+        "value": "application/json"
+       },
+       {
+        "key": "Content-Type",
+        "value": "application/json"
+       }
+      ],
+      "url": {
+       "raw": "{{baseUrl}}/rm/sql/INT.EDUVEM.00007",
+       "host": [
+        "{{baseUrl}}"
+       ],
+       "path": [
+        "rm",
+        "sql",
+        "INT.EDUVEM.00007"
+       ]
+      },
+      "description": "Executa qualquer sentença SQL cadastrada no RM",
+      "body": {
+       "mode": "raw",
+       "raw": "{\n  \"parametros\": {\n    \"CPF_S\": \"12345678901\",\n    \"RNM_S\": \"0\"\n  },\n  \"codcoligada\": \"0\",\n  \"codsistema\": \"G\"\n}",
+       "options": {
+        "raw": {
+         "language": "json"
+        }
+       }
+      }
+     }
+    },
+    {
+     "name": "ReadRecord genérico",
+     "request": {
+      "method": "POST",
+      "header": [
+       {
+        "key": "Accept",
+        "value": "application/json"
+       },
+       {
+        "key": "Content-Type",
+        "value": "application/json"
+       }
+      ],
+      "url": {
+       "raw": "{{baseUrl}}/rm/read/RhuPessoaData",
+       "host": [
+        "{{baseUrl}}"
+       ],
+       "path": [
+        "rm",
+        "read",
+        "RhuPessoaData"
+       ]
+      },
+      "description": "Lê um registro pela chave primária\n\nObs: chave = partes da PK na ordem (separadas no RM por ';')",
+      "body": {
+       "mode": "raw",
+       "raw": "{\n  \"chave\": [\n    \"12345\"\n  ],\n  \"contexto\": {}\n}",
+       "options": {
+        "raw": {
+         "language": "json"
+        }
+       }
+      }
+     }
+    },
+    {
+     "name": "ReadView genérico",
+     "request": {
+      "method": "POST",
+      "header": [
+       {
+        "key": "Accept",
+        "value": "application/json"
+       },
+       {
+        "key": "Content-Type",
+        "value": "application/json"
+       }
+      ],
+      "url": {
+       "raw": "{{baseUrl}}/rm/view/GlbColigadaData",
+       "host": [
+        "{{baseUrl}}"
+       ],
+       "path": [
+        "rm",
+        "view",
+        "GlbColigadaData"
+       ]
+      },
+      "description": "Consulta com filtro SQL na view do DataServer",
+      "body": {
+       "mode": "raw",
+       "raw": "{\n  \"filtro\": \"CODCOLIGADA=1\",\n  \"contexto\": {}\n}",
+       "options": {
+        "raw": {
+         "language": "json"
+        }
+       }
+      }
+     }
+    },
+    {
+     "name": "SaveRecord genérico",
+     "request": {
+      "method": "POST",
+      "header": [
+       {
+        "key": "Accept",
+        "value": "application/json"
+       },
+       {
+        "key": "Content-Type",
+        "value": "application/json"
+       }
+      ],
+      "url": {
+       "raw": "{{baseUrl}}/rm/save/RhuPessoaData",
+       "host": [
+        "{{baseUrl}}"
+       ],
+       "path": [
+        "rm",
+        "save",
+        "RhuPessoaData"
+       ]
+      },
+      "description": "Grava um XML qualquer no DataServer (uso para diagnóstico/automação avançada)",
+      "body": {
+       "mode": "raw",
+       "raw": "{\n  \"xml\": \"<RhuPessoa><PPessoa><CODIGO>0</CODIGO><NOME>Teste Da Silva</NOME><DTNASCIMENTO>1990-01-15</DTNASCIMENTO><SEXO>M</SEXO><CPF>12345678901</CPF><EMAIL>teste@email.com</EMAIL></PPessoa><VPCompl><CODPESSOA>0</CODPESSOA></VPCompl></RhuPessoa>\",\n  \"contexto\": {\n    \"CODCOLIGADA\": \"1\",\n    \"CODSISTEMA\": \"S\",\n    \"CODUSUARIO\": \"integra.eduvem\"\n  }\n}",
+       "options": {
+        "raw": {
+         "language": "json"
+        }
+       }
+      }
+     }
+    }
+   ]
+  },
+  {
+   "name": "Pessoa",
+   "item": [
+    {
+     "name": "Criar/atualizar pessoa",
+     "request": {
+      "method": "POST",
+      "header": [
+       {
+        "key": "Accept",
+        "value": "application/json"
+       },
+       {
+        "key": "Content-Type",
+        "value": "application/json"
+       }
+      ],
+      "url": {
+       "raw": "{{baseUrl}}/pessoas",
+       "host": [
+        "{{baseUrl}}"
+       ],
+       "path": [
+        "pessoas"
+       ]
+      },
+      "description": "CODIGO=0 ou ausente cria; CODIGO>0 atualiza. Retorna CODPESSOA\n\nObs: Em caso de erro de validação do RM, o retorno traz retorno_rm com a mensagem original",
+      "body": {
+       "mode": "raw",
+       "raw": "{\n  \"CODIGO\": 0,\n  \"NOME\": \"Fulano de Tal\",\n  \"DTNASCIMENTO\": \"1990-01-15\",\n  \"ESTADONATAL\": \"SP\",\n  \"NATURALIDADE\": \"São Paulo\",\n  \"SEXO\": \"M\",\n  \"NACIONALIDADE\": \"10\",\n  \"RUA\": \"Av. Paulista\",\n  \"NUMERO\": \"1000\",\n  \"COMPLEMENTO\": \"Apto 101\",\n  \"BAIRRO\": \"Bela Vista\",\n  \"ESTADO\": \"SP\",\n  \"CIDADE\": \"São Paulo\",\n  \"CEP\": \"01310100\",\n  \"PAIS\": \"Brasil\",\n  \"CPF\": \"12345678901\",\n  \"TELEFONE1\": \"11987654321\",\n  \"EMAIL\": \"fulano@email.com\",\n  \"CODMUNICIPIO\": \"3550308\",\n  \"CODNATURALIDADE\": \"3550308\",\n  \"IDPAIS\": 1,\n  \"NROREGGERAL\": \"\"\n}",
+       "options": {
+        "raw": {
+         "language": "json"
+        }
+       }
+      }
+     }
+    },
+    {
+     "name": "Buscar pessoa por código",
+     "request": {
+      "method": "GET",
+      "header": [
+       {
+        "key": "Accept",
+        "value": "application/json"
+       }
+      ],
+      "url": {
+       "raw": "{{baseUrl}}/pessoas/12345",
+       "host": [
+        "{{baseUrl}}"
+       ],
+       "path": [
+        "pessoas",
+        "12345"
+       ]
+      },
+      "description": "ReadRecord RhuPessoaData"
+     }
+    },
+    {
+     "name": "Buscar pessoa por CPF",
+     "request": {
+      "method": "GET",
+      "header": [
+       {
+        "key": "Accept",
+        "value": "application/json"
+       },
+       {
+        "key": "X-API-Key",
+        "value": "{{apiKey}}"
+       }
+      ],
+      "url": {
+       "raw": "{{baseUrl}}/pessoas/busca?cpf=12345678901",
+       "host": [
+        "{{baseUrl}}"
+       ],
+       "path": [
+        "pessoas",
+        "busca"
+       ],
+       "query": [
+        {
+         "key": "cpf",
+         "value": "12345678901"
+        }
+       ]
+      },
+      "description": "Localiza por CPF (brasileiro)"
+     }
+    },
+    {
+     "name": "Buscar pessoa por RNM (estrangeiro)",
+     "request": {
+      "method": "GET",
+      "header": [
+       {
+        "key": "Accept",
+        "value": "application/json"
+       },
+       {
+        "key": "X-API-Key",
+        "value": "{{apiKey}}"
+       }
+      ],
+      "url": {
+       "raw": "{{baseUrl}}/pessoas/busca?rnm=A123456-7",
+       "host": [
+        "{{baseUrl}}"
+       ],
+       "path": [
+        "pessoas",
+        "busca"
+       ],
+       "query": [
+        {
+         "key": "rnm",
+         "value": "A123456-7"
+        }
+       ]
+      },
+      "description": "Localiza por RNM"
+     }
+    }
+   ]
+  },
+  {
+   "name": "Aluno",
+   "item": [
+    {
+     "name": "Criar/atualizar aluno",
+     "request": {
+      "method": "POST",
+      "header": [
+       {
+        "key": "Accept",
+        "value": "application/json"
+       },
+       {
+        "key": "Content-Type",
+        "value": "application/json"
+       }
+      ],
+      "url": {
+       "raw": "{{baseUrl}}/alunos",
+       "host": [
+        "{{baseUrl}}"
+       ],
+       "path": [
+        "alunos"
+       ]
+      },
+      "description": "Cria o aluno da pessoa na coligada. Retorna CHAVE = CODCOLIGADA;RA",
+      "body": {
+       "mode": "raw",
+       "raw": "{\n  \"CODPESSOA\": 12345,\n  \"CODCOLIGADA\": 1,\n  \"CODTIPOCURSO\": 2,\n  \"CODFILIAL\": 1,\n  \"CPF\": \"12345678901\",\n  \"RNM\": \"\"\n}",
+       "options": {
+        "raw": {
+         "language": "json"
+        }
+       }
+      }
+     }
+    },
+    {
+     "name": "Buscar aluno",
+     "request": {
+      "method": "GET",
+      "header": [
+       {
+        "key": "Accept",
+        "value": "application/json"
+       }
+      ],
+      "url": {
+       "raw": "{{baseUrl}}/alunos/1/12345",
+       "host": [
+        "{{baseUrl}}"
+       ],
+       "path": [
+        "alunos",
+        "1",
+        "12345"
+       ]
+      },
+      "description": "Formato: /alunos/{codcoligada}/{codpessoa}. Retorna RA, CODUSUARIO, SENHAPADRAO..."
+     }
+    },
+    {
+     "name": "Vincular Cliente/Fornecedor ao aluno",
+     "request": {
+      "method": "POST",
+      "header": [
+       {
+        "key": "Accept",
+        "value": "application/json"
+       },
+       {
+        "key": "Content-Type",
+        "value": "application/json"
+       },
+       {
+        "key": "X-API-Key",
+        "value": "{{apiKey}}"
+       }
+      ],
+      "url": {
+       "raw": "{{baseUrl}}/alunos/cliente-fornecedor",
+       "host": [
+        "{{baseUrl}}"
+       ],
+       "path": [
+        "alunos",
+        "cliente-fornecedor"
+       ],
+       "query": []
+      },
+      "description": "Vincula um CFO já gravado a um aluno existente (por RA). CODCOLCFO costuma ser 0 (CFO global).",
+      "body": {
+       "mode": "raw",
+       "raw": "{\n  \"RA\": \"24001268\",\n  \"CODCOLIGADA\": \"1\",\n  \"CODCOLCFO\": \"0\",\n  \"CODCFO\": \"000123\",\n  \"CODTIPOCURSO\": 2,\n  \"CODFILIAL\": 1\n}",
+       "options": {
+        "raw": {
+         "language": "json"
+        }
+       }
+      }
+     }
+    }
+   ]
+  },
+  {
+   "name": "Cliente/Fornecedor",
+   "item": [
+    {
+     "name": "Buscar CFO por CPF",
+     "request": {
+      "method": "GET",
+      "header": [
+       {
+        "key": "Accept",
+        "value": "application/json"
+       },
+       {
+        "key": "X-API-Key",
+        "value": "{{apiKey}}"
+       }
+      ],
+      "url": {
+       "raw": "{{baseUrl}}/clientes-fornecedores/busca?cpf=12345678901",
+       "host": [
+        "{{baseUrl}}"
+       ],
+       "path": [
+        "clientes-fornecedores",
+        "busca?cpf=12345678901"
+       ],
+       "query": [
+        {
+         "key": "cpf",
+         "value": "12345678901"
+        }
+       ]
+      },
+      "description": "Consulta FinCFODataBR por CPF (INT.EDUVEM.00009). Use ?rnm=... para estrangeiro."
+     }
+    },
+    {
+     "name": "Criar CFO",
+     "request": {
+      "method": "POST",
+      "header": [
+       {
+        "key": "Accept",
+        "value": "application/json"
+       },
+       {
+        "key": "Content-Type",
+        "value": "application/json"
+       },
+       {
+        "key": "X-API-Key",
+        "value": "{{apiKey}}"
+       }
+      ],
+      "url": {
+       "raw": "{{baseUrl}}/clientes-fornecedores",
+       "host": [
+        "{{baseUrl}}"
+       ],
+       "path": [
+        "clientes-fornecedores"
+       ],
+       "query": []
+      },
+      "description": "Cria o Cliente/Fornecedor (CODCFO=0; o RM gera o código). Idempotente por CPF/RNM.",
+      "body": {
+       "mode": "raw",
+       "raw": "{\n  \"NOME\": \"Fulano de Tal\",\n  \"CGCCFO\": \"12345678901\",\n  \"EMAIL\": \"fulano@email.com\",\n  \"TELEFONE\": \"11987654321\",\n  \"CEP\": \"01310100\"\n}",
+       "options": {
+        "raw": {
+         "language": "json"
+        }
+       }
+      }
+     }
+    }
+   ]
+  },
+  {
+   "name": "Inscrição",
+   "item": [
+    {
+     "name": "Inscrição completa (brasileiro)",
+     "request": {
+      "method": "POST",
+      "header": [
+       {
+        "key": "Accept",
+        "value": "application/json"
+       },
+       {
+        "key": "Content-Type",
+        "value": "application/json"
+       }
+      ],
+      "url": {
+       "raw": "{{baseUrl}}/inscricoes",
+       "host": [
+        "{{baseUrl}}"
+       ],
+       "path": [
+        "inscricoes"
+       ]
+      },
+      "description": "Fluxo orquestrado: pessoa → aluno → matrículas → enturmação → cupom → lançamento. Idempotente\n\nObs: CIDADE/BAIRRO/NATURALIDADE são códigos (use /enderecos para obtê-los). CUPOM é opcional",
+      "body": {
+       "mode": "raw",
+       "raw": "{\n  \"OFERTA\": \"OF2026-001\",\n  \"PLANOPAGAMENTO\": \"PP01\",\n  \"CPF\": \"12345678901\",\n  \"NOME\": \"Fulano de Tal\",\n  \"NASCIMENTO\": \"1990-01-15\",\n  \"SEXO\": \"M\",\n  \"EMAIL\": \"fulano@email.com\",\n  \"TELEFONE\": \"11987654321\",\n  \"CEP\": \"01310100\",\n  \"ESTADO\": \"SP\",\n  \"CIDADE\": \"3550308\",\n  \"BAIRRO\": \"123\",\n  \"RUA\": \"Av. Paulista\",\n  \"NUMERO\": \"1000\",\n  \"COMPLEMENTO\": \"\",\n  \"NATURALIDADE\": \"3550308\",\n  \"CUPOM\": \"PROMO10\"\n}",
+       "options": {
+        "raw": {
+         "language": "json"
+        }
+       }
+      }
+     }
+    },
+    {
+     "name": "Inscrição completa (estrangeiro)",
+     "request": {
+      "method": "POST",
+      "header": [
+       {
+        "key": "Accept",
+        "value": "application/json"
+       },
+       {
+        "key": "Content-Type",
+        "value": "application/json"
+       }
+      ],
+      "url": {
+       "raw": "{{baseUrl}}/inscricoes",
+       "host": [
+        "{{baseUrl}}"
+       ],
+       "path": [
+        "inscricoes"
+       ]
+      },
+      "description": "Sem CPF/endereço BR: usa RNM; endereço fica como 'Outro'",
+      "body": {
+       "mode": "raw",
+       "raw": "{\n  \"OFERTA\": \"OF2026-001\",\n  \"PLANOPAGAMENTO\": \"PP01\",\n  \"RNM\": \"A123456-7\",\n  \"NOME\": \"John Doe Smith\",\n  \"NASCIMENTO\": \"1985-06-20\",\n  \"SEXO\": \"M\",\n  \"EMAIL\": \"john@email.com\",\n  \"TELEFONE\": \"11987654321\"\n}",
+       "options": {
+        "raw": {
+         "language": "json"
+        }
+       }
+      }
+     }
+    }
+   ]
+  },
+  {
+   "name": "Matrícula",
+   "item": [
+    {
+     "name": "Matrícula no curso",
+     "request": {
+      "method": "POST",
+      "header": [
+       {
+        "key": "Accept",
+        "value": "application/json"
+       },
+       {
+        "key": "Content-Type",
+        "value": "application/json"
+       }
+      ],
+      "url": {
+       "raw": "{{baseUrl}}/matriculas/curso",
+       "host": [
+        "{{baseUrl}}"
+       ],
+       "path": [
+        "matriculas",
+        "curso"
+       ]
+      },
+      "description": "Pré-matrícula (CODSTATUS 23) via EduHabilitacaoAlunoData",
+      "body": {
+       "mode": "raw",
+       "raw": "{\n  \"RA\": \"000123\",\n  \"OFERTA\": \"OF2026-001\"\n}",
+       "options": {
+        "raw": {
+         "language": "json"
+        }
+       }
+      }
+     }
+    },
+    {
+     "name": "Matrícula no período letivo",
+     "request": {
+      "method": "POST",
+      "header": [
+       {
+        "key": "Accept",
+        "value": "application/json"
+       },
+       {
+        "key": "Content-Type",
+        "value": "application/json"
+       }
+      ],
+      "url": {
+       "raw": "{{baseUrl}}/matriculas/periodo-letivo",
+       "host": [
+        "{{baseUrl}}"
+       ],
+       "path": [
+        "matriculas",
+        "periodo-letivo"
+       ]
+      },
+      "description": "Processo 'Matricular aluno' — gera o contrato. Retorna a linha com CODCONTRATO",
+      "body": {
+       "mode": "raw",
+       "raw": "{\n  \"RA\": \"000123\",\n  \"OFERTA\": \"OF2026-001\",\n  \"PLANOPAGAMENTO\": \"PP01\"\n}",
+       "options": {
+        "raw": {
+         "language": "json"
+        }
+       }
+      }
+     }
+    },
+    {
+     "name": "Matrícula nas disciplinas (enturmação)",
+     "request": {
+      "method": "POST",
+      "header": [
+       {
+        "key": "Accept",
+        "value": "application/json"
+       },
+       {
+        "key": "Content-Type",
+        "value": "application/json"
+       }
+      ],
+      "url": {
+       "raw": "{{baseUrl}}/matriculas/disciplinas",
+       "host": [
+        "{{baseUrl}}"
+       ],
+       "path": [
+        "matriculas",
+        "disciplinas"
+       ]
+      },
+      "description": "Processo 'Matricular aluno nas disciplinas' para cada turma da oferta",
+      "body": {
+       "mode": "raw",
+       "raw": "{\n  \"RA\": \"000123\",\n  \"OFERTA\": \"OF2026-001\"\n}",
+       "options": {
+        "raw": {
+         "language": "json"
+        }
+       }
+      }
+     }
+    }
+   ]
+  },
+  {
+   "name": "Contrato",
+   "item": [
+    {
+     "name": "Gerar contrato (PDF)",
+     "request": {
+      "method": "POST",
+      "header": [
+       {
+        "key": "Accept",
+        "value": "application/json"
+       },
+       {
+        "key": "Content-Type",
+        "value": "application/json"
+       }
+      ],
+      "url": {
+       "raw": "{{baseUrl}}/contratos",
+       "host": [
+        "{{baseUrl}}"
+       ],
+       "path": [
+        "contratos"
+       ]
+      },
+      "description": "GenerateReport 1664 → GetGeneratedReportSize → GetFileChunk. Retorna CONTEUDO\n\nObs: CIDADE e BAIRRO são códigos; a API resolve os nomes via INT.EDUVEM.00010/00020",
+      "body": {
+       "mode": "raw",
+       "raw": "{\n  \"NOME\": \"Fulano de Tal\",\n  \"CPF\": \"12345678901\",\n  \"ESTADO\": \"SP\",\n  \"CIDADE\": \"3550308\",\n  \"BAIRRO\": \"123\",\n  \"RUA\": \"Av. Paulista\",\n  \"NUMERO\": \"1000\",\n  \"COMPLEMENTO\": \"\",\n  \"NACIONALIDADE\": \"Brasileira\",\n  \"NASCIMENTO\": \"1990-01-15\"\n}",
+       "options": {
+        "raw": {
+         "language": "json"
+        }
+       }
+      }
+     }
+    }
+   ]
+  },
+  {
+   "name": "Oferta",
+   "item": [
+    {
+     "name": "Dados da oferta",
+     "request": {
+      "method": "GET",
+      "header": [
+       {
+        "key": "Accept",
+        "value": "application/json"
+       }
+      ],
+      "url": {
+       "raw": "{{baseUrl}}/ofertas/OF2026-001",
+       "host": [
+        "{{baseUrl}}"
+       ],
+       "path": [
+        "ofertas",
+        "OF2026-001"
+       ]
+      },
+      "description": "INT.EDUVEM.00006"
+     }
+    },
+    {
+     "name": "Planos de pagamento da oferta",
+     "request": {
+      "method": "GET",
+      "header": [
+       {
+        "key": "Accept",
+        "value": "application/json"
+       }
+      ],
+      "url": {
+       "raw": "{{baseUrl}}/ofertas/OF2026-001/planos-pagamento",
+       "host": [
+        "{{baseUrl}}"
+       ],
+       "path": [
+        "ofertas",
+        "OF2026-001",
+        "planos-pagamento"
+       ]
+      },
+      "description": "INT.EDUVEM.00013"
+     }
+    }
+   ]
+  },
+  {
+   "name": "Endereço",
+   "item": [
+    {
+     "name": "Estados",
+     "request": {
+      "method": "GET",
+      "header": [
+       {
+        "key": "Accept",
+        "value": "application/json"
+       }
+      ],
+      "url": {
+       "raw": "{{baseUrl}}/enderecos/estados",
+       "host": [
+        "{{baseUrl}}"
+       ],
+       "path": [
+        "enderecos",
+        "estados"
+       ]
+      },
+      "description": "INT.EDUVEM.00002"
+     }
+    },
+    {
+     "name": "Cidades do estado",
+     "request": {
+      "method": "GET",
+      "header": [
+       {
+        "key": "Accept",
+        "value": "application/json"
+       }
+      ],
+      "url": {
+       "raw": "{{baseUrl}}/enderecos/estados/SP/cidades",
+       "host": [
+        "{{baseUrl}}"
+       ],
+       "path": [
+        "enderecos",
+        "estados",
+        "SP",
+        "cidades"
+       ]
+      },
+      "description": "INT.EDUVEM.00003"
+     }
+    },
+    {
+     "name": "Bairros da cidade",
+     "request": {
+      "method": "GET",
+      "header": [
+       {
+        "key": "Accept",
+        "value": "application/json"
+       }
+      ],
+      "url": {
+       "raw": "{{baseUrl}}/enderecos/cidades/3550308/bairros",
+       "host": [
+        "{{baseUrl}}"
+       ],
+       "path": [
+        "enderecos",
+        "cidades",
+        "3550308",
+        "bairros"
+       ]
+      },
+      "description": "INT.EDUVEM.00004"
+     }
+    },
+    {
+     "name": "Endereço por CEP",
+     "request": {
+      "method": "GET",
+      "header": [
+       {
+        "key": "Accept",
+        "value": "application/json"
+       }
+      ],
+      "url": {
+       "raw": "{{baseUrl}}/enderecos/cep/01310100",
+       "host": [
+        "{{baseUrl}}"
+       ],
+       "path": [
+        "enderecos",
+        "cep",
+        "01310100"
+       ]
+      },
+      "description": "INT.EDUVEM.00005"
+     }
+    }
+   ]
+  },
+  {
+   "name": "Financeiro",
+   "item": [
+    {
+     "name": "Baixa de lançamento",
+     "request": {
+      "method": "POST",
+      "header": [
+       {
+        "key": "Accept",
+        "value": "application/json"
+       },
+       {
+        "key": "Content-Type",
+        "value": "application/json"
+       },
+       {
+        "key": "X-API-Key",
+        "value": "{{apiKey}}"
+       }
+      ],
+      "url": {
+       "raw": "{{baseUrl}}/financeiro/baixas",
+       "host": [
+        "{{baseUrl}}"
+       ],
+       "path": [
+        "financeiro",
+        "baixas"
+       ],
+       "query": []
+      },
+      "description": "GRAVA movimento real na conta/caixa (FinTBCBaixaDataProcess). IDFORMAPAGTO = id da Forma de Pagamento no RM (default 1 = Dinheiro). DRY_RUN:true devolve o XML sem enviar ao RM.",
+      "body": {
+       "mode": "raw",
+       "raw": "{\n  \"IDLAN\": \"1082893\",\n  \"VALORBAIXA\": \"465,00\",\n  \"CODCXA\": \"50380\",\n  \"TIPOFORMAPAGTO\": \"Dinheiro\",\n  \"HISTORICOBAIXA\": \"Baixa via API\",\n  \"DRY_RUN\": false\n}",
+       "options": {
+        "raw": {
+         "language": "json"
+        }
+       }
+      }
+     }
+    },
+    {
+     "name": "Gerar lançamentos do contrato",
+     "request": {
+      "method": "POST",
+      "header": [
+       {
+        "key": "Accept",
+        "value": "application/json"
+       },
+       {
+        "key": "Content-Type",
+        "value": "application/json"
+       },
+       {
+        "key": "X-API-Key",
+        "value": "{{apiKey}}"
+       }
+      ],
+      "url": {
+       "raw": "{{baseUrl}}/financeiro/lancamentos",
+       "host": [
+        "{{baseUrl}}"
+       ],
+       "path": [
+        "financeiro",
+        "lancamentos"
+       ],
+       "query": []
+      },
+      "description": "Gera os lançamentos do contrato (EduGerarLancFromContratoSliceableData). Idempotente. CODCONTRATO opcional (resolve pela matrícula no PL).",
+      "body": {
+       "mode": "raw",
+       "raw": "{\n  \"RA\": \"24001268\",\n  \"OFERTA\": \"OF2026-001\",\n  \"CODCONTRATO\": \"\"\n}",
+       "options": {
+        "raw": {
+         "language": "json"
+        }
+       }
+      }
+     }
+    }
+   ]
+  },
+  {
+   "name": "Cupom",
+   "item": [
+    {
+     "name": "Validar cupom",
+     "request": {
+      "method": "GET",
+      "header": [
+       {
+        "key": "Accept",
+        "value": "application/json"
+       }
+      ],
+      "url": {
+       "raw": "{{baseUrl}}/cupons/OF2026-001/PP01/PROMO10",
+       "host": [
+        "{{baseUrl}}"
+       ],
+       "path": [
+        "cupons",
+        "OF2026-001",
+        "PP01",
+        "PROMO10"
+       ]
+      },
+      "description": "Formato: /cupons/{codoferta}/{codplano}/{cupom} (INT.EDUVEM.00016)"
+     }
+    },
+    {
+     "name": "Aplicar cupom (bolsa) ao contrato",
+     "request": {
+      "method": "POST",
+      "header": [
+       {
+        "key": "Accept",
+        "value": "application/json"
+       },
+       {
+        "key": "Content-Type",
+        "value": "application/json"
+       },
+       {
+        "key": "X-API-Key",
+        "value": "{{apiKey}}"
+       }
+      ],
+      "url": {
+       "raw": "{{baseUrl}}/cupons/aplicar",
+       "host": [
+        "{{baseUrl}}"
+       ],
+       "path": [
+        "cupons",
+        "aplicar"
+       ],
+       "query": []
+      },
+      "description": "Aplica o cupom ao contrato do aluno. Idempotente. CODCONTRATO opcional.",
+      "body": {
+       "mode": "raw",
+       "raw": "{\n  \"RA\": \"24001268\",\n  \"OFERTA\": \"OF2026-001\",\n  \"PLANOPAGAMENTO\": \"PP01\",\n  \"CUPOM\": \"PROMO10\",\n  \"CODCONTRATO\": \"\"\n}",
+       "options": {
+        "raw": {
+         "language": "json"
+        }
+       }
+      }
+     }
+    }
+   ]
+  },
+  {
+   "name": "SSO",
+   "item": [
+    {
+     "name": "Auto-login no Portal (HTML)",
+     "request": {
+      "method": "GET",
+      "header": [
+       {
+        "key": "Accept",
+        "value": "application/json"
+       }
+      ],
+      "url": {
+       "raw": "{{baseUrl}}/sso/TOKEN_GERADO_PELA_INSCRICAO",
+       "host": [
+        "{{baseUrl}}"
+       ],
+       "path": [
+        "sso",
+        "TOKEN_GERADO_PELA_INSCRICAO"
+       ]
+      },
+      "description": "Único endpoint HTML — consumir no navegador do aluno via redirect do nextUrl\n\nObs: O token vem no retorno de POST /inscricoes (dados.nextUrl)"
+     }
+    }
+   ]
+  }
+ ]
+}
