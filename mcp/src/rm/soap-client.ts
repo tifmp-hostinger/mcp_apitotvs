@@ -16,15 +16,33 @@ import { XMLParser } from 'fast-xml-parser';
 import { RMError } from './errors.js';
 import { decodeXmlEntities, escapeXml } from '../support/xml.js';
 
-/** Endpoints SOAP expostos pelo RM (ex-enum RMWSType). */
+/**
+ * Serviços SOAP expostos pelo RM (ex-enum RMWSType).
+ *
+ * O path de OPERAÇÕES segue o padrão do <soap:address> do WSDL da instância,
+ * confirmado em 7/7 serviços testados (wsConsultaSQL, wsDataServer, wsProcess,
+ * wsReport, wsFormulaVisual, wsFin, wsEdu):
+ *
+ *     {baseUrl}/{pasta}/{iface}      ex.: .../wsConsultaSQL/IwsConsultaSQL
+ *
+ * onde a pasta é o iface sem o "I" inicial. IMPORTANTE: {pasta}/MEX é o
+ * endpoint de METADADOS (WSDL) — POST de operação lá devolve 404 (bug que
+ * derrubou a integração em produção). Para expor um serviço novo (wsFin,
+ * wsEdu, wsFormulaVisual...) basta declarar o iface aqui.
+ */
 const SERVICES = {
-    DataServer: { path: '/wsDataServer/MEX', iface: 'IwsDataServer' },
-    Process: { path: '/wsProcess/MEX', iface: 'IwsProcess' },
-    Report: { path: '/wsReport/MEX', iface: 'IwsReport' },
-    SQLConsult: { path: '/wsConsultaSQL/MEX', iface: 'IwsConsultaSQL' },
+    DataServer: { iface: 'IwsDataServer' },
+    Process: { iface: 'IwsProcess' },
+    Report: { iface: 'IwsReport' },
+    SQLConsult: { iface: 'IwsConsultaSQL' },
 } as const;
 
 type ServiceName = keyof typeof SERVICES;
+
+/** Path de operações do serviço: /{pasta}/{iface} (pasta = iface sem o "I"). */
+function servicePath(iface: string): string {
+    return `/${iface.slice(1)}/${iface}`;
+}
 
 export class RMSoapClient {
     private readonly parser = new XMLParser({
@@ -65,7 +83,8 @@ export class RMSoapClient {
         credentials?: { user: string; password: string }
     ): Promise<string> {
         const svc = SERVICES[service];
-        const url = this.baseUrl + svc.path;
+        const path = servicePath(svc.iface);
+        const url = this.baseUrl + path;
         const soapAction = `http://www.totvs.com/${svc.iface}/${operation}`;
 
         const inner = Object.entries(params)
@@ -102,7 +121,7 @@ export class RMSoapClient {
         } catch (e) {
             const motivo = e instanceof Error ? e.message : String(e);
             throw new RMError(
-                `Falha ao conectar no endpoint SOAP do RM (${svc.path}): ${motivo}`,
+                `Falha ao conectar no endpoint SOAP do RM (${path}): ${motivo}`,
                 operation,
                 dataServer,
                 contexto,
@@ -178,22 +197,36 @@ export class RMSoapClient {
         return assinaturas.some((sig) => r.includes(sig));
     }
 
-    /** Converte uma string XML do RM em objeto (equivalente ao simplexml→json do PHP). */
-    private xmlToObject(xml: string): Record<string, unknown> {
+    /**
+     * Converte uma string XML do RM em objeto (equivalente ao simplexml→json
+     * do PHP). Resposta NÃO-vazia que não parseia vira RMError — devolver {}
+     * silenciosamente faria consultas de idempotência responderem "não
+     * encontrado" falso (ex.: recriar um aluno que já existe).
+     */
+    private xmlToObject(xml: string, operacao = '', dataServer = ''): Record<string, unknown> {
         if (xml.trim() === '') {
             return {};
         }
+        let parsed: Record<string, unknown>;
         try {
-            const parsed = this.parser.parse(xml) as Record<string, unknown>;
-            // O PHP devolvia o CONTEÚDO do elemento raiz (simplexml_load_string).
-            const keys = Object.keys(parsed).filter((k) => k !== '?xml');
-            if (keys.length === 1 && typeof parsed[keys[0]] === 'object' && parsed[keys[0]] !== null) {
-                return parsed[keys[0]] as Record<string, unknown>;
-            }
-            return parsed;
+            parsed = this.parser.parse(xml) as Record<string, unknown>;
         } catch {
-            return {};
+            throw new RMError(
+                'Resposta XML do RM não pôde ser interpretada',
+                operacao,
+                dataServer,
+                {},
+                null,
+                xml.slice(0, 2000),
+                xml.slice(0, 2000)
+            );
         }
+        // O PHP devolvia o CONTEÚDO do elemento raiz (simplexml_load_string).
+        const keys = Object.keys(parsed).filter((k) => k !== '?xml');
+        if (keys.length === 1 && typeof parsed[keys[0]] === 'object' && parsed[keys[0]] !== null) {
+            return parsed[keys[0]] as Record<string, unknown>;
+        }
+        return parsed;
     }
 
     /* =====================================================================
@@ -235,7 +268,7 @@ export class RMSoapClient {
             dataServerName,
             context
         );
-        return this.xmlToObject(result);
+        return this.xmlToObject(result, 'ReadRecord', dataServerName);
     }
 
     async readView(
@@ -254,7 +287,7 @@ export class RMSoapClient {
             dataServerName,
             context
         );
-        return this.xmlToObject(result);
+        return this.xmlToObject(result, 'ReadView', dataServerName);
     }
 
     async deleteRecord(
@@ -320,7 +353,7 @@ export class RMSoapClient {
             parameters
         );
 
-        const parsed = this.xmlToObject(result);
+        const parsed = this.xmlToObject(result, 'RealizarConsultaSQL', codSentenca);
         const resultado = parsed['Resultado'];
         if (resultado === undefined || resultado === null) {
             return [];

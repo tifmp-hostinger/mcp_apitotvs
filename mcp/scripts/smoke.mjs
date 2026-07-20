@@ -82,7 +82,7 @@ const mock = http.createServer((req, res) => {
 
         res.setHeader('Content-Type', 'text/xml; charset=utf-8');
 
-        if (req.url === '/wsConsultaSQL/MEX') {
+        if (req.url === '/wsConsultaSQL/IwsConsultaSQL') {
             const sentenca = corpo.match(/<codSentenca>([^<]+)<\/codSentenca>/)?.[1] ?? '';
             const params = corpo.match(/<parameters>([^<]*)<\/parameters>/)?.[1] ?? '';
             let rows = [];
@@ -95,7 +95,7 @@ const mock = http.createServer((req, res) => {
             return;
         }
 
-        if (req.url === '/wsDataServer/MEX') {
+        if (req.url === '/wsDataServer/IwsDataServer') {
             const ds = corpo.match(/<DataServerName>([^<]+)<\/DataServerName>/)?.[1] ?? '';
             if (soapAction.includes('SaveRecord')) {
                 if (ds === 'FalhaData') {
@@ -114,7 +114,7 @@ const mock = http.createServer((req, res) => {
             }
         }
 
-        if (req.url === '/wsProcess/MEX') {
+        if (req.url === '/wsProcess/IwsProcess') {
             res.end(soapEnvelope('ExecuteWithXmlParams', '1'));
             return;
         }
@@ -349,7 +349,7 @@ try {
     check('totvs_status executa a sentença 00001 no RM', toolText(status).includes('RM no ar (mock)'));
     check(
         'chamada SOAP com basic auth + SOAPAction corretos',
-        chamadasRm.some((c) => c.url === '/wsConsultaSQL/MEX'
+        chamadasRm.some((c) => c.url === '/wsConsultaSQL/IwsConsultaSQL'
             && c.soapAction.includes('IwsConsultaSQL/RealizarConsultaSQL'))
     );
 
@@ -376,6 +376,12 @@ try {
             && savePessoa.corpo.includes('&lt;CEP&gt;90000000&lt;/CEP&gt;')
     );
 
+    const pessoaCpfRuim = await callTool(tk, 'pessoa_salvar', {
+        campos: { NOME: 'Fulano Teste', CPF: '11111111111' },
+    });
+    check('pessoa_salvar rejeita CPF inválido antes de tocar o RM (422)',
+        toolText(pessoaCpfRuim).startsWith('HTTP 422') && toolText(pessoaCpfRuim).includes('não parece correto'));
+
     const buscaPessoa = await callTool(tk, 'pessoa_buscar', { codigo: '12345' });
     check('pessoa_buscar por código lê via ReadRecord', toolText(buscaPessoa).includes('Fulano Mock'));
 
@@ -395,13 +401,13 @@ try {
 
     /* ---------- 7. baixa: DRY_RUN default + execução real no mock ---------- */
 
-    const chamadasAntes = chamadasRm.filter((c) => c.url === '/wsProcess/MEX').length;
+    const chamadasAntes = chamadasRm.filter((c) => c.url === '/wsProcess/IwsProcess').length;
     const dry = await callTool(tk, 'financeiro_baixar', {
         IDLAN: '555', VALORBAIXA: '465,00', TIPOFORMAPAGTO: 'Pix', CODCXA: '1',
     });
     check('financeiro_baixar é DRY_RUN por padrão (não chama o RM)',
         toolText(dry).includes('"dry_run": true')
-        && chamadasRm.filter((c) => c.url === '/wsProcess/MEX').length === chamadasAntes);
+        && chamadasRm.filter((c) => c.url === '/wsProcess/IwsProcess').length === chamadasAntes);
     check('dry-run devolve o XML TBC com valor normalizado',
         toolText(dry).includes('FinTBCBaixaDataProcess') && toolText(dry).includes('465.00'));
 
@@ -410,7 +416,13 @@ try {
     });
     check('DRY_RUN=false executa o processo no RM (retorno_rm=1)',
         toolText(real).includes('"retorno_rm": "1"')
-        && chamadasRm.some((c) => c.url === '/wsProcess/MEX' && c.corpo.includes('FinTBCBaixaDataProcess')));
+        && chamadasRm.some((c) => c.url === '/wsProcess/IwsProcess' && c.corpo.includes('FinTBCBaixaDataProcess')));
+
+    const baixaDataRuim = await callTool(tk, 'financeiro_baixar', {
+        IDLAN: '555', VALORBAIXA: '10,00', TIPOFORMAPAGTO: 'Pix', CODCXA: '1', DATABAIXA: '13/07/2026',
+    });
+    check('DATABAIXA fora de Y-m-d é rejeitada (422)',
+        toolText(baixaDataRuim).startsWith('HTTP 422') && toolText(baixaDataRuim).includes('formato Y-m-d'));
 
     /* ---------- 8. /sso + token estático ---------- */
 

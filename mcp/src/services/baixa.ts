@@ -98,6 +98,15 @@ export class BaixaService {
         const codColigada = Number(input['CODCOLIGADA'] ?? 1);
         const codFilial = Number(input['CODFILIAL'] ?? 1);
         const dataBaixa = String(input['DATABAIXA'] ?? '').trim() || dataHoje();
+        // Data malformada iria crua para o XML do processo (o RM falharia com
+        // erro obscuro de desserialização — ou pior, interpretaria errado).
+        if (!/^\d{4}-\d{2}-\d{2}$/.test(dataBaixa)) {
+            throw new ValidationError(
+                'DATABAIXA deve estar no formato Y-m-d (ex.: 2026-07-20).',
+                'Baixa: DATABAIXA inválida',
+                input
+            );
+        }
         const historico = String(input['HISTORICOBAIXA'] ?? '');
         const codUsuario = this.cfg.usuarioServico;
         const idFormaPagto = String(input['IDFORMAPAGTO'] ?? '1').trim();

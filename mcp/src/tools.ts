@@ -20,7 +20,7 @@ import type { CallToolResult } from '@modelcontextprotocol/sdk/types.js';
 import type { Config } from './config.js';
 import type { Services } from './services/registry.js';
 import { RMError, FluxoError, ValidationError } from './rm/errors.js';
-import { ensureCpf, ensureRnm } from './helpers/validation.js';
+import { ensureCpf, ensureRnm, ensureDate, ensurePastDate, ensureEmail } from './helpers/validation.js';
 import { s } from './services/util.js';
 
 /** Campos aceitos como string ou número (o RM não distingue). */
@@ -115,13 +115,21 @@ export function registerTotvsTools(server: McpServer, svc: Services, cfg: Config
         try {
             const rows = await svc.consulta.status();
             return ok('Status obtido com sucesso', rows[0] ?? rows);
-        } catch {
+        } catch (e) {
+            // Mantém o formato amigável do health check (OK:false) mas SEM
+            // mascarar a causa: o erro real vai em dados.erro (foi um catch
+            // genérico aqui que escondeu um 404 de endpoint em produção).
+            const causa = paraEnvelopeDeErro(e, debug);
             return {
                 status: 200,
                 body: {
                     sucesso: true,
                     mensagem: 'Não foi possível se comunicar com o servidor.',
-                    dados: { OK: false, MENSAGEM: 'Infelizmente nosso sistema está apresentando instabilidade. Tente novamente mais tarde.' },
+                    dados: {
+                        OK: false,
+                        MENSAGEM: 'Infelizmente nosso sistema está apresentando instabilidade. Tente novamente mais tarde.',
+                        erro: causa.body,
+                    },
                 },
             };
         }
@@ -251,10 +259,23 @@ export function registerTotvsTools(server: McpServer, svc: Services, cfg: Config
         inputSchema: {
             campos: z.record(z.string(), sn).describe('Campos da PPessoa, ex.: {"NOME": "Fulano de Tal", "CPF": "12345678901"}'),
         },
-    }, async ({ campos }) =>
-        ok('Pessoa gravada com sucesso.', {
-            CODPESSOA: await svc.pessoa.salvar(campos as Record<string, unknown>),
-        }, 201));
+    }, async ({ campos }) => {
+        const c = campos as Record<string, unknown>;
+        // Validação de entrada antes de tocar o RM (quando os campos vierem):
+        // CPF com dígito verificador, nascimento passado, e-mail plausível.
+        if (c['CPF'] !== undefined && c['CPF'] !== null && String(c['CPF']) !== '') {
+            ensureCpf(c['CPF']);
+        }
+        if (c['DTNASCIMENTO'] !== undefined && c['DTNASCIMENTO'] !== null && String(c['DTNASCIMENTO']) !== '') {
+            ensurePastDate(ensureDate(c['DTNASCIMENTO']));
+        }
+        if (c['EMAIL'] !== undefined && c['EMAIL'] !== null && String(c['EMAIL']) !== '') {
+            ensureEmail(String(c['EMAIL']));
+        }
+        return ok('Pessoa gravada com sucesso.', {
+            CODPESSOA: await svc.pessoa.salvar(c),
+        }, 201);
+    });
 
     /* ================= Aluno ================= */
 
